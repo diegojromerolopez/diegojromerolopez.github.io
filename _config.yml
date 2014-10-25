@@ -1,0 +1,5 @@
+highlighter: pygments
+github: site.github
+safe: true
+lsi: false
+source: your top-level directory
