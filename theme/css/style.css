@@ -30,6 +30,13 @@ a:hover {
 p {
 	line-height: 1.5em;
 	padding: 5px 0;
+	text-align: justify;
+}
+
+p img{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 h1,
