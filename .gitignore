@@ -15,3 +15,7 @@
 Network Trash Folder
 Temporary Items
 .apdisk
+*.py
+*.pyc
+*.sh
+Makefile
