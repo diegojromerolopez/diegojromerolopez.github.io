@@ -1,5 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Diego J's on Software Engineering Research</title><link href="/" rel="alternate"></link><link href="/feeds/diego-j.atom.xml" rel="self"></link><id>/</id><updated>2015-03-03T21:53:00+01:00</updated><entry><title>Real Software Architecture</title><link href="/posts/2015/03/real-software-architecture/" rel="alternate"></link><updated>2015-03-03T21:53:00+01:00</updated><author><name>Diego J.</name></author><id>tag:,2015-03-03:posts/2015/03/real-software-architecture/</id><summary type="html">&lt;p&gt;Simon Brown is an independent software consultant from Jersey (UK) and gave this talk
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Diego J's on Software Engineering Research</title><link href="/" rel="alternate"></link><link href="/feeds/diego-j.atom.xml" rel="self"></link><id>/</id><updated>2015-07-27T23:00:00+02:00</updated><entry><title>Managing clients</title><link href="/posts/2015/07/managing-clients/" rel="alternate"></link><updated>2015-07-27T23:00:00+02:00</updated><author><name>Diego J.</name></author><id>tag:,2015-07-27:posts/2015/07/managing-clients/</id><summary type="html">&lt;h1&gt;The Players&lt;/h1&gt;
+&lt;p&gt;It's not a secret that software engineers prefer a clean and completed specification than metting with clients.&lt;/p&gt;
+&lt;p&gt;We tend to think that meetings are a waste of time and many of our colleagues are not very fond of what is called &lt;a href="https://en.wikipedia.org/wiki/Soft_skills"&gt;soft skills&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;On the other side, we have some clients that have no idea about software and want the changes in their platform now.&lt;/p&gt;
+&lt;p&gt;What is all of that? Let me tell you, a recipe for the disaster. &lt;/p&gt;
+&lt;h1&gt;The Setting&lt;/h1&gt;
+&lt;p&gt;Let's add some extra complexity. The project you have assigned to has no documentation and has a high &lt;a href="https://en.wikipedia.org/wiki/Technical_debt"&gt;technical debt&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The client is not cooperating and is impatient...&lt;/p&gt;
+&lt;p&gt;What do you do?&lt;/p&gt;
+&lt;h1&gt;The Solution&lt;/h1&gt;
+&lt;h2&gt;Technical solution&lt;/h2&gt;
+&lt;p&gt;The technical debt problem needs to be resolved, how? Analyzing the current system: what does (software requirements) and how does it (software design).&lt;/p&gt;
+&lt;h2&gt;Cliente managing&lt;/h2&gt;
+&lt;p&gt;The client feels lied by its older outsourcing company, he/she needs a special treatment. How can we give him/her that?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;How can we make our client feel safe with working with us?&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;We have to guide our clients&lt;/h3&gt;
+&lt;p&gt;One of the most successful aspects of Agile development is the change of developers-cliente relationship.&lt;/p&gt;
+&lt;p&gt;We must be the calendar, reminder and notifier of the client. We define when we are going to end our sprints and deliver the software modules to be validated by our client.&lt;/p&gt;
+&lt;h3&gt;Clients are limited&lt;/h3&gt;
+&lt;p&gt;Don't suppose any knowledge.&lt;/p&gt;
+&lt;p&gt;The client can be wise in his/her field (many times it is not) but doesn't know anything about software.&lt;/p&gt;
+&lt;p&gt;We should talk in a simple vocabulary, explaining the concepts, making metaphors and real like comparisons to achieve his/her complete understanding.&lt;/p&gt;
+&lt;h3&gt;Clients have needs but ask for changes&lt;/h3&gt;
+&lt;p&gt;Clients have background needs because of business or personal requirements but they express them in form of "changes" in the software, even telling us how to do the changes.&lt;/p&gt;
+&lt;p&gt;We should know these base needs instead of the particular changes, because most of the time, things can be done easily or better.&lt;/p&gt;
+&lt;h3&gt;Don't lose control&lt;/h3&gt;
+&lt;p&gt;Clients can be disrespectful, condescending or can be tyrannical. &lt;/p&gt;
+&lt;p&gt;We are engineers, we must be assertive, defend our integrity as humans but we must &lt;em&gt;not&lt;/em&gt; attack the client.&lt;/p&gt;
+&lt;p&gt;Technology makes people feel vulnerable, specially illiterate people, so they tend to show this feeling as anger or other unpleasant emotions.&lt;/p&gt;
+&lt;h1&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;We don't work &lt;em&gt;for&lt;/em&gt; a client, we work &lt;em&gt;with&lt;/em&gt; a client.&lt;/p&gt;
+&lt;p&gt;Many times a conversation can avoid developing new features that won't be used or the cancelation of the project.&lt;/p&gt;
+&lt;p&gt;Soft skills are important, yes, even for an engineer. You will have mettings with clients, so practice your "human" abilities.&lt;/p&gt;</summary><category term="clients"></category><category term="software engineering"></category><category term="people"></category><category term="project management"></category></entry><entry><title>Real Software Architecture</title><link href="/posts/2015/03/real-software-architecture/" rel="alternate"></link><updated>2015-03-03T21:53:00+01:00</updated><author><name>Diego J.</name></author><id>tag:,2015-03-03:posts/2015/03/real-software-architecture/</id><summary type="html">&lt;p&gt;Simon Brown is an independent software consultant from Jersey (UK) and gave this talk
 about Software Architecture in GOTO Amsterdam 2014.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.youtube.com/watch?v=GAFZcYlO5S0"&gt;&lt;img alt="Software Architecture vs. Code GOTO 2014 talk" src="http://img.youtube.com/vi/GAFZcYlO5S0/0.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This talk delights me in several ways. First, Simon show us several common problems that happens in
