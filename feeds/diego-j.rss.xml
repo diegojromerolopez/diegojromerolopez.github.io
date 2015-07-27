@@ -8,7 +8,7 @@
 &lt;p&gt;In a startup, we are very close to our clients, so we engineers manage directly the relationship with them.&lt;/p&gt;
 &lt;p&gt;Let's add some extra complexity. The project you have assigned to has no documentation and has a high &lt;a href="https://en.wikipedia.org/wiki/Technical_debt"&gt;technical debt&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The client is not cooperating and is impatient...&lt;/p&gt;
-&lt;p&gt;What do you do?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;What do you do?&lt;/strong&gt;&lt;/p&gt;
 &lt;h1&gt;The Solution&lt;/h1&gt;
 &lt;h2&gt;Technical solution&lt;/h2&gt;
 &lt;p&gt;The technical debt problem needs to be resolved, how? Analyzing the current system: what does (software requirements) and how does it (software design).&lt;/p&gt;
