@@ -5,7 +5,7 @@
 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   
-  <title>Diego J's on Software Engineering Research - videotalk</title>
+  <title>Diego J's on Software Engineering Research - Programming</title>
 <link href="/theme/css/style.css" rel="stylesheet" type="text/css" media="screen" />
 <link href="/" type="application/atom+xml" rel="alternate" title="Diego J's on Software Engineering Research ATOM Feed" />
   
@@ -48,7 +48,7 @@
             <h3>Categories</h3>
             <ul>
 		     <li ><a href="/category/book-reviews.html">Book reviews</a></li>
-		     <li ><a href="/category/programming.html">Programming</a></li>
+		     <li class="active"><a href="/category/programming.html">Programming</a></li>
 		     <li ><a href="/category/project-management.html">Project Management</a></li>
 		     <li ><a href="/category/videotalks.html">Videotalks</a></li>
 		     <li ><a href="/category/welcome.html">Welcome</a></li>
@@ -96,33 +96,19 @@
   	
     <div class="blogItem">
     
-      <h2><a href="/posts/2015/03/real-software-architecture/">Real Software Architecture</a></h2>
-      <h3>mar 03 marzo 2015</h3>
+      <h2><a href="/posts/2015/08/concurrency-and-third-party-libraries/">Concurrency and Third Party Libraries</a></h2>
+      <h3>sáb 01 agosto 2015</h3>
       
-      <p>Simon Brown is an independent software consultant from Jersey (UK) and gave this talk
-about Software Architecture in GOTO Amsterdam 2014.</p>
-<p><a href="http://www.youtube.com/watch?v=GAFZcYlO5S0"><img alt="Software Architecture vs. Code GOTO 2014 talk" src="http://img.youtube.com/vi/GAFZcYlO5S0/0.jpg" /></a></p>
-<p>This talk delights me in several ways. First, Simon show us several common problems that happens in
-many software companies: diagrams of the software are not synchronized with code because.
-That is, we design some type of software architecture but we don't follow our own path when
-coding.</p>
-<p>He thinks (me too) that software diagram current methodologies are difficult and
-not <em>pleasant</em> (I would say) to use. We continue to theorize about perfect software
-designs but when we make the code we simply don't take them in consideration.</p>
-<p>This way, he shows a software architecture model that enfatizes the communication inside
-the team and with stakeholders. Thus, the most important thing is that these diagrams
-can be the <em>actual plan</em> of the code of the project and with his guidelines we can have no
-discrepancies between software architecture and code organization and structure. </p>
-<p>Simon has published a very <a href="https://leanpub.com/software-architecture-for-developers/">interesting book</a> I plan to read.
-I'll update this post in the future when I read it.</p>
-<p>Go, watch the video and think about this problem.</p>	
+      <p>Last friday, one of my mates had a strange error in his code: incoherent an irrepetible results arise en each execution.</p>
+<p>His code (Python) was concurrent code and each thread used several libraries (<a href="http://www.crummy.com/software/BeautifulSoup/bs4/doc/">BeautifulSoup4</a> was one of them) which they were <strong>not</strong> thread-safe. What does it mean? It means we cannot assure that atomicity is achieved in some operations executed by the threads, effectively sharing some data that must not be shared.</p>
+<p>I ended up helping him to set a critical section in these not-thread-safe parts of his code but this situation kept me wondering why a library that parses XML is not thread-safe and what kind of common resources used of the system. I couldn’t spend more time investigating this issue but this kept me wondering if this “feature” is not a case of bad software design.</p>
+<p>Take a look if everything you are using is thread-safe before you start partitioning your execution flow in threads.</p>	
 
       
-      <h3 class="blogMeta">By <a href="#">Diego J.</a>, Category: <a href="/category/videotalks.html">Videotalks</a></h3>
-<h3 class="blogMeta">Tags: <span><a href="/tag/talk.html">talk</a> / </span>
+      <h3 class="blogMeta">By <a href="#">Diego J.</a>, Category: <a href="/category/programming.html">Programming</a></h3>
+<h3 class="blogMeta">Tags: <span><a href="/tag/concurrency.html">concurrency</a> / </span>
 <span><a href="/tag/software-engineering.html">software engineering</a> / </span>
-<span><a href="/tag/videotalk.html">videotalk</a> / </span>
-<span><a href="/tag/software-architecture.html">software architecture</a> / </span>
+<span><a href="/tag/programming.html">programming</a> / </span>
 </h3>    
     </div><!-- end #blogItem -->
   
