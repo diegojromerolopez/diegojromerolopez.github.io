@@ -76,8 +76,9 @@
                     <li><a href="/tag/startup.html">startup</a></li>
                     <li><a href="/tag/clients.html">clients</a></li>
                     <li><a href="/tag/programming.html">programming</a></li>
-                    <li><a href="/tag/welcome.html">welcome</a></li>
                     <li><a href="/tag/videotalk.html">videotalk</a></li>
+                    <li><a href="/tag/welcome.html">welcome</a></li>
+                    <li><a href="/tag/engineering.html">engineering</a></li>
                     <li><a href="/tag/books.html">books</a></li>
                     <li><a href="/tag/software-architecture.html">software architecture</a></li>
                     <li><a href="/tag/software-engineering.html">software engineering</a></li>
@@ -96,33 +97,50 @@
   	
     <div class="blogItem">
     
-      <h2><a href="/posts/2015/08/concurrency-and-third-party-libraries/">Concurrency and Third Party Libraries</a></h2>
-      <h3>sáb 01 agosto 2015</h3>
+      <h2><a href="/posts/2015/08/progress-towards-an-engineering-discipline-of-software/">Progress Towards an Engineering Discipline of Software by Mary Shaw</a></h2>
+      <h3>vie 14 agosto 2015</h3>
       
-      <p>Last friday, one of my mates had a strange error in his code: incoherent an irrepetible results arise en each execution.</p>
-<p>His code (Python) was concurrent code and each thread used several libraries (<a href="http://www.crummy.com/software/BeautifulSoup/bs4/doc/">BeautifulSoup4</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> was one of them) which they were <strong>not</strong> thread-safe. What does it mean? It means we cannot assure that atomicity is achieved in some operations executed by the threads, effectively sharing some data that must not be shared.</p>
-<p>I ended up helping him to set a critical section in these not-thread-safe parts of his code but this situation kept me wondering why a library that parses XML is not thread-safe and what kind of common resources used of the system. I couldn’t spend more time investigating this issue but this kept me wondering if this “feature” is not a case of bad software design.</p>
-<p>Take a look if everything you are using is thread-safe before you start partitioning your execution flow in threads.</p>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>Technically, BeautifulSoup4 is a wrapper, not a library. Developer can choose several parsers available (html5lib, lxml…) when using it in an application. <a href="https://github.com/html5lib/html5lib-python">Html5lib</a> library is what we were using at the time.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>	
+      <p>Several days ago, I watched this videotalk of Mary Shaw that tried to give an answer to the question
+is Software Engineering an Engineering discipline yet?</p>
+<p><a href="https://www.youtube.com/watch?v=S03bsjs2YnQ"><img alt="SATURN 2015 Keynote: Progress Towards an Engineering Discipline of Software by Mary Shaw" src="http://img.youtube.com/vi/S03bsjs2YnQ/0.jpg" /></a></p>
+<p>Dr. Shaw makes a parallelism with Civil Engineering that started as a <strong>empirical discipline</strong>
+and, thanks to strong scientific foundations, evolved to what we could call <em>full</em> engineering.</p>
+<p>Software Engineering is not there yet. It needs more work and professionalization. 
+<strong>Many of the so-called Software Engineers have no software engineering knowledge and/or skills</strong>
+and therefore software catastrofes happens. She even gives some examples of software failures
+like the <a href="http://www.safetyresearch.net/blog/articles/toyota-unintended-acceleration-and-big-bowl-%E2%80%9Cspaghetti%E2%80%9D-code">Toyota unintended acceleration affaire</a>,
+and the multiple identity thefts in our connected world.</p>
+<p>At the end of the talk, she makes a good summary of the last years of advancements in
+Software Engineering and also drafts what it could be the future of our young discipline.</p>
+<p>One hundred percent I recommend watching this videotalk to every Software Engineer.</p>	
 
       
-      <h3 class="blogMeta">By <a href="#">Diego J.</a>, Category: <a href="/category/programming.html">Programming</a></h3>
-<h3 class="blogMeta">Tags: <span><a href="/tag/concurrency.html">concurrency</a> / </span>
-<span><a href="/tag/software-engineering.html">software engineering</a> / </span>
-<span><a href="/tag/programming.html">programming</a> / </span>
+      <h3 class="blogMeta">By <a href="#">Diego J.</a>, Category: <a href="/category/videotalks.html">Videotalks</a></h3>
+<h3 class="blogMeta">Tags: <span><a href="/tag/software-engineering.html">software engineering</a> / </span>
+<span><a href="/tag/engineering.html">engineering</a> / </span>
+<span><a href="/tag/talk.html">talk</a> / </span>
+<span><a href="/tag/videotalk.html">videotalk</a> / </span>
 </h3>    
     </div><!-- end #blogItem -->
 	
         <div class="blogItem">
                 <h2>Other articles</h2>
         </div>
+        
+    
+    <div class="blogItem">
+    
+      <h2><a href="/posts/2015/08/concurrency-and-third-party-libraries/">Concurrency and Third Party Libraries</a></h2>
+      <h3>sáb 01 agosto 2015</h3>
+      
+      <p>When developing a concurrent software, always look that the libraries you use are thread safe.</p>	
+<h3 class="blogMeta">By <a href="#">Diego J.</a>, Category: <a href="/category/programming.html">Programming</a></h3>
+	<a href="/posts/2015/08/concurrency-and-third-party-libraries/">Continue reading …</a>
+      
+      
+	
+    
+    </div><!-- end #blogItem -->
         
     
     <div class="blogItem">
@@ -174,8 +192,6 @@
 <div class="clearfloat"></div>
 
   <div id="footer">
-  
-    <p><a href="http://css4free.com/" title="free CSS web site designs">Free CSS Gallery</a></p>
     <p>Proudly powered by <a href="http://getpelican.com">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
   </div><!-- end #footer -->
 
