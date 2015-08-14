@@ -61,7 +61,7 @@ ol {
 /* *** Layout *** */
 
 #container { 
-	background: url(../images/spill.gif) no-repeat top right;
+	/*background: url(../images/spill.gif) no-repeat top right;*/
 	margin: 0 auto;
 	text-align: left;
 	width: 780px;
