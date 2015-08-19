@@ -1,5 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Diego J's on Software Engineering Research</title><link>/</link><description></description><atom:link href="/feeds/diego-j.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 14 Aug 2015 20:30:00 +0200</lastBuildDate><item><title>Progress Towards an Engineering Discipline of Software by Mary Shaw</title><link>/posts/2015/08/progress-towards-an-engineering-discipline-of-software/</link><description>&lt;p&gt;Several days ago, I watched this videotalk of Mary Shaw that tried to give an answer to the question
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Diego J's on Software Engineering Research</title><link>/</link><description></description><atom:link href="/feeds/diego-j.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 20 Aug 2015 00:30:00 +0200</lastBuildDate><item><title>Peopleware (or what they don't told you in college)</title><link>/posts/2015/08/peopleware/</link><description>&lt;p&gt;I've just finished reading &lt;a href="https://en.wikipedia.org/wiki/Peopleware:_Productive_Projects_and_Teams"&gt;Tom De Marco &amp;amp; Timothy Lister's Peopleware&lt;/a&gt; and I feel like
+this book should be recommended to all new Software Engineer graduates. Let me put some
+light in this matter.&lt;/p&gt;
+&lt;p&gt;I've been working for 8 years in a startup and none of my formal education in the University
+prepared me for what I was going to experiment. Software Engineering is a social discipline
+(we work in teams) but in my Computer Engineering degree&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; there are no management or organization courses.
+So, when you scape the Engineering school you know how to make code but you don't know
+really know how to work with another humans and of course know nothing about the perks of
+the job. To sum up, &lt;strong&gt;you have no clue about the social component of the job&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;This book is old (1987 in its first edition) but what De Marco &amp;amp; Lister tell us is
+timeless. First they introduce the nature of the job of the programmer and what should
+be. Later they show the problems of the environment: noise, cubicle floorplans,
+the loss of "the flow" etc.
+The book ends with more teaching about human resources and productivity.&lt;/p&gt;
+&lt;p&gt;It is truly a great book but you should &lt;strong&gt;not&lt;/strong&gt; read from cover to end. The book is organized
+in little stories that help you understand the issue that the authors are dealing with.
+&lt;strong&gt;It is a nightstand book&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Written in a non-formal way, this book is almost too funny to be considered a "job" book.
+Thus, the authors show some kind of comments about other cultures and nations that readers
+should not take very seriously to not be offended (Spanish Theory of Management&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt;,
+Uganda being "poor" and Australia being always on strike).
+This comments seems very unprofessional to me.&lt;/p&gt;
+&lt;p&gt;There are some other aspects I didn't like:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Not defining the Parkinsons' Law&lt;sup id="fnref:3"&gt;&lt;a class="footnote-ref" href="#fn:3" rel="footnote"&gt;3&lt;/a&gt;&lt;/sup&gt;, at least in a footnote.&lt;/li&gt;
+&lt;li&gt;The use of the term "Corporate Entropy" given that in Physics, Entropy can be viewed as a
+measure of chaos and the authors uses it to measure non-originality (sameness) in the employees.&lt;/li&gt;
+&lt;li&gt;Not making a difference between programmers and software engineers.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Overall, it's a good book that I recommend to every programmer or software engineer that
+is going to start working in his/her first job. &lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;Sadly when I studied there was no Software Engineering degree, only Computer Engineering.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:2"&gt;
+&lt;p&gt;Authors claim that Spaniards thought that the economy could only be improved by the extraction of natural resources while the English thought that resources could be created. They tell that Spaniards where "Indians exploiters" while &lt;strong&gt;omit the barbaric treatment of natives by the English&lt;/strong&gt; (and later by the Americans). Sad sign of the authors being manipulated by the &lt;a href="https://en.wikipedia.org/wiki/Black_Legend"&gt;Black Legend&lt;/a&gt; or simply being manipulative.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:3"&gt;
+&lt;p&gt;It is not really a law, it was a funny adage created by the British civil servant C. Northcote Parkinson: &lt;em&gt;work expands so as to fill the time available for its completion&lt;/em&gt;.&amp;#160;&lt;a class="footnote-backref" href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Diego J.</dc:creator><pubDate>Thu, 20 Aug 2015 00:30:00 +0200</pubDate><guid>tag:,2015-08-20:posts/2015/08/peopleware/</guid><category>software engineering</category><category>management</category><category>soft skills</category><category>book</category></item><item><title>Progress Towards an Engineering Discipline of Software by Mary Shaw</title><link>/posts/2015/08/progress-towards-an-engineering-discipline-of-software/</link><description>&lt;p&gt;Several days ago, I watched this videotalk of Mary Shaw that tried to give an answer to the question
 is Software Engineering an Engineering discipline yet?&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=S03bsjs2YnQ"&gt;&lt;img alt="SATURN 2015 Keynote: Progress Towards an Engineering Discipline of Software by Mary Shaw" src="http://img.youtube.com/vi/S03bsjs2YnQ/0.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Dr. Shaw makes a parallelism with Civil Engineering that started as a &lt;strong&gt;empirical discipline&lt;/strong&gt;
