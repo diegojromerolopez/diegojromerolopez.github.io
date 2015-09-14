@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Concurrency and Third Party Libraries / Diego J's on Software Engineering Research</title>
+        <title>Out of the tar pit / Diego J's on Software Engineering Research</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
@@ -48,25 +48,37 @@
 <section>
     <article>
         <header>
-            <h2><a href="../../../../posts/2015/08/concurrency-and-third-party-libraries/" rel="bookmark">Concurrency and Third Party Libraries</a></h2>
-            <time datetime="2015-08-01T19:00:00">sáb 01 agosto 2015</time>
+            <h2><a href="../../../../posts/2015/09/out-of-the-tar-pit/" rel="bookmark">Out of the tar pit</a></h2>
+            <time datetime="2015-09-14T22:00:00">lun 14 septiembre 2015</time>
         </header>
 
-    <p>Last friday, one of my mates had a strange error in his code: incoherent an irrepetible results arise en each execution.</p>
-<p>His code (Python) was concurrent code and each thread used several libraries (<a href="http://www.crummy.com/software/BeautifulSoup/bs4/doc/">BeautifulSoup4</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> was one of them) which they were <strong>not</strong> thread-safe. What does it mean? It means we cannot assure that atomicity is achieved in some operations executed by the threads, effectively sharing some data that must not be shared.</p>
-<p>I ended up helping him to set a critical section in these not-thread-safe parts of his code but this situation kept me wondering why a library that parses XML is not thread-safe and what kind of common resources used of the system. I couldn’t spend more time investigating this issue but this kept me wondering if this “feature” is not a case of bad software design.</p>
-<p>Take a look if everything you are using is thread-safe before you start partitioning your execution flow in threads.</p>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>Technically, BeautifulSoup4 is a wrapper, not a library. Developer can choose several parsers available (html5lib, lxml…) when using it in an application. <a href="https://github.com/html5lib/html5lib-python">Html5lib</a> library is what we were using at the time.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
+    <p>"Tar pit" is an idiom used since 1970s based on the similarity between software complexity and tar pits
+trapping engineers and animals (resp.).</p>
+<p>Out of the tar pit is a paper that analyzes the causes of this complexity and classifies it in several categories.
+The authors also analyzes the approaches that each type of programming technique uses to sove this complexity problem.</p>
+<p>But the most important contribution the authors do is giving a solution in the form of a new paradigm of computer programming.
+They show a declarative language based on Relational Algebra invented by E. Codd that solves the inherent complexity that
+plagues the imperative languages code we use everyday.</p>
+<p>This technique is called <em>Functional Relational Programming</em> by the authors and is based on:
+- Functional programming.
+- Not making differences between values and relationships (called <em>relvals</em>).
+- Defining inherent constrains for the system.
+- Having derived relations that contains the logic of the system.</p>
+<p>I'm amazed by the simplicity and clarity of this approach, like other declarative languages
+like SQL, not having to worry about <em>how is it done</em> and only about <em>what do I want</em> is perfect
+for large software systems.</p>
+<p>Moseley and Marks are worried about performance but in my own experience of developing web software
+platforms, performance is the last problem among the developing of the software. Most of
+the time problems arise when clients change requirements through the life of the project
+and we have to delete and refactor code because these requirement changes are not
+consistent with our solution. Of course agile project management helps with that but
+the complexity, the bad code and the shortcuts keeps growing until a refactoring is needed.</p>
+<p>I'm sure <em>Functional Relational Programming</em> systems can free the developer from menial
+tasks and help him/her center in the functionality the same way SQL almost completely frees us
+when dealing with the storage of our project data.</p>
     <footer>
-        <p>Posted in: <a href="../../../../category/programming.html">Programming</a></p>
-        <p>Tagged as: <a href="../../../../tag/concurrency.html">concurrency</a> / <a href="../../../../tag/software-engineering.html">software engineering</a> / <a href="../../../../tag/programming.html">programming</a></p>
+        <p>Posted in: <a href="../../../../category/papers.html">Papers</a></p>
+        <p>Tagged as: <a href="../../../../tag/software-engineering.html">software engineering</a> / <a href="../../../../tag/paper.html">paper</a> / <a href="../../../../tag/programming.html">programming</a> / <a href="../../../../tag/imperative-programming.html">imperative programming</a> / <a href="../../../../tag/declarative-programming.html">declarative programming</a> / <a href="../../../../tag/functional-programming.html">functional programming</a></p>
         <p>Wanna tell me what you think? <a href="../../../../">Get in touch.</a></p>
     </footer>
         </footer>

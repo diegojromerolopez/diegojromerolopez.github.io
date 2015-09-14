@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Diego J's on Software Engineering Research</title><link>http://diegojromerolopez.github.io/</link><description></description><atom:link href="http://diegojromerolopez.github.io/feeds/diego-j.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 25 Aug 2015 22:00:00 +0200</lastBuildDate><item><title>Software construction (don't forget what you're paid for)</title><link>http://diegojromerolopez.github.io/posts/2015/08/software-construction/</link><description>&lt;p&gt;&lt;em&gt;In my voyage from a simply Software Engineer to a master in Software Engineering I'm reading
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Diego J's on Software Engineering Research</title><link>http://diegojromerolopez.github.io/</link><description></description><atom:link href="http://diegojromerolopez.github.io/feeds/diego-j.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 14 Sep 2015 22:00:00 +0200</lastBuildDate><item><title>Out of the tar pit</title><link>http://diegojromerolopez.github.io/posts/2015/09/out-of-the-tar-pit/</link><description>&lt;p&gt;"Tar pit" is an idiom used since 1970s based on the similarity between software complexity and tar pits
+trapping engineers and animals (resp.).&lt;/p&gt;
+&lt;p&gt;Out of the tar pit is a paper that analyzes the causes of this complexity and classifies it in several categories.
+The authors also analyzes the approaches that each type of programming technique uses to sove this complexity problem.&lt;/p&gt;
+&lt;p&gt;But the most important contribution the authors do is giving a solution in the form of a new paradigm of computer programming.
+They show a declarative language based on Relational Algebra invented by E. Codd that solves the inherent complexity that
+plagues the imperative languages code we use everyday.&lt;/p&gt;
+&lt;p&gt;This technique is called &lt;em&gt;Functional Relational Programming&lt;/em&gt; by the authors and is based on:
+- Functional programming.
+- Not making differences between values and relationships (called &lt;em&gt;relvals&lt;/em&gt;).
+- Defining inherent constrains for the system.
+- Having derived relations that contains the logic of the system.&lt;/p&gt;
+&lt;p&gt;I'm amazed by the simplicity and clarity of this approach, like other declarative languages
+like SQL, not having to worry about &lt;em&gt;how is it done&lt;/em&gt; and only about &lt;em&gt;what do I want&lt;/em&gt; is perfect
+for large software systems.&lt;/p&gt;
+&lt;p&gt;Moseley and Marks are worried about performance but in my own experience of developing web software
+platforms, performance is the last problem among the developing of the software. Most of
+the time problems arise when clients change requirements through the life of the project
+and we have to delete and refactor code because these requirement changes are not
+consistent with our solution. Of course agile project management helps with that but
+the complexity, the bad code and the shortcuts keeps growing until a refactoring is needed.&lt;/p&gt;
+&lt;p&gt;I'm sure &lt;em&gt;Functional Relational Programming&lt;/em&gt; systems can free the developer from menial
+tasks and help him/her center in the functionality the same way SQL almost completely frees us
+when dealing with the storage of our project data.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Diego J.</dc:creator><pubDate>Mon, 14 Sep 2015 22:00:00 +0200</pubDate><guid>tag:diegojromerolopez.github.io,2015-09-14:posts/2015/09/out-of-the-tar-pit/</guid><category>software engineering</category><category>paper</category><category>programming</category><category>imperative programming</category><category>declarative programming</category><category>functional programming</category></item><item><title>Software construction (don't forget what you're paid for)</title><link>http://diegojromerolopez.github.io/posts/2015/08/software-construction/</link><description>&lt;p&gt;&lt;em&gt;In my voyage from a simply Software Engineer to a master in Software Engineering I'm reading
 several books. Thus, I'm posting in this blog whatever thoughts appear in my mind about
 Software Developing.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;I'm several chapters in &lt;a href="https://www.microsoft.com/learning/en-us/book.aspx?id=6822"&gt;Code Complete 2nd Ed. of Steve McConnel&lt;/a&gt;
