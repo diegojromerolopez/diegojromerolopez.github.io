@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Diego J's on Software Engineering Research</title><link>http://diegojromerolopez.github.io/</link><description></description><atom:link href="http://diegojromerolopez.github.io/feeds/diego-j.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 14 Sep 2015 22:00:00 +0200</lastBuildDate><item><title>Out of the tar pit</title><link>http://diegojromerolopez.github.io/posts/2015/09/out-of-the-tar-pit/</link><description>&lt;p&gt;"Tar pit" is an idiom used since 1970s based on the similarity between software complexity and tar pits
 trapping engineers and animals (resp.).&lt;/p&gt;
-&lt;p&gt;Out of the tar pit is a paper that analyzes the causes of this complexity and classifies it in several categories.
+&lt;p&gt;&lt;a href="http://www.shaffner.us/cs/papers/tarpit.pdf"&gt;Out of the tar pit&lt;/a&gt; is a paper that analyzes the causes of this complexity and classifies it in several categories.
 The authors also analyzes the approaches that each type of programming technique uses to sove this complexity problem.&lt;/p&gt;
 &lt;p&gt;But the most important contribution the authors do is giving a solution in the form of a new paradigm of computer programming.
 They show a declarative language based on Relational Algebra invented by E. Codd that solves the inherent complexity that
@@ -14,7 +14,7 @@ plagues the imperative languages code we use everyday.&lt;/p&gt;
 &lt;p&gt;I'm amazed by the simplicity and clarity of this approach, like other declarative languages
 like SQL, not having to worry about &lt;em&gt;how is it done&lt;/em&gt; and only about &lt;em&gt;what do I want&lt;/em&gt; is perfect
 for large software systems.&lt;/p&gt;
-&lt;p&gt;Moseley and Marks are worried about performance but in my own experience of developing web software
+&lt;p&gt;Authors Moseley and Marks are worried about performance but in my own experience of developing web software
 platforms, performance is the last problem among the developing of the software. Most of
 the time problems arise when clients change requirements through the life of the project
 and we have to delete and refactor code because these requirement changes are not
