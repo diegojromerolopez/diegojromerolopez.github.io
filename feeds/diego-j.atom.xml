@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Diego J's on Software Engineering Research</title><link href="http://diegojromerolopez.github.io/" rel="alternate"></link><link href="http://diegojromerolopez.github.io/feeds/diego-j.atom.xml" rel="self"></link><id>http://diegojromerolopez.github.io/</id><updated>2015-12-30T13:05:00+01:00</updated><entry><title>Literate Programming</title><link href="http://diegojromerolopez.github.io/posts/2015/12/literate-programming/" rel="alternate"></link><updated>2015-12-30T13:05:00+01:00</updated><author><name>Diego J.</name></author><id>tag:diegojromerolopez.github.io,2015-12-30:posts/2015/12/literate-programming/</id><summary type="html">&lt;p&gt;Donald E. Knuth coined the term Literate programming in this &lt;a href="http://www.literateprogramming.com/knuthweb.pdf"&gt;paper&lt;/a&gt; wrote almost 40 years ago.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Diego J's on Software Engineering Research</title><link href="http://diegojromerolopez.github.io/" rel="alternate"></link><link href="http://diegojromerolopez.github.io/feeds/diego-j.atom.xml" rel="self"></link><id>http://diegojromerolopez.github.io/</id><updated>2016-01-10T20:00:00+01:00</updated><entry><title>Agile project management</title><link href="http://diegojromerolopez.github.io/posts/2016/01/agile-project-management/" rel="alternate"></link><updated>2016-01-10T20:00:00+01:00</updated><author><name>Diego J.</name></author><id>tag:diegojromerolopez.github.io,2016-01-10:posts/2016/01/agile-project-management/</id><summary type="html">&lt;h1&gt;Software Engineering is a special type of Engineering&lt;/h1&gt;
+&lt;p&gt;During too much time Software Engineering has been molded as a traditional Engineering, with the same terms and ideas that came from this disciplines.
+But they failed.&lt;/p&gt;
+&lt;p&gt;Firstly, Software Engineering has an immaterial final product. It is not a bridge, a road, or a mine for example. Thus, software engineers works with
+ideas more than anything else.&lt;/p&gt;
+&lt;p&gt;Thus, traditinal engineers are limited by Phisics laws while software engineers are only limited by the computational model they use and by the power of the
+machines their software run. Nowadays, for non-complex tasks (traditional business logic), these machines are more than enough.&lt;/p&gt;
+&lt;p&gt;Therefore, this field should be an easy field where most projects can be easily estimated, developed and delivered without any problem. This could be true
+if needs software satisfies did not change. Requirements change and software also can be changed, so why shouldn't we update client's software?&lt;/p&gt;
+&lt;p&gt;Even if we could accept all the changes client requires, it could be worst. What about a client that doesn't know what he wants? And what about a client that
+&lt;strong&gt;what he/she wants is not what he/she needs&lt;/strong&gt;?&lt;/p&gt;
+&lt;p&gt;What happened because of this copycat mistake? Many software projects were failed, abandoned. The situation in many projects was fine until there was an
+increasing feeling of disatisfaction between client because his/her new issues could not be resolved. The end came when there were no trust between client an
+developing team (client felt he/she was being lied).&lt;/p&gt;
+&lt;h1&gt;What is agile?&lt;/h1&gt;
+&lt;p&gt;The term Agile was coined in a meeting of some important figures of the industry. Their idea was to make a common ground to several practices each one
+of them were using. So at the end, they came with a "creed" called &lt;a href="http://agilemanifesto.org/"&gt;Software Manifesto&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We are uncovering better ways of developing
+software by doing it and helping others do it.
+Through this work we have come to value:&lt;/p&gt;
+&lt;p&gt;Individuals and interactions over processes and tools
+Working software over comprehensive documentation
+Customer collaboration over contract negotiation
+Responding to change over following a plan&lt;/p&gt;
+&lt;p&gt;That is, while there is value in the items on
+the right, we value the items on the left more.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A fast summary is that Agile is a framework of developing software projects that focus on delivering working software and colaboration with client.&lt;/p&gt;
+&lt;p&gt;Agile assumes we know nothing about what the client needs, so it tries to reduce error making small deliveries that must be validated each time by the client.
+Small changes mean small errors. Above all, this tool gives us the oportunity to get some new needs that arise with each new delivery.&lt;/p&gt;
+&lt;p&gt;This framework values the team above all. Software is so complex that it is needed many "brains" to develop it. The best solution is reached when all
+the members participate.&lt;/p&gt;
+&lt;p&gt;Agile doesn't erase Analysis, Software Design and many heuristic practices that should be used by all software engineers. But we can't forget that
+we have to deliver working software and not a ton of documents. Our client needs us and needs his/her software.&lt;/p&gt;
+&lt;p&gt;To sum up, it gives simple tools and a discipline to avoid making the project software fail.&lt;/p&gt;
+&lt;h1&gt;Is this Engineering?&lt;/h1&gt;
+&lt;p&gt;On one hand, managing client needs looks like Engineering to me. I'm sure an architect asks what kind of bulding his/her client wants.&lt;/p&gt;
+&lt;p&gt;On the other hand, no, you're right: it is not traditional Engineering. Software is applied logic and is free of all laws other Engineering branches have.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Agile gives the most cautious solution to a problem nobody can solve: how to make evolving software&lt;/strong&gt;.&lt;/p&gt;
+&lt;h1&gt;How to start with agile?&lt;/h1&gt;
+&lt;p&gt;I just read the book &lt;a href="https://pragprog.com/book/jtrap/the-agile-samurai"&gt;The Agile Samurai by Jonathan Rasmunsson&lt;/a&gt; and is a great introduction to agile mindset.&lt;/p&gt;
+&lt;h1&gt;What from now?&lt;/h1&gt;
+&lt;p&gt;There is some criticism about the abuse of the term "agile" but I really think it doesn't matter. What matters is this agile manifesto and using what tools you
+need to make the client one of your team when developing his/her changing software project.&lt;/p&gt;
+&lt;p&gt;You have to use what suits you.&lt;/p&gt;</summary><category term="software engineering"></category><category term="books"></category></entry><entry><title>Literate Programming</title><link href="http://diegojromerolopez.github.io/posts/2015/12/literate-programming/" rel="alternate"></link><updated>2015-12-30T13:05:00+01:00</updated><author><name>Diego J.</name></author><id>tag:diegojromerolopez.github.io,2015-12-30:posts/2015/12/literate-programming/</id><summary type="html">&lt;p&gt;Donald E. Knuth coined the term Literate programming in this &lt;a href="http://www.literateprogramming.com/knuthweb.pdf"&gt;paper&lt;/a&gt; wrote almost 40 years ago.&lt;/p&gt;
 &lt;p&gt;Knuth wrote a tool called &lt;strong&gt;WEB&lt;/strong&gt; as a demonstration of what Literate Programming should be. This tool would understand Pascal and TeX code, using Pascal code to create
 a binary executable and using TeX code to compile its documentation file. Pascal code would be a bit different because of the use of predefined macros and it would be
 interleaved by TeX code describing what actions execute.&lt;/p&gt;
