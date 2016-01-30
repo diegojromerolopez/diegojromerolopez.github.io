@@ -1,17 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Diego J's on Software Engineering Research</title><link>http://diegojromerolopez.github.io/</link><description></description><atom:link href="http://diegojromerolopez.github.io/feeds/diego-j.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 10 Jan 2016 20:00:00 +0100</lastBuildDate><item><title>Agile project management</title><link>http://diegojromerolopez.github.io/posts/2016/01/agile-project-management/</link><description>&lt;h1&gt;Software Engineering is a special type of Engineering&lt;/h1&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Diego J's on Software Engineering Research</title><link>http://diegojromerolopez.github.io/</link><description></description><atom:link href="http://diegojromerolopez.github.io/feeds/diego-j.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 30 Jan 2016 20:30:00 +0100</lastBuildDate><item><title>Self-improvement</title><link>http://diegojromerolopez.github.io/posts/2016/01/self-improvement/</link><description>&lt;h1&gt;The rules of the game have changed&lt;/h1&gt;
+&lt;p&gt;During many years, society expected you to graduate and find a job you kept until your retirement. Not many people changed jobs and only professions like medical doctors and lawyers keep studying and improving their skills.&lt;/p&gt;
+&lt;p&gt;Now the rules of the game have changed and nobody expects that almost from any profession. Maybe you are a baker and expect to use the same ingredients and make the same bread over and over again, but your clients can change or acquire new tastes! Thus, what about improving the costs? Maybe a new machine could make the baking process cheaper and you should know about its existence…&lt;/p&gt;
+&lt;h1&gt;So, what about software engineers?&lt;/h1&gt;
+&lt;p&gt;Software-related professions are very young if you compare with medicine or legal ones. Not only technologies change, are born and disappear each year, techniques and even (some) Computational Foundations too.&lt;/p&gt;
+&lt;p&gt;Yes, if you are a software engineer you should be improving yourself.&lt;/p&gt;
+&lt;p&gt;If you don’t do it, you’ll be passed by your profession mates, you will lose interesting jobs and of course, you’ll end up being a mediocre &lt;em&gt;programmer&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Note that I’ve said &lt;em&gt;programmer&lt;/em&gt; and not software engineer&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;, that’s because if you don’t improve yourself, you are walking backwards. Our profession is like a race. If you are working the same way 10 years ago, you are stopped in the middle of the track while your competitors are running towards the finish line.&lt;/p&gt;
+&lt;h1&gt;What should be my sources of study?&lt;/h1&gt;
+&lt;p&gt;Everything, literally everything. From MOOCS, masters degree programes to books.&lt;/p&gt;
+&lt;p&gt;MOOCS are a great tool to learn new technologies and I prefer them over books simply because I don’t like buying books with &lt;em&gt;expiration date&lt;/em&gt; as technologies tend to have. &lt;a href="https://www.coursera.org/"&gt;Coursera&lt;/a&gt; have many specializations, &lt;a href="https://www.udacity.com/"&gt;Udacity&lt;/a&gt; have what they call &lt;em&gt;nanodegrees&lt;/em&gt; and &lt;a href="https://www.edx.org/"&gt;edx&lt;/a&gt; have multiple courses of several topics. My last course was about Ocaml and was taught by &lt;a href="https://www.france-universite-numerique-mooc.fr/"&gt;France Université Numérique&lt;/a&gt;. Its quality was excellent and it helped me understand functional programming foundations thru Ocaml.&lt;/p&gt;
+&lt;p&gt;Books fill the empty space that college education gave me. I try to read at least one each month although it is difficult given the length of software books. I prefer to buy my books in second-hand stores in &lt;a href="http://www.abebooks.co.uk/"&gt;abebooks&lt;/a&gt; but you can buy them in epub or Kindle format to read them in a eReader. Currently I’m reading &lt;a href="https://www.manning.com/books/soft-skills"&gt;Soft-Skills&lt;/a&gt; and &lt;a href="http://martinfowler.com/books/refactoring.html"&gt;Refactoring&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Of course there is also the option to earn a M.Sc./M.Eng. (or M.Res. in my case) in a reputable university. Assuming you have the money (or can ask anybody but a bank&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt;), it is a good way to upgrade your qualifications and your career. Of course, don’t join a masters programe just for the degree, join it because you are passionate about the topic they teach.&lt;/p&gt;
+&lt;h1&gt;Open source projects&lt;/h1&gt;
+&lt;p&gt;It is said that every programer&lt;sup id="fnref:3"&gt;&lt;a class="footnote-ref" href="#fn:3" rel="footnote"&gt;3&lt;/a&gt;&lt;/sup&gt; should be programming in his or her spare time. I fully disagree with that idea, should a surgeon be making surgeries in his spare time? But, while I disagree, I agree that having open source projects is a great way of forming part of the community and, of course, the best way to show our skills.&lt;/p&gt;
+&lt;p&gt;So, maybe the solution can be &lt;strong&gt;convince your manager to free some parts of company software&lt;/strong&gt; you wrote. Try to show him the positive effect that can have freeing some module and I’m sure that he will be delighted to achieve good PR to the company. Thus, remember him that this module will be improved with no cost for other developers, so it’s a win-win situation: good PR and &lt;em&gt;gratis&lt;/em&gt; software.&lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;Please note that I don’t consider the terms programmer, software developer and software engineer equal. A &lt;strong&gt;programmer&lt;/strong&gt; is a person who writes code to solve a problem, usually he or she has no specific education and uses a programming language (and environment) as a tool. &lt;strong&gt;Software developers&lt;/strong&gt; are programmers that fully understand the stack where their code runs. &lt;strong&gt;Software Engineers&lt;/strong&gt; are software developers with knowledge of the foundations of software they write: algorithmic theory, heuristics, programming language theory, concurrent/parallel programming, security, software design, information theory, project/client management, etc.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:2"&gt;
+&lt;p&gt;I don’t suggest you ask for a bank loan to study. Work for several years and when you have the money apply to join a master programe.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:3"&gt;
+&lt;p&gt;Every software engineer is a programmer. Don’t be fooled by &lt;em&gt;software designers&lt;/em&gt; that create UML diagrams and pass them to programmers that code. Software engineers rely on programmers for many parts of the code, but they need to be lead by a software engineer that will code with them.&amp;#160;&lt;a class="footnote-backref" href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Diego J.</dc:creator><pubDate>Sat, 30 Jan 2016 20:30:00 +0100</pubDate><guid>tag:diegojromerolopez.github.io,2016-01-30:posts/2016/01/self-improvement/</guid><category>software engineering</category><category>education</category></item><item><title>Agile project management</title><link>http://diegojromerolopez.github.io/posts/2016/01/agile-project-management/</link><description>&lt;h1&gt;Software Engineering is a special type of Engineering&lt;/h1&gt;
 &lt;p&gt;During too much time Software Engineering has been molded as a traditional Engineering, with the same terms and ideas that came from this disciplines.
 But they failed.&lt;/p&gt;
 &lt;p&gt;Firstly, Software Engineering has an immaterial final product. It is not a bridge, a road, or a mine for example. Thus, software engineers works with
 ideas more than anything else.&lt;/p&gt;
-&lt;p&gt;Thus, traditinal engineers are limited by Phisics laws while software engineers are only limited by the computational model they use and by the power of the
+&lt;p&gt;Thus, traditional engineers are limited by Physics laws while software engineers are only limited by the computational model they use and by the power of the
 machines their software run. Nowadays, for non-complex tasks (traditional business logic), these machines are more than enough.&lt;/p&gt;
 &lt;p&gt;Therefore, this field should be an easy field where most projects can be easily estimated, developed and delivered without any problem. This could be true
 if needs software satisfies did not change. Requirements change and software also can be changed, so why shouldn't we update client's software?&lt;/p&gt;
 &lt;p&gt;Even if we could accept all the changes client requires, it could be worst. What about a client that doesn't know what he wants? And what about a client that
 &lt;strong&gt;what he/she wants is not what he/she needs&lt;/strong&gt;?&lt;/p&gt;
 &lt;p&gt;What happened because of this copycat mistake? Many software projects were failed, abandoned. The situation in many projects was fine until there was an
-increasing feeling of disatisfaction between client because his/her new issues could not be resolved. The end came when there were no trust between client an
+increasing feeling of dissatisfaction between client because his/her new issues could not be resolved. The end came when there were no trust between client an
 developing team (client felt he/she was being lied).&lt;/p&gt;
 &lt;h1&gt;What is agile?&lt;/h1&gt;
 &lt;p&gt;The term Agile was coined in a meeting of some important figures of the industry. Their idea was to make a common ground to several practices each one
@@ -27,16 +56,16 @@ Responding to change over following a plan&lt;/p&gt;
 &lt;p&gt;That is, while there is value in the items on
 the right, we value the items on the left more.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;A fast summary is that Agile is a framework of developing software projects that focus on delivering working software and colaboration with client.&lt;/p&gt;
+&lt;p&gt;A fast summary is that Agile is a framework of developing software projects that focus on delivering working software and collaboration with client.&lt;/p&gt;
 &lt;p&gt;Agile assumes we know nothing about what the client needs, so it tries to reduce error making small deliveries that must be validated each time by the client.
-Small changes mean small errors. Above all, this tool gives us the oportunity to get some new needs that arise with each new delivery.&lt;/p&gt;
+Small changes mean small errors. Above all, this tool gives us the opportunity to get some new needs that arise with each new delivery.&lt;/p&gt;
 &lt;p&gt;This framework values the team above all. Software is so complex that it is needed many "brains" to develop it. The best solution is reached when all
 the members participate.&lt;/p&gt;
 &lt;p&gt;Agile doesn't erase Analysis, Software Design and many heuristic practices that should be used by all software engineers. But we can't forget that
 we have to deliver working software and not a ton of documents. Our client needs us and needs his/her software.&lt;/p&gt;
 &lt;p&gt;To sum up, it gives simple tools and a discipline to avoid making the project software fail.&lt;/p&gt;
 &lt;h1&gt;Is this Engineering?&lt;/h1&gt;
-&lt;p&gt;On one hand, managing client needs looks like Engineering to me. I'm sure an architect asks what kind of bulding his/her client wants.&lt;/p&gt;
+&lt;p&gt;On one hand, managing client needs looks like Engineering to me. I'm sure an architect asks what kind of building his/her client wants.&lt;/p&gt;
 &lt;p&gt;On the other hand, no, you're right: it is not traditional Engineering. Software is applied logic and is free of all laws other Engineering branches have.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Agile gives the most cautious solution to a problem nobody can solve: how to make evolving software&lt;/strong&gt;.&lt;/p&gt;
 &lt;h1&gt;How to start with agile?&lt;/h1&gt;
