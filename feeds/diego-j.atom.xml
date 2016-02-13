@@ -1,5 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Diego J's on Software Engineering Research</title><link href="http://diegojromerolopez.github.io/" rel="alternate"></link><link href="http://diegojromerolopez.github.io/feeds/diego-j.atom.xml" rel="self"></link><id>http://diegojromerolopez.github.io/</id><updated>2016-01-30T20:30:00+01:00</updated><entry><title>Self-improvement</title><link href="http://diegojromerolopez.github.io/posts/2016/01/self-improvement/" rel="alternate"></link><updated>2016-01-30T20:30:00+01:00</updated><author><name>Diego J.</name></author><id>tag:diegojromerolopez.github.io,2016-01-30:posts/2016/01/self-improvement/</id><summary type="html">&lt;h1&gt;The rules of the game have changed&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Diego J's on Software Engineering Research</title><link href="http://diegojromerolopez.github.io/" rel="alternate"></link><link href="http://diegojromerolopez.github.io/feeds/diego-j.atom.xml" rel="self"></link><id>http://diegojromerolopez.github.io/</id><updated>2016-02-13T20:00:00+01:00</updated><entry><title>Project saboteurs</title><link href="http://diegojromerolopez.github.io/posts/2016/02/project-saboteurs/" rel="alternate"></link><updated>2016-02-13T20:00:00+01:00</updated><author><name>Diego J.</name></author><id>tag:diegojromerolopez.github.io,2016-02-13:posts/2016/02/project-saboteurs/</id><summary type="html">&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;You have just been appointed leader of a new fascinating project. Hard years working
+in boring tasks have paid off.  You are excited before your big day: your first meeting
+with your client (the owner of the business) and some other stakeholders (managers and
+other employees of the business).&lt;/p&gt;
+&lt;h1&gt;Sabotage&lt;/h1&gt;
+&lt;p&gt;So the meeting starts. Relationship with the business owner is smooth and you
+begin to write notes about software requirements, current system limitations,
+technologies... You know that you'll have more than enough information to make
+the first requirement document.&lt;/p&gt;
+&lt;p&gt;Then, the saboteur begins to show a despising attitude questioning the very first
+need of this new software for the business, doubting about your professionality
+or even worse telling you what you have to do. Summing up, he/she has a
+menacing, primitive, non-constructive critic and rude behavior during all the meeting.&lt;/p&gt;
+&lt;p&gt;You want everybody in the team but are sweating trying to stop this kind of
+sabotage your seeing.&lt;/p&gt;
+&lt;p&gt;This individual sees you as an enemy and has made it clear in the meeting making
+things harder for you. He/she will continue to make things harder during the project.&lt;/p&gt;
+&lt;h1&gt;But why?&lt;/h1&gt;
+&lt;p&gt;The reason this person is boycotting the meeting and hence, the project is that
+&lt;strong&gt;the saboteur is scared&lt;/strong&gt;. Humans base their society on customs and tradition,
+and when something "shakes" their ground, they rebel against it.&lt;/p&gt;
+&lt;p&gt;You are a software engineer, you are more than capable of optimizing a business
+you fully understand, making changes and how they have been working until now.
+There are people that like this kind of change because they see it like progress.
+There are others that will resist any kind of change above all.&lt;/p&gt;
+&lt;h1&gt;Are you going to going to order how to do my job?&lt;/h1&gt;
+&lt;p&gt;Other kind of saboteurs have too much ego and simply don't want to hear that
+they can be wrong in the way they work.&lt;/p&gt;
+&lt;p&gt;As I said earlier, our education and experience gives us the skill of analyzing
+process flows pretty well and can optimize them, improving the business of our client.&lt;/p&gt;
+&lt;p&gt;Nobody wants to lose the job and if you succeed in the project, they think they
+can be fired.&lt;/p&gt;
+&lt;h1&gt;Why are saboteurs employed?&lt;/h1&gt;
+&lt;p&gt;But giving that they are toxic employees, how do saboteurs keep their jobs?&lt;/p&gt;
+&lt;p&gt;On one hand, it could be because they are civil workers and they can't be fired.&lt;/p&gt;
+&lt;p&gt;On the other hand, usually, nobody can make some tasks they do it very well, so
+there is no suitable replacement for saboteurs. I'm afraid you will be surprised
+the low level of problem solving and autonomy that most people have. If the
+saboteur is marginally better than the rest, he/she will remain employed for a
+long time.&lt;/p&gt;
+&lt;h1&gt;What can be done about these project saboteurs?&lt;/h1&gt;
+&lt;p&gt;They just need to feel that they are managing the situation and they
+are "important" during project development. What means to be "important"? Asking
+them about what are their needs and above all, every change proposed of their
+"way of doing the things" must be "for the sake of their work" or "because it
+helps them do some task".&lt;/p&gt;
+&lt;p&gt;Many times they will use a tone not appropriate for a business like environment.
+No problem, be more polite than ever, showing that you are here for help a business.
+Saboteur will feel his/her intentions are being made clear and will cease his/her
+attitude.&lt;/p&gt;
+&lt;p&gt;An agile project management is the best solution for changing requirements. Thus
+it shows everybody the costs of these requirement changes. So,
+from third or fourth iteration they will think again before asking the owner to
+spend more money in a non-vital feature. Probably owner will have a chat with them
+and will ask them to change their attitude.&lt;/p&gt;
+&lt;h1&gt;Conclusions&lt;/h1&gt;
+&lt;p&gt;The best you can do is have the owner of the business on your side.&lt;/p&gt;
+&lt;p&gt;Do not accept rude comments, insults or questioning your professionality from anybody.
+Call off the meeting until everybody that sits bring something to help the development
+of the project.&lt;/p&gt;
+&lt;p&gt;Use an agile project management that shows them the cost of not behaving as a part
+of the software project development team. Of course, pair this agile project with
+a iterated bill system to make it more clear.&lt;/p&gt;</summary><category term="software engineering"></category><category term="clients"></category></entry><entry><title>Self-improvement</title><link href="http://diegojromerolopez.github.io/posts/2016/01/self-improvement/" rel="alternate"></link><updated>2016-01-30T20:30:00+01:00</updated><author><name>Diego J.</name></author><id>tag:diegojromerolopez.github.io,2016-01-30:posts/2016/01/self-improvement/</id><summary type="html">&lt;h1&gt;The rules of the game have changed&lt;/h1&gt;
 &lt;p&gt;During many years, society expected you to graduate and find a job you kept until your retirement. Not many people changed jobs and only professions like medical doctors and lawyers keep studying and improving their skills.&lt;/p&gt;
 &lt;p&gt;Now the rules of the game have changed and nobody expects that almost from any profession. Maybe you are a baker and expect to use the same ingredients and make the same bread over and over again, but your clients can change or acquire new tastes! Thus, what about improving the costs? Maybe a new machine could make the baking process cheaper and you should know about its existence…&lt;/p&gt;
 &lt;h1&gt;So, what about software engineers?&lt;/h1&gt;
