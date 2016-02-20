@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Diego J's on Software Engineering Research</title><link>http://diegojromerolopez.github.io/</link><description></description><atom:link href="http://diegojromerolopez.github.io/feeds/diego-j.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 13 Feb 2016 20:00:00 +0100</lastBuildDate><item><title>Project saboteurs</title><link>http://diegojromerolopez.github.io/posts/2016/02/project-saboteurs/</link><description>&lt;h1&gt;Introduction&lt;/h1&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Diego J's on Software Engineering Research</title><link>http://diegojromerolopez.github.io/</link><description></description><atom:link href="http://diegojromerolopez.github.io/feeds/diego-j.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 20 Feb 2016 20:30:00 +0100</lastBuildDate><item><title>Waterfall process model is harmful</title><link>http://diegojromerolopez.github.io/posts/2016/02/waterfall-process-model-is-harmful/</link><description>&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Waterfall model is a development process based on doing software development processes one after another and not looking back.&lt;/p&gt;
+&lt;p&gt;Here is a simple diagram (&lt;a href="https://en.wikipedia.org/wiki/Waterfall_model#/media/File:Waterfall_model.svg"&gt;from Wikipedia&lt;/a&gt;) of that model:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Waterfall model" src="/images/WaterfallModelFromWikipedia.png" /&gt;&lt;/p&gt;
+&lt;p&gt;That is it supposes we are infalible and the client is infalible so each phase is perfect and serves well enough the next.&lt;/p&gt;
+&lt;h1&gt;Issues with waterfall model&lt;/h1&gt;
+&lt;p&gt;Waterfall process model suffered a total criticism by Winston W. Royce in his paper
+&lt;a href="https://www.cs.umd.edu/class/spring2003/cmsc838p/Process/waterfall.pdf"&gt;Managing the development of large software systems&lt;/a&gt;,
+published in the Proceedings of IEE WESCON in August 1970.&lt;/p&gt;
+&lt;p&gt;In this paper, Royce clearly showed that he was fully against using this step-by-step process. Indeed, in the second page of this work
+he said: &lt;em&gt;I believe in this concept, but the implementation described above is risky and invites failure.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Why he was so vehenmetly against the waterfall model? The rest of the paper gives some support to his claim being the most important these ones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;If some error is detected in test phase, there can be needed changes in requirement phase.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;The program design phase can create changes in software requirement phase.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Already in 1970 there were voices that claimed waterfall model was not adequate for software engineering.&lt;/p&gt;
+&lt;h1&gt;Solutions for this flawed model&lt;/h1&gt;
+&lt;p&gt;In his paper, Royce defined what he called &lt;em&gt;an early simulation of the final product&lt;/em&gt;, where the process of developing early prototipos of software that
+can affected each one of the phases of the model. So, what we call iterations or early releases to the client was almost defined in 1970! Not in the '90s
+but 40 years before the agile manifesto.&lt;/p&gt;
+&lt;p&gt;The relase often &lt;em&gt;adagio&lt;/em&gt; and the idea of releasing working software is also present in this paper: &lt;em&gt;They must quickly sense the trouble spots in the design, model them, model their alternatives, forget the straightforward aspects of the design which aren't worth studying at this early point, and finally arrive at an error-free program.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Royce, furthermore, advocate for involving the client during the software development process: 
+&lt;em&gt;To give the contractor free rein between requirement definition and operation is inviting trouble.&lt;/em&gt;&lt;/p&gt;
+&lt;h1&gt;Why he was forgotten?&lt;/h1&gt;
+&lt;p&gt;Well, this paper is &lt;strong&gt;hard to read&lt;/strong&gt; because it has no clear aim. He is criticising a software development model but also advocating fo a new one that
+is not very clear presented. His new model has some &lt;em&gt;agile features&lt;/em&gt; but also mixes some of his heuristic solutions to problems he has experimented. Maybe
+too much detail in the description of his model is the cause people didn't put his teachings in practice. &lt;strong&gt;I had a hard time separating the basic principles from his particular model&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;To make things worse it has many figures that, if you don't fully read it, can give you a misleading idea of what Royce is showing here.&lt;/p&gt;
+&lt;p&gt;In that time there were no software engineers, only programmers with different backgrounds. I can assume this paper
+mislead many people into thinking that this model was enough for their non-critical software developments.&lt;/p&gt;
+&lt;p&gt;Royce doesn't use the term "waterfall"&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; along the paper so maybe he was ahead of his time and was not understood.&lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;Waterfall was coined in 1976 by Bell and Thayer.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Diego J.</dc:creator><pubDate>Sat, 20 Feb 2016 20:30:00 +0100</pubDate><guid>tag:diegojromerolopez.github.io,2016-02-20:posts/2016/02/waterfall-process-model-is-harmful/</guid><category>software engineering</category></item><item><title>Project saboteurs</title><link>http://diegojromerolopez.github.io/posts/2016/02/project-saboteurs/</link><description>&lt;h1&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;You have just been appointed leader of a new fascinating project. Hard years working
 in boring tasks have paid off.  You are excited before your big day: your first meeting
 with your client (the owner of the business) and some other stakeholders (managers and

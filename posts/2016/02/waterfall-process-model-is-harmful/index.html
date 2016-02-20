@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Progress Towards an Engineering Discipline of Software by Mary Shaw / Diego J's on Software Engineering Research</title>
+        <title>Waterfall process model is harmful / Diego J's on Software Engineering Research</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
@@ -49,26 +49,53 @@
 <section>
     <article>
         <header>
-            <h2><a href="../../../../posts/2015/08/progress-towards-an-engineering-discipline-of-software/" rel="bookmark">Progress Towards an Engineering Discipline of Software by Mary Shaw</a></h2>
-            <time datetime="2015-08-14T20:30:00">vie 14 agosto 2015</time>
+            <h2><a href="../../../../posts/2016/02/waterfall-process-model-is-harmful/" rel="bookmark">Waterfall process model is harmful</a></h2>
+            <time datetime="2016-02-20T20:30:00">sáb 20 febrero 2016</time>
         </header>
 
-    <p>Several days ago, I watched this videotalk of Mary Shaw that tried to give an answer to the question
-is Software Engineering an Engineering discipline yet?</p>
-<p><a href="https://www.youtube.com/watch?v=S03bsjs2YnQ"><img alt="SATURN 2015 Keynote: Progress Towards an Engineering Discipline of Software by Mary Shaw" src="http://img.youtube.com/vi/S03bsjs2YnQ/0.jpg" /></a></p>
-<p>Dr. Shaw makes a parallelism with Civil Engineering that started as a <strong>empirical discipline</strong>
-and, thanks to strong scientific foundations, evolved to what we could call <em>full</em> engineering.</p>
-<p>Software Engineering is not there yet. It needs more work and professionalization. 
-<strong>Many of the so-called Software Engineers have no software engineering knowledge and/or skills</strong>
-and therefore software catastrofes happens. She even gives some examples of software failures
-like the <a href="http://www.safetyresearch.net/blog/articles/toyota-unintended-acceleration-and-big-bowl-%E2%80%9Cspaghetti%E2%80%9D-code">Toyota unintended acceleration affaire</a>,
-and the multiple identity thefts in our connected world.</p>
-<p>At the end of the talk, she makes a good summary of the last years of advancements in
-Software Engineering and also drafts what it could be the future of our young discipline.</p>
-<p>One hundred percent I recommend watching this videotalk to every Software Engineer.</p>
+    <h1>Introduction</h1>
+<p>Waterfall model is a development process based on doing software development processes one after another and not looking back.</p>
+<p>Here is a simple diagram (<a href="https://en.wikipedia.org/wiki/Waterfall_model#/media/File:Waterfall_model.svg">from Wikipedia</a>) of that model:</p>
+<p><img alt="Waterfall model" src="/images/WaterfallModelFromWikipedia.png" /></p>
+<p>That is it supposes we are infalible and the client is infalible so each phase is perfect and serves well enough the next.</p>
+<h1>Issues with waterfall model</h1>
+<p>Waterfall process model suffered a total criticism by Winston W. Royce in his paper
+<a href="https://www.cs.umd.edu/class/spring2003/cmsc838p/Process/waterfall.pdf">Managing the development of large software systems</a>,
+published in the Proceedings of IEE WESCON in August 1970.</p>
+<p>In this paper, Royce clearly showed that he was fully against using this step-by-step process. Indeed, in the second page of this work
+he said: <em>I believe in this concept, but the implementation described above is risky and invites failure.</em></p>
+<p>Why he was so vehenmetly against the waterfall model? The rest of the paper gives some support to his claim being the most important these ones:</p>
+<ul>
+<li><em>If some error is detected in test phase, there can be needed changes in requirement phase.</em></li>
+<li><em>The program design phase can create changes in software requirement phase.</em></li>
+</ul>
+<p>Already in 1970 there were voices that claimed waterfall model was not adequate for software engineering.</p>
+<h1>Solutions for this flawed model</h1>
+<p>In his paper, Royce defined what he called <em>an early simulation of the final product</em>, where the process of developing early prototipos of software that
+can affected each one of the phases of the model. So, what we call iterations or early releases to the client was almost defined in 1970! Not in the '90s
+but 40 years before the agile manifesto.</p>
+<p>The relase often <em>adagio</em> and the idea of releasing working software is also present in this paper: <em>They must quickly sense the trouble spots in the design, model them, model their alternatives, forget the straightforward aspects of the design which aren't worth studying at this early point, and finally arrive at an error-free program.</em></p>
+<p>Royce, furthermore, advocate for involving the client during the software development process: 
+<em>To give the contractor free rein between requirement definition and operation is inviting trouble.</em></p>
+<h1>Why he was forgotten?</h1>
+<p>Well, this paper is <strong>hard to read</strong> because it has no clear aim. He is criticising a software development model but also advocating fo a new one that
+is not very clear presented. His new model has some <em>agile features</em> but also mixes some of his heuristic solutions to problems he has experimented. Maybe
+too much detail in the description of his model is the cause people didn't put his teachings in practice. <strong>I had a hard time separating the basic principles from his particular model</strong>.</p>
+<p>To make things worse it has many figures that, if you don't fully read it, can give you a misleading idea of what Royce is showing here.</p>
+<p>In that time there were no software engineers, only programmers with different backgrounds. I can assume this paper
+mislead many people into thinking that this model was enough for their non-critical software developments.</p>
+<p>Royce doesn't use the term "waterfall"<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> along the paper so maybe he was ahead of his time and was not understood.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Waterfall was coined in 1976 by Bell and Thayer.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
     <footer>
-        <p>Posted in: <a href="../../../../category/videotalks.html">Videotalks</a></p>
-        <p>Tagged as: <a href="../../../../tag/software-engineering.html">software engineering</a> / <a href="../../../../tag/engineering.html">engineering</a> / <a href="../../../../tag/talk.html">talk</a> / <a href="../../../../tag/videotalk.html">videotalk</a></p>
+        <p>Posted in: <a href="../../../../category/software-engineering.html">Software Engineering</a></p>
+        <p>Tagged as: <a href="../../../../tag/software-engineering.html">software engineering</a></p>
         <p>Wanna tell me what you think? <a href="mailto:REMOVETHISdiegojREMOVETHISromeroREMOVETHISlopezREMOVETHIS@gmail.com">Get in touch.</a></p>
     </footer>
         </footer>
@@ -82,7 +109,7 @@ Software Engineering and also drafts what it could be the future of our young di
 
 var disqus_config = function () {
 this.page.url = "../../../.."; // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = "posts/2015/08/progress-towards-an-engineering-discipline-of-software/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+this.page.identifier = "posts/2016/02/waterfall-process-model-is-harmful/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 };
 
 (function() { // DON'T EDIT BELOW THIS LINE
