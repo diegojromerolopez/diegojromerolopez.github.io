@@ -5,9 +5,9 @@
 But for the most part, code where developed almost like our sub-conscience dictated us
 what to type: we were guided by instinct.&lt;/p&gt;
 &lt;p&gt;Of course, users of my applications were not so amused by this when they found
-software faults and have to wait to me to repair it.&lt;/p&gt;
+software faulted and had to wait to me to repair it.&lt;/p&gt;
 &lt;h1&gt;Refactoring&lt;/h1&gt;
-&lt;p&gt;In my &lt;a href="/posts/2016/03/refactoring"&gt;las post&lt;/a&gt; I wrote about refactoring. This process allow us
+&lt;p&gt;In my &lt;a href="/posts/2016/03/refactoring"&gt;last post&lt;/a&gt; I wrote about refactoring. This process allows us
 to improve software quality iteratively. That is, we should be always be refactoring
 our code, treating it like an evolving species.&lt;/p&gt;
 &lt;h1&gt;Tests&lt;/h1&gt;
@@ -15,13 +15,13 @@ our code, treating it like an evolving species.&lt;/p&gt;
 that our refactoring doesn't break our working software.&lt;/p&gt;
 &lt;p&gt;There are two kinds of tests: unit tests or functional tests.
 While unit tests assure me that core parts of software work fine,
-functional tests assert that what see the user is right.&lt;/p&gt;
+functional tests assert that what see the user is correct.&lt;/p&gt;
 &lt;p&gt;Testing with both types is a time-consuming task, but it is worth testing critical
 parts of software with unit and functional tests to assure the important parts work right.&lt;/p&gt;
 &lt;h1&gt;But what about changes in functionality?&lt;/h1&gt;
 &lt;p&gt;One of the reasons we did not develop tests was because we believed it slowed down
 the agile process.&lt;/p&gt;
-&lt;p&gt;If you do tests, your throughput is lower, product owner validate functionality
+&lt;p&gt;If you do tests, your throughput is lower, product owner validates functionality
 in a slower pace and the project can be slowed down or even stalled&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
 &lt;p&gt;My personal approach is:&lt;/p&gt;
 &lt;ol&gt;
@@ -37,15 +37,15 @@ in a slower pace and the project can be slowed down or even stalled&lt;sup id="f
 &lt;/li&gt;
 &lt;li&gt;If the result is rejected, throw it away.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;I suggest you to take a look to Test Driven Development although you don't
+&lt;p&gt;I suggest you to take a look to Test Driven Development even you don't
 apply it as is (as in my case&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt;).&lt;/p&gt;
-&lt;p&gt;Key concept here is &lt;strong&gt;prototype&lt;/strong&gt;. Many times, client doesn't know that he/she
+&lt;p&gt;Key concept here is &lt;strong&gt;prototyping&lt;/strong&gt;. Many times, our client doesn't know that he/she
 wants. It could be because its business is not 100% specified or maybe his/her
-ideas of what he/she wants are not as clear as should be. This way we deliver
-a working prototype that helps as a artifact to confirm or reject our idea of
+ideas of what he/she wants are not as clear as they should be. This way we deliver
+a working prototype that helps as an artifact to confirm or reject our idea of
 what the client wants&lt;sup id="fnref:3"&gt;&lt;a class="footnote-ref" href="#fn:3" rel="footnote"&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
 &lt;h1&gt;Conclusion&lt;/h1&gt;
-&lt;p&gt;Tests help us to assure some functionality works always the desired way.&lt;/p&gt;
+&lt;p&gt;Tests help us to assure that some functionality always works the desired way.&lt;/p&gt;
 &lt;p&gt;Refactoring and tests are two faces of the same coin. We cannot do one without the other.&lt;/p&gt;
 &lt;p&gt;Don't test functionality that is not validated by the client.&lt;/p&gt;
 &lt;div class="footnote"&gt;

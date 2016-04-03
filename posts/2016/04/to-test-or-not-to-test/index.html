@@ -59,9 +59,9 @@
 But for the most part, code where developed almost like our sub-conscience dictated us
 what to type: we were guided by instinct.</p>
 <p>Of course, users of my applications were not so amused by this when they found
-software faults and have to wait to me to repair it.</p>
+software faulted and had to wait to me to repair it.</p>
 <h1>Refactoring</h1>
-<p>In my <a href="/posts/2016/03/refactoring">las post</a> I wrote about refactoring. This process allow us
+<p>In my <a href="/posts/2016/03/refactoring">last post</a> I wrote about refactoring. This process allows us
 to improve software quality iteratively. That is, we should be always be refactoring
 our code, treating it like an evolving species.</p>
 <h1>Tests</h1>
@@ -69,13 +69,13 @@ our code, treating it like an evolving species.</p>
 that our refactoring doesn't break our working software.</p>
 <p>There are two kinds of tests: unit tests or functional tests.
 While unit tests assure me that core parts of software work fine,
-functional tests assert that what see the user is right.</p>
+functional tests assert that what see the user is correct.</p>
 <p>Testing with both types is a time-consuming task, but it is worth testing critical
 parts of software with unit and functional tests to assure the important parts work right.</p>
 <h1>But what about changes in functionality?</h1>
 <p>One of the reasons we did not develop tests was because we believed it slowed down
 the agile process.</p>
-<p>If you do tests, your throughput is lower, product owner validate functionality
+<p>If you do tests, your throughput is lower, product owner validates functionality
 in a slower pace and the project can be slowed down or even stalled<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>.</p>
 <p>My personal approach is:</p>
 <ol>
@@ -91,15 +91,15 @@ in a slower pace and the project can be slowed down or even stalled<sup id="fnre
 </li>
 <li>If the result is rejected, throw it away.</li>
 </ol>
-<p>I suggest you to take a look to Test Driven Development although you don't
+<p>I suggest you to take a look to Test Driven Development even you don't
 apply it as is (as in my case<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup>).</p>
-<p>Key concept here is <strong>prototype</strong>. Many times, client doesn't know that he/she
+<p>Key concept here is <strong>prototyping</strong>. Many times, our client doesn't know that he/she
 wants. It could be because its business is not 100% specified or maybe his/her
-ideas of what he/she wants are not as clear as should be. This way we deliver
-a working prototype that helps as a artifact to confirm or reject our idea of
+ideas of what he/she wants are not as clear as they should be. This way we deliver
+a working prototype that helps as an artifact to confirm or reject our idea of
 what the client wants<sup id="fnref:3"><a class="footnote-ref" href="#fn:3" rel="footnote">3</a></sup>.</p>
 <h1>Conclusion</h1>
-<p>Tests help us to assure some functionality works always the desired way.</p>
+<p>Tests help us to assure that some functionality always works the desired way.</p>
 <p>Refactoring and tests are two faces of the same coin. We cannot do one without the other.</p>
 <p>Don't test functionality that is not validated by the client.</p>
 <div class="footnote">
