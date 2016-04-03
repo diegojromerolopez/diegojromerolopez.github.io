@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Diego J's on Software Engineering Research</title><link href="http://diegojromerolopez.github.io/" rel="alternate"></link><link href="http://diegojromerolopez.github.io/feeds/diego-j.atom.xml" rel="self"></link><id>http://diegojromerolopez.github.io/</id><updated>2016-04-03T12:34:00+02:00</updated><entry><title>To test or not to test</title><link href="http://diegojromerolopez.github.io/posts/2016/04/to-test-or-not-to-test/" rel="alternate"></link><updated>2016-04-03T12:34:00+02:00</updated><author><name>Diego J.</name></author><id>tag:diegojromerolopez.github.io,2016-04-03:posts/2016/04/to-test-or-not-to-test/</id><summary type="html">&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;Some years ago, I did not use any tests. We were &lt;a href="https://en.wikipedia.org/wiki/Cowboy_coding"&gt;cowboys&lt;/a&gt; in CodeWest where only &lt;em&gt;fearful and strong people survive&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Some years ago I did not use any tests. We were &lt;a href="https://en.wikipedia.org/wiki/Cowboy_coding"&gt;cowboys&lt;/a&gt; in CodeWest where only &lt;em&gt;fearful and strong people survive&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Sometimes we tested some actions and assumed that everything else worked fine.
 But for the most part, code where developed almost like our sub-conscience dictated us
 what to type: we were guided by instinct.&lt;/p&gt;
@@ -13,10 +13,11 @@ our code, treating it like an evolving species.&lt;/p&gt;
 &lt;h1&gt;Tests&lt;/h1&gt;
 &lt;p&gt;Every basic functionality must be tested by a test. That is the only way of knowing
 that our refactoring doesn't break our working software.&lt;/p&gt;
-&lt;p&gt;Of course tests can be unit tests or functional tests. Although doing tests is a
-time expensive process, I prefer doing both unit and functional. Why? Because
-unit tests assure me that core parts of software work fine meanwhile functional
-tests assert that what see the user is right.&lt;/p&gt;
+&lt;p&gt;There are two kinds of tests: unit tests or functional tests.
+While unit tests assure me that core parts of software work fine,
+functional tests assert that what see the user is right.&lt;/p&gt;
+&lt;p&gt;Testing with both types is a time-consuming task, but it is worth testing critical
+parts of software with unit and functional tests to assure the important parts work right.&lt;/p&gt;
 &lt;h1&gt;But what about changes in functionality?&lt;/h1&gt;
 &lt;p&gt;One of the reasons we did not develop tests was because we believed it slowed down
 the agile process.&lt;/p&gt;
