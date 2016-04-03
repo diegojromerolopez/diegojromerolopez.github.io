@@ -1,5 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Diego J's on Software Engineering Research</title><link>http://diegojromerolopez.github.io/</link><description></description><atom:link href="http://diegojromerolopez.github.io/feeds/diego-j.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 05 Mar 2016 19:40:00 +0100</lastBuildDate><item><title>Refactoring</title><link>http://diegojromerolopez.github.io/posts/2016/03/refactoring/</link><description>&lt;h1&gt;Introduction&lt;/h1&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Diego J's on Software Engineering Research</title><link>http://diegojromerolopez.github.io/</link><description></description><atom:link href="http://diegojromerolopez.github.io/feeds/diego-j.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 03 Apr 2016 12:34:00 +0200</lastBuildDate><item><title>To test or not to test</title><link>http://diegojromerolopez.github.io/posts/2016/04/to-test-or-not-to-test/</link><description>&lt;p&gt;without knowing 100% something is not going to break. But do web always need tests?&lt;/p&gt;
+&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Some years ago, I did not use any tests. We were &lt;a href="https://en.wikipedia.org/wiki/Cowboy_coding"&gt;cowboys&lt;/a&gt; in CodeWest where only &lt;em&gt;fearful and strong people survive&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Sometimes we tested some actions and assumed that everything else worked fine.
+But for the most part, code where developed almost like our sub-conscience dictated us
+what to type: we were guided by instinct.&lt;/p&gt;
+&lt;p&gt;Of course, users of my applications were not so amused by this when they found
+software faults and have to wait to me to repair it.&lt;/p&gt;
+&lt;h1&gt;Refactoring&lt;/h1&gt;
+&lt;p&gt;In my &lt;a href="/posts/2016/03/refactoring"&gt;las post&lt;/a&gt; I wrote about refactoring. This process allow us
+to improve software quality iteratively. That is, we should be always be refactoring
+our code, treating it like an evolving species.&lt;/p&gt;
+&lt;h1&gt;Tests&lt;/h1&gt;
+&lt;p&gt;Every basic functionality must be tested by a test. That is the only way of knowing
+that our refactoring doesn't break our working software.&lt;/p&gt;
+&lt;p&gt;Of course tests can be unit tests or functional tests. Although doing tests is a
+time expensive process, I prefer doing both unit and functional. Why? Because
+unit tests assure me that core parts of software work fine meanwhile functional
+tests assert that what see the user is right.&lt;/p&gt;
+&lt;h1&gt;But what about changes in functionality?&lt;/h1&gt;
+&lt;p&gt;One of the reasons we did not develop tests was because we believed it slowed down
+the agile process.&lt;/p&gt;
+&lt;p&gt;If you do tests, your throughput is lower, product owner validate functionality
+in a slower pace and the project can be slowed down or even stalled&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;My personal approach is:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Product owner/Client wants some new feature.&lt;/li&gt;
+&lt;li&gt;Show the client a storyboard that contains that functionality.&lt;/li&gt;
+&lt;li&gt;Design succinctly the functionality.&lt;/li&gt;
+&lt;li&gt;Code functionality as a &lt;strong&gt;prototype&lt;/strong&gt; (without tests).&lt;/li&gt;
+&lt;li&gt;Show the result to the client.&lt;/li&gt;
+&lt;li&gt;If the result is approved,&lt;/li&gt;
+&lt;li&gt;Test it to assure functionality remains during refactoring.&lt;/li&gt;
+&lt;li&gt;Refactor it applying the best software design possible.&lt;/li&gt;
+&lt;li&gt;If the result is rejected, throw it away.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I suggest you to take a look to Test Driven Development although you don't
+apply it as is (as in my case&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt;).&lt;/p&gt;
+&lt;p&gt;Key concept here is &lt;strong&gt;prototype&lt;/strong&gt;. Many times, client doesn't know that he/she
+wants. It could be because its business is not 100% specified or maybe his/her
+ideas of what he/she wants are not as clear as should be. This way we deliver
+a working prototype that helps as a artifact to confirm or reject our idea of
+what the client wants&lt;sup id="fnref:3"&gt;&lt;a class="footnote-ref" href="#fn:3" rel="footnote"&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;h1&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;Tests help us to assure some functionality works always the desired way.&lt;/p&gt;
+&lt;p&gt;Refactoring and tests are two faces of the same coin. We cannot do one without the other.&lt;/p&gt;
+&lt;p&gt;Don't test functionality that is not validated by the client.&lt;/p&gt;
+&lt;div class="footnote"&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;Maybe software projects stalling is not a direct cause of a slow development but
+your client running out of money. Thus, client will be demotivated if no prototype is
+delivered early. In my experience, there can be no more than 1-2 weeks without deliveries
+(excluding first spike that defines project basis).&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:2"&gt;
+&lt;p&gt;There is some Test Driven Development criticism (e.g.: &lt;a href="http://stackoverflow.com/questions/64333/disadvantages-of-test-driven-development"&gt;stackoverflow thread&lt;/a&gt; that argues that
+by using this technique, developers only intent is passing the test and not
+making a good software design. I partially agrees with that sentiment and
+that's the reason I wrote this post.&amp;#160;&lt;a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn:3"&gt;
+&lt;p&gt;A mockup storyboard is a good way to extract requirements but, in my
+experience, sometimes is not enough: business and external changes can make it
+obsolete once the working prototype is delivered.&amp;#160;&lt;a class="footnote-backref" href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Diego J.</dc:creator><pubDate>Sun, 03 Apr 2016 12:34:00 +0200</pubDate><guid>tag:diegojromerolopez.github.io,2016-04-03:posts/2016/04/to-test-or-not-to-test/</guid><category>software engineering</category><category>refactoring</category><category>tests</category></item><item><title>Refactoring</title><link>http://diegojromerolopez.github.io/posts/2016/03/refactoring/</link><description>&lt;h1&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;Software is not a static element in a business. It evolves as business needs evolve. How can we make changes in software and keep high quality or, even better, not degrading it as we develop functionality?&lt;/p&gt;
 &lt;h1&gt;Refactoring&lt;/h1&gt;
 &lt;p&gt;&lt;a href="http://refactoring.com/"&gt;Refactoring&lt;/a&gt; &lt;strong&gt;is the process of changing code structure for the better while keeping the same functionality&lt;/strong&gt;. It should be a continuos activity made during software development, with the aim of easing maintainability of software.&lt;/p&gt;
