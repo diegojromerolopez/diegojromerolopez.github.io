@@ -23,17 +23,19 @@ the agile process.&lt;/p&gt;
 &lt;p&gt;If you do tests, your throughput is lower, product owner validate functionality
 in a slower pace and the project can be slowed down or even stalled&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
 &lt;p&gt;My personal approach is:&lt;/p&gt;
-&lt;ul&gt;
+&lt;ol&gt;
 &lt;li&gt;Product owner/Client wants some new feature.&lt;/li&gt;
 &lt;li&gt;Show the client a storyboard that contains that functionality.&lt;/li&gt;
 &lt;li&gt;Design succinctly the functionality.&lt;/li&gt;
 &lt;li&gt;Code functionality as a &lt;strong&gt;prototype&lt;/strong&gt; (without tests).&lt;/li&gt;
 &lt;li&gt;Show the result to the client.&lt;/li&gt;
-&lt;li&gt;If the result is approved,&lt;/li&gt;
+&lt;li&gt;If the result is approved:&lt;ol&gt;
 &lt;li&gt;Test it to assure functionality remains during refactoring.&lt;/li&gt;
 &lt;li&gt;Refactor it applying the best software design possible.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
 &lt;li&gt;If the result is rejected, throw it away.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/ol&gt;
 &lt;p&gt;I suggest you to take a look to Test Driven Development although you don't
 apply it as is (as in my case&lt;sup id="fnref:2"&gt;&lt;a class="footnote-ref" href="#fn:2" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt;).&lt;/p&gt;
 &lt;p&gt;Key concept here is &lt;strong&gt;prototype&lt;/strong&gt;. Many times, client doesn't know that he/she

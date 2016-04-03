@@ -234,7 +234,7 @@ ul {
 }
 
 ol {
-    list-style: upper-roman;
+    list-style: decimal;
 }
 
 pre, code {
