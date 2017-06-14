@@ -31,6 +31,15 @@
     </item>
     
     <item>
+      <title>Community</title>
+      <link>http://diegojromerolopez.github.io/tags/community/</link>
+      <pubDate>Wed, 14 Jun 2017 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>http://diegojromerolopez.github.io/tags/community/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Declarative Programming</title>
       <link>http://diegojromerolopez.github.io/tags/declarative-programming/</link>
       <pubDate>Tue, 25 Aug 2015 00:00:00 +0000</pubDate>
@@ -72,6 +81,15 @@
       <pubDate>Tue, 25 Aug 2015 00:00:00 +0000</pubDate>
       <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
       <guid>http://diegojromerolopez.github.io/tags/imperative-programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Open Source</title>
+      <link>http://diegojromerolopez.github.io/tags/open-source/</link>
+      <pubDate>Wed, 14 Jun 2017 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>http://diegojromerolopez.github.io/tags/open-source/</guid>
       <description></description>
     </item>
     
@@ -123,7 +141,7 @@
     <item>
       <title>Software Engineering</title>
       <link>http://diegojromerolopez.github.io/tags/software-engineering/</link>
-      <pubDate>Sun, 03 Apr 2016 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 14 Jun 2017 00:00:00 +0000</pubDate>
       <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
       <guid>http://diegojromerolopez.github.io/tags/software-engineering/</guid>
       <description></description>

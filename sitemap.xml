@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://diegojromerolopez.github.io/2017/06/the-value-of-open-source-software/</loc>
+    <lastmod>2017-06-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://diegojromerolopez.github.io/2016/04/to-test-or-not-to-test/</loc>
     <lastmod>2016-04-03T00:00:00+00:00</lastmod>
   </url>
@@ -99,6 +104,12 @@
   </url>
   
   <url>
+    <loc>http://diegojromerolopez.github.io/tags/community/</loc>
+    <lastmod>2017-06-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://diegojromerolopez.github.io/tags/declarative-programming/</loc>
     <lastmod>2015-08-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -106,7 +117,7 @@
   
   <url>
     <loc>http://diegojromerolopez.github.io/</loc>
-    <lastmod>2016-04-03T00:00:00+00:00</lastmod>
+    <lastmod>2017-06-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -135,6 +146,12 @@
   </url>
   
   <url>
+    <loc>http://diegojromerolopez.github.io/tags/open-source/</loc>
+    <lastmod>2017-06-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://diegojromerolopez.github.io/page/</loc>
     <priority>0</priority>
   </url>
@@ -147,7 +164,7 @@
   
   <url>
     <loc>http://diegojromerolopez.github.io/post/</loc>
-    <lastmod>2016-04-03T00:00:00+00:00</lastmod>
+    <lastmod>2017-06-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -177,7 +194,7 @@
   
   <url>
     <loc>http://diegojromerolopez.github.io/tags/software-engineering/</loc>
-    <lastmod>2016-04-03T00:00:00+00:00</lastmod>
+    <lastmod>2017-06-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
