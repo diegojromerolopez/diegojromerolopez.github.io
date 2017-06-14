@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Videotalks on Diego J.&#39;s Software Tar Pit</title>
+    <link>http://diegojromerolopez.github.io/tags/videotalks/</link>
+    <description>Recent content in Videotalks on Diego J.&#39;s Software Tar Pit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>diegojromerolopez@gmail.com (Diego J. Romero-López)</managingEditor>
+    <webMaster>diegojromerolopez@gmail.com (Diego J. Romero-López)</webMaster>
+    <lastBuildDate>Fri, 14 Aug 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://diegojromerolopez.github.io/tags/videotalks/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Progress towards and engineering discipline of software by Mary Shaw</title>
+      <link>http://diegojromerolopez.github.io/2015/08/progress-towards-and-engineering-discipline-of-software-by-mary-shaw/</link>
+      <pubDate>Fri, 14 Aug 2015 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>http://diegojromerolopez.github.io/2015/08/progress-towards-and-engineering-discipline-of-software-by-mary-shaw/</guid>
+      <description>Several days ago, I watched this videotalk of Mary Shaw that tried to give an answer to the question is Software Engineering an Engineering discipline yet?
+
+Dr. Shaw makes a parallelism with Civil Engineering that started as a empirical discipline and, thanks to strong scientific foundations, evolved to what we could call full engineering.
+Software Engineering is not there yet. It needs more work and professionalization. Many of the so-called Software Engineers have no software engineering knowledge and/or skills and therefore software disasters happens.</description>
+    </item>
+    
+    <item>
+      <title>Real software architecture</title>
+      <link>http://diegojromerolopez.github.io/2015/03/real-software-architecture/</link>
+      <pubDate>Tue, 03 Mar 2015 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>http://diegojromerolopez.github.io/2015/03/real-software-architecture/</guid>
+      <description>Simon Brown is an independent software consultant from Jersey (UK) and gave this talk about Software Architecture in GOTO Amsterdam 2014.
+
+This talk delights me in several ways. First, Simon show us several common problems that happens in many software companies: diagrams of the software are not synchronized with code because. That is, we design some type of software architecture but we don&amp;rsquo;t follow our own path when coding.</description>
+    </item>
+    
+  </channel>
+</rss>

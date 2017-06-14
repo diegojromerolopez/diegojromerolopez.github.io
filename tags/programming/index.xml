@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programming on Diego J.&#39;s Software Tar Pit</title>
+    <link>http://diegojromerolopez.github.io/tags/programming/</link>
+    <description>Recent content in Programming on Diego J.&#39;s Software Tar Pit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>diegojromerolopez@gmail.com (Diego J. Romero-López)</managingEditor>
+    <webMaster>diegojromerolopez@gmail.com (Diego J. Romero-López)</webMaster>
+    <lastBuildDate>Sat, 05 Mar 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://diegojromerolopez.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Refactoring</title>
+      <link>http://diegojromerolopez.github.io/2016/03/refactoring/</link>
+      <pubDate>Sat, 05 Mar 2016 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>http://diegojromerolopez.github.io/2016/03/refactoring/</guid>
+      <description>Introduction Software is not a static element in a business. It evolves as business needs evolve. How can we make changes in software and keep high quality or, even better, not degrading it as we develop functionality?
+Refactoring Refactoring is the process of changing code structure for the better while keeping the same functionality. It should be a continuos activity made during software development, with the aim of easing maintainability of software.</description>
+    </item>
+    
+    <item>
+      <title>Literate programming</title>
+      <link>http://diegojromerolopez.github.io/2015/08/literate-programming/</link>
+      <pubDate>Tue, 25 Aug 2015 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>http://diegojromerolopez.github.io/2015/08/literate-programming/</guid>
+      <description>Donald E. Knuth coined the term Literate programming in this paper he wrote almost 40 years ago.
+Knuth wrote a tool called WEB as a demonstration of what Literate Programming should be. This tool would understand Pascal and TeX code, using Pascal code to create a binary executable and using TeX code to compile its documentation file. Pascal code would be a bit different because of the use of predefined macros and it would be interleaved by TeX code describing what actions execute.</description>
+    </item>
+    
+  </channel>
+</rss>

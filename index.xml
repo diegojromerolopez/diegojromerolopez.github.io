@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Diego J.&#39;s Software Tar Pit</title>
+    <link>http://diegojromerolopez.github.io/</link>
+    <description>Recent content on Diego J.&#39;s Software Tar Pit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>diegojromerolopez@gmail.com (Diego J. Romero-López)</managingEditor>
+    <webMaster>diegojromerolopez@gmail.com (Diego J. Romero-López)</webMaster>
+    <lastBuildDate>Sun, 03 Apr 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://diegojromerolopez.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>To test or not to test</title>
+      <link>http://diegojromerolopez.github.io/2016/04/to-test-or-not-to-test/</link>
+      <pubDate>Sun, 03 Apr 2016 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>http://diegojromerolopez.github.io/2016/04/to-test-or-not-to-test/</guid>
+      <description>Introduction Some years ago I did not use any tests. We were cowboys in CodeWest where only fearful and strong people survive.
+Sometimes we tested some actions and assumed that everything else worked fine. But for the most part, code where developed almost like our sub-conscience dictated us what to type: we were guided by instinct.
+Of course, users of my applications were not so amused by this when they found software faulted and had to wait to me to repair it.</description>
+    </item>
+    
+    <item>
+      <title>Refactoring</title>
+      <link>http://diegojromerolopez.github.io/2016/03/refactoring/</link>
+      <pubDate>Sat, 05 Mar 2016 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>http://diegojromerolopez.github.io/2016/03/refactoring/</guid>
+      <description>Introduction Software is not a static element in a business. It evolves as business needs evolve. How can we make changes in software and keep high quality or, even better, not degrading it as we develop functionality?
+Refactoring Refactoring is the process of changing code structure for the better while keeping the same functionality. It should be a continuos activity made during software development, with the aim of easing maintainability of software.</description>
+    </item>
+    
+    <item>
+      <title>Waterfall process model is harmful</title>
+      <link>http://diegojromerolopez.github.io/2016/02/waterfall-process-model-is-harmful/</link>
+      <pubDate>Sat, 20 Feb 2016 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>http://diegojromerolopez.github.io/2016/02/waterfall-process-model-is-harmful/</guid>
+      <description>Introduction Waterfall model is a development process based on doing software development processes one after another and not looking back.
+Here is a simple diagram (from Waterfall model article in Wikipedia) of that model:
+Waterfall model That is it supposes we are infalible and the client is infalible so each phase is perfect and serves well enough the next.
+Issues with waterfall model Waterfall process model suffered a total criticism by Winston W.</description>
+    </item>
+    
+    <item>
+      <title>Project saboteurs</title>
+      <link>http://diegojromerolopez.github.io/2016/02/project-saboteurs/</link>
+      <pubDate>Sat, 13 Feb 2016 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>http://diegojromerolopez.github.io/2016/02/project-saboteurs/</guid>
+      <description>Introduction You have just been appointed leader of a new fascinating project. Hard years working in boring tasks have paid off. You are excited before your big day: your first meeting with your client (the owner of the business) and some other stakeholders (managers and other employees of the business).
+Sabotage So the meeting starts. Relationship with the business owner is smooth and you begin to write notes about software requirements, current system limitations, technologies&amp;hellip; You know that you&amp;rsquo;ll have more than enough information to make the first requirement document.</description>
+    </item>
+    
+    <item>
+      <title>Self-improvement</title>
+      <link>http://diegojromerolopez.github.io/2016/01/self-improvement/</link>
+      <pubDate>Sat, 30 Jan 2016 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>http://diegojromerolopez.github.io/2016/01/self-improvement/</guid>
+      <description>The rules of the game have changed During many years, society expected you to graduate and find a job you kept until your retirement. Not many people changed jobs and only professions like medical doctors and lawyers keep studying and improving their skills.
+Now the rules of the game have changed and nobody expects that almost from any profession. Maybe you are a baker and expect to use the same ingredients and make the same bread over and over again, but your clients can change or acquire new tastes!</description>
+    </item>
+    
+    <item>
+      <title>Agile project management</title>
+      <link>http://diegojromerolopez.github.io/2016/01/agile-project-management/</link>
+      <pubDate>Sun, 10 Jan 2016 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>http://diegojromerolopez.github.io/2016/01/agile-project-management/</guid>
+      <description>Software Engineering is a special type of Engineering During too much time Software Engineering has been molded as a traditional Engineering, with the same terms and ideas that came from this disciplines. But they failed.
+Firstly, Software Engineering has an immaterial final product. It is not a bridge, a road, or a mine for example. Thus, software engineers works with ideas more than anything else.
+Thus, traditional engineers are limited by Physics laws while software engineers are only limited by the computational model they use and by the power of the machines their software run.</description>
+    </item>
+    
+    <item>
+      <title>Literate programming</title>
+      <link>http://diegojromerolopez.github.io/2015/08/literate-programming/</link>
+      <pubDate>Tue, 25 Aug 2015 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>http://diegojromerolopez.github.io/2015/08/literate-programming/</guid>
+      <description>Donald E. Knuth coined the term Literate programming in this paper he wrote almost 40 years ago.
+Knuth wrote a tool called WEB as a demonstration of what Literate Programming should be. This tool would understand Pascal and TeX code, using Pascal code to create a binary executable and using TeX code to compile its documentation file. Pascal code would be a bit different because of the use of predefined macros and it would be interleaved by TeX code describing what actions execute.</description>
+    </item>
+    
+    <item>
+      <title>Out of the tar pit</title>
+      <link>http://diegojromerolopez.github.io/2015/08/out-of-the-tar-pit/</link>
+      <pubDate>Tue, 25 Aug 2015 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>http://diegojromerolopez.github.io/2015/08/out-of-the-tar-pit/</guid>
+      <description>&amp;ldquo;Tar pit&amp;rdquo; is an idiom used since 1970s based on the similarity between software complexity and tar pits trapping engineers and animals (resp.).
+Out of the tar pit is a paper that analyzes the causes of this complexity and classifies it in several categories. The authors also analyzes the approaches that each type of programming technique uses to sove this complexity problem.
+But the most important contribution the authors do is giving a solution in the form of a new paradigm of computer programming.</description>
+    </item>
+    
+    <item>
+      <title>Software construction</title>
+      <link>http://diegojromerolopez.github.io/2015/08/software-construction/</link>
+      <pubDate>Tue, 25 Aug 2015 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>http://diegojromerolopez.github.io/2015/08/software-construction/</guid>
+      <description>In my voyage from a simply Software Engineer to a master in Software Engineering I&amp;rsquo;m reading several books. Thus, I&amp;rsquo;m posting in this blog whatever thoughts appear in my mind about Software Developing.
+I&amp;rsquo;m several chapters in Code Complete 2nd Ed. of Steve McConnel and I&amp;rsquo;m amazed by the knowledge that it contains. As time goes by I will update this blog with more information about my findings.
+Specially I&amp;rsquo;ve been struck by one basic principle: Software construction is the only activity that is warrantied to be made in a software development project.</description>
+    </item>
+    
+    <item>
+      <title>Peopleware</title>
+      <link>http://diegojromerolopez.github.io/2015/08/peopleware/</link>
+      <pubDate>Fri, 14 Aug 2015 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>http://diegojromerolopez.github.io/2015/08/peopleware/</guid>
+      <description>I&amp;rsquo;ve just finished reading Tom De Marco &amp;amp; Timothy Lister&amp;rsquo;s Peopleware and I feel like this book should be recommended to all new Software Engineer graduates. Let me put some light in this matter.
+I&amp;rsquo;ve been working for 8 years in a startup and none of my formal education in the University prepared me for what I was going to experiment. Software Engineering is a social discipline (we work in teams) but in my Computer Engineering degree1 there are no management or organization courses.</description>
+    </item>
+    
+    <item>
+      <title>Progress towards and engineering discipline of software by Mary Shaw</title>
+      <link>http://diegojromerolopez.github.io/2015/08/progress-towards-and-engineering-discipline-of-software-by-mary-shaw/</link>
+      <pubDate>Fri, 14 Aug 2015 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>http://diegojromerolopez.github.io/2015/08/progress-towards-and-engineering-discipline-of-software-by-mary-shaw/</guid>
+      <description>Several days ago, I watched this videotalk of Mary Shaw that tried to give an answer to the question is Software Engineering an Engineering discipline yet?
+
+Dr. Shaw makes a parallelism with Civil Engineering that started as a empirical discipline and, thanks to strong scientific foundations, evolved to what we could call full engineering.
+Software Engineering is not there yet. It needs more work and professionalization. Many of the so-called Software Engineers have no software engineering knowledge and/or skills and therefore software disasters happens.</description>
+    </item>
+    
+    <item>
+      <title>Concurrency and third party libraries</title>
+      <link>http://diegojromerolopez.github.io/2015/08/concurrency-and-third-party-libraries/</link>
+      <pubDate>Sat, 01 Aug 2015 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>http://diegojromerolopez.github.io/2015/08/concurrency-and-third-party-libraries/</guid>
+      <description>Last friday, one of my mates had a strange error in his code: incoherent an irrepetible results arise en each execution.
+His code (Python) was concurrent code and each thread used several libraries (BeautifulSoup41 was one of them) which they were not thread-safe. What does it mean? It means we cannot assure that atomicity is achieved in some operations executed by the threads, effectively sharing some data that must not be shared.</description>
+    </item>
+    
+    <item>
+      <title>Managing clients</title>
+      <link>http://diegojromerolopez.github.io/2015/07/managing-clients/</link>
+      <pubDate>Thu, 23 Jul 2015 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>http://diegojromerolopez.github.io/2015/07/managing-clients/</guid>
+      <description>The Players It&amp;rsquo;s not a secret that software engineers prefer a clean and completed specification than metting with clients.
+We tend to think that meetings are a waste of time and many of our colleagues are not very fond of what is called soft skills.
+On the other side, we have some clients that have no idea about software and want the changes in their platform now.
+What is all of that?</description>
+    </item>
+    
+    <item>
+      <title>Real software architecture</title>
+      <link>http://diegojromerolopez.github.io/2015/03/real-software-architecture/</link>
+      <pubDate>Tue, 03 Mar 2015 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>http://diegojromerolopez.github.io/2015/03/real-software-architecture/</guid>
+      <description>Simon Brown is an independent software consultant from Jersey (UK) and gave this talk about Software Architecture in GOTO Amsterdam 2014.
+
+This talk delights me in several ways. First, Simon show us several common problems that happens in many software companies: diagrams of the software are not synchronized with code because. That is, we design some type of software architecture but we don&amp;rsquo;t follow our own path when coding.</description>
+    </item>
+    
+    <item>
+      <title>Back to basics, the mythical man-month</title>
+      <link>http://diegojromerolopez.github.io/2014/11/back-to-basics-the-mythical-man-month/</link>
+      <pubDate>Tue, 04 Nov 2014 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>http://diegojromerolopez.github.io/2014/11/back-to-basics-the-mythical-man-month/</guid>
+      <description>Frederick P. Brooks is what I&amp;rsquo;d call a true pioneer.
+Without any existing knowledge and only his own experience in the &amp;ldquo;tar pit&amp;rdquo; (as himself call this software development world), he distilled some universal truths of the Software Engineering world. So, the Mythical Man-Month is a summary of his ideas.
+This book is a night stand book, that is, you cannot hope to end it in a few days. You have to read slowly, thinking as a 60s software developer, with their limited tools and machines to fully understand this book.</description>
+    </item>
+    
+    <item>
+      <title>About me</title>
+      <link>http://diegojromerolopez.github.io/page/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>http://diegojromerolopez.github.io/page/about/</guid>
+      <description>I&amp;rsquo;m a backend developer in Drivies, former developer at intelligenia. I&amp;rsquo;m passioante about learning new things and testing new technologies.
+Apart from work, I like jogging, history and reading books.
+This blog does not reflect the views of present, past or future employers.</description>
+    </item>
+    
+  </channel>
+</rss>

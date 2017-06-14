@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>To test or not to test</title>
+  <meta property="og:title" content="To test or not to test" />
+  <meta name="twitter:title" content="To test or not to test" />
+  <meta name="description" content="Introduction Some years ago I did not use any tests. We were cowboys in CodeWest where only fearful and strong people survive.
+Sometimes we tested some actions and assumed that everything else worked fine. But for the most part, code where developed almost like our sub-conscience dictated us what to type: we were guided by instinct.
+Of course, users of my applications were not so amused by this when they found software faulted and had to wait to me to repair it.">
+  <meta property="og:description" content="Introduction Some years ago I did not use any tests. We were cowboys in CodeWest where only fearful and strong people survive.
+Sometimes we tested some actions and assumed that everything else worked fine. But for the most part, code where developed almost like our sub-conscience dictated us what to type: we were guided by instinct.
+Of course, users of my applications were not so amused by this when they found software faulted and had to wait to me to repair it.">
+  <meta name="twitter:description" content="Introduction Some years ago I did not use any tests. We were cowboys in CodeWest where only fearful and strong people survive.
+Sometimes we tested some actions and assumed that everything else worked …">
+  <meta name="author" content="Diego J. Romero-López"/>
+  <link href='http://diegojromerolopez.github.io/images/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="http://diegojromerolopez.github.io/images/diegoj-logo.png" />
+  <meta name="twitter:image" content="http://diegojromerolopez.github.io/images/diegoj-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="http://diegojromerolopez.github.io/2016/04/to-test-or-not-to-test/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Diego J.&#39;s Software Tar Pit" />
+
+  <meta name="generator" content="Hugo 0.22" />
+  <link rel="canonical" href="http://diegojromerolopez.github.io/2016/04/to-test-or-not-to-test/" />
+  <link rel="alternate" href="http://diegojromerolopez.github.io/index.xml" type="application/rss+xml" title="Diego J.&#39;s Software Tar Pit">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://diegojromerolopez.github.io/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://diegojromerolopez.github.io/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="http://diegojromerolopez.github.io/css/highlight.min.css" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://diegojromerolopez.github.io">Diego J.&#39;s Software Tar Pit</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        
+          <a title="Diego J.&#39;s Software Tar Pit" href="http://diegojromerolopez.github.io">
+            <img class="avatar-img" src="http://diegojromerolopez.github.io/images/diegoj-logo.png" alt="Diego J.&#39;s Software Tar Pit" />
+          </a>
+        
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>To test or not to test</h1>
+                
+                
+                  <span class="post-meta">
+  Posted on April 3, 2016
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        
+
+<h1 id="introduction">Introduction</h1>
+
+<p>Some years ago I did not use any tests. We were cowboys in CodeWest where only fearful and strong people survive.</p>
+
+<p>Sometimes we tested some actions and assumed that everything else worked fine. But for the most part, code where developed almost like our sub-conscience dictated us what to type: we were guided by instinct.</p>
+
+<p>Of course, users of my applications were not so amused by this when they found software faulted and had to wait to me to repair it.</p>
+
+<h1 id="refactoring">Refactoring</h1>
+
+<p>In my last post I wrote about refactoring. This process allows us to improve software quality iteratively. That is, we should be always be refactoring our code, treating it like an evolving species.</p>
+
+<h1 id="tests">Tests</h1>
+
+<p>Every basic functionality must be tested by a test. That is the only way of knowing that our refactoring doesn&rsquo;t break our working software.</p>
+
+<p>There are two kinds of tests: unit tests or functional tests. While unit tests assure me that core parts of software work fine, functional tests assert that what see the user is correct.</p>
+
+<p>Testing with both types is a time-consuming task, but it is worth testing critical parts of software with unit and functional tests to assure the important parts work right.</p>
+
+<h1 id="but-what-about-changes-in-functionality">But what about changes in functionality?</h1>
+
+<p>One of the reasons we did not develop tests was because we believed it slowed down the agile process.</p>
+
+<p>If you do tests, your throughput is lower, product owner validates functionality in a slower pace and the project can be slowed down or even stalled<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>.</p>
+
+<p>My personal approach is:</p>
+
+<ul>
+<li>Product owner/Client wants some new feature.</li>
+<li>Show the client a storyboard that contains that functionality.</li>
+<li>Design succinctly the functionality.</li>
+<li>Code functionality as a prototype (without tests).</li>
+<li>Show the result to the client.</li>
+<li>If the result is approved:</li>
+<li>Test it to assure functionality remains during refactoring.</li>
+<li>Refactor it applying the best software design possible.</li>
+<li>If the result is rejected, throw it away.</li>
+<li>I suggest you to take a look to Test Driven Development even you don&rsquo;t apply it as is (as in my case<sup class="footnote-ref" id="fnref:2"><a rel="footnote" href="#fn:2">2</a></sup>).</li>
+</ul>
+
+<p>Key concept here is prototyping. Many times, our client doesn&rsquo;t know that he/she wants. It could be because its business is not 100% specified or maybe his/her ideas of what he/she wants are not as clear as they should be. This way we deliver a working prototype that helps as an artifact to confirm or reject our idea of what the client wants<sup class="footnote-ref" id="fnref:3"><a rel="footnote" href="#fn:3">3</a></sup>.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>Tests help us to assure that some functionality always works the desired way.</p>
+
+<p>Refactoring and tests are two faces of the same coin. We cannot do one without the other.</p>
+
+<p>Don&rsquo;t test functionality that is not validated by the client.</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">Maybe software projects stalling is not a direct cause of a slow development but your client running out of money. Thus, client will be demotivated if no prototype is delivered early. In my experience, there can be no more than 1-2 weeks without deliveries (excluding first spike that defines project basis).
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">There is some Test Driven Development criticism (e.g.: stackoverflow thread that argues that by using this technique, developers only intent is passing the test and not making a good software design. I partially agrees with that sentiment and that&rsquo;s the reason I wrote this post.
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:3">A mockup storyboard is a good way to extract requirements but, in my experience, sometimes is not enough: business and external changes can make it obsolete once the working prototype is delivered.
+ <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+      </article>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="http://diegojromerolopez.github.io/2016/03/refactoring/" data-toggle="tooltip" data-placement="top" title="Refactoring">&larr; Previous Post</a>
+          </li>
+        
+        
+      </ul>
+
+      
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:diegojromerolopez@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/diegojromerolopez" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/diegojromerolopez" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="http://diegojromerolopez.github.io/index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Diego J. Romero-López
+          &nbsp;&bull;&nbsp;
+          2016
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://diegojromerolopez.github.io">Diego J.&#39;s Software Tar Pit</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.22</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://diegojromerolopez.github.io/js/main.js"></script>
+<script src="http://diegojromerolopez.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
+<script src="/js/load-photoswipe.js"></script>
+
+
+
+  </body>
+</html>
+
