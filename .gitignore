@@ -1,13 +1,11 @@
 .DS_Store
 .AppleDouble
 .LSOverride
-.hugo
 diegojromerolopez.github.io.code-workspace
 themes/
 
 # Thumbnails
 ._*
-.*
 
 # Files that might appear on external disk
 .Spotlight-V100
