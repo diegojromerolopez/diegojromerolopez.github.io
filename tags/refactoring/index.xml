@@ -14,10 +14,10 @@
     
     <item>
       <title>Refactoring</title>
-      <link>https://diegojromerolopez.github.io/2016/03/refactoring/</link>
+      <link>https://diegojromerolopez.github.io/post/2016/03/refactoring/</link>
       <pubDate>Sat, 05 Mar 2016 00:00:00 +0000</pubDate>
       <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
-      <guid>https://diegojromerolopez.github.io/2016/03/refactoring/</guid>
+      <guid>https://diegojromerolopez.github.io/post/2016/03/refactoring/</guid>
       <description>Introduction Software is not a static element in a business. It evolves as business needs evolve. How can we make changes in software and keep high quality or, even better, not degrading it as we develop functionality?
 Refactoring Refactoring is the process of changing code structure for the better while keeping the same functionality. It should be a continuos activity made during software development, with the aim of easing maintainability of software.</description>
     </item>
