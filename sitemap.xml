@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://diegojromerolopez.github.io/blog/2019/08/job-searching-successfully/</loc>
+    <lastmod>2019-08-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://diegojromerolopez.github.io/blog/2018/12/what-i-learned-this-2018/</loc>
     <lastmod>2018-12-23T00:00:00+00:00</lastmod>
   </url>
@@ -98,6 +103,12 @@
   </url>
   
   <url>
+    <loc>https://diegojromerolopez.github.io/tags/career/</loc>
+    <lastmod>2019-08-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://diegojromerolopez.github.io/categories/</loc>
     <priority>0</priority>
   </url>
@@ -122,7 +133,7 @@
   
   <url>
     <loc>https://diegojromerolopez.github.io/</loc>
-    <lastmod>2018-12-23T00:00:00+00:00</lastmod>
+    <lastmod>2019-08-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -169,7 +180,7 @@
   
   <url>
     <loc>https://diegojromerolopez.github.io/post/</loc>
-    <lastmod>2018-12-23T00:00:00+00:00</lastmod>
+    <lastmod>2019-08-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -199,13 +210,13 @@
   
   <url>
     <loc>https://diegojromerolopez.github.io/tags/self-improvement/</loc>
-    <lastmod>2018-12-23T00:00:00+00:00</lastmod>
+    <lastmod>2019-08-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://diegojromerolopez.github.io/tags/software-engineering/</loc>
-    <lastmod>2018-12-23T00:00:00+00:00</lastmod>
+    <lastmod>2019-08-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
