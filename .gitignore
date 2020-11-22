@@ -19,5 +19,4 @@ Temporary Items
 .apdisk
 *.py
 *.pyc
-*.sh
 Makefile
