@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Refactoring on Diego J.&#39;s Software Tar Pit</title>
-    <link>http://diegojromerolopez.github.io/tags/refactoring/</link>
+    <link>https://diegojromerolopez.github.io/tags/refactoring/</link>
     <description>Recent content in Refactoring on Diego J.&#39;s Software Tar Pit</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>diegojromerolopez@gmail.com (Diego J. Romero-López)</managingEditor>
     <webMaster>diegojromerolopez@gmail.com (Diego J. Romero-López)</webMaster>
     <lastBuildDate>Sat, 05 Mar 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://diegojromerolopez.github.io/tags/refactoring/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://diegojromerolopez.github.io/tags/refactoring/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Refactoring</title>
-      <link>http://diegojromerolopez.github.io/2016/03/refactoring/</link>
+      <link>https://diegojromerolopez.github.io/2016/03/refactoring/</link>
       <pubDate>Sat, 05 Mar 2016 00:00:00 +0000</pubDate>
       <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
-      <guid>http://diegojromerolopez.github.io/2016/03/refactoring/</guid>
+      <guid>https://diegojromerolopez.github.io/2016/03/refactoring/</guid>
       <description>Introduction Software is not a static element in a business. It evolves as business needs evolve. How can we make changes in software and keep high quality or, even better, not degrading it as we develop functionality?
 Refactoring Refactoring is the process of changing code structure for the better while keeping the same functionality. It should be a continuos activity made during software development, with the aim of easing maintainability of software.</description>
     </item>

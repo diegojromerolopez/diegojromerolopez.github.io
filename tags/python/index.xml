@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on Diego J.&#39;s Software Tar Pit</title>
-    <link>http://diegojromerolopez.github.io/tags/python/</link>
+    <link>https://diegojromerolopez.github.io/tags/python/</link>
     <description>Recent content in Python on Diego J.&#39;s Software Tar Pit</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>diegojromerolopez@gmail.com (Diego J. Romero-López)</managingEditor>
     <webMaster>diegojromerolopez@gmail.com (Diego J. Romero-López)</webMaster>
     <lastBuildDate>Sat, 01 Aug 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://diegojromerolopez.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://diegojromerolopez.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Concurrency and third party libraries</title>
-      <link>http://diegojromerolopez.github.io/2015/08/concurrency-and-third-party-libraries/</link>
+      <link>https://diegojromerolopez.github.io/2015/08/concurrency-and-third-party-libraries/</link>
       <pubDate>Sat, 01 Aug 2015 00:00:00 +0000</pubDate>
       <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
-      <guid>http://diegojromerolopez.github.io/2015/08/concurrency-and-third-party-libraries/</guid>
+      <guid>https://diegojromerolopez.github.io/2015/08/concurrency-and-third-party-libraries/</guid>
       <description>Last friday, one of my mates had a strange error in his code: incoherent an irrepetible results arise en each execution.
 His code (Python) was concurrent code and each thread used several libraries (BeautifulSoup41 was one of them) which they were not thread-safe. What does it mean? It means we cannot assure that atomicity is achieved in some operations executed by the threads, effectively sharing some data that must not be shared.</description>
     </item>
