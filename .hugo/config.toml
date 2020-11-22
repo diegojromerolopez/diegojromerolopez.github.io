@@ -25,7 +25,8 @@ cover = "/static/images/cover.jpg"
   logo = "/static/images/diegoj-logo.png"
   favicon = "/static/images/favicon.ico"
   [permalinks]
-    post = "/:year/:month/:title/"
+    post = "/blog/:year/:month/:title/"
+  paginatePath = "blog/page"
 
 
 
