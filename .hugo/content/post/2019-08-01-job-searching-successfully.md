@@ -1,5 +1,5 @@
 ---
-title: job searching successfully
+title: Job searching successfully
 date: "2019-08-01T00:00:00+00:00"
 draft: false
 tags: ["software engineering", "self-improvement", "career"]
