@@ -14,10 +14,10 @@
     
     <item>
       <title>Software construction</title>
-      <link>https://diegojromerolopez.github.io/post/2015/08/software-construction/</link>
+      <link>https://diegojromerolopez.github.io/2015/08/software-construction/</link>
       <pubDate>Tue, 25 Aug 2015 00:00:00 +0000</pubDate>
       <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
-      <guid>https://diegojromerolopez.github.io/post/2015/08/software-construction/</guid>
+      <guid>https://diegojromerolopez.github.io/2015/08/software-construction/</guid>
       <description>In my voyage from a simply Software Engineer to a master in Software Engineering I&amp;rsquo;m reading several books. Thus, I&amp;rsquo;m posting in this blog whatever thoughts appear in my mind about Software Developing.
 I&amp;rsquo;m several chapters in Code Complete 2nd Ed. of Steve McConnel and I&amp;rsquo;m amazed by the knowledge that it contains. As time goes by I will update this blog with more information about my findings.
 Specially I&amp;rsquo;ve been struck by one basic principle: Software construction is the only activity that is warrantied to be made in a software development project.</description>
@@ -25,20 +25,20 @@ Specially I&amp;rsquo;ve been struck by one basic principle: Software constructi
     
     <item>
       <title>Peopleware</title>
-      <link>https://diegojromerolopez.github.io/post/2015/08/peopleware/</link>
+      <link>https://diegojromerolopez.github.io/2015/08/peopleware/</link>
       <pubDate>Fri, 14 Aug 2015 00:00:00 +0000</pubDate>
       <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
-      <guid>https://diegojromerolopez.github.io/post/2015/08/peopleware/</guid>
+      <guid>https://diegojromerolopez.github.io/2015/08/peopleware/</guid>
       <description>I&amp;rsquo;ve just finished reading Tom De Marco &amp;amp; Timothy Lister&amp;rsquo;s Peopleware and I feel like this book should be recommended to all new Software Engineer graduates. Let me put some light in this matter.
 I&amp;rsquo;ve been working for 8 years in a startup and none of my formal education in the University prepared me for what I was going to experiment. Software Engineering is a social discipline (we work in teams) but in my Computer Engineering degree1 there are no management or organization courses.</description>
     </item>
     
     <item>
       <title>Back to basics, the mythical man-month</title>
-      <link>https://diegojromerolopez.github.io/post/2014/11/back-to-basics-the-mythical-man-month/</link>
+      <link>https://diegojromerolopez.github.io/2014/11/back-to-basics-the-mythical-man-month/</link>
       <pubDate>Tue, 04 Nov 2014 00:00:00 +0000</pubDate>
       <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
-      <guid>https://diegojromerolopez.github.io/post/2014/11/back-to-basics-the-mythical-man-month/</guid>
+      <guid>https://diegojromerolopez.github.io/2014/11/back-to-basics-the-mythical-man-month/</guid>
       <description>Frederick P. Brooks is what I&amp;rsquo;d call a true pioneer.
 Without any existing knowledge and only his own experience in the &amp;ldquo;tar pit&amp;rdquo; (as himself call this software development world), he distilled some universal truths of the Software Engineering world. So, the Mythical Man-Month is a summary of his ideas.
 This book is a night stand book, that is, you cannot hope to end it in a few days. You have to read slowly, thinking as a 60s software developer, with their limited tools and machines to fully understand this book.</description>

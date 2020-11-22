@@ -14,20 +14,20 @@
     
     <item>
       <title>Literate programming</title>
-      <link>https://diegojromerolopez.github.io/post/2015/08/literate-programming/</link>
+      <link>https://diegojromerolopez.github.io/2015/08/literate-programming/</link>
       <pubDate>Tue, 25 Aug 2015 00:00:00 +0000</pubDate>
       <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
-      <guid>https://diegojromerolopez.github.io/post/2015/08/literate-programming/</guid>
+      <guid>https://diegojromerolopez.github.io/2015/08/literate-programming/</guid>
       <description>Donald E. Knuth coined the term Literate programming in this paper he wrote almost 40 years ago.
 Knuth wrote a tool called WEB as a demonstration of what Literate Programming should be. This tool would understand Pascal and TeX code, using Pascal code to create a binary executable and using TeX code to compile its documentation file. Pascal code would be a bit different because of the use of predefined macros and it would be interleaved by TeX code describing what actions execute.</description>
     </item>
     
     <item>
       <title>Out of the tar pit</title>
-      <link>https://diegojromerolopez.github.io/post/2015/08/out-of-the-tar-pit/</link>
+      <link>https://diegojromerolopez.github.io/2015/08/out-of-the-tar-pit/</link>
       <pubDate>Tue, 25 Aug 2015 00:00:00 +0000</pubDate>
       <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
-      <guid>https://diegojromerolopez.github.io/post/2015/08/out-of-the-tar-pit/</guid>
+      <guid>https://diegojromerolopez.github.io/2015/08/out-of-the-tar-pit/</guid>
       <description>&amp;ldquo;Tar pit&amp;rdquo; is an idiom used since 1970s based on the similarity between software complexity and tar pits trapping engineers and animals (resp.).
 Out of the tar pit is a paper that analyzes the causes of this complexity and classifies it in several categories. The authors also analyzes the approaches that each type of programming technique uses to sove this complexity problem.
 But the most important contribution the authors do is giving a solution in the form of a new paradigm of computer programming.</description>
