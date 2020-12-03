@@ -3,6 +3,7 @@ DefaultContentLanguage = "en"
 title = "Diego J.'s Software Tar Pit"
 theme = "beautifulhugo"
 cover = "/static/images/cover.jpg"
+disqusShortname = "diego-j-s-software-tar-pit"
 
 [taxonomies]
   category = "categories"
