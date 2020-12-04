@@ -1,43 +1,165 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
   <head>
+    
+
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Refactoring</title>
-  <meta property="og:title" content="Refactoring" />
-  <meta name="twitter:title" content="Refactoring" />
+  <title>Refactoring - Diego J.&#39;s Software Tar Pit</title>
   <meta name="description" content="Introduction Software is not a static element in a business. It evolves as business needs evolve. How can we make changes in software and keep high quality or, even better, not degrading it as we develop functionality?
 Refactoring Refactoring is the process of changing code structure for the better while keeping the same functionality. It should be a continuos activity made during software development, with the aim of easing maintainability of software.">
-  <meta property="og:description" content="Introduction Software is not a static element in a business. It evolves as business needs evolve. How can we make changes in software and keep high quality or, even better, not degrading it as we develop functionality?
+  <meta name="author" content="Diego J. Romero-López"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Diego J.\u0027s Software Tar Pit",
+    
+    "url": "https:\/\/diegojromerolopez.github.io"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/diegojromerolopez.github.io"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/diegojromerolopez.github.io",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/diegojromerolopez.github.io\/blog\/2016\/03\/refactoring\/",
+          "name": "Refactoring"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Diego J. Romero-López"
+  },
+  "headline": "Refactoring",
+  "description" : "Introduction Software is not a static element in a business. It evolves as business needs evolve. How can we make changes in software and keep high quality or, even better, not degrading it as we develop functionality?\nRefactoring Refactoring is the process of changing code structure for the better while keeping the same functionality. It should be a continuos activity made during software development, with the aim of easing maintainability of software.",
+  "inLanguage" : "en",
+  "wordCount":  434 ,
+  "datePublished" : "2016-03-05T00:00:00",
+  "dateModified" : "2016-03-05T00:00:00",
+  "image" : "https:\/\/diegojromerolopez.github.io\/static\/images\/diegoj-logo.png",
+  "keywords" : [ "software engineering, refactoring, programming" ],
+  "mainEntityOfPage" : "https:\/\/diegojromerolopez.github.io\/blog\/2016\/03\/refactoring\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/diegojromerolopez.github.io",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/diegojromerolopez.github.io\/static\/images\/diegoj-logo.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Refactoring" />
+<meta property="og:description" content="Introduction Software is not a static element in a business. It evolves as business needs evolve. How can we make changes in software and keep high quality or, even better, not degrading it as we develop functionality?
 Refactoring Refactoring is the process of changing code structure for the better while keeping the same functionality. It should be a continuos activity made during software development, with the aim of easing maintainability of software.">
+<meta property="og:image" content="https://diegojromerolopez.github.io/static/images/diegoj-logo.png" />
+<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2016/03/refactoring/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Diego J.&#39;s Software Tar Pit" />
+
+  <meta name="twitter:title" content="Refactoring" />
   <meta name="twitter:description" content="Introduction Software is not a static element in a business. It evolves as business needs evolve. How can we make changes in software and keep high quality or, even better, not degrading it as we …">
-  <meta name="author" content="Diego J. Romero-López"/>
-  <link href='https://diegojromerolopez.github.io/static/images/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta property="og:image" content="https://diegojromerolopez.github.io/static/images/diegoj-logo.png" />
   <meta name="twitter:image" content="https://diegojromerolopez.github.io/static/images/diegoj-logo.png" />
   <meta name="twitter:card" content="summary" />
-  <meta property="og:url" content="https://diegojromerolopez.github.io/blog/2016/03/refactoring/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Diego J.&#39;s Software Tar Pit" />
-
-  <meta name="generator" content="Hugo 0.41" />
-  <link rel="canonical" href="https://diegojromerolopez.github.io/blog/2016/03/refactoring/" />
-  <link rel="alternate" href="https://diegojromerolopez.github.io/index.xml" type="application/rss+xml" title="Diego J.&#39;s Software Tar Pit">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://diegojromerolopez.github.io/css/main.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
-  <link rel="stylesheet" href="https://diegojromerolopez.github.io/css/pygment_highlights.css" />
-  <link rel="stylesheet" href="https://diegojromerolopez.github.io/css/highlight.min.css" />
+  <link href='https://diegojromerolopez.github.io/static/images/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.79.0" />
+  <link rel="alternate" href="https://diegojromerolopez.github.io/index.xml" type="application/rss+xml" title="Diego J.&#39;s Software Tar Pit"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://diegojromerolopez.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="https://diegojromerolopez.github.io/css/syntax.css" /><link rel="stylesheet" href="https://diegojromerolopez.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css" integrity="sha256-sCl5PUOGMLfFYctzDW3MtRib0ctyUvI9Qsmq2wXOeBY=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css" integrity="sha256-BFeI1V+Vh1Rk37wswuOYn5lsTcaU96hGaI7OUVCLjPc=" crossorigin="anonymous" />
 
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://diegojromerolopez.github.io">Diego J.&#39;s Software Tar Pit</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Diego J.&#39;s Software Tar Pit" href="https://diegojromerolopez.github.io">
+            <img class="avatar-img" src="https://diegojromerolopez.github.io/static/images/diegoj-logo.png" alt="Diego J.&#39;s Software Tar Pit" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
 
 
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
@@ -84,69 +206,12 @@ Refactoring Refactoring is the process of changing code structure for the better
     </div>
 </div>
 
-</head>
 
-  <body>
-    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="https://diegojromerolopez.github.io">Diego J.&#39;s Software Tar Pit</a>
-    </div>
-
-    <div class="collapse navbar-collapse" id="main-navbar">
-      <ul class="nav navbar-nav navbar-right">
-        
-          
-            <li>
-              <a title="Blog" href="/">Blog</a>
-            </li>
-          
-        
-          
-            <li>
-              <a title="About" href="/page/about/">About</a>
-            </li>
-          
-        
-          
-            <li>
-              <a title="Tags" href="/tags">Tags</a>
-            </li>
-          
-        
-
-        
-
-        
-      </ul>
-    </div>
-
-    <div class="avatar-container">
-      <div class="avatar-img-border">
-        
-          <a title="Diego J.&#39;s Software Tar Pit" href="https://diegojromerolopez.github.io">
-            <img class="avatar-img" src="https://diegojromerolopez.github.io/static/images/diegoj-logo.png" alt="Diego J.&#39;s Software Tar Pit" />
-          </a>
-        
-      </div>
-    </div>
-
-  </div>
-</nav>
-
-
-
-
-    
   
   
   
+
+
 
 
 
@@ -156,21 +221,33 @@ Refactoring Refactoring is the process of changing code structure for the better
   <header class="header-section ">
     
     <div class="intro-header no-img">
-      
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
-              <h1>Refactoring</h1>
-                
-                
-                  <span class="post-meta">
-  Posted on March 5, 2016
+              
+                <h1>Refactoring</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
+    
+  
   
 </span>
 
 
-                
+              
             </div>
           </div>
         </div>
@@ -184,71 +261,74 @@ Refactoring Refactoring is the process of changing code structure for the better
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
+        <h1 id="introduction">Introduction</h1>
+<p>Software is not a static element in a business. It evolves as business needs evolve. How can we make changes in software and keep high quality or, even better, not degrading it as we develop functionality?</p>
+<h1 id="refactoring">Refactoring</h1>
+<p><a href="https://refactoring.com/">Refactoring</a> is the process of changing code structure for the better while keeping the same functionality. It should be a continuos activity made during software development, with the aim of easing maintainability of software.</p>
+<p>The main aim of refactoring is having a simpler software design, increasing its understandability and therefore, making easier software maintenance and extension.</p>
+<h1 id="how-can-i-learn-refactoring">How can I learn refactoring?</h1>
+<p>Martin Fowler<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> wrote a compendium of known refactorings: <a href="https://martinfowler.com/books/refactoring.html">Refactoring</a></p>
+<p>The heuristics used to know when to apply a refactoring pattern is what he calls &ldquo;smells of software&rdquo;. If the software stinks, you have to refactor it. Or in a more formal way, software smell is only one of the first common symptoms of fracture in the design of a piece of software.</p>
+<p>In the same way a neighborhood starts decaying and its first symptoms one can find broken windows, garbage in the street, graffitis in the walls, etc. Software must be taken care when we detect bad quality code.</p>
+<p>Thus, I really like the way Martin explains each pattern. Each one of them has a name, motivation and a description of how to apply it, step by step. There are also some easy examples to help you understand what means applying the pattern to a piece of code.</p>
+<h1 id="how-to-refactor">How to refactor?</h1>
+<p>Changing code. As simple as that. Given we have a test that our bad quality passes, our aim has to be to apply the appropriate software refactoring pattern to make it pass too.</p>
+<p>Of course, we can apply several of them in the process of refactoring, we don&rsquo;t have to be robots. One thing is for sure, our changed must be tested. Martin emphasizes the use of tests as a foundation of refactoring.</p>
+<p>Why use tests? The test is what we use to assert that the refactoring does not break our software. If we don&rsquo;t have test, how can we assure software keeps working?</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>Read Martin Fowler&rsquo;s book and then, read again and keep it as a reference manual.</p>
+<p>As the software projects moves forward, refactorings will be needed to fix missteps taken during software development.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Martin Fowler is one of the current giants of Software Engineering. He is a big defender of using microservice architectures and refactoring as tools to increase software quality. His <a href="https://www.martinfowler.com/">site</a> has many Software Engineering resources and is a must-go site from time to time for me. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://diegojromerolopez.github.io/tags/software-engineering/">software engineering</a>&nbsp;
+            
+              <a href="https://diegojromerolopez.github.io/tags/refactoring/">refactoring</a>&nbsp;
+            
+              <a href="https://diegojromerolopez.github.io/tags/programming/">programming</a>&nbsp;
+            
+          </div>
         
 
-<h1 id="introduction">Introduction</h1>
+        
 
-<p>Software is not a static element in a business. It evolves as business needs evolve. How can we make changes in software and keep high quality or, even better, not degrading it as we develop functionality?</p>
-
-<h1 id="refactoring">Refactoring</h1>
-
-<p><a href="https://refactoring.com/">Refactoring</a> is the process of changing code structure for the better while keeping the same functionality. It should be a continuos activity made during software development, with the aim of easing maintainability of software.</p>
-
-<p>The main aim of refactoring is having a simpler software design, increasing its understandability and therefore, making easier software maintenance and extension.</p>
-
-<h1 id="how-can-i-learn-refactoring">How can I learn refactoring?</h1>
-
-<p>Martin Fowler<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> wrote a compendium of known refactorings: <a href="https://martinfowler.com/books/refactoring.html">Refactoring</a></p>
-
-<p>The heuristics used to know when to apply a refactoring pattern is what he calls &ldquo;smells of software&rdquo;. If the software stinks, you have to refactor it. Or in a more formal way, software smell is only one of the first common symptoms of fracture in the design of a piece of software.</p>
-
-<p>In the same way a neighborhood starts decaying and its first symptoms one can find broken windows, garbage in the street, graffitis in the walls, etc. Software must be taken care when we detect bad quality code.</p>
-
-<p>Thus, I really like the way Martin explains each pattern. Each one of them has a name, motivation and a description of how to apply it, step by step. There are also some easy examples to help you understand what means applying the pattern to a piece of code.</p>
-
-<h1 id="how-to-refactor">How to refactor?</h1>
-
-<p>Changing code. As simple as that. Given we have a test that our bad quality passes, our aim has to be to apply the appropriate software refactoring pattern to make it pass too.</p>
-
-<p>Of course, we can apply several of them in the process of refactoring, we don&rsquo;t have to be robots. One thing is for sure, our changed must be tested. Martin emphasizes the use of tests as a foundation of refactoring.</p>
-
-<p>Why use tests? The test is what we use to assert that the refactoring does not break our software. If we don&rsquo;t have test, how can we assure software keeps working?</p>
-
-<h1 id="conclusion">Conclusion</h1>
-
-<p>Read Martin Fowler&rsquo;s book and then, read again and keep it as a reference manual.</p>
-
-<p>As the software projects moves forward, refactorings will be needed to fix missteps taken during software development.</p>
-<div class="footnotes">
-
-<hr />
-
-<ol>
-<li id="fn:1">Martin Fowler is one of the current giants of Software Engineering. He is a big defender of using microservice architectures and refactoring as tools to increase software quality. His <a href="https://www.martinfowler.com/">site</a> has many Software Engineering resources and is a must-go site from time to time for me.
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
-</ol>
-</div>
-
+        
       </article>
 
-      <ul class="pager blog-pager">
-        
-          <li class="previous">
-            <a href="https://diegojromerolopez.github.io/blog/2016/02/waterfall-process-model-is-harmful/" data-toggle="tooltip" data-placement="top" title="Waterfall process model is harmful">&larr; Previous Post</a>
-          </li>
-        
-        
-          <li class="next">
-            <a href="https://diegojromerolopez.github.io/blog/2016/04/to-test-or-not-to-test/" data-toggle="tooltip" data-placement="top" title="To test or not to test">Next Post &rarr;</a>
-          </li>
-        
-      </ul>
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://diegojromerolopez.github.io/blog/2016/02/waterfall-process-model-is-harmful/" data-toggle="tooltip" data-placement="top" title="Waterfall process model is harmful">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://diegojromerolopez.github.io/blog/2016/04/to-test-or-not-to-test/" data-toggle="tooltip" data-placement="top" title="To test or not to test">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
 
       
         
+          
           <div class="disqus-comments">
             
           </div>
+          
+        
         
       
 
@@ -256,7 +336,8 @@ Refactoring Refactoring is the process of changing code structure for the better
   </div>
 </div>
 
-    <footer>
+      
+<footer>
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -265,42 +346,49 @@ Refactoring Refactoring is the process of changing code structure for the better
               <li>
                 <a href="mailto:diegojromerolopez@gmail.com" title="Email me">
                   <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
                   </span>
                 </a>
               </li>
               <li>
                 <a href="https://github.com/diegojromerolopez" title="GitHub">
                   <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
                   </span>
                 </a>
               </li>
               <li>
                 <a href="https://linkedin.com/in/diegojromerolopez" title="LinkedIn">
                   <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
                   </span>
                 </a>
               </li>
           
           <li>
-            <a href="https://diegojromerolopez.github.io/index.xml" title="RSS">
+            <a href="" title="RSS">
               <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
               </span>
             </a>
           </li>
           
         </ul>
         <p class="credits copyright text-muted">
-          Diego J. Romero-López
-          &nbsp;&bull;&nbsp;
-          2020
+          
+            
+              Diego J. Romero-López
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2020
+          
 
           
             &nbsp;&bull;&nbsp;
@@ -309,28 +397,29 @@ Refactoring Refactoring is the process of changing code structure for the better
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.41</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="https://gohugo.io">Hugo v0.79.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>
     </div>
   </div>
-</footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="https://diegojromerolopez.github.io/js/main.js"></script>
-<script src="https://diegojromerolopez.github.io/js/highlight.min.js"></script>
-<script> hljs.initHighlightingOnLoad(); </script>
-<script> renderMathInElement(document.body); </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
-<script src="/js/load-photoswipe.js"></script>
+
+<script src="https://diegojromerolopez.github.io/js/main.js"></script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://diegojromerolopez.github.io/js/load-photoswipe.js"></script>
 
 
 
+
+
+
+
+
+
+    
   </body>
 </html>
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Diego J.&#39;s Software Tar Pit</title>
@@ -6,10 +6,6 @@
     <description>Recent content in Categories on Diego J.&#39;s Software Tar Pit</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>diegojromerolopez@gmail.com (Diego J. Romero-López)</managingEditor>
-    <webMaster>diegojromerolopez@gmail.com (Diego J. Romero-López)</webMaster>
-    
-	<atom:link href="https://diegojromerolopez.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <webMaster>diegojromerolopez@gmail.com (Diego J. Romero-López)</webMaster><atom:link href="https://diegojromerolopez.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

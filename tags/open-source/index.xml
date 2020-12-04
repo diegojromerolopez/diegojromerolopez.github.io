@@ -1,17 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Open Source on Diego J.&#39;s Software Tar Pit</title>
+    <title>open source on Diego J.&#39;s Software Tar Pit</title>
     <link>https://diegojromerolopez.github.io/tags/open-source/</link>
-    <description>Recent content in Open Source on Diego J.&#39;s Software Tar Pit</description>
+    <description>Recent content in open source on Diego J.&#39;s Software Tar Pit</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>diegojromerolopez@gmail.com (Diego J. Romero-López)</managingEditor>
     <webMaster>diegojromerolopez@gmail.com (Diego J. Romero-López)</webMaster>
-    <lastBuildDate>Wed, 14 Jun 2017 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://diegojromerolopez.github.io/tags/open-source/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 14 Jun 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://diegojromerolopez.github.io/tags/open-source/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The value of open source software</title>
       <link>https://diegojromerolopez.github.io/blog/2017/06/the-value-of-open-source-software/</link>

@@ -1,17 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Education on Diego J.&#39;s Software Tar Pit</title>
+    <title>education on Diego J.&#39;s Software Tar Pit</title>
     <link>https://diegojromerolopez.github.io/tags/education/</link>
-    <description>Recent content in Education on Diego J.&#39;s Software Tar Pit</description>
+    <description>Recent content in education on Diego J.&#39;s Software Tar Pit</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>diegojromerolopez@gmail.com (Diego J. Romero-López)</managingEditor>
     <webMaster>diegojromerolopez@gmail.com (Diego J. Romero-López)</webMaster>
-    <lastBuildDate>Sat, 20 Feb 2016 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://diegojromerolopez.github.io/tags/education/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 20 Feb 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://diegojromerolopez.github.io/tags/education/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Waterfall process model is harmful</title>
       <link>https://diegojromerolopez.github.io/blog/2016/02/waterfall-process-model-is-harmful/</link>

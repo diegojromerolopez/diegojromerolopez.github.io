@@ -1,17 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Client Management on Diego J.&#39;s Software Tar Pit</title>
+    <title>client management on Diego J.&#39;s Software Tar Pit</title>
     <link>https://diegojromerolopez.github.io/tags/client-management/</link>
-    <description>Recent content in Client Management on Diego J.&#39;s Software Tar Pit</description>
+    <description>Recent content in client management on Diego J.&#39;s Software Tar Pit</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>diegojromerolopez@gmail.com (Diego J. Romero-López)</managingEditor>
     <webMaster>diegojromerolopez@gmail.com (Diego J. Romero-López)</webMaster>
-    <lastBuildDate>Thu, 23 Jul 2015 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://diegojromerolopez.github.io/tags/client-management/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 23 Jul 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://diegojromerolopez.github.io/tags/client-management/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Managing clients</title>
       <link>https://diegojromerolopez.github.io/blog/2015/07/managing-clients/</link>

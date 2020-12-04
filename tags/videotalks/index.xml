@@ -1,17 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Videotalks on Diego J.&#39;s Software Tar Pit</title>
+    <title>videotalks on Diego J.&#39;s Software Tar Pit</title>
     <link>https://diegojromerolopez.github.io/tags/videotalks/</link>
-    <description>Recent content in Videotalks on Diego J.&#39;s Software Tar Pit</description>
+    <description>Recent content in videotalks on Diego J.&#39;s Software Tar Pit</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>diegojromerolopez@gmail.com (Diego J. Romero-López)</managingEditor>
     <webMaster>diegojromerolopez@gmail.com (Diego J. Romero-López)</webMaster>
-    <lastBuildDate>Fri, 14 Aug 2015 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://diegojromerolopez.github.io/tags/videotalks/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 14 Aug 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://diegojromerolopez.github.io/tags/videotalks/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Progress towards and engineering discipline of software by Mary Shaw</title>
       <link>https://diegojromerolopez.github.io/blog/2015/08/progress-towards-and-engineering-discipline-of-software-by-mary-shaw/</link>
