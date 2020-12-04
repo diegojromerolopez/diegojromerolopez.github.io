@@ -29,7 +29,9 @@ disqusShortname = "diego-j-s-software-tar-pit"
     post = "/blog/:year/:month/:title/"
   paginatePath = "blog/page"
 
-
+[privacy]
+  [privacy.disqus]
+    disable = false
 
 [[menu.main]]
     name = "Blog"
