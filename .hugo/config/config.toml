@@ -31,7 +31,7 @@ disqusShortname = "diego-j-s-software-tar-pit"
 
 [privacy]
   [privacy.disqus]
-    disable = false
+    disable = true
 
 [[menu.main]]
     name = "Blog"
