@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>diegojromerolopez@gmail.com (Diego J. Romero-López)</managingEditor>
     <webMaster>diegojromerolopez@gmail.com (Diego J. Romero-López)</webMaster>
-    <lastBuildDate>Sat, 01 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://diegojromerolopez.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://diegojromerolopez.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ethical issues of Artificial Intelligence</title>
+      <link>https://diegojromerolopez.github.io/blog/2021/01/ethical-issues-of-artificial-intelligence/</link>
+      <pubDate>Sun, 17 Jan 2021 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>https://diegojromerolopez.github.io/blog/2021/01/ethical-issues-of-artificial-intelligence/</guid>
+      <description>Introduction There is a mooc in the University of Helsinki about the ethics of artificial intelligenice. I just started it and it&amp;rsquo;s great.
+The triumph of technicism Us engineers tend to think that there is no problem (technical or else) that cannot be resolved by technological means. That&amp;rsquo;s called technicism.
+Usually that&amp;rsquo;s right for small-scale problems or systems, but in the case of artificial intelligence, or being more precise machine learning that&amp;rsquo;s not true.</description>
+    </item>
+    
     <item>
       <title>What is the most useful skill for software engineers?</title>
       <link>https://diegojromerolopez.github.io/blog/2020/02/what-is-the-most-useful-skill-for-software-engineers/</link>
@@ -17,17 +28,6 @@
       <description>What is the most useful skill for software engineers? Programming? Algorithms? Knowing many language or the internals of some languages? No.
 The best skill for a software engineer is knowing how to write well. There are some studies that establish a relationship between language skills and programming skills. It seems having strong language skills is better than being good at math when talking about developing software.
 I can imagine that that&amp;rsquo;s because communication is a foundation of software engineering.</description>
-    </item>
-    
-    <item>
-      <title>Ethical issues of Artificial Intelligence</title>
-      <link>https://diegojromerolopez.github.io/blog/2020/01/ethical-issues-of-artificial-intelligence/</link>
-      <pubDate>Fri, 17 Jan 2020 00:00:00 +0000</pubDate>
-      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
-      <guid>https://diegojromerolopez.github.io/blog/2020/01/ethical-issues-of-artificial-intelligence/</guid>
-      <description>Introduction There is a mooc in the University of Helsinki about the ethics of artificial intelligenice. I just started it and it&amp;rsquo;s great.
-The triumph of technicism Us engineers tend to think that there is no problem (technical or else) that cannot be resolved by technological means. That&amp;rsquo;s called technicism.
-Usually that&amp;rsquo;s right for small-scale problems or systems, but in the case of artificial intelligence, or being more precise machine learning that&amp;rsquo;s not true.</description>
     </item>
     
     <item>

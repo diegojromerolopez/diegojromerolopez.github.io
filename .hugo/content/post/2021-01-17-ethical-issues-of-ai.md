@@ -1,6 +1,6 @@
 ---
 title: Ethical issues of Artificial Intelligence
-date: "2020-01-17T00:00:00+00:00"
+date: "2021-01-17T00:00:00+00:00"
 draft: false
 tags: ["ethics", "artificial intelligence"]
 ---
