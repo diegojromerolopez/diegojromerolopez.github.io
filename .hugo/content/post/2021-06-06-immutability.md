@@ -10,7 +10,7 @@ In this post I will explain the rationale about working with immutable objects
 and will present a personal project I've been working on the last few days:
 [Gelidum](https://github.com/diegojromerolopez/gelidum).
 
-![La Nevada, painted by Francisco de Goya](/static/images/la-nevada.jpeg "La Nevada by Francisco de Goya")
+![La Nevada, painted by Francisco de Goya](/static/images/la-nevada-goya.jpeg "La Nevada by Francisco de Goya")
 
 # Introducing Gelidum
 [Gelidum](https://github.com/diegojromerolopez/gelidum) (pronounced *ye-lee-doom*,
