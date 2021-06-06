@@ -7,7 +7,34 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>diegojromerolopez@gmail.com (Diego J. Romero-López)</managingEditor>
     <webMaster>diegojromerolopez@gmail.com (Diego J. Romero-López)</webMaster>
-    <lastBuildDate>Sun, 17 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://diegojromerolopez.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://diegojromerolopez.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>immutability</title>
+      <link>https://diegojromerolopez.github.io/tags/immutability/</link>
+      <pubDate>Sun, 06 Jun 2021 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>https://diegojromerolopez.github.io/tags/immutability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>project</title>
+      <link>https://diegojromerolopez.github.io/tags/project/</link>
+      <pubDate>Sun, 06 Jun 2021 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>https://diegojromerolopez.github.io/tags/project/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://diegojromerolopez.github.io/tags/python/</link>
+      <pubDate>Sun, 06 Jun 2021 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>https://diegojromerolopez.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>artificial intelligence</title>
       <link>https://diegojromerolopez.github.io/tags/artificial-intelligence/</link>
@@ -185,15 +212,6 @@
       <pubDate>Fri, 14 Aug 2015 00:00:00 +0000</pubDate>
       <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
       <guid>https://diegojromerolopez.github.io/tags/videotalks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://diegojromerolopez.github.io/tags/python/</link>
-      <pubDate>Sat, 01 Aug 2015 00:00:00 +0000</pubDate>
-      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
-      <guid>https://diegojromerolopez.github.io/tags/python/</guid>
       <description></description>
     </item>
     
