@@ -11,7 +11,8 @@ In this post I will explain the rationale about working with immutable objects
 and will present a personal project I've been working on the last few days:
 [Gelidum](https://github.com/diegojromerolopez/gelidum).
 
-![La Nevada, painted by Francisco de Goya](/static/images/la-nevada-goya.jpeg "La Nevada by Francisco de Goya")
+![La nevada, painted by Francisco de Goya](/static/images/la-nevada-goya.jpeg "La nevada by Francisco de Goya")
+*La nevada by Francisco de Goya* 
 
 # Why immutability?
 Nowadays, most processors have some kind of parallelism or concurrency
