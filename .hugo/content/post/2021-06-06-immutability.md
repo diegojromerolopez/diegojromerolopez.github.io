@@ -3,6 +3,7 @@ title: Immutability
 date: "2021-06-06T00:00:00+00:00"
 draft: false
 tags: ["immutability", "python", "project"]
+bigimg: [{src: "/static/images/the-sea-of-ice.jpeg", desc: "The sea of ice by Caspar David Friedrich"}]
 ---
 
 # Introduction
@@ -11,6 +12,20 @@ and will present a personal project I've been working on the last few days:
 [Gelidum](https://github.com/diegojromerolopez/gelidum).
 
 ![La Nevada, painted by Francisco de Goya](/static/images/la-nevada-goya.jpeg "La Nevada by Francisco de Goya")
+
+# Why immutability?
+Nowadays, most processors have some kind of parallelism or concurrency
+embeded in themselves. Single-flow-execution software is limited by
+the lowest speed unit in the system. There are some solutions that
+try to hide the wait for these slow sub-systems by computing in other
+execution-flows (threads or processes).
+
+However, this creates the problem of sharing information between
+the different execution-flows. Most parallel libraries are based
+on message-passing (as their processes can be in different memory spaces). But, how about the concurrency systems? They usually
+share the same memory banks, should be have to share the variables
+between threads? It is not recommended as coordinating the editions of the variables can be extremely difficult, so most solutions push for communitating threads by messages or sharing immutable data
+(our approach here).
 
 # Introducing Gelidum
 [Gelidum](https://github.com/diegojromerolopez/gelidum) (pronounced *ye-lee-doom*,
