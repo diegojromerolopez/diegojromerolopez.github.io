@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>diegojromerolopez@gmail.com (Diego J. Romero-López)</managingEditor>
     <webMaster>diegojromerolopez@gmail.com (Diego J. Romero-López)</webMaster>
-    <lastBuildDate>Sun, 06 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://diegojromerolopez.github.io/tags/project/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://diegojromerolopez.github.io/tags/project/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Asking and receiving feedback on your software project</title>
+      <link>https://diegojromerolopez.github.io/blog/2021/07/asking-and-receiving-feedback-on-your-software-project/</link>
+      <pubDate>Sun, 11 Jul 2021 00:00:00 +0000</pubDate>
+      <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
+      <guid>https://diegojromerolopez.github.io/blog/2021/07/asking-and-receiving-feedback-on-your-software-project/</guid>
+      <description>Introduction A month ago I asked the HN Community for some feedback about my project: Gelidum.
+The experience was very positive and I have learned that asking for feedback in a software project is crucial.
+Why feedback is important? We know that feedback is important because it gives us a different point of view about a matter or in my case, a project.
+But, feedback is not limited to giving different points of view.</description>
+    </item>
+    
     <item>
       <title>Immutability</title>
       <link>https://diegojromerolopez.github.io/blog/2021/06/immutability/</link>
