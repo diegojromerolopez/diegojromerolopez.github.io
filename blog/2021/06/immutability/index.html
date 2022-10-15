@@ -8,21 +8,21 @@
 La nevada by Francisco de Goya
 Why immutability? Nowadays, most processors have some kind of parallelism or concurrency embeded in themselves. Single-flow-execution software is limited by the lowest speed unit in the system. There are some solutions that try to hide the wait for these slow sub-systems by computing in other execution-flows (threads or processes).">
 <meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2021\/06\/immutability\/","name":"Immutability"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"Immutability","description":"Introduction In this post I will explain the rationale about working with immutable objects and will present a personal project I\u0026rsquo;ve been working on the last few days: Gelidum.\nLa nevada by Francisco de Goya\nWhy immutability? Nowadays, most processors have some kind of parallelism or concurrency embeded in themselves. Single-flow-execution software is limited by the lowest speed unit in the system. There are some solutions that try to hide the wait for these slow sub-systems by computing in other execution-flows (threads or processes).","inLanguage":"en","wordCount":939,"datePublished":"2021-06-06T00:00:00","dateModified":"2021-06-06T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/content\/img\/diegoj-logo.png","keywords":["immutability, python, project"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2021\/06\/immutability\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/content\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2021\/06\/immutability\/","name":"Immutability"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"Immutability","description":"Introduction In this post I will explain the rationale about working with immutable objects and will present a personal project I\u0026rsquo;ve been working on the last few days: Gelidum.\nLa nevada by Francisco de Goya\nWhy immutability? Nowadays, most processors have some kind of parallelism or concurrency embeded in themselves. Single-flow-execution software is limited by the lowest speed unit in the system. There are some solutions that try to hide the wait for these slow sub-systems by computing in other execution-flows (threads or processes).","inLanguage":"en","wordCount":939,"datePublished":"2021-06-06T00:00:00","dateModified":"2021-06-06T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["immutability, python, project"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2021\/06\/immutability\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
 <meta property="og:title" content="Immutability">
 <meta property="og:description" content="Introduction In this post I will explain the rationale about working with immutable objects and will present a personal project I&rsquo;ve been working on the last few days: Gelidum.
 La nevada by Francisco de Goya
 Why immutability? Nowadays, most processors have some kind of parallelism or concurrency embeded in themselves. Single-flow-execution software is limited by the lowest speed unit in the system. There are some solutions that try to hide the wait for these slow sub-systems by computing in other execution-flows (threads or processes).">
-<meta property="og:image" content="https://diegojromerolopez.github.io/content/img/diegoj-logo.png">
+<meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
 <meta property="og:url" content="https://diegojromerolopez.github.io/blog/2021/06/immutability/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Diego J.'s Software Tar Pit">
 <meta name=twitter:title content="Immutability">
 <meta name=twitter:description content="Introduction In this post I will explain the rationale about working with immutable objects and will present a personal project I&rsquo;ve been working on the last few days: Gelidum.
 La nevada by …">
-<meta name=twitter:image content="https://diegojromerolopez.github.io/content/img/diegoj-logo.png">
+<meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
 <meta name=twitter:card content="summary_large_image">
-<link href=https://diegojromerolopez.github.io/content/img/favicon.ico rel=icon type=image/x-icon>
+<link href=https://diegojromerolopez.github.io/img/favicon.ico rel=icon type=image/x-icon>
 <meta name=generator content="Hugo 0.91.2">
 <link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous>
 <link rel=stylesheet href=https://use.fontawesome.com/releases/v5.5.0/css/all.css integrity=sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU crossorigin=anonymous>
@@ -58,7 +58,7 @@ La nevada by …">
 <div class=avatar-container>
 <div class=avatar-img-border>
 <a title="Diego J.'s Software Tar Pit" href=https://diegojromerolopez.github.io>
-<img class=avatar-img src=https://diegojromerolopez.github.io/content/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit">
+<img class=avatar-img src=https://diegojromerolopez.github.io/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit">
 </a>
 </div>
 </div>
