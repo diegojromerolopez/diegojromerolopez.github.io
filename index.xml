@@ -211,7 +211,6 @@ I&amp;rsquo;ve been working for 8 years in a startup and none of my formal educa
       <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
       <guid>https://diegojromerolopez.github.io/blog/2015/08/progress-towards-and-engineering-discipline-of-software-by-mary-shaw/</guid>
       <description>Several days ago, I watched this videotalk of Mary Shaw that tried to give an answer to the question is Software Engineering an Engineering discipline yet?
-
 Dr. Shaw makes a parallelism with Civil Engineering that started as a empirical discipline and, thanks to strong scientific foundations, evolved to what we could call full engineering.
 Software Engineering is not there yet. It needs more work and professionalization. Many of the so-called Software Engineers have no software engineering knowledge and/or skills and therefore software disasters happens.</description>
     </item>
@@ -245,8 +244,8 @@ What is all of that?</description>
       <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
       <guid>https://diegojromerolopez.github.io/blog/2015/03/real-software-architecture/</guid>
       <description>Simon Brown is an independent software consultant from Jersey (UK) and gave this talk about Software Architecture in GOTO Amsterdam 2014.
-
-This talk delights me in several ways. First, Simon show us several common problems that happens in many software companies: diagrams of the software are not synchronized with code because. That is, we design some type of software architecture but we don&amp;rsquo;t follow our own path when coding.</description>
+This talk delights me in several ways. First, Simon show us several common problems that happens in many software companies: diagrams of the software are not synchronized with code because. That is, we design some type of software architecture but we don&amp;rsquo;t follow our own path when coding.
+He thinks (me too) that software diagram current methodologies are difficult and not pleasant (I would say) to use.</description>
     </item>
     
     <item>
@@ -266,7 +265,7 @@ This book is a night stand book, that is, you cannot hope to end it in a few day
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>diegojromerolopez@gmail.com (Diego J. Romero-López)</author>
       <guid>https://diegojromerolopez.github.io/page/about/</guid>
-      <description>I&amp;rsquo;m a Software Engineer at Telefónica, working in Aura&amp;rsquo;s cognitive team. I&amp;rsquo;m also the former head of tecnology at Bufete de Marketing (now inteliens), former developer at Drivies, and intelligenia. I&amp;rsquo;m passionate about learning new things and testing new technologies.
+      <description>I&amp;rsquo;m a Senior Software Engineer at Flywire, working in Engineering Productivity. Until September 2022 I was working at Telefónica, in Aura&amp;rsquo;s cognitive team. I&amp;rsquo;m also the former head of tecnology at Bufete de Marketing (now inteliens), former developer at Drivies, and intelligenia. I&amp;rsquo;m passionate about learning new things and testing new technologies.
 Apart from work, I like jogging, astronomy, history and reading books.
 This blog does not reflect the views of present, past or future employers.</description>
     </item>
