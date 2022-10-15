@@ -31,6 +31,12 @@ disqusShortname = "diego-j-s-software-tar-pit"
   paginatePath = "blog/page"
   contentDir = "content/post"
 
+[languages]
+  [languages.en] 
+    contentDir = "content/post/en" # English
+  [languages.es]
+    contentDir = "content/post/es" # Spanish
+
 [privacy]
   [privacy.disqus]
     disable = true
