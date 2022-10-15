@@ -11,7 +11,7 @@ In this post I will explain the rationale about working with immutable objects
 and will present a personal project I've been working on the last few days:
 [Gelidum](https://github.com/diegojromerolopez/gelidum).
 
-![La nevada, painted by Francisco de Goya](/static/images/la-nevada-goya.jpeg "La nevada by Francisco de Goya")
+![La nevada, painted by Francisco de Goya](/img/la-nevada-goya.jpeg "La nevada by Francisco de Goya")
 *La nevada by Francisco de Goya* 
 
 # Why immutability?
