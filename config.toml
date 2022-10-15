@@ -2,7 +2,7 @@ baseurl = "https://diegojromerolopez.github.io"
 DefaultContentLanguage = "en"
 title = "Diego J.'s Software Tar Pit"
 theme = "beautifulhugo"
-cover = "/static/images/cover.jpg"
+cover = "/content/img/cover.jpeg"
 disqusShortname = "diego-j-s-software-tar-pit"
 
 [taxonomies]
@@ -23,12 +23,12 @@ disqusShortname = "diego-j-s-software-tar-pit"
   metaDataFormat = "yaml"
   pygmentsUseClasses = true
   pygmentCodeFences = true
-  logo = "/content/images/diegoj-logo.png"
-  favicon = "/content/images/favicon.ico"
+  logo = "/content/img/diegoj-logo.png"
+  favicon = "/content/img/favicon.ico"
   [permalinks]
     post = "/blog/:year/:month/:title/"
   paginatePath = "blog/page"
-  contentDir = "content/posts"
+  contentDir = "content/post"
 
 [privacy]
   [privacy.disqus]
