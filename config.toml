@@ -17,14 +17,14 @@ disqusShortname = "diego-j-s-software-tar-pit"
 
 [Params]
   subtitle = "Diego J.'s rambling thoughts about software"
-  comments = true
+  comments = false
   commit = false
   rss = true
   metaDataFormat = "yaml"
   pygmentsUseClasses = true
   pygmentCodeFences = true
-  logo = "/static/images/diegoj-logo.png"
-  favicon = "/static/images/favicon.ico"
+  logo = "/content/images/diegoj-logo.png"
+  favicon = "/content/images/favicon.ico"
   [permalinks]
     post = "/blog/:year/:month/:title/"
   paginatePath = "blog/page"
