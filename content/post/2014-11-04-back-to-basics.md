@@ -3,7 +3,7 @@ title: Back to basics, the mythical man-month
 date: "2014-11-04T00:00:00+00:00"
 draft: false
 tags: ["books", "software engineering", "startup"]
-bigimg: [{src: "/static/images/fred-brooks.jpg", desc: "Fred Brooks"}]
+bigimg: [{src: "/img/fred-brooks.jpg", desc: "Fred Brooks"}]
 ---
 
 

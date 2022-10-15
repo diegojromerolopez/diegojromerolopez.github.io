@@ -3,7 +3,7 @@ title: Immutability
 date: "2021-06-06T00:00:00+00:00"
 draft: false
 tags: ["immutability", "python", "project"]
-bigimg: [{src: "/static/images/the-sea-of-ice.jpeg", desc: "The sea of ice by Caspar David Friedrich"}]
+bigimg: [{src: "/img/the-sea-of-ice.jpeg", desc: "The sea of ice by Caspar David Friedrich"}]
 ---
 
 # Introduction

@@ -3,7 +3,7 @@ title: Asking and receiving feedback on your software project
 date: "2021-07-11T00:00:00+00:00"
 draft: false
 tags: ["feedback", "project"]
-bigimg: [{src: "/static/images/feedback.jpeg", desc: "Public domain image from Pexels (https://www.pexels.com/photo/a-group-of-professionals-sharing-ideas-3153207/)"}]
+bigimg: [{src: "/img/feedback.jpeg", desc: "Public domain image from Pexels (https://www.pexels.com/photo/a-group-of-professionals-sharing-ideas-3153207/)"}]
 ---
 
 # Introduction
