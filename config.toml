@@ -28,6 +28,7 @@ disqusShortname = "diego-j-s-software-tar-pit"
   [permalinks]
     post = "/blog/:year/:month/:title/"
   paginatePath = "blog/page"
+  contentDir = "content/posts"
 
 [privacy]
   [privacy.disqus]
