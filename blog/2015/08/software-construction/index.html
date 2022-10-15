@@ -1,0 +1,238 @@
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Software construction - Diego J.'s Software Tar Pit</title>
+<meta name=description content="In my voyage from a simply Software Engineer to a master in Software Engineering I&rsquo;m reading several books. Thus, I&rsquo;m posting in this blog whatever thoughts appear in my mind about Software Developing.
+I&rsquo;m several chapters in Code Complete 2nd Ed. of Steve McConnel and I&rsquo;m amazed by the knowledge that it contains. As time goes by I will update this blog with more information about my findings.
+Specially I&rsquo;ve been struck by one basic principle: Software construction is the only activity that is warrantied to be made in a software development project.">
+<meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2015\/08\/software-construction\/","name":"Software construction"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"Software construction","description":"In my voyage from a simply Software Engineer to a master in Software Engineering I\u0026rsquo;m reading several books. Thus, I\u0026rsquo;m posting in this blog whatever thoughts appear in my mind about Software Developing.\nI\u0026rsquo;m several chapters in Code Complete 2nd Ed. of Steve McConnel and I\u0026rsquo;m amazed by the knowledge that it contains. As time goes by I will update this blog with more information about my findings.\nSpecially I\u0026rsquo;ve been struck by one basic principle: Software construction is the only activity that is warrantied to be made in a software development project.","inLanguage":"en","wordCount":425,"datePublished":"2015-08-25T00:00:00","dateModified":"2015-08-25T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["software engineering, books"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2015\/08\/software-construction\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
+<meta property="og:title" content="Software construction">
+<meta property="og:description" content="In my voyage from a simply Software Engineer to a master in Software Engineering I&rsquo;m reading several books. Thus, I&rsquo;m posting in this blog whatever thoughts appear in my mind about Software Developing.
+I&rsquo;m several chapters in Code Complete 2nd Ed. of Steve McConnel and I&rsquo;m amazed by the knowledge that it contains. As time goes by I will update this blog with more information about my findings.
+Specially I&rsquo;ve been struck by one basic principle: Software construction is the only activity that is warrantied to be made in a software development project.">
+<meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2015/08/software-construction/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Diego J.'s Software Tar Pit">
+<meta name=twitter:title content="Software construction">
+<meta name=twitter:description content="In my voyage from a simply Software Engineer to a master in Software Engineering I&rsquo;m reading several books. Thus, I&rsquo;m posting in this blog whatever thoughts appear in my mind about …">
+<meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:site content="@diegojromerolop">
+<meta name=twitter:creator content="@diegojromerolop">
+<link href=https://diegojromerolopez.github.io/img/favicon.ico rel=icon type=image/x-icon>
+<meta name=generator content="Hugo 0.91.2">
+<link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css integrity=sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X crossorigin=anonymous>
+<link rel=stylesheet href=https://use.fontawesome.com/releases/v5.5.0/css/all.css integrity=sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU crossorigin=anonymous>
+<link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css integrity=sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u crossorigin=anonymous><link rel=stylesheet href=https://diegojromerolopez.github.io/css/main.css><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+<link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"><link rel=stylesheet href=https://diegojromerolopez.github.io/css/syntax.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/codeblock.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css integrity=sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh crossorigin=anonymous>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css integrity=sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R crossorigin=anonymous>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+<div class=container-fluid>
+<div class=navbar-header>
+<button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</div>
+<div class="collapse navbar-collapse" id=main-navbar>
+<ul class="nav navbar-nav navbar-right">
+<li>
+<a title=Blog href=/>Blog</a>
+</li>
+<li>
+<a title=About href=/page/about/>About</a>
+</li>
+<li>
+<a title=Tags href=/tags>Tags</a>
+</li>
+<li>
+<a href=/es lang=es>es</a>
+</li>
+</ul>
+</div>
+<div class=avatar-container>
+<div class=avatar-img-border>
+<a title="Diego J.'s Software Tar Pit" href=https://diegojromerolopez.github.io>
+<img class=avatar-img src=https://diegojromerolopez.github.io/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit">
+</a>
+</div>
+</div>
+</div>
+</nav>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div>
+<header class=header-section>
+<div class="intro-header no-img">
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class=post-heading>
+<h1>Software construction</h1>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;Posted on August 25, 2015
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class=container role=main>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<article role=main class=blog-post>
+<p><em>In my voyage from a simply Software Engineer to a master in Software Engineering I&rsquo;m reading several books. Thus, I&rsquo;m posting in this blog whatever thoughts appear in my mind about Software Developing.</em></p>
+<p>I&rsquo;m several chapters in <strong>Code Complete 2nd Ed. of Steve McConnel</strong> and I&rsquo;m amazed by the knowledge that it contains. As time goes by I will update this blog with more information about my findings.</p>
+<p>Specially I&rsquo;ve been struck by one basic principle: Software construction is the only activity that is warrantied to be made in a software development project.</p>
+<p>I love this phrase because in the software development world it seems that there are two groups in state of permanent disagreement. I&rsquo;ve given them the following names:</p>
+<ul>
+<li>Crafters: people that disregard Software Development as an engineering discipline and see this activity as a skill similar to cooking, woodcrafting, plumbing, etc.</li>
+<li>Engineers: they think that software development is an empirical engineering, as was Civil Engineering until XX century.</li>
+</ul>
+<p>I consider the later approach right but I don&rsquo;t want to be lost in the &ldquo;engineering&rdquo; and &ldquo;management&rdquo; part of software development<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> and forget that software developing is not producing tons of diagrams, documents, issues and many other software project sub-products.</p>
+<p>We should not forget that what we give to our client is basically software. Our client usually disregard manuals or other kind of folderol given to him/her. Our client knows what he/she wants: a software that works.</p>
+<p>This is a double-edged sword, I&rsquo;ve found many clients with legacy software systems without any kind of documentation, of course, needing desperately a new feature, or even worse a, fix in their system.</p>
+<p>Therefore, this latter case is when you, as a software engineer must to read and refactor foreign code, not produced by high-standards guided programmers like you (or your team do). And increase que quality of the code as much as possible<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>.</p>
+<p>These kind of scenarios occur every day, so we must not forget that at the end of the refactoring or fixing code, only the code tells the truth, only the code contains the functionality<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup>.</p>
+<p>So, <strong>thou shall not forget what we, software engineers, are bound to produce correct code</strong>.</p>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p>In Spain, programming is usually considered the least important task in a software project, usually done by self-taught programmers.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:2 role=doc-endnote>
+<p>Depending of how much our client wants to expend in the refactoring.&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:3 role=doc-endnote>
+<p>To make a good software it is needed a high knowledge of many disciplines that need to be acquired by studying in university. I will return to this topic in other post.&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+<div class=blog-tags>
+<a href=https://diegojromerolopez.github.io/tags/software-engineering/>software engineering</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/books/>books</a>&nbsp;
+</div>
+</article>
+<ul class="pager blog-pager">
+<li class=previous>
+<a href=https://diegojromerolopez.github.io/blog/2015/08/peopleware/ data-toggle=tooltip data-placement=top title=Peopleware>&larr; Previous Post</a>
+</li>
+<li class=next>
+<a href=https://diegojromerolopez.github.io/blog/2015/08/out-of-the-tar-pit/ data-toggle=tooltip data-placement=top title="Out of the tar pit">Next Post &rarr;</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<footer>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<ul class="list-inline text-center footer-links">
+<li>
+<a href=mailto:diegojromerolopez@gmail.com title="Email me">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://github.com/diegojromerolopez title=GitHub>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://twitter.com/diegojromerolop title=Twitter>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://linkedin.com/in/diegojromerolopez title=LinkedIn>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href title=RSS>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+</ul>
+<p class="credits copyright text-muted">
+Diego J. Romero-López
+&nbsp;&bull;&nbsp;&copy;
+2021
+&nbsp;&bull;&nbsp;
+<a href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</p>
+<p class="credits theme-by text-muted">
+<a href=https://gohugo.io>Hugo v0.91.2</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
+</p>
+</div>
+</div>
+</div>
+</footer><script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js integrity=sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4 crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js integrity=sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa crossorigin=anonymous></script>
+<script src=https://code.jquery.com/jquery-3.5.1.slim.min.js integrity=sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj crossorigin=anonymous></script>
+<script src=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js integrity=sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa crossorigin=anonymous></script>
+<script src=https://diegojromerolopez.github.io/js/main.js></script><script>renderMathInElement(document.body)</script><script src=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js integrity=sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js integrity=sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q crossorigin=anonymous></script><script src=https://diegojromerolopez.github.io/js/load-photoswipe.js></script>
+</body>
+</html>
