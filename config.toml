@@ -1,0 +1,49 @@
+baseurl = "https://diegojromerolopez.github.io"
+DefaultContentLanguage = "en"
+title = "Diego J.'s Software Tar Pit"
+theme = "beautifulhugo"
+cover = "/static/images/cover.jpg"
+disqusShortname = "diego-j-s-software-tar-pit"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[Author]
+  name = "Diego J. Romero-López"
+  email = "diegojromerolopez@gmail.com"
+  github = "diegojromerolopez"  
+  linkedin = "diegojromerolopez"
+
+[Params]
+  subtitle = "Diego J.'s rambling thoughts about software"
+  comments = true
+  commit = false
+  rss = true
+  metaDataFormat = "yaml"
+  pygmentsUseClasses = true
+  pygmentCodeFences = true
+  logo = "/static/images/diegoj-logo.png"
+  favicon = "/static/images/favicon.ico"
+  [permalinks]
+    post = "/blog/:year/:month/:title/"
+  paginatePath = "blog/page"
+
+[privacy]
+  [privacy.disqus]
+    disable = true
+
+[[menu.main]]
+    name = "Blog"
+    url = ""
+    weight = 1
+
+[[menu.main]]
+    name = "About"
+    url = "page/about/"
+    weight = 3
+
+[[menu.main]]
+    name = "Tags"
+    url = "tags"
+    weight = 3
