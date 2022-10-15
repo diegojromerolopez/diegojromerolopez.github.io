@@ -33,9 +33,9 @@ disqusShortname = "diego-j-s-software-tar-pit"
 
 [languages]
   [languages.en] 
-    contentDir = "content/post/en" # English
+    contentDir = "content/en" # English
   [languages.es]
-    contentDir = "content/post/es" # Spanish
+    contentDir = "content/es" # Spanish
 
 [privacy]
   [privacy.disqus]
