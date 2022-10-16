@@ -11,6 +11,7 @@ Por *nadie conocido*, pero entenderás mi punto de vista al leer esta entrada.
 
 # Convenciones
 
+
 ## Escribe el código de manera que sea obvio
 
 Cada ingeniero de software desarrolla un estilo único de

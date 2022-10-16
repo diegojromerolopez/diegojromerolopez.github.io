@@ -11,6 +11,7 @@ Nobody, but you'll get my point along this post.
 
 # Conventions
 
+
 ## Write the code to make it obvious
 
 Every software engineer develops an unique style of coding through their career. Usually they starts coding tangled code that is extremely difficult to understand to anybody but theyself. Later you get to the point where you are unable to understand your own code, and began to
