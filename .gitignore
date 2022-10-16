@@ -19,3 +19,6 @@ Temporary Items
 *.py
 *.pyc
 Makefile
+
+# Editors
+.vscode
