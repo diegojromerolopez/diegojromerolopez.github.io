@@ -1,6 +1,6 @@
 ---
 title: Trabajar con equipos internacionales
-date: "2022-10-15T00:00:00+00:00"
+date: "2022-10-16T14:50:00+02:00"
 draft: false
 tags: ["spanish", "software engineering"]
 ---
