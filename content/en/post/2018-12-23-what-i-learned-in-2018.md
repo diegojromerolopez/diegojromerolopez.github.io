@@ -11,8 +11,8 @@ You never stop learning. Embrace learning new things.
 
 ## Machine learning
 
-Learning about Machine Learning had been a not-acomplished steping stone in my career.
-Joinig some Kaggle competitions and read other's people code makes improves your habilities.
+Learning about Machine Learning had been a not-accomplished stepping stone in my career.
+Joining some Kaggle competitions and read other's people code makes improves your abilities.
 
 Wonderful Sci-kit and pandas libraries make use of ML algorithms easy and neat.
 
@@ -61,7 +61,7 @@ Implement for real continous integration and countinous deployment in a Ruby on 
 
 Having enough test coverage to be relaxed on the deployments ease my mind and eliminate stress.
 
-[GitLab](https://about.gitlab.com/) has been showed as acgreat platform for definind CI/CD pipelines, cheap
+[GitLab](https://about.gitlab.com/) has been showed as a great platform for defining CI/CD pipelines, cheap
 and you can install in your own server too.
 
 

@@ -11,6 +11,9 @@ Por *nadie conocido*, pero entenderás mi punto de vista al leer esta entrada.
 
 # Convenciones
 
+Tener el mismo lenguaje es mejor que estar preocupándose
+de traducciones entre dialectos e idiomas al hablar de lo
+mismo.
 
 ## Escribe el código de manera que sea obvio
 

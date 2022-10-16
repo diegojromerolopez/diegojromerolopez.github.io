@@ -15,7 +15,7 @@ Here is a simple diagram (from [Waterfall model article in Wikipedia](https://en
 
 # Waterfall model
 
-That is it supposes we are infalible and the client is infalible so each phase is perfect and serves well enough the next.
+That is it supposes we are infallible and the client is infallible so each phase is perfect and serves well enough the next.
 
 # Issues with waterfall model
 
@@ -39,7 +39,7 @@ Royce, furthermore, advocate for involving the client during the software develo
 
 # Why he was forgotten?
 
-Well, this paper is hard to read because it has no clear aim. He is criticising a software development model but also advocating fo a new one that is not very clear presented. His new model has some agile features but also mixes some of his heuristic solutions to problems he has experimented. Maybe too much detail in the description of his model is the cause people didn't put his teachings in practice. I had a hard time separating the basic principles from his particular model.
+Well, this paper is hard to read because it has no clear aim. He is criticizing a software development model but also advocating fo a new one that is not very clear presented. His new model has some agile features but also mixes some of his heuristic solutions to problems he has experimented. Maybe too much detail in the description of his model is the cause people didn't put his teachings in practice. I had a hard time separating the basic principles from his particular model.
 
 To make things worse it has many figures that, if you don't fully read it, can give you a misleading idea of what Royce is showing here.
 

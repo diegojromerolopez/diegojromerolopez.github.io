@@ -19,7 +19,7 @@ Think about it, how are you going to code in programming language if you cannot 
 
 ## What about maths?
 
-The mathematical knowledge for programming is limited if we remove the parts of Machine Learning and Algorithmical study. When I see *limited* i don't mean it's not important, but it's almost composed by concrete mathematicas and of course logic.
+The mathematical knowledge for programming is limited if we remove the parts of Machine Learning and Algorithmical study. When I see *limited* i don't mean it's not important, but it's almost composed by concrete mathematics and of course logic.
 
 Classical mathematics like Calculus, Algebra or Geometry are almost irrelevant in most modern-day programming scenarios (i.e CRUD-based).
 

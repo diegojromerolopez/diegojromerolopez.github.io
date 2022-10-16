@@ -8,7 +8,7 @@ tags: ["software engineering", "project management", "client management"]
 
 # The Players
 
-It's not a secret that software engineers prefer a clean and completed specification than metting with clients.
+It's not a secret that software engineers prefer a clean and completed specification than meeting with clients.
 
 We tend to think that meetings are a waste of time and many of our colleagues are not very fond of what is called [soft skills](https://en.wikipedia.org/wiki/Soft_skills).
 
@@ -40,7 +40,7 @@ How can we make our client feel safe with working with us?
 
 ### We have to guide our clients
 
-One of the most successful aspects of Agile development is the change of developers-cliente relationship.
+One of the most successful aspects of Agile development is the change of developers-client relationship.
 
 We must be the calendar, reminder and notifier of the client. We define when we are going to end our sprints and deliver the software modules to be validated by our client.
 
@@ -70,6 +70,6 @@ Technology makes people feel vulnerable, specially illiterate people, so they te
 
 We don't work for a client, we work with a client.
 
-Many times a conversation can avoid developing new features that won't be used or the cancelation of the project.
+Many times a conversation can avoid developing new features that won't be used or the cancellation of the project.
 
-Soft skills are important, yes, even for an engineer. You will have mettings with clients, so practice your "human" abilities.
+Soft skills are important, yes, even for an engineer. You will have meetings with clients, so practice your "human" abilities.

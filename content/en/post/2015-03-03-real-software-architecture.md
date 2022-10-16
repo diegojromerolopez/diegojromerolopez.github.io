@@ -15,7 +15,7 @@ This talk delights me in several ways. First, Simon show us several common probl
 
 He thinks (me too) that software diagram current methodologies are difficult and not pleasant (I would say) to use. We continue to theorize about perfect software designs but when we make the code we simply don't take them in consideration.
 
-This way, he shows a software architecture model that enfatizes the communication inside the team and with stakeholders. Thus, the most important thing is that these diagrams can be the actual plan of the code of the project and with his guidelines we can have no discrepancies between software architecture and code organization and structure.
+This way, he shows a software architecture model that emphasizes the communication inside the team and with stakeholders. Thus, the most important thing is that these diagrams can be the actual plan of the code of the project and with his guidelines we can have no discrepancies between software architecture and code organization and structure.
 
 Simon has published a very interesting book I plan to read. I'll update this post in the future when I read it.
 

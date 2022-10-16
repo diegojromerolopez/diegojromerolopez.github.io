@@ -13,7 +13,7 @@ WEB was composed by a weaver and a tangler. Its first component (the weaver) was
 
 This amazing idea has been lost thru time. Sure, there are some self-documenting tools like Doxygen but there is no language that encourages documentation as a part of the programming task. Donald E. Knuth was ahead of his time (although he says there had been others before him) because of the foundational idea of his work: code must be able to be read like a literary piece.
 
-This is what I encourage to my peers each day: code must be pleasant. Yes, it could be a bit strange reading “pleasure” and “code” but I would love to see a code with comments that really puts me in context, give me advice on how to use it, its order of algorithm complexity and inform me of whatever non-standard behavior I should know.
+This is what I encourage to my peers each day: code must be pleasant. Yes, it could be a bit strange reading "pleasure" and "code" but I would love to see a code with comments that really puts me in context, give me advice on how to use it, its order of algorithm complexity and inform me of whatever non-standard behavior I should know.
 
 Nowadays we, software engineers, are not only worried by code that 'just works' but we are worried by making this code secure and easy to maintain and expand.
 

@@ -54,7 +54,7 @@ Refactoring and tests are two faces of the same coin. We cannot do one without t
 
 Don't test functionality that is not validated by the client.
 
-[^1]: Maybe software projects stalling is not a direct cause of a slow development but your client running out of money. Thus, client will be demotivated if no prototype is delivered early. In my experience, there can be no more than 1-2 weeks without deliveries (excluding first spike that defines project basis).
+[^1]: Maybe software projects stalling is not a direct cause of a slow development but your client running out of money. Thus, client will be unmotivated if no prototype is delivered early. In my experience, there can be no more than 1-2 weeks without deliveries (excluding first spike that defines project basis).
 
 [^2]: There is some Test Driven Development criticism (e.g.: stackoverflow thread that argues that by using this technique, developers only intent is passing the test and not making a good software design. I partially agrees with that sentiment and that's the reason I wrote this post.
 

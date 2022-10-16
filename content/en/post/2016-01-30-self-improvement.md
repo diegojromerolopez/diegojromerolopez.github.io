@@ -9,7 +9,7 @@ tags: ["software engineering", "education"]
 
 During many years, society expected you to graduate and find a job you kept until your retirement. Not many people changed jobs and only professions like medical doctors and lawyers keep studying and improving their skills.
 
-Now the rules of the game have changed and nobody expects that almost from any profession. Maybe you are a baker and expect to use the same ingredients and make the same bread over and over again, but your clients can change or acquire new tastes! Thus, what about improving the costs? Maybe a new machine could make the baking process cheaper and you should know about its existence…
+Now the rules of the game have changed and nobody expects that almost from any profession. Maybe you are a baker and expect to use the same ingredients and make the same bread over and over again, but your clients can change or acquire new tastes! Thus, what about improving the costs? Maybe a new machine could make the baking process cheaper and you should know about its existence...
 
 # So, what about software engineers?
 
@@ -29,7 +29,7 @@ MOOCS are a great tool to learn new technologies and I prefer them over books si
 
 Books fill the empty space that college education gave me. I try to read at least one each month although it is difficult given the length of software books. I prefer to buy my books in second-hand stores in abebooks but you can buy them in epub or Kindle format to read them in a eReader. Currently I’m reading Soft-Skills and Refactoring.
 
-Of course there is also the option to earn a M.Sc./M.Eng. (or M.Res. in my case) in a reputable university. Assuming you have the money (or can ask anybody but a bank[^2]), it is a good way to upgrade your qualifications and your career. Of course, don’t join a masters programe just for the degree, join it because you are passionate about the topic they teach.
+Of course there is also the option to earn a M.Sc./M.Eng. (or M.Res. in my case) in a reputable university. Assuming you have the money (or can ask anybody but a bank[^2]), it is a good way to upgrade your qualifications and your career. Of course, don’t join a masters program just for the degree, join it because you are passionate about the topic they teach.
 
 # Open source projects
 
@@ -39,7 +39,7 @@ So, maybe the solution can be convince your manager to free some parts of compan
 
 [^1]: Please note that I don’t consider the terms programmer, software developer and software engineer equal. A programmer is a person who writes code to solve a problem, usually he or she has no specific education and uses a programming language (and environment) as a tool. Software developers are programmers that fully understand the stack where their code runs. Software Engineers are software developers with knowledge of the foundations of software they write: algorithmic theory, heuristics, programming language theory, concurrent/parallel programming, security, software design, information theory, project/client management, etc.
 
-[^2]: I don’t suggest you ask for a bank loan to study. Work for several years and when you have the money apply to join a master programe.
+[^2]: I don’t suggest you ask for a bank loan to study. Work for several years and when you have the money apply to join a master program.
 
 [^3]: Every software engineer is a programmer. Don’t be fooled by software designers that create UML diagrams and pass them to programmers that code. Software engineers rely on programmers for many parts of the code, but they need to be lead by a software engineer that will code with them.
 

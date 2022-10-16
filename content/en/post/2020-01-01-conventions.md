@@ -11,6 +11,8 @@ Nobody, but you'll get my point along this post.
 
 # Conventions
 
+Having the same language is better than having different
+dialects or languages when speaking of the same thing.
 
 ## Write the code to make it obvious
 

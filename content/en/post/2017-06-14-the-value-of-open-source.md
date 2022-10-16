@@ -9,7 +9,7 @@ I have some open source projects in my github account. Some of them are currentl
 
 # Dissipating some doubts about software quality
 
-Having published your code in public allow many users to take a look to your code and (if it's good) to dissipate its doubs about if it pays using it or not.
+Having published your code in public allow many users to take a look to your code and (if it's good) to dissipate its doubts about if it pays using it or not.
 
 This case is very common in consolidated industries that are looking for a replacement of one software of their stack and need to be sure that the candidate software can be evaluated thoroughly.
  
@@ -22,7 +22,7 @@ In my case, a simple django package I developed to make asynchronous inclusion o
 
 # Creating a community
 
-It is the best way to create a community of external developers that in a future can be integrated in the organization as employees or colaborators.
+It is the best way to create a community of external developers that in a future can be integrated in the organization as employees or collaborators.
 
 One way to see it is that, some of the training is free.
 
@@ -40,4 +40,4 @@ Open source is not matter of crazy bearded men. It can improve both your company
 - Sharing knowledge.
 - Acting as a marketing campaign for your company.
 - Getting in contact with a community of developers that already have improved your software.
-- Achiving new markets that need viewing the code.
+- Achieving new markets that need viewing the code.
