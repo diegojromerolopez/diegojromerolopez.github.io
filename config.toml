@@ -31,6 +31,9 @@ disqusShortname = "diego-j-s-software-tar-pit"
   paginatePath = "blog/page"
   contentDir = "content/post"
 
+[frontmatter]
+  date = [':filename', ':default']
+
 [languages]
   [languages.en] 
     contentDir = "content/en" # English
