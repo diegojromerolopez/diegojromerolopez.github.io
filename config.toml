@@ -25,7 +25,7 @@ disqusShortname = "diego-j-s-software-tar-pit"
   pygmentsUseClasses = true
   pygmentCodeFences = true
   logo = "/img/diegoj-logo.png"
-  favicon = "/img/favicon.ico"
+  favicon = "/static/img/favicon.ico"
   [permalinks]
     post = "/blog/:year/:month/:title/"
   paginatePath = "blog/page"
