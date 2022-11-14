@@ -4,19 +4,22 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
 <title>Rewrite git branch history - Diego J.'s Software Tar Pit</title>
-<meta name=description content="Rewrite your git branch history Ever had a pushed branch that is completed and ready for review but the git history is too long and full of commits with bad messages? This post gives you a way of solving this.
-How to The process is very clear. You only have to get the changes, move your point to the branch you want to merge (usually master), unstage everything, creating new committs, and force push the changes.">
+<meta name=description content="Rewrite your git branch history Ever had a pushed branch that is completed and ready for review but the git history is too long and full of commits wit.
+How to The process is very clear. You only have to get the changes, move your point to the branch you want to merge (usually master), unstage everything, creating new committs, and force push the changes.
+Let us see the process step by step:">
 <meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2022\/11\/rewrite-git-branch-history\/","name":"Rewrite git branch history"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"Rewrite git branch history","description":"Rewrite your git branch history Ever had a pushed branch that is completed and ready for review but the git history is too long and full of commits with bad messages? This post gives you a way of solving this.\nHow to The process is very clear. You only have to get the changes, move your point to the branch you want to merge (usually master), unstage everything, creating new committs, and force push the changes.","inLanguage":"en","wordCount":323,"datePublished":"2022-11-13T00:00:00","dateModified":"2022-11-13T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["git, rewritting, commit"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2022\/11\/rewrite-git-branch-history\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2022\/11\/rewrite-git-branch-history\/","name":"Rewrite git branch history"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"Rewrite git branch history","description":"Rewrite your git branch history Ever had a pushed branch that is completed and ready for review but the git history is too long and full of commits wit.\nHow to The process is very clear. You only have to get the changes, move your point to the branch you want to merge (usually master), unstage everything, creating new committs, and force push the changes.\nLet us see the process step by step:","inLanguage":"en","wordCount":344,"datePublished":"2022-11-13T00:00:00","dateModified":"2022-11-13T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["git, rewritting, commit"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2022\/11\/rewrite-git-branch-history\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
 <meta property="og:title" content="Rewrite git branch history">
-<meta property="og:description" content="Rewrite your git branch history Ever had a pushed branch that is completed and ready for review but the git history is too long and full of commits with bad messages? This post gives you a way of solving this.
-How to The process is very clear. You only have to get the changes, move your point to the branch you want to merge (usually master), unstage everything, creating new committs, and force push the changes.">
+<meta property="og:description" content="Rewrite your git branch history Ever had a pushed branch that is completed and ready for review but the git history is too long and full of commits wit.
+How to The process is very clear. You only have to get the changes, move your point to the branch you want to merge (usually master), unstage everything, creating new committs, and force push the changes.
+Let us see the process step by step:">
 <meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
 <meta property="og:url" content="https://diegojromerolopez.github.io/blog/2022/11/rewrite-git-branch-history/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Diego J.'s Software Tar Pit">
 <meta name=twitter:title content="Rewrite git branch history">
-<meta name=twitter:description content="Rewrite your git branch history Ever had a pushed branch that is completed and ready for review but the git history is too long and full of commits with bad messages? This post gives you a way of …">
+<meta name=twitter:description content="Rewrite your git branch history Ever had a pushed branch that is completed and ready for review but the git history is too long and full of commits wit.
+How to The process is very clear. You only have …">
 <meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:site content="@diegojromerolop">
@@ -125,8 +128,7 @@ How to The process is very clear. You only have to get the changes, move your po
 <article role=main class=blog-post>
 <h1 id=rewrite-your-git-branch-history>Rewrite your git branch history</h1>
 <p>Ever had a pushed branch that is completed and ready for review but the git
-history is too long and full of commits with bad messages? This post
-gives you a way of solving this.</p>
+history is too long and full of commits wit.</p>
 <h1 id=how-to>How to</h1>
 <p>The process is very clear. You only have to get the changes, move your point
 to the branch you want to merge (usually <em>master</em>), unstage everything,
@@ -141,9 +143,10 @@ git reset --soft master
 </code></pre></div><p><a href=https://git-scm.com/docs/git-reset>This command</a> will reset your
 head to master, but will keep all of your changes in the stage.</p>
 <h2 id=unstage-everything>Unstage everything</h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>git reset
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>git restore --staged .
 </code></pre></div><p>This command will out all your changes from the stage, hence preparing all
-files for being added commit by commit by you.</p>
+files for being added once again to the stage commit by commit, but this time
+with a <em>beautiful</em> and <em>meaningfull</em> history, by you.</p>
 <h2 id=add-and-commit-as-you-wish>Add and commit as you wish</h2>
 <p>For each group of files you want to add to a commit, add them to stage
 and make a commit:</p>
@@ -154,9 +157,10 @@ git commit -m <span style=color:#e6db74>&#34;feat: new feature that is exciting&
 git add file3.rb
 git commit -m <span style=color:#e6db74>&#34;fix: file 3 had a bug&#34;</span>
 </code></pre></div><h2 id=push-your-modifications>Push your modifications</h2>
-<p>Once you have all new commits ready, push all your changes:</p>
+<p>If you type now <code>git status</code>, you will get a message about that your branch
+and the origin branch have diverted. So you have to force the change with</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>git push --force
-</code></pre></div><p>The <code>--force</code> is neeeded because we have to rewrite to remote branch.</p>
+</code></pre></div><p>The <code>--force</code> parameter is what causes the remote branch rewrite.</p>
 <h1 id=conclusion>Conclusion</h1>
 <p>Do not pay attention to making good commit messages or to divide your work
 in commits. You only need to know some commands
