@@ -8,8 +8,7 @@ tags: ["git", "rewritting", "commit"]
 # Rewrite your git branch history
 
 Ever had a pushed branch that is completed and ready for review but the git
-history is too long and full of commits with bad messages? This post
-gives you a way of solving this.
+history is too long and full of commits wit.
 
 # How to
 
@@ -36,11 +35,12 @@ head to master, but will keep all of your changes in the stage.
 ## Unstage everything
 
 ```sh
-git reset
+git restore --staged .
 ```
 
 This command will out all your changes from the stage, hence preparing all
-files for being added commit by commit by you.
+files for being added once again to the stage commit by commit, but this time
+with a *beautiful* and *meaningfull* history, by you.
 
 ## Add and commit as you wish
 
@@ -58,13 +58,14 @@ git commit -m "fix: file 3 had a bug"
 
 ## Push your modifications
 
-Once you have all new commits ready, push all your changes:
+If you type now `git status`, you will get a message about that your branch
+and the origin branch have diverted. So you have to force the change with
 
 ```sh
 git push --force
 ```
 
-The `--force` is neeeded because we have to rewrite to remote branch.
+The `--force` parameter is what causes the remote branch rewrite.
 
 # Conclusion
 
