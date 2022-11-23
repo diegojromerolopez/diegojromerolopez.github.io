@@ -12,11 +12,12 @@ disqusShortname = "diego-j-s-software-tar-pit"
 [Author]
   name = "Diego J. Romero-López"
   email = "diegojromerolopez@gmail.com"
-  github = "diegojromerolopez"  
+  github = "diegojromerolopez"
   linkedin = "diegojromerolopez"
   twitter = "diegojromerolop"
 
 [Params]
+  selfHosted = true
   subtitle = "Diego J.'s rambling thoughts about software"
   comments = false
   commit = false
@@ -35,13 +36,23 @@ disqusShortname = "diego-j-s-software-tar-pit"
   date = [':filename', ':default']
 
 [languages]
-  [languages.en] 
+  [languages.en]
     contentDir = "content/en" # English
   [languages.es]
     contentDir = "content/es" # Spanish
 
 [privacy]
   [privacy.disqus]
+    disable = true
+  [privacy.googleAnalytics]
+    disable = true
+  [privacy.instagram]
+    disable = true
+  [privacy.twitter]
+    disable = true
+  [privacy.vimeo]
+    disable = true
+  [privacy.youtube]
     disable = true
 
 [[menu.main]]
