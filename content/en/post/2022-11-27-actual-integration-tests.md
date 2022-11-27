@@ -5,8 +5,6 @@ draft: false
 tags: ["testing", "software engineering"]
 ---
 
-# Actual integration tests
-
 Many times we have some piece of code that is tested but is still failing
 in production. How is that possible? Is that because of bad tests or
 we have a greater hidden issue?

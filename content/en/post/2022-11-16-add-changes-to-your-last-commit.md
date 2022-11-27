@@ -6,8 +6,6 @@ tags: ["git", "rewritting", "commit"]
 bigimg: [{src: "/img/corrections.png", desc: "Some corrections on a Manuscript (from https://publicdomainreview.org/collection/a-closer-look-at-richard-wagner-s-manuscripts)"}]
 ---
 
-# Add changes to your last commit
-
 Have you ever created a commit with a meaningful message and,
 later wanted to add or modify something to it? And what about if you pushed
 that commit? Here we are going to see how you add changes to a commit,
