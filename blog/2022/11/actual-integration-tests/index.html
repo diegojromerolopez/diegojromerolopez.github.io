@@ -3,20 +3,22 @@
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Add changes to your last commit - Diego J.'s Software Tar Pit</title>
-<meta name=description content="Add changes to your last commit Have you ever created a commit with a meaningful message and, later wanted to add or modify something to it? And what about if you pushed that commit? Here we are going to see how you add changes to a commit, independently of if it was pushed or not.
-How-to Let&rsquo;s suppose we have just pushed a commit and we want to add another change to it.">
+<title>Actual integration tests - Diego J.'s Software Tar Pit</title>
+<meta name=description content="Actual integration tests Many times we have some piece of code that is tested but is still failing in production. How is that possible? Is that because of bad tests or we have a greater hidden issue?
+Protect your vital functionality with integration tests Integration tests are the best way make sure that a functionality does not degradate when adding new features.
+What are integration tests Integration tests are tests that check a full feature of the project.">
 <meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2022\/11\/add-changes-to-your-last-commit\/","name":"Add changes to your last commit"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"Add changes to your last commit","description":"Add changes to your last commit Have you ever created a commit with a meaningful message and, later wanted to add or modify something to it? And what about if you pushed that commit? Here we are going to see how you add changes to a commit, independently of if it was pushed or not.\nHow-to Let\u0026rsquo;s suppose we have just pushed a commit and we want to add another change to it.","inLanguage":"en","wordCount":214,"datePublished":"2022-11-16T18:36:00","dateModified":"2022-11-16T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["git, rewritting, commit"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2022\/11\/add-changes-to-your-last-commit\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
-<meta property="og:title" content="Add changes to your last commit">
-<meta property="og:description" content="Add changes to your last commit Have you ever created a commit with a meaningful message and, later wanted to add or modify something to it? And what about if you pushed that commit? Here we are going to see how you add changes to a commit, independently of if it was pushed or not.
-How-to Let&rsquo;s suppose we have just pushed a commit and we want to add another change to it.">
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2022\/11\/actual-integration-tests\/","name":"Actual integration tests"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"Actual integration tests","description":"Actual integration tests Many times we have some piece of code that is tested but is still failing in production. How is that possible? Is that because of bad tests or we have a greater hidden issue?\nProtect your vital functionality with integration tests Integration tests are the best way make sure that a functionality does not degradate when adding new features.\nWhat are integration tests Integration tests are tests that check a full feature of the project.","inLanguage":"en","wordCount":488,"datePublished":"2022-11-13T00:00:00","dateModified":"2022-11-27T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["testing, software engineering"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2022\/11\/actual-integration-tests\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
+<meta property="og:title" content="Actual integration tests">
+<meta property="og:description" content="Actual integration tests Many times we have some piece of code that is tested but is still failing in production. How is that possible? Is that because of bad tests or we have a greater hidden issue?
+Protect your vital functionality with integration tests Integration tests are the best way make sure that a functionality does not degradate when adding new features.
+What are integration tests Integration tests are tests that check a full feature of the project.">
 <meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
-<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2022/11/add-changes-to-your-last-commit/">
+<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2022/11/actual-integration-tests/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Diego J.'s Software Tar Pit">
-<meta name=twitter:title content="Add changes to your last commit">
-<meta name=twitter:description content="Add changes to your last commit Have you ever created a commit with a meaningful message and, later wanted to add or modify something to it? And what about if you pushed that commit? Here we are going …">
+<meta name=twitter:title content="Actual integration tests">
+<meta name=twitter:description content="Actual integration tests Many times we have some piece of code that is tested but is still failing in production. How is that possible? Is that because of bad tests or we have a greater hidden issue? …">
 <meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:site content="@diegojromerolop">
@@ -101,32 +103,16 @@ How-to Let&rsquo;s suppose we have just pushed a commit and we want to add anoth
 </div>
 </div>
 </div>
-<div id=header-big-imgs data-num-img=1 data-img-src-1=https://diegojromerolopez.github.io/img/corrections.png data-img-desc-1="Some corrections on a Manuscript (from https://publicdomainreview.org/collection/a-closer-look-at-richard-wagner-s-manuscripts)"></div>
-<header class="header-section has-img">
-<div class="intro-header big-img">
-<div class=container>
-<div class=row>
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<div class=post-heading>
-<h1>Add changes to your last commit</h1>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on November 16, 2022
-&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
-</span>
-</div>
-</div>
-</div>
-</div>
-<span class=img-desc style=display:inline></span>
-</div>
+<header class=header-section>
 <div class="intro-header no-img">
 <div class=container>
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 <div class=post-heading>
-<h1>Add changes to your last commit</h1>
+<h1>Actual integration tests</h1>
 <span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on November 16, 2022
+<i class="fas fa-calendar"></i>&nbsp;Posted on November 27, 2022
+&nbsp;(Last modified on November 13, 2022)
 &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
 </span>
 </div>
@@ -139,47 +125,65 @@ How-to Let&rsquo;s suppose we have just pushed a commit and we want to add anoth
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 <article role=main class=blog-post>
-<h1 id=add-changes-to-your-last-commit>Add changes to your last commit</h1>
-<p>Have you ever created a commit with a meaningful message and,
-later wanted to add or modify something to it? And what about if you pushed
-that commit? Here we are going to see how you add changes to a commit,
-independently of if it was pushed or not.</p>
-<h1 id=how-to>How-to</h1>
-<p>Let&rsquo;s suppose we have just pushed a commit and we want to add
-another change to it. This process is called
-<a href=https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---amend>amend</a>.</p>
-<p>Let us see the process step by step:</p>
-<h2 id=add-changes-to-stage>Add changes to stage</h2>
-<p>Add the changes to stage:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>git add file1.rb file2.rb
-</code></pre></div><h2 id=amend-the-commit>Amend the commit</h2>
-<p>Add changes to commit:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>git commit --amend --no-edit
-</code></pre></div><p>In case we want to modify the message type</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>git commit --amend -m <span style=color:#e6db74>&#34;New message&#34;</span>
-</code></pre></div><h2 id=push-your-modifications>Push your modifications</h2>
-<p><strong>(Only if you pushed the last commit)</strong></p>
-<p>You can type <code>git status</code> and see how your branch and the origin branch
-have diverted. As we did in <a href=/blog/2022/11/rewrite-git-branch-history/>the previous post</a>, you have to force the push moving the
-remote head of the branch.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>git push --force
-</code></pre></div><p>The <code>--force</code> parameter is what causes the remote branch rewrite.</p>
+<h1 id=actual-integration-tests>Actual integration tests</h1>
+<p>Many times we have some piece of code that is tested but is still failing
+in production. How is that possible? Is that because of bad tests or
+we have a greater hidden issue?</p>
+<h1 id=protect-your-vital-functionality-with-integration-tests>Protect your vital functionality with integration tests</h1>
+<p>Integration tests are the best way make sure that a functionality
+does not degradate when adding new features.</p>
+<h2 id=what-are-integration-tests>What are integration tests</h2>
+<p>Integration tests are tests that check a full feature of the project.
+So, in the case of adding new features, we can guarantee that at least
+the covered features are going to keep working as expected.</p>
+<h2 id=unit-test-vs-integration-tests>Unit test vs Integration tests</h2>
+<p><strong>Unit tests</strong> check only a part of the project and usually rely in <em>stubbing</em>
+and <em>mocking</em> many dependencies, i.e. they do not test everything, as many
+parts of the checked code are replaced by <em>fake</em> functionality.</p>
+<p><strong>Integration tests</strong> does not rely in faking all the dependencies of the project
+(or that is the goal, sometimes it is not possible and some mocks needs to be used).
+They fully check a feature end-to-end.</p>
+<p>Both cases are needed to allow easy refactors of code and detect integration
+errors before reaching production. However, integration tests provide a
+better way of assuring the project&rsquo;s feature, as unit tests can fail
+to rely too much in mocking some module&rsquo;s dependencies. Most of the times,
+integration tests only mock external services, hence testing the actual
+functionaly of the project (unlike unit tests).</p>
+<h2 id=smoke-tests>Smoke tests</h2>
+<p>There is a kind of tests that have the aim of making sure the basic
+functionality of the project keeps working after having added new features.</p>
+<p>Examples of these tests are &ldquo;signing up an user&rdquo;, &ldquo;logging in an user&rdquo;,
+&ldquo;selling a product to an user&rdquo;, etc.</p>
+<p>These tests give &ldquo;mind peace&rdquo; to developers, as they guarantee some basic
+features. Usually there are no smoke tests for all the features that the
+project has, but for the most commonly used. That way, in the event of
+a <em>bug</em>, there would be a <em>degradation of the service</em> but never an
+error as it would have been detected in the testing phase.</p>
+<h2 id=how-to-do-it>How to do it?</h2>
+<p>Try to replicate the production environment as good as possible when
+creating the integration tests.</p>
+<p>For example, thanks to docker container technology,
+it is possible to run <a href=https://hub.docker.com/_/docker>docker containers inside
+docker</a>, and hence create
+a mini-production environment to test.</p>
+<p>Another way to do it, is to have a clone of production and deploy there
+each time the contionus integration runs, and run some test again that
+production clone server.</p>
+<p>There are multiple ways to do it, but you have to found a way to have
+a test environment as similar as possible to production with the possibility
+of running tests there.</p>
 <h1 id=conclusion>Conclusion</h1>
-<p>Do not worry if you have to add more changes to a commit,
-<em>it happens to all of us!</em>. Use amend to fix the last commit
-and <em>that&rsquo;s it!</em>.</p>
+<p>Create meaningful integration tests for your projects. Smoke-tests
+are a good way to make sure the basic features of your project
+keep working after including a new feature.</p>
 <div class=blog-tags>
-<a href=https://diegojromerolopez.github.io/tags/git/>git</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/rewritting/>rewritting</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/commit/>commit</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/testing/>testing</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/software-engineering/>software engineering</a>&nbsp;
 </div>
 </article>
 <ul class="pager blog-pager">
 <li class=previous>
-<a href=https://diegojromerolopez.github.io/blog/2022/11/rewrite-git-branch-history/ data-toggle=tooltip data-placement=top title="Rewrite git branch history">&larr; Previous Post</a>
-</li>
-<li class=next>
-<a href=https://diegojromerolopez.github.io/blog/2022/11/actual-integration-tests/ data-toggle=tooltip data-placement=top title="Actual integration tests">Next Post &rarr;</a>
+<a href=https://diegojromerolopez.github.io/blog/2022/11/add-changes-to-your-last-commit/ data-toggle=tooltip data-placement=top title="Add changes to your last commit">&larr; Previous Post</a>
 </li>
 </ul>
 </div>
