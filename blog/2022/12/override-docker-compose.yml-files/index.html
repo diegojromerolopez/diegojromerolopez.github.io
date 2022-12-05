@@ -1,0 +1,324 @@
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Override docker-compose.yml files - Diego J.'s Software Tar Pit</title>
+<meta name=description content="Override docker-compose.yml files Sometimes we want to have different versions of docker-compose.yml files (one for production and one for development). Each environment has their own characteristics (slightly different images for example) we show here a good way to override sections of a docker-compose.yml file easily.
+Why? Sometimes we have several environments that share almost all docker configuration. Having a common docker-compose.yml file and several docker-compose.override.yml files is a great way to manage your service configurations.">
+<meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2022\/12\/override-docker-compose.yml-files\/","name":"Override docker compose.yml files"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"Override docker-compose.yml files","description":"Override docker-compose.yml files Sometimes we want to have different versions of docker-compose.yml files (one for production and one for development). Each environment has their own characteristics (slightly different images for example) we show here a good way to override sections of a docker-compose.yml file easily.\nWhy? Sometimes we have several environments that share almost all docker configuration. Having a common docker-compose.yml file and several docker-compose.override.yml files is a great way to manage your service configurations.","inLanguage":"en","wordCount":414,"datePublished":"2022-12-05T19:50:00","dateModified":"2022-12-05T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["docker, docker-compose"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2022\/12\/override-docker-compose.yml-files\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
+<meta property="og:title" content="Override docker-compose.yml files">
+<meta property="og:description" content="Override docker-compose.yml files Sometimes we want to have different versions of docker-compose.yml files (one for production and one for development). Each environment has their own characteristics (slightly different images for example) we show here a good way to override sections of a docker-compose.yml file easily.
+Why? Sometimes we have several environments that share almost all docker configuration. Having a common docker-compose.yml file and several docker-compose.override.yml files is a great way to manage your service configurations.">
+<meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2022/12/override-docker-compose.yml-files/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Diego J.'s Software Tar Pit">
+<meta name=twitter:title content="Override docker-compose.yml files">
+<meta name=twitter:description content="Override docker-compose.yml files Sometimes we want to have different versions of docker-compose.yml files (one for production and one for development). Each environment has their own characteristics …">
+<meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:site content="@diegojromerolop">
+<meta name=twitter:creator content="@diegojromerolop">
+<link href=https://diegojromerolopez.github.io/img/favicon.ico rel=icon type=image/x-icon>
+<meta name=generator content="Hugo 0.91.2">
+<link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=https://diegojromerolopez.github.io/css/katex.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/fontawesome/css/all.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/bootstrap.min.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/main.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/fonts.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/syntax.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/codeblock.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.default-skin.min.css>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+<div class=container-fluid>
+<div class=navbar-header>
+<button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</div>
+<div class="collapse navbar-collapse" id=main-navbar>
+<ul class="nav navbar-nav navbar-right">
+<li>
+<a title=Blog href=/>Blog</a>
+</li>
+<li>
+<a title=About href=/page/about/>About</a>
+</li>
+<li>
+<a title=Tags href=/tags>Tags</a>
+</li>
+<li>
+<a href=/es lang=es>es</a>
+</li>
+</ul>
+</div>
+<div class=avatar-container>
+<div class=avatar-img-border>
+<a title="Diego J.'s Software Tar Pit" href=https://diegojromerolopez.github.io>
+<img class=avatar-img src=https://diegojromerolopez.github.io/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit">
+</a>
+</div>
+</div>
+</div>
+</nav>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div>
+<header class=header-section>
+<div class="intro-header no-img">
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class=post-heading>
+<h1>Override docker-compose.yml files</h1>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;Posted on December 5, 2022
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class=container role=main>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<article role=main class=blog-post>
+<h1 id=override-docker-composeyml-files>Override docker-compose.yml files</h1>
+<p>Sometimes we want to have different versions of docker-compose.yml files
+(one for production and one for development). Each environment has their
+own characteristics (slightly different images for example) we show here
+a good way to override sections of a docker-compose.yml file easily.</p>
+<h2 id=why>Why?</h2>
+<p>Sometimes we have several environments that share almost all docker configuration.
+Having a common docker-compose.yml file and several docker-compose.override.yml
+files is a great way to manage your service configurations.</p>
+<h2 id=how>How?</h2>
+<p><a href=https://docs.docker.com/compose/extends/#multiple-compose-files>Use several docker-compose.yml files</a>.</p>
+<p>You only have to create several docker-compose.yml files
+and <a href=https://docs.docker.com/compose/extends/#adding-and-overriding-configuration>replicate the section of the service you want to add, overwrite or extend</a>.</p>
+<p>Let us see an example:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yml data-lang=yml><span style=color:#75715e># docker-compose.yml</span>
+<span style=color:#f92672>version</span>: <span style=color:#e6db74>&#34;3.9&#34;</span>
+
+<span style=color:#f92672>services</span>:
+  <span style=color:#f92672>db</span>:
+    <span style=color:#f92672>hostname</span>: <span style=color:#ae81ff>project_db</span>
+    <span style=color:#f92672>container_name</span>: <span style=color:#ae81ff>project_db</span>
+    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>postgres</span>
+    <span style=color:#f92672>environment</span>:
+      - <span style=color:#ae81ff>POSTGRES_DB=project</span>
+      - <span style=color:#ae81ff>POSTGRES_USER=postgres</span>
+      - <span style=color:#ae81ff>POSTGRES_PASSWORD=postgres</span>
+    <span style=color:#f92672>ports</span>:
+      - <span style=color:#e6db74>&#39;5432:5432&#39;</span>
+    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+    <span style=color:#f92672>volumes</span>:
+      - <span style=color:#ae81ff>db:/var/lib/postgresql/data</span>
+    <span style=color:#f92672>networks</span>:
+      - <span style=color:#ae81ff>project_network</span>
+
+  <span style=color:#f92672>rabbitmq</span>:
+    <span style=color:#f92672>hostname</span>: <span style=color:#ae81ff>project_rabbitmq</span>
+    <span style=color:#f92672>container_name</span>: <span style=color:#ae81ff>project_rabbitmq</span>
+    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>rabbitmq:3-management-alpine</span>
+    <span style=color:#f92672>ports</span>:
+      - <span style=color:#ae81ff>5672</span>:<span style=color:#ae81ff>5672</span>
+      - <span style=color:#ae81ff>15672</span>:<span style=color:#ae81ff>15672</span>
+    <span style=color:#f92672>environment</span>:
+      - <span style=color:#ae81ff>RABBITMQ_USER=guest</span>
+      - <span style=color:#ae81ff>RABBITMQ_PASSWORD=guest</span>
+    <span style=color:#f92672>volumes</span>:
+      - <span style=color:#ae81ff>./tmp/rabbitmq/data/:/var/lib/rabbitmq/</span>
+      - <span style=color:#ae81ff>./tmp/rabbitmq/log/:/var/log/rabbitmq</span>
+    <span style=color:#f92672>networks</span>:
+      - <span style=color:#ae81ff>project_network</span>
+    <span style=color:#f92672>healthcheck</span>:
+      <span style=color:#f92672>test</span>: [ <span style=color:#e6db74>&#34;CMD&#34;</span>, <span style=color:#e6db74>&#34;curl&#34;</span>, <span style=color:#e6db74>&#34;-f&#34;</span>, <span style=color:#e6db74>&#34;http://localhost:15672&#34;</span> ]
+      <span style=color:#f92672>interval</span>: <span style=color:#ae81ff>30s</span>
+      <span style=color:#f92672>timeout</span>: <span style=color:#ae81ff>10s</span>
+      <span style=color:#f92672>retries</span>: <span style=color:#ae81ff>5</span>
+
+  <span style=color:#f92672>web</span>:
+    <span style=color:#f92672>hostname</span>: <span style=color:#ae81ff>project_web</span>
+    <span style=color:#f92672>container_name</span>: <span style=color:#ae81ff>project_web</span>
+    <span style=color:#f92672>build</span>:
+      <span style=color:#f92672>context</span>: <span style=color:#ae81ff>.</span>
+      <span style=color:#f92672>dockerfile</span>: <span style=color:#ae81ff>./docker/web/Dockerfile</span>
+    <span style=color:#f92672>command</span>: <span style=color:#ae81ff>/opt/app/docker-entrypoint.sh</span>
+    <span style=color:#f92672>ports</span>:
+      - <span style=color:#e6db74>&#34;9000:9000&#34;</span>
+    <span style=color:#f92672>environment</span>:
+      - <span style=color:#ae81ff>DB_BACKEND=postgresql</span>
+      - <span style=color:#ae81ff>DB_NAME=project</span>
+      - <span style=color:#ae81ff>DB_USER=postgres</span>
+      - <span style=color:#ae81ff>DB_PASSWORD=postgres</span>
+      - <span style=color:#ae81ff>DB_HOST=project_db</span>
+      - <span style=color:#ae81ff>DB_PORT=5432</span>
+      - <span style=color:#ae81ff>QUEUE_HOST=project_rabbitmq</span>
+      - <span style=color:#ae81ff>QUEUE_PORT=5672</span>
+      - <span style=color:#ae81ff>LOG_NAME=web</span>
+      - <span style=color:#ae81ff>LOG_LEVEL=INFO</span>
+    <span style=color:#f92672>depends_on</span>:
+      - <span style=color:#ae81ff>db</span>
+      - <span style=color:#ae81ff>rabbitmq</span>
+    <span style=color:#f92672>networks</span>:
+      - <span style=color:#ae81ff>project_network</span>
+    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+
+<span style=color:#f92672>networks</span>:
+  <span style=color:#f92672>project_network</span>:
+    <span style=color:#f92672>name</span>: <span style=color:#ae81ff>project_network</span>
+    <span style=color:#f92672>driver</span>: <span style=color:#ae81ff>bridge</span>
+<span style=color:#f92672>volumes</span>:
+  <span style=color:#f92672>db</span>:
+    <span style=color:#f92672>driver</span>: <span style=color:#ae81ff>local</span>
+  <span style=color:#f92672>project_rabbitmq</span>:
+    <span style=color:#f92672>driver</span>: <span style=color:#ae81ff>local</span>
+</code></pre></div><p>Imagine we want to use a different Dockerfile for the project&rsquo;s <em>web</em> service tests.
+You only need to create a different docker-compose.yml (with a meaningful name
+like <strong>docker-compose.web-test-override.ymll</strong>) and overwrite the property dockerfile
+of the main docker-compose.yml file.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yml data-lang=yml><span style=color:#75715e># docker-compose.web-test-override.yml</span>
+<span style=color:#f92672>version</span>: <span style=color:#e6db74>&#34;3.9&#34;</span>
+
+<span style=color:#f92672>services</span>:
+ <span style=color:#f92672>web</span>:
+    <span style=color:#f92672>build</span>:
+      <span style=color:#f92672>dockerfile</span>: <span style=color:#ae81ff>./docker/web/web.Dockerfile</span>
+    <span style=color:#f92672>environment</span>:
+      - <span style=color:#ae81ff>LOG_LEVEL=DEBUG</span>
+</code></pre></div><p>In our case, we have override the property dockerfile and the LOG_LEVEL environment variable.</p>
+<h2 id=how-do-you-use-it>How do you use it?</h2>
+<p>Use the <strong>-f</strong> or <strong>&ndash;file</strong> parameter to add several files to the docker-compose
+command you want to use, e.g.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>docker-compose -f docker-compose.yml -f docker-compose.web-test.override.yml run web
+</code></pre></div><h2 id=whats-the-catch>What&rsquo;s the <em>catch</em>?</h2>
+<p>You only can overwrite sections that containe a lone value. In the case of
+sections with several values (like ports), you can add new values but not
+remove or overwrite entirely the section.</p>
+<p>So maybe a good practice is to have multiple-value sections in different
+docker-compose.yml files.</p>
+<h1 id=conclusion>Conclusion</h1>
+<p>You can use several docker-compose.yml with the intent of overwritting
+concrete parts of a main docker-compose.yml file. This can be useful
+for customizing properties and sharing most of the configuration for
+different environments.</p>
+<div class=blog-tags>
+<a href=https://diegojromerolopez.github.io/tags/docker/>docker</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/docker-compose/>docker-compose</a>&nbsp;
+</div>
+</article>
+<ul class="pager blog-pager">
+<li class=previous>
+<a href=https://diegojromerolopez.github.io/blog/2022/11/actual-integration-tests/ data-toggle=tooltip data-placement=top title="Actual integration tests">&larr; Previous Post</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<footer>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<ul class="list-inline text-center footer-links">
+<li>
+<a href=mailto:diegojromerolopez@gmail.com title="Email me">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://github.com/diegojromerolopez title=GitHub>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://twitter.com/diegojromerolop title=Twitter>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://linkedin.com/in/diegojromerolopez title=LinkedIn>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href title=RSS>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+</ul>
+<p class="credits copyright text-muted">
+Diego J. Romero-López
+&nbsp;&bull;&nbsp;&copy;
+2022
+&nbsp;&bull;&nbsp;
+<a href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</p>
+<p class="credits theme-by text-muted">
+<a href=https://gohugo.io>Hugo v0.91.2</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
+</p>
+</div>
+</div>
+</div>
+</footer><script src=https://diegojromerolopez.github.io/js/katex.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/auto-render.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/jquery-3.5.1.slim.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/bootstrap.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/main.js></script><script>renderMathInElement(document.body)</script><script src=https://diegojromerolopez.github.io/js/photoswipe.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/photoswipe-ui-default.min.js></script><script src=https://diegojromerolopez.github.io/js/load-photoswipe.js></script>
+</body>
+</html>
