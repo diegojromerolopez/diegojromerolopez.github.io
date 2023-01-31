@@ -3,14 +3,20 @@
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>testing - Diego J.'s Software Tar Pit</title>
+<title>Dockerfile stages must have a command - Diego J.'s Software Tar Pit</title>
+<meta name=description content="Dockerfile stages must have a command In multi-stage Dockerfile, you have to be careful for what stages you run. Want to avoid having misteriously exit 0 errors in containers? Add a CMD at the end of the Dockerfile stage with some dummy command like
+CMD [&#34;/bin/bash&#34;, &#34;echo&#34;, &#34;Command for stage X&#34;]Any stage that has no command will exit without informing the user of what happened. This could cause some mysterious errors if you are getting up all containers and not overwritting the command of the ones that have none.">
 <meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
-<meta property="og:title" content="testing">
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2023\/01\/dockerfile-stages-must-have-a-command\/","name":"Dockerfile stages must have a command"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"Dockerfile stages must have a command","description":"Dockerfile stages must have a command In multi-stage Dockerfile, you have to be careful for what stages you run. Want to avoid having misteriously exit 0 errors in containers? Add a CMD at the end of the Dockerfile stage with some dummy command like\nCMD [\u0026#34;\/bin\/bash\u0026#34;, \u0026#34;echo\u0026#34;, \u0026#34;Command for stage X\u0026#34;]Any stage that has no command will exit without informing the user of what happened. This could cause some mysterious errors if you are getting up all containers and not overwritting the command of the ones that have none.","inLanguage":"en","wordCount":120,"datePublished":"2023-01-31T00:00:00","dateModified":"2023-01-31T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["docker"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2023\/01\/dockerfile-stages-must-have-a-command\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
+<meta property="og:title" content="Dockerfile stages must have a command">
+<meta property="og:description" content="Dockerfile stages must have a command In multi-stage Dockerfile, you have to be careful for what stages you run. Want to avoid having misteriously exit 0 errors in containers? Add a CMD at the end of the Dockerfile stage with some dummy command like
+CMD [&#34;/bin/bash&#34;, &#34;echo&#34;, &#34;Command for stage X&#34;]Any stage that has no command will exit without informing the user of what happened. This could cause some mysterious errors if you are getting up all containers and not overwritting the command of the ones that have none.">
 <meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
-<meta property="og:url" content="https://diegojromerolopez.github.io/tags/testing/">
+<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2023/01/dockerfile-stages-must-have-a-command/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Diego J.'s Software Tar Pit">
-<meta name=twitter:title content="testing">
+<meta name=twitter:title content="Dockerfile stages must have a command">
+<meta name=twitter:description content="Dockerfile stages must have a command In multi-stage Dockerfile, you have to be careful for what stages you run. Want to avoid having misteriously exit 0 errors in containers? Add a CMD at the end of …">
 <meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:site content="@diegojromerolop">
@@ -100,9 +106,12 @@
 <div class=container>
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<div class=tags-heading>
-<h1>testing</h1>
-<hr class=small>
+<div class=post-heading>
+<h1>Dockerfile stages must have a command</h1>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;Posted on January 31, 2023
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
+</span>
 </div>
 </div>
 </div>
@@ -112,29 +121,33 @@
 <div class=container role=main>
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<div class=posts-list>
-<article class=post-preview>
-<a href=https://diegojromerolopez.github.io/blog/2022/11/actual-integration-tests/>
-<h2 class=post-title>Actual integration tests</h2>
-</a>
-<p class=post-meta>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on November 27, 2022
-&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
-</span>
-</p>
-<div class=post-entry>
-Many times we have some piece of code that is tested but is still failing in production. How is that possible? Is that because of bad tests or we have a greater hidden issue?
-Protect your vital functionality with integration tests Integration tests are the best way make sure that a functionality does not degradate when adding new features.
-What are integration tests Integration tests are tests that check a full feature of the project.
-<a href=https://diegojromerolopez.github.io/blog/2022/11/actual-integration-tests/ class=post-read-more>[Read More]</a>
-</div>
+<article role=main class=blog-post>
+<h1 id=dockerfile-stages-must-have-a-command>Dockerfile stages must have a command</h1>
+<p>In multi-stage Dockerfile, you have to be careful
+for what stages you run. Want to avoid having
+misteriously exit 0 errors in containers?
+Add a CMD at the end of the Dockerfile stage
+with some dummy command like</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Dockerfile data-lang=Dockerfile><span style=color:#66d9ef>CMD</span> [<span style=color:#e6db74>&#34;/bin/bash&#34;</span>, <span style=color:#e6db74>&#34;echo&#34;</span>, <span style=color:#e6db74>&#34;Command for stage X&#34;</span>]<span style=color:#960050;background-color:#1e0010>
+</span></code></pre></div><p>Any stage that has no command will exit without
+informing the user of what happened. This could
+cause some <em>mysterious</em> errors if you are getting
+up all containers and not overwritting the command
+of the ones that have none.</p>
+<h2 id=conclusion>Conclusion</h2>
+<p>A good way of making sure you are not exiting
+early while being oblivious of what is happening
+is setting a dummy command for each stage in a
+multi-stage Dockerfile.</p>
 <div class=blog-tags>
-<a href=https://diegojromerolopez.github.io/tags/testing/>testing</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/software-engineering/>software engineering</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/docker/>docker</a>&nbsp;
 </div>
 </article>
-</div>
+<ul class="pager blog-pager">
+<li class=previous>
+<a href=https://diegojromerolopez.github.io/blog/2023/01/use-the-builder-stage-pattern-in-dockerfiles/ data-toggle=tooltip data-placement=top title="Use the builder stage pattern in Dockerfiles">&larr; Previous Post</a>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -176,7 +189,7 @@ What are integration tests Integration tests are tests that check a full feature
 </a>
 </li>
 <li>
-<a href=/tags/testing/index.xml title=RSS>
+<a href title=RSS>
 <span class="fa-stack fa-lg">
 <i class="fas fa-circle fa-stack-2x"></i>
 <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
