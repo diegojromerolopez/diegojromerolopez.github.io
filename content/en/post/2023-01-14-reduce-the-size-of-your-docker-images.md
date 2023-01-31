@@ -1,7 +1,7 @@
 ---
 title: Reduce the size of your builder images
 date: "2023-01-14T00:00:00+01:00"
-draft: true
+draft: false
 tags: ["docker"]
 ---
 
@@ -65,7 +65,7 @@ RUN apt update && \
 Try to remove all information that is not
 
 ```dockerfile
-# Install a package, don't install more packages than the required
+# Install a package, don't install more packages than the required ones
 # and clean the apt cache and remove orphaned packages.
 RUN apt update && \
     apt upgrade && \

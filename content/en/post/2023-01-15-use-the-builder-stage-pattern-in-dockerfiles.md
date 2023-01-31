@@ -1,7 +1,7 @@
 ---
 title: Use the builder stage pattern in Dockerfiles
 date: "2023-01-15T00:00:00+01:00"
-draft: true
+draft: false
 tags: ["docker"]
 ---
 
