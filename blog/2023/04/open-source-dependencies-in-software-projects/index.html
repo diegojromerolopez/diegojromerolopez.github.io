@@ -1,0 +1,274 @@
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Open Source dependencies in software projects - Diego J.'s Software Tar Pit</title>
+<meta name=description content="Open Source dependencies in software projects Most of the foundations of current commercial software projects are open source. But what happens when an open source project becomens unmaintained?
+Dependencies, dependencies everywhere! Most software projects have a miriad of depedendencies. Why? Because we (as software engineers) are not going to reinvent the wheel. Having your software depend on a well-tested, maintained, and supported is a bliss. It saves you time, and work very easily: you only have to be aware of two things:">
+<meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2023\/04\/open-source-dependencies-in-software-projects\/","name":"Open source dependencies in software projects"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"Open Source dependencies in software projects","description":"Open Source dependencies in software projects Most of the foundations of current commercial software projects are open source. But what happens when an open source project becomens unmaintained?\nDependencies, dependencies everywhere! Most software projects have a miriad of depedendencies. Why? Because we (as software engineers) are not going to reinvent the wheel. Having your software depend on a well-tested, maintained, and supported is a bliss. It saves you time, and work very easily: you only have to be aware of two things:","inLanguage":"en","wordCount":653,"datePublished":"2023-04-18T00:00:00","dateModified":"2023-04-18T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["software engineering, open source, dependencies"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2023\/04\/open-source-dependencies-in-software-projects\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
+<meta property="og:title" content="Open Source dependencies in software projects">
+<meta property="og:description" content="Open Source dependencies in software projects Most of the foundations of current commercial software projects are open source. But what happens when an open source project becomens unmaintained?
+Dependencies, dependencies everywhere! Most software projects have a miriad of depedendencies. Why? Because we (as software engineers) are not going to reinvent the wheel. Having your software depend on a well-tested, maintained, and supported is a bliss. It saves you time, and work very easily: you only have to be aware of two things:">
+<meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2023/04/open-source-dependencies-in-software-projects/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Diego J.'s Software Tar Pit">
+<meta name=twitter:title content="Open Source dependencies in software projects">
+<meta name=twitter:description content="Open Source dependencies in software projects Most of the foundations of current commercial software projects are open source. But what happens when an open source project becomens unmaintained? …">
+<meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:site content="@diegojromerolop">
+<meta name=twitter:creator content="@diegojromerolop">
+<link href=https://diegojromerolopez.github.io/img/favicon.ico rel=icon type=image/x-icon>
+<meta name=generator content="Hugo 0.91.2">
+<link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=https://diegojromerolopez.github.io/css/katex.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/fontawesome/css/all.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/bootstrap.min.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/main.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/fonts.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/syntax.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/codeblock.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.default-skin.min.css>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+<div class=container-fluid>
+<div class=navbar-header>
+<button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</div>
+<div class="collapse navbar-collapse" id=main-navbar>
+<ul class="nav navbar-nav navbar-right">
+<li>
+<a title=Blog href=/>Blog</a>
+</li>
+<li>
+<a title=About href=/page/about/>About</a>
+</li>
+<li>
+<a title=Tags href=/tags>Tags</a>
+</li>
+<li>
+<a href=/es lang=es>es</a>
+</li>
+</ul>
+</div>
+<div class=avatar-container>
+<div class=avatar-img-border>
+<a title="Diego J.'s Software Tar Pit" href=https://diegojromerolopez.github.io>
+<img class=avatar-img src=https://diegojromerolopez.github.io/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit">
+</a>
+</div>
+</div>
+</div>
+</nav>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div>
+<header class=header-section>
+<div class="intro-header no-img">
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class=post-heading>
+<h1>Open Source dependencies in software projects</h1>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;Posted on April 18, 2023
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class=container role=main>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<article role=main class=blog-post>
+<h1 id=open-source-dependencies-in-software-projects>Open Source dependencies in software projects</h1>
+<p>Most of the foundations of current commercial software
+projects are open source. But what happens when an
+open source project becomens unmaintained?</p>
+<h2 id=dependencies-dependencies-everywhere>Dependencies, dependencies everywhere!</h2>
+<p>Most software projects have a miriad of depedendencies.
+Why? Because we (as software engineers) are not going to
+reinvent the wheel. Having your software depend on a
+well-tested, maintained, and supported is a bliss. It
+saves you time, and work very easily: you only have to
+be aware of two things:</p>
+<ul>
+<li>Breaking changes.</li>
+<li>Updates because of bug fixes.</li>
+</ul>
+<p>Of course we have to reach a balance. We are not going to
+develop everything from the ground up, but we are not going
+to only <em>join</em> different libraries (well, sometimes it is not
+much more than that!).</p>
+<h2 id=open-source-dependencies>Open source dependencies</h2>
+<p>Most of them are open source. The reason is simple. There are
+millions of open source projects that fulfill a need, are
+developed in the open, and have a compatible license.</p>
+<p>If open source would not exist, we should have to develop
+everythin in-house, falling in the pit of despair of having
+to maintain thousands of internal projects just for a small
+client-facing project.</p>
+<p>We do no think enough to the open source contributors for this.
+And that brings me to the following point&mldr;</p>
+<h2 id=what-can-you-do-if-one-of-your-open-source-dependencies-is-unmaintained>What can you do if one of your open source dependencies is unmaintained?</h2>
+<p>In this scenario, your project has a dependency on an open source project.
+The maintainer (the main developer of the project) has stopped working on that.
+Bugs are starting to appear, maybe some incompatibilities with other packages
+have arise, or even worse, the package does not work anymore with the last
+version of its programming language.</p>
+<h3 id=solution-1-fork-the-open-source-project-and-maintain-it>Solution 1: fork the open source project and maintain it</h3>
+<p>This solution seems to be the recommended one by github with its wonderful
+feature <em>fork</em>. You can copy the project in your github profile and
+appy the changes you need to make it work.</p>
+<p>Of course, the problem sometimes is that you are not the only one that
+has forked the project, and can be in a situation where there are thousands
+of forks of a project, with different standards of quality: some of do not even work.</p>
+<p>Are you going to redo all the work someone has already done? But has that developer
+done it well? And the worst question of all, among the thousands of forks, which
+one is the one that fit your use-case better?</p>
+<h3 id=solution-2-search-for-another-package-with-the-same-dependency-features>Solution 2: search for another package with the same dependency features</h3>
+<p>Title says it all. Search for another package that fulfills the same
+need and replace the old with the new. This is could be a hard task,
+requiring rewriting almost all of your project.</p>
+<p>I do not recommend this solution. Having to rewrite all your code that
+calls the dependency, having to change flows to adapt them to the
+new dependency, hoping to do not have any kind of incompatibility
+between your current dependencies and those from the replacement&mldr;</p>
+<p>The possibilities of new issues arising are <em>more than a few</em>.</p>
+<h3 id=solution-3-become-an-official-maintained-of-the-project>Solution 3: become an official maintained of the project</h3>
+<p>This is my favorite solution, maybe not the hardest one from the
+technical point of view, but not an easy way-out from the issue
+either. Having to deal with project management, angry users and
+of course, having to fix every bug that happens when its dependencies
+or language require, is a lot of work.</p>
+<p>However, the good thing is that you are going to collaborate with
+the community and sometimes, the community helps you: issues,
+bug reports, feature request, suggestions, full PRs, etc. Do not
+underestime the work of your new users, as they are indeed
+developers.</p>
+<h2 id=conclusion>Conclusion</h2>
+<p>If you encounter with the scenario of having a project depend on
+an old package, try to become a maintainer. You will be helping
+the community and also getting help to improve the package.</p>
+<div class=blog-tags>
+<a href=https://diegojromerolopez.github.io/tags/software-engineering/>software engineering</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/open-source/>open source</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/dependencies/>dependencies</a>&nbsp;
+</div>
+</article>
+<ul class="pager blog-pager">
+<li class=previous>
+<a href=https://diegojromerolopez.github.io/blog/2023/02/fosdem-2023/ data-toggle=tooltip data-placement=top title="FOSDEM 2023">&larr; Previous Post</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<footer>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<ul class="list-inline text-center footer-links">
+<li>
+<a href=mailto:diegojromerolopez@gmail.com title="Email me">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://github.com/diegojromerolopez title=GitHub>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://twitter.com/diegojromerolop title=Twitter>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://linkedin.com/in/diegojromerolopez title=LinkedIn>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href title=RSS>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+</ul>
+<p class="credits copyright text-muted">
+Diego J. Romero-López
+&nbsp;&bull;&nbsp;&copy;
+2023
+&nbsp;&bull;&nbsp;
+<a href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</p>
+<p class="credits theme-by text-muted">
+<a href=https://gohugo.io>Hugo v0.91.2</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
+</p>
+</div>
+</div>
+</div>
+</footer><script src=https://diegojromerolopez.github.io/js/katex.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/auto-render.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/jquery-3.5.1.slim.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/bootstrap.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/main.js></script><script>renderMathInElement(document.body)</script><script src=https://diegojromerolopez.github.io/js/photoswipe.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/photoswipe-ui-default.min.js></script><script src=https://diegojromerolopez.github.io/js/load-photoswipe.js></script>
+</body>
+</html>
