@@ -1,0 +1,274 @@
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Git History in PRs - Diego J.'s Software Tar Pit</title>
+<meta name=description content="Git History in PRs Suppose you have a big feature, and you are creating a pull-request with all your changes. How do you organize the changes? Only one commit? One per sub-feature or sub-fix? How do you make that division? Or maybe you could organize the commits in a way that is helpful for reviewers&mldr; But how? This post try to show different approaches I have found during my years in the workforce.">
+<meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2023\/04\/git-history-in-prs\/","name":"Git history in prs"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"Git History in PRs","description":"Git History in PRs Suppose you have a big feature, and you are creating a pull-request with all your changes. How do you organize the changes? Only one commit? One per sub-feature or sub-fix? How do you make that division? Or maybe you could organize the commits in a way that is helpful for reviewers\u0026hellip; But how? This post try to show different approaches I have found during my years in the workforce.","inLanguage":"en","wordCount":714,"datePublished":"2023-04-22T00:00:00","dateModified":"2023-04-22T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["software engineering, git"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2023\/04\/git-history-in-prs\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
+<meta property="og:title" content="Git History in PRs">
+<meta property="og:description" content="Git History in PRs Suppose you have a big feature, and you are creating a pull-request with all your changes. How do you organize the changes? Only one commit? One per sub-feature or sub-fix? How do you make that division? Or maybe you could organize the commits in a way that is helpful for reviewers&mldr; But how? This post try to show different approaches I have found during my years in the workforce.">
+<meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2023/04/git-history-in-prs/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Diego J.'s Software Tar Pit">
+<meta name=twitter:title content="Git History in PRs">
+<meta name=twitter:description content="Git History in PRs Suppose you have a big feature, and you are creating a pull-request with all your changes. How do you organize the changes? Only one commit? One per sub-feature or sub-fix? How do …">
+<meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:site content="@diegojromerolop">
+<meta name=twitter:creator content="@diegojromerolop">
+<link href=https://diegojromerolopez.github.io/img/favicon.ico rel=icon type=image/x-icon>
+<meta name=generator content="Hugo 0.91.2">
+<link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=https://diegojromerolopez.github.io/css/katex.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/fontawesome/css/all.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/bootstrap.min.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/main.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/fonts.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/syntax.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/codeblock.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.default-skin.min.css>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+<div class=container-fluid>
+<div class=navbar-header>
+<button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</div>
+<div class="collapse navbar-collapse" id=main-navbar>
+<ul class="nav navbar-nav navbar-right">
+<li>
+<a title=Blog href=/>Blog</a>
+</li>
+<li>
+<a title=About href=/page/about/>About</a>
+</li>
+<li>
+<a title=Tags href=/tags>Tags</a>
+</li>
+<li>
+<a href=/es lang=es>es</a>
+</li>
+</ul>
+</div>
+<div class=avatar-container>
+<div class=avatar-img-border>
+<a title="Diego J.'s Software Tar Pit" href=https://diegojromerolopez.github.io>
+<img class=avatar-img src=https://diegojromerolopez.github.io/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit">
+</a>
+</div>
+</div>
+</div>
+</nav>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div>
+<header class=header-section>
+<div class="intro-header no-img">
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class=post-heading>
+<h1>Git History in PRs</h1>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;Posted on April 22, 2023
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class=container role=main>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<article role=main class=blog-post>
+<h1 id=git-history-in-prs>Git History in PRs</h1>
+<p>Suppose you have a big feature, and you are creating
+a pull-request with all your changes. How do you
+organize the changes? Only one commit? One per sub-feature
+or sub-fix? How do you make that division? Or maybe you
+could organize the commits in a way that is helpful for
+reviewers&mldr; But how? This post try to show different
+approaches I have found during my years in the workforce.</p>
+<h2 id=alternative-1-hard-semver>Alternative 1: hard semver</h2>
+<p>In this model of work, the PRs do not matter,
+the git history does not matter, only the versions matter.
+i.e. the history of the commits is not examined at all.
+The version of the project is what is important, no PR
+reverts are made, only forward modifications.</p>
+<p>In my opinion, this is a prehistoric way of doing things.
+While of course in the case of an issue the version only
+moves forward, not relying in the git history is making
+yourself (and your team) a disservice.</p>
+<h2 id=alternative-2-smaller-prs-the-git-history-does-not-matter>Alternative 2: smaller PRs, the git history does not matter</h2>
+<p>Sometimes combined with the <em>hard semver</em>, this way of working
+tries to have small PRs that could be understood by simply taking
+a look at them. Not having to go step-by-stem, i.e. only visiting
+the <em>changes</em> section of the PR.</p>
+<p>The good thing of applying small (hence incremental) PRs is that
+if an issue arises, reverting them does not cause a <em>pain</em> to
+users, developers and other teams. Maybe the main functionaly is
+here but an edge case (that happens with a less than 1% chance) was
+causing an outage, so reverting the PR that modified the functionaly
+for fixing that 1% is <em>safer</em> that if we would have to revert
+a PR with the full functionality, with dependencies wit other
+functionalities, etc.</p>
+<p>You know what they say: <em>incremental improvement is the king</em>.</p>
+<h2 id=alternative-3-big-prs-one-commit-the-git-history-does-not-matter>Alternative 3: big PRs, one commit, the git history does not matter</h2>
+<p>Remember that we are talking of making easier the life of the
+reviewers, not understanding the full history of the <em>master</em>
+branch. However, what about <a href=/blog/2022/11/rewrite-git-branch-history/><del>ab</del>using git to rewrite your
+git history</a>?</p>
+<p>Some like that, some not. I think it all depends on the size of
+the PR. If we are talking about a small PR, it does not matter.
+If there are hundreds of changes in your PR, and there is only
+a <em>lone</em> commit, how do you start reviewing such a big change?
+It is difficult to tackled a PR so big without any indication.</p>
+<p>In the case of a big PR where the history does not help, we
+are going to ask for a <em>show and tell</em> session.</p>
+<h2 id=alternative-4-the-git-history-of-the-pr-matters>Alternative 4: the git history of the PR matters</h2>
+<p>In this alternative, the PRs can be enormous or tiny, it does not
+mattter, really. The code reviewers are going to go commit by
+commit reviewing the changes incrementally. So you need to group
+your changes accordingly so.</p>
+<p>It does not matter if there are 20 commits as long as they are
+logically independent and the reviewers can go step by step
+reviewing what would be your work (more or less).</p>
+<p>This is a good way of doing things. git provide us with functionaly
+to check and rewrite history, why don&rsquo;t use that?</p>
+<h2 id=alternative-5-show-and-tell>Alternative 5: show and tell</h2>
+<p>Most of the time this is not an alternative, but a core part
+of the code review. Instead of torturing your reviewers trying
+to understand what your code does, <strong>show the changed code running</strong>.</p>
+<p>Of course they can also review the minor details of the code, see
+if it works for all <em>edge cases</em>, it is secured against possible
+issues of malicious users, etc. but by explaining the code you wrote,
+you do most of the heavyweight work for them, and leave only pure
+software engineer review details for them.</p>
+<p>Combine this approach with having a <em>sane</em> git history of the commit
+and <em>you are golden</em>.</p>
+<h2 id=conclusion>Conclusion</h2>
+<p>Use the tools that git provides to create good PRs. Provide a
+easy-to-follow history that helps the reviewers go commit by
+commit <strong>understanding your thought processes</strong>.</p>
+<p>Besides that, adding a review meeting with the reviewers
+is going to be appreciated for them (and actually also by you),
+as the conversation about the PR is going to be faster and seamless.</p>
+<div class=blog-tags>
+<a href=https://diegojromerolopez.github.io/tags/software-engineering/>software engineering</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/git/>git</a>&nbsp;
+</div>
+</article>
+<ul class="pager blog-pager">
+<li class=previous>
+<a href=https://diegojromerolopez.github.io/blog/2023/04/open-source-dependencies-in-software-projects/ data-toggle=tooltip data-placement=top title="Open Source dependencies in software projects">&larr; Previous Post</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<footer>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<ul class="list-inline text-center footer-links">
+<li>
+<a href=mailto:diegojromerolopez@gmail.com title="Email me">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://github.com/diegojromerolopez title=GitHub>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://twitter.com/diegojromerolop title=Twitter>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://linkedin.com/in/diegojromerolopez title=LinkedIn>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href title=RSS>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+</ul>
+<p class="credits copyright text-muted">
+Diego J. Romero-López
+&nbsp;&bull;&nbsp;&copy;
+2023
+&nbsp;&bull;&nbsp;
+<a href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</p>
+<p class="credits theme-by text-muted">
+<a href=https://gohugo.io>Hugo v0.91.2</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
+</p>
+</div>
+</div>
+</div>
+</footer><script src=https://diegojromerolopez.github.io/js/katex.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/auto-render.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/jquery-3.5.1.slim.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/bootstrap.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/main.js></script><script>renderMathInElement(document.body)</script><script src=https://diegojromerolopez.github.io/js/photoswipe.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/photoswipe-ui-default.min.js></script><script src=https://diegojromerolopez.github.io/js/load-photoswipe.js></script>
+</body>
+</html>
