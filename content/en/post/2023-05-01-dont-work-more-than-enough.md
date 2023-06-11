@@ -1,6 +1,6 @@
 ---
 title: "Don't work more than enough"
-date: "2023-04-26T00:30:00+02:00"
+date: "2023-05-01T00:30:00+02:00"
 draft: false
 tags: ["software engineering", "workplace", "mental health"]
 ---

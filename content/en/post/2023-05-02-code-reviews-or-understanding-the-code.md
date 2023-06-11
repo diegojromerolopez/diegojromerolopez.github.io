@@ -1,7 +1,7 @@
 ---
 title: Code reviews or understanding the code
 date: "2023-05-02T00:00:00+02:00"
-draft: true
+draft: false
 tags: ["software engineering", "code reviews"]
 ---
 
