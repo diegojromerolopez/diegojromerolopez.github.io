@@ -1,8 +1,8 @@
 ---
 title: Software engineer, programmer or wizard
 date: "2023-06-11T00:00:00+02:00"
-draft: true
-tags: ["software engineering", "naming"]
+draft: false
+tags: ["software engineering", "naming", "diversity"]
 ---
 
 # Software engineer, programmer or wizard
@@ -30,7 +30,7 @@ the thing itself.
 I remember how my mother said that I *programmed web pages*.
 Of course it made me a bit *furious* because it was not web pages,
 but web apps. However, for the common human, it does not matter.
-*Even programmer* of web thingies could I have been named.
+Even *programmer of web thingies* could I have been named.
 
 During that time I was very self-concious about how I wanted to
 show myself to the professional world. I hated terms like *coder*,
@@ -88,7 +88,7 @@ Does it make sense at all? No, it does not. You are missing a professional becau
 
 ## Conclussion
 Change jobs frequently at the start of your career until you feel appreciated.
-Appreciate diversity, learn from people with different background (culturaly,
-personally and professionally).
+Appreciate and cellebrate diversity, learn from people with different
+background (culturaly, personally and professionally).
 Do not use your university degree as leverage to ask for a better job. **Show what
 you are able to do**.
