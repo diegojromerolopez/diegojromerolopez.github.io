@@ -3,22 +3,14 @@
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Code reviews or understanding the code - Diego J.'s Software Tar Pit</title>
-<meta name=description content="Code reviews or understanding the code How would you do a code review? Only by reading the code changes or do you thing you need to actually run the code, and what is more important, fully understand the modifications?
-A tale of two code review cultures Let&rsquo;s compare the two following environments:
-Slow but safe team Imagine a team were reviews are done by several members. There is a focus on the detail, PRs are slow to be merged as they are improved several times before the final merge.">
+<title>diversity - Diego J.'s Software Tar Pit</title>
 <meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2023\/05\/code-reviews-or-understanding-the-code\/","name":"Code reviews or understanding the code"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"Code reviews or understanding the code","description":"Code reviews or understanding the code How would you do a code review? Only by reading the code changes or do you thing you need to actually run the code, and what is more important, fully understand the modifications?\nA tale of two code review cultures Let\u0026rsquo;s compare the two following environments:\nSlow but safe team Imagine a team were reviews are done by several members. There is a focus on the detail, PRs are slow to be merged as they are improved several times before the final merge.","inLanguage":"en","wordCount":352,"datePublished":"2023-05-02T00:00:00","dateModified":"2023-05-02T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["software engineering, code reviews"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2023\/05\/code-reviews-or-understanding-the-code\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
-<meta property="og:title" content="Code reviews or understanding the code">
-<meta property="og:description" content="Code reviews or understanding the code How would you do a code review? Only by reading the code changes or do you thing you need to actually run the code, and what is more important, fully understand the modifications?
-A tale of two code review cultures Let&rsquo;s compare the two following environments:
-Slow but safe team Imagine a team were reviews are done by several members. There is a focus on the detail, PRs are slow to be merged as they are improved several times before the final merge.">
+<meta property="og:title" content="diversity">
 <meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
-<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2023/05/code-reviews-or-understanding-the-code/">
+<meta property="og:url" content="https://diegojromerolopez.github.io/tags/diversity/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Diego J.'s Software Tar Pit">
-<meta name=twitter:title content="Code reviews or understanding the code">
-<meta name=twitter:description content="Code reviews or understanding the code How would you do a code review? Only by reading the code changes or do you thing you need to actually run the code, and what is more important, fully understand …">
+<meta name=twitter:title content="diversity">
 <meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:site content="@diegojromerolop">
@@ -108,12 +100,9 @@ Slow but safe team Imagine a team were reviews are done by several members. Ther
 <div class=container>
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<div class=post-heading>
-<h1>Code reviews or understanding the code</h1>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on May 2, 2023
-&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
-</span>
+<div class=tags-heading>
+<h1>diversity</h1>
+<hr class=small>
 </div>
 </div>
 </div>
@@ -123,58 +112,30 @@ Slow but safe team Imagine a team were reviews are done by several members. Ther
 <div class=container role=main>
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<article role=main class=blog-post>
-<h1 id=code-reviews-or-understanding-the-code>Code reviews or understanding the code</h1>
-<p>How would you do a code review? Only by reading the code
-changes or do you thing you need to actually run the code,
-and what is more important, fully understand the
-modifications?</p>
-<h2 id=a-tale-of-two-code-review-cultures>A tale of two code review cultures</h2>
-<p>Let&rsquo;s compare the two following environments:</p>
-<h3 id=slow-but-safe-team>Slow but safe team</h3>
-<p>Imagine a team were reviews are done by several members.
-There is a focus on the detail, PRs are slow to be merged as they are
-improved several times before the final merge.</p>
-<p>Most of the time, the original developer must convince the reviewers
-that some of the implemented solutions are fine. Besides that,
-<strong>the code is run and showed to the team</strong>.</p>
-<p>The software the team produced is not critical but is treated as
-such. You can image the velocity of the time is not high, but
-they last incident happened&mldr; never.</p>
-<h3 id=fast-and-dynamic>Fast and dynamic</h3>
-<p>PRs tend to be small, reviews only are done by analyzing the code
-style and running the code inside the heads of the reviewers.</p>
-<p>If the language uses dynamic typing, the code relies on tests,
-but in the tests you are assuming the mocks are done well and there
-are no hidden issues.</p>
-<p>Velocity is high, reviews do not lasts more than a couple of hours.
-You can ask somebody to review the code and that developer is going
-to give a positive review with a 90% of probability (unless there is
-a very explicit mistake in your code).</p>
-<p>What is going to be the rate of issues when adding new features to
-the code base? You guess it&mldr; High or very high. Most errors are
-detected after deployment.</p>
-<h2 id=conclusion>Conclusion</h2>
-<p><em>Dress me slowly, I&rsquo;m in a hurry</em> could be a good way of summing up
-the ideas of this post. Sometimes slow processes are good because
-they are <em>battle-tested</em> and produce <em>ironclad</em> products.</p>
-<p>It is better to have a pull request waiting for reviews for days,
-or show the code running, and then receive high-quality feedback,
-than passing your PRs with honors, only to find errors in the
-deployed environments.</p>
+<div class=posts-list>
+<article class=post-preview>
+<a href=https://diegojromerolopez.github.io/blog/2023/06/software-engineer-programmer-or-wizard/>
+<h2 class=post-title>Software engineer, programmer or wizard</h2>
+</a>
+<p class=post-meta>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;Posted on June 11, 2023
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
+</span>
+</p>
+<div class=post-entry>
+Software engineer, programmer or wizard Introduction I have been named many things (with respect to my profession) some of them were not actually correct. Should I correct people? Should I be worried about this?
+Naming They say that naming something creates it. Does being called a Software Engineer increases our work level? Does it give more respect profession-wise?
+As our discipline evolves, we have had many names from programmers, to software developers, software engineers, or even wizards!
+<a href=https://diegojromerolopez.github.io/blog/2023/06/software-engineer-programmer-or-wizard/ class=post-read-more>[Read More]</a>
+</div>
 <div class=blog-tags>
 <a href=https://diegojromerolopez.github.io/tags/software-engineering/>software engineering</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/code-reviews/>code reviews</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/naming/>naming</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/diversity/>diversity</a>&nbsp;
 </div>
 </article>
-<ul class="pager blog-pager">
-<li class=previous>
-<a href=https://diegojromerolopez.github.io/blog/2023/05/dont-work-more-than-enough/ data-toggle=tooltip data-placement=top title="Don't work more than enough">&larr; Previous Post</a>
-</li>
-<li class=next>
-<a href=https://diegojromerolopez.github.io/blog/2023/06/software-engineer-programmer-or-wizard/ data-toggle=tooltip data-placement=top title="Software engineer, programmer or wizard">Next Post &rarr;</a>
-</li>
-</ul>
+</div>
 </div>
 </div>
 </div>
@@ -216,7 +177,7 @@ deployed environments.</p>
 </a>
 </li>
 <li>
-<a href title=RSS>
+<a href=/tags/diversity/index.xml title=RSS>
 <span class="fa-stack fa-lg">
 <i class="fas fa-circle fa-stack-2x"></i>
 <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
