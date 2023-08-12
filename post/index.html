@@ -103,7 +103,7 @@
 <div class=post-heading>
 <h1>Posts</h1>
 <span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on June 11, 2023
+<i class="fas fa-calendar"></i>&nbsp;Posted on August 12, 2023
 &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
 &nbsp;&bull;&nbsp;Other languages: <a href=https://diegojromerolopez.github.io/es/post/ lang=es>es</a>
 </span>
@@ -117,6 +117,27 @@
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 <div class=posts-list>
+<article class=post-preview>
+<a href=https://diegojromerolopez.github.io/blog/2023/08/how-to-manage-docker-secrets/>
+<h2 class=post-title>How to manage docker secrets</h2>
+</a>
+<p class=post-meta>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;Posted on August 12, 2023
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
+</span>
+</p>
+<div class=post-entry>
+How to manage docker secrets The product that is produced by most software developer teams is a docker image. How can be sure that we are not leaking secrets in docker images? If we include them as building arguments for sure they are going to be stored in the own image. Is there any way to avoid having them inside the docker image?
+Introduction Suppose you have a docker image that requires a secret, you do not want to include it in the image, but you need during the process of building the image.
+<a href=https://diegojromerolopez.github.io/blog/2023/08/how-to-manage-docker-secrets/ class=post-read-more>[Read More]</a>
+</div>
+<div class=blog-tags>
+<a href=https://diegojromerolopez.github.io/tags/docker/>docker</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/secrets/>secrets</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/security/>security</a>&nbsp;
+</div>
+</article>
 <article class=post-preview>
 <a href=https://diegojromerolopez.github.io/blog/2023/06/software-engineer-programmer-or-wizard/>
 <h2 class=post-title>Software engineer, programmer or wizard</h2>
@@ -294,25 +315,6 @@ CMD ["/bin/bash", "echo", "Command for stage X"]Any stage that has no command wi
 Use the builder stage pattern in Dockerfiles Most of the time, some libraries that we install in a docker image are only used for the construction of our executables. Could we just not include in our final docker image?
 Docker images should be minimal As we saw in our previous post, docker images should be minimal for several reasons, but the aim is to reduce the cost of the transference of the docker image.
 <a href=https://diegojromerolopez.github.io/blog/2023/01/use-the-builder-stage-pattern-in-dockerfiles/ class=post-read-more>[Read More]</a>
-</div>
-<div class=blog-tags>
-<a href=https://diegojromerolopez.github.io/tags/docker/>docker</a>&nbsp;
-</div>
-</article>
-<article class=post-preview>
-<a href=https://diegojromerolopez.github.io/blog/2023/01/reduce-the-size-of-your-builder-images/>
-<h2 class=post-title>Reduce the size of your builder images</h2>
-</a>
-<p class=post-meta>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on January 14, 2023
-&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
-</span>
-</p>
-<div class=post-entry>
-Reduce the size of your builder images Docker images should have a small size. For example, Alpine Linux images have a mere 50MB of size, debian-slim is 50-60MB of size. Why do we seek a small size footprint? One reason is simply because the docker images are usually pushed to, and download from, docker repositories like dockerhub or other private docker repositories.
-Use a small base image Alpine and debian-slim-stable are like 50MB.
-<a href=https://diegojromerolopez.github.io/blog/2023/01/reduce-the-size-of-your-builder-images/ class=post-read-more>[Read More]</a>
 </div>
 <div class=blog-tags>
 <a href=https://diegojromerolopez.github.io/tags/docker/>docker</a>&nbsp;

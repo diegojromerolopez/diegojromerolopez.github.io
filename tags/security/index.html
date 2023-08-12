@@ -3,14 +3,14 @@
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>docker - Diego J.'s Software Tar Pit</title>
+<title>security - Diego J.'s Software Tar Pit</title>
 <meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
-<meta property="og:title" content="docker">
+<meta property="og:title" content="security">
 <meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
-<meta property="og:url" content="https://diegojromerolopez.github.io/tags/docker/">
+<meta property="og:url" content="https://diegojromerolopez.github.io/tags/security/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Diego J.'s Software Tar Pit">
-<meta name=twitter:title content="docker">
+<meta name=twitter:title content="security">
 <meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:site content="@diegojromerolop">
@@ -101,7 +101,7 @@
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 <div class=tags-heading>
-<h1>docker</h1>
+<h1>security</h1>
 <hr class=small>
 </div>
 </div>
@@ -132,105 +132,6 @@ Introduction Suppose you have a docker image that requires a secret, you do not 
 <a href=https://diegojromerolopez.github.io/tags/docker/>docker</a>&nbsp;
 <a href=https://diegojromerolopez.github.io/tags/secrets/>secrets</a>&nbsp;
 <a href=https://diegojromerolopez.github.io/tags/security/>security</a>&nbsp;
-</div>
-</article>
-<article class=post-preview>
-<a href=https://diegojromerolopez.github.io/blog/2023/01/dockerfile-stages-must-have-a-command/>
-<h2 class=post-title>Dockerfile stages must have a command</h2>
-</a>
-<p class=post-meta>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on January 31, 2023
-&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
-</span>
-</p>
-<div class=post-entry>
-Dockerfile stages must have a command In multi-stage Dockerfile, you have to be careful for what stages you run. Want to avoid having misteriously exit 0 errors in containers? Add a CMD at the end of the Dockerfile stage with some dummy command like
-CMD ["/bin/bash", "echo", "Command for stage X"]Any stage that has no command will exit without informing the user of what happened. This could cause some mysterious errors if you are getting up all containers and not overwritting the command of the ones that have none.
-<a href=https://diegojromerolopez.github.io/blog/2023/01/dockerfile-stages-must-have-a-command/ class=post-read-more>[Read More]</a>
-</div>
-<div class=blog-tags>
-<a href=https://diegojromerolopez.github.io/tags/docker/>docker</a>&nbsp;
-</div>
-</article>
-<article class=post-preview>
-<a href=https://diegojromerolopez.github.io/blog/2023/01/use-the-builder-stage-pattern-in-dockerfiles/>
-<h2 class=post-title>Use the builder stage pattern in Dockerfiles</h2>
-</a>
-<p class=post-meta>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on January 15, 2023
-&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
-</span>
-</p>
-<div class=post-entry>
-Use the builder stage pattern in Dockerfiles Most of the time, some libraries that we install in a docker image are only used for the construction of our executables. Could we just not include in our final docker image?
-Docker images should be minimal As we saw in our previous post, docker images should be minimal for several reasons, but the aim is to reduce the cost of the transference of the docker image.
-<a href=https://diegojromerolopez.github.io/blog/2023/01/use-the-builder-stage-pattern-in-dockerfiles/ class=post-read-more>[Read More]</a>
-</div>
-<div class=blog-tags>
-<a href=https://diegojromerolopez.github.io/tags/docker/>docker</a>&nbsp;
-</div>
-</article>
-<article class=post-preview>
-<a href=https://diegojromerolopez.github.io/blog/2023/01/reduce-the-size-of-your-builder-images/>
-<h2 class=post-title>Reduce the size of your builder images</h2>
-</a>
-<p class=post-meta>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on January 14, 2023
-&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
-</span>
-</p>
-<div class=post-entry>
-Reduce the size of your builder images Docker images should have a small size. For example, Alpine Linux images have a mere 50MB of size, debian-slim is 50-60MB of size. Why do we seek a small size footprint? One reason is simply because the docker images are usually pushed to, and download from, docker repositories like dockerhub or other private docker repositories.
-Use a small base image Alpine and debian-slim-stable are like 50MB.
-<a href=https://diegojromerolopez.github.io/blog/2023/01/reduce-the-size-of-your-builder-images/ class=post-read-more>[Read More]</a>
-</div>
-<div class=blog-tags>
-<a href=https://diegojromerolopez.github.io/tags/docker/>docker</a>&nbsp;
-</div>
-</article>
-<article class=post-preview>
-<a href=https://diegojromerolopez.github.io/blog/2022/12/override-docker-compose.yml-files/>
-<h2 class=post-title>Override docker-compose.yml files</h2>
-</a>
-<p class=post-meta>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on December 5, 2022
-&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
-</span>
-</p>
-<div class=post-entry>
-Override docker-compose.yml files Sometimes we want to have different versions of docker-compose.yml files (one for production and one for development). Each environment has their own characteristics (slightly different images for example) we show here a good way to override sections of a docker-compose.yml file easily.
-Why? Sometimes we have several environments that share almost all docker configuration. Having a common docker-compose.yml file and several docker-compose.override.yml files is a great way to manage your service configurations.
-<a href=https://diegojromerolopez.github.io/blog/2022/12/override-docker-compose.yml-files/ class=post-read-more>[Read More]</a>
-</div>
-<div class=blog-tags>
-<a href=https://diegojromerolopez.github.io/tags/docker/>docker</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/docker-compose/>docker-compose</a>&nbsp;
-</div>
-</article>
-<article class=post-preview>
-<a href=https://diegojromerolopez.github.io/blog/2022/10/allow-writing-of-files-in-docker-in-linux/>
-<h2 class=post-title>Allow writing of files in docker in Linux</h2>
-</a>
-<p class=post-meta>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on October 17, 2022
-&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
-</span>
-</p>
-<div class=post-entry>
-Docker is a container system that allow developers to have a common environment to develop and SRE/devops to have machine-independent deployment process.
-Allow writing of files in docker in Linux I have been working on a small project in Python: functainer. The goal of this project is to provide a Python package to run functions in docker seamlessly: you only will docker and Python to run it.
-Anyway, that project uses files as a mean of communication, i.
-<a href=https://diegojromerolopez.github.io/blog/2022/10/allow-writing-of-files-in-docker-in-linux/ class=post-read-more>[Read More]</a>
-</div>
-<div class=blog-tags>
-<a href=https://diegojromerolopez.github.io/tags/docker/>docker</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/linux/>linux</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/tips/>tips</a>&nbsp;
 </div>
 </article>
 </div>
@@ -275,7 +176,7 @@ Anyway, that project uses files as a mean of communication, i.
 </a>
 </li>
 <li>
-<a href=/tags/docker/index.xml title=RSS>
+<a href=/tags/security/index.xml title=RSS>
 <span class="fa-stack fa-lg">
 <i class="fas fa-circle fa-stack-2x"></i>
 <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
