@@ -1,0 +1,339 @@
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Don't use singletons - Diego J.'s Software Tar Pit</title>
+<meta name=description content="Don&rsquo;t use singletons The Singleton pattern is one of the patterns that appeared in the Design Patterns book by Erich Gamma et al..
+What is a singleton? The singleton is one design patter to share a resource in a controlled manner in a code base. That resource could be a configuration, a connection or any other global state that should be unique.
+How to implement it? There are several ways to implement this, but in Python (for example) you can implement it by making use of the Python metaclasses.">
+<meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2024\/11\/dont-use-singletons\/","name":"Don\u0027T use singletons"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"Don\u0027t use singletons","description":"Don\u0026rsquo;t use singletons The Singleton pattern is one of the patterns that appeared in the Design Patterns book by Erich Gamma et al..\nWhat is a singleton? The singleton is one design patter to share a resource in a controlled manner in a code base. That resource could be a configuration, a connection or any other global state that should be unique.\nHow to implement it? There are several ways to implement this, but in Python (for example) you can implement it by making use of the Python metaclasses.","inLanguage":"en","wordCount":617,"datePublished":"2024-11-10T00:00:00","dateModified":"2024-11-10T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["software, architecture, anti-pattern"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2024\/11\/dont-use-singletons\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
+<meta property="og:title" content="Don't use singletons">
+<meta property="og:description" content="Don&rsquo;t use singletons The Singleton pattern is one of the patterns that appeared in the Design Patterns book by Erich Gamma et al..
+What is a singleton? The singleton is one design patter to share a resource in a controlled manner in a code base. That resource could be a configuration, a connection or any other global state that should be unique.
+How to implement it? There are several ways to implement this, but in Python (for example) you can implement it by making use of the Python metaclasses.">
+<meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2024/11/dont-use-singletons/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Diego J.'s Software Tar Pit">
+<meta name=twitter:title content="Don't use singletons">
+<meta name=twitter:description content="Don&rsquo;t use singletons The Singleton pattern is one of the patterns that appeared in the Design Patterns book by Erich Gamma et al..
+What is a singleton? The singleton is one design patter to …">
+<meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:site content="@diegojromerolop">
+<meta name=twitter:creator content="@diegojromerolop">
+<link href=https://diegojromerolopez.github.io/img/favicon.ico rel=icon type=image/x-icon>
+<meta name=generator content="Hugo 0.91.2">
+<link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=https://diegojromerolopez.github.io/css/katex.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/fontawesome/css/all.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/bootstrap.min.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/main.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/fonts.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/syntax.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/codeblock.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.default-skin.min.css>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+<div class=container-fluid>
+<div class=navbar-header>
+<button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</div>
+<div class="collapse navbar-collapse" id=main-navbar>
+<ul class="nav navbar-nav navbar-right">
+<li>
+<a title=Blog href=/>Blog</a>
+</li>
+<li>
+<a title=About href=/page/about/>About</a>
+</li>
+<li>
+<a title=Tags href=/tags>Tags</a>
+</li>
+<li>
+<a href=/es lang=es>es</a>
+</li>
+</ul>
+</div>
+<div class=avatar-container>
+<div class=avatar-img-border>
+<a title="Diego J.'s Software Tar Pit" href=https://diegojromerolopez.github.io>
+<img class=avatar-img src=https://diegojromerolopez.github.io/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit">
+</a>
+</div>
+</div>
+</div>
+</nav>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div>
+<header class=header-section>
+<div class="intro-header no-img">
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class=post-heading>
+<h1>Don't use singletons</h1>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;Posted on November 10, 2024
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class=container role=main>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<article role=main class=blog-post>
+<h1 id=dont-use-singletons>Don&rsquo;t use singletons</h1>
+<p>The Singleton pattern is one of the patterns that appeared
+in the <a href=https://en.wikipedia.org/wiki/Design_Patterns>Design Patterns book by Erich Gamma et al.</a>.</p>
+<h2 id=what-is-a-singleton>What is a singleton?</h2>
+<p>The singleton is one design patter to share a resource in a controlled manner
+in a code base. That resource could be a configuration, a connection or any other
+global state that should be unique.</p>
+<h2 id=how-to-implement-it>How to implement it?</h2>
+<p>There are several ways to implement this, but in Python (for example)
+you can implement it by making use of the <a href=https://realpython.com/python-metaclasses/>Python metaclasses</a>.</p>
+<p>For example (see the source and other possible alternative implementations <a href=https://stackoverflow.com/questions/6760685/what-is-the-best-way-of-implementing-singleton-in-python>in this StackOverflow question</a>):</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Singleton</span>(type):
+    _instances <span style=color:#f92672>=</span> {}
+    <span style=color:#66d9ef>def</span> __call__(cls, <span style=color:#f92672>*</span>args, <span style=color:#f92672>**</span>kwargs):
+        <span style=color:#66d9ef>if</span> cls <span style=color:#f92672>not</span> <span style=color:#f92672>in</span> cls<span style=color:#f92672>.</span>_instances:
+            cls<span style=color:#f92672>.</span>_instances[cls] <span style=color:#f92672>=</span> super(Singleton, cls)<span style=color:#f92672>.</span>__call__(<span style=color:#f92672>*</span>args, <span style=color:#f92672>**</span>kwargs)
+        <span style=color:#66d9ef>return</span> cls<span style=color:#f92672>.</span>_instances[cls]
+</code></pre></div><h2 id=how-to-use-it>How to use it?</h2>
+<p>For example we could define a singleton over the Logger object in Python:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> logging <span style=color:#f92672>import</span> Formatter, Logger, StreamHandler
+<span style=color:#f92672>from</span> singleton <span style=color:#f92672>import</span> Singleton
+
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>BasicLogger</span>(Logger, metaclass<span style=color:#f92672>=</span>Singleton):
+    <span style=color:#66d9ef>def</span> __init__(self, level<span style=color:#f92672>=</span>NOTSET):
+        super()<span style=color:#f92672>.</span>__init__(<span style=color:#e6db74>&#39;BasicLogger&#39;</span>, level<span style=color:#f92672>=</span>level)
+
+        formatter <span style=color:#f92672>=</span> Formatter(<span style=color:#e6db74>&#39;</span><span style=color:#e6db74>%(asctime)s</span><span style=color:#e6db74> - </span><span style=color:#e6db74>%(levelname)s</span><span style=color:#e6db74> - </span><span style=color:#e6db74>%(message)s</span><span style=color:#e6db74>&#39;</span>)
+        handler <span style=color:#f92672>=</span> StreamHandler(sys<span style=color:#f92672>.</span>stdout)
+        handler<span style=color:#f92672>.</span>setFormatter(formatter)
+
+        self<span style=color:#f92672>.</span>addHandler(handler)
+</code></pre></div><p>So anytime we instantiate the logger, the object is the same:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>logger1 <span style=color:#f92672>=</span> BasicLogger()
+logger2 <span style=color:#f92672>=</span> BasicLogger()
+<span style=color:#66d9ef>assert</span>(id(logger1) <span style=color:#f92672>==</span> id(logger2))
+</code></pre></div><h2 id=why-you-shouldnt-use-it>Why you shouldn&rsquo;t use it?</h2>
+<p>There are a lot of reasons why you should not use Singletons.
+There are several posts and pages that have arged in that direction:</p>
+<ul>
+<li><a href=https://timjwilliams.medium.com/the-singleton-a-dangerously-overused-pattern-d4007758bca2>The Singleton; a Dangerously Overused Pattern
+</a></li>
+<li><a href=https://kentonshouse.com/singletons>Singletons Considered Harmful</a></li>
+</ul>
+<p>There are a lot of reasons that could be enumerated here:</p>
+<ul>
+<li>They are just global state.</li>
+<li>They do not follow the single responsibility principle.</li>
+<li>Most implementations do not take in account the <a href=https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle>open/closed principle</a>.</li>
+<li>They could harbour hidden dependencies.</li>
+</ul>
+<p>Etc, etc. Let&rsquo;s suppose that we don&rsquo;t care about code quality
+(we should). However, there is a practical reason to avoid singletons:
+<strong>they are difficult to deal with in the tests</strong>.</p>
+<h2 id=testing-singletons-a-nightmare>Testing singletons: a nightmare</h2>
+<h3 id=a-singleton-test>A singleton test</h3>
+<p>How can you test a component that relies on a global object, that is
+hidden from plain sight?</p>
+<ul>
+<li>Should you just mock the object for all tests? Not easy in Python (unittest).</li>
+<li>Should you initialize it before each test? That would be similar to
+implementing an integration tests, right?</li>
+</ul>
+<p>Let&rsquo;s see an example of a class that uses a singleton:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> logger <span style=color:#f92672>import</span> BasicLogger
+<span style=color:#f92672>from</span> logging <span style=color:#f92672>import</span> DEBUG
+
+
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>User</span>:
+    <span style=color:#66d9ef>def</span> __init__(self, debug: bool <span style=color:#f92672>=</span> <span style=color:#66d9ef>None</span>):
+        self<span style=color:#f92672>.</span>__logger <span style=color:#f92672>=</span> BasicLogger()
+        <span style=color:#66d9ef>if</span> debug:
+            self<span style=color:#f92672>.</span>__logger<span style=color:#f92672>.</span>setLevel(DEBUG)
+        <span style=color:#75715e># ...</span>
+</code></pre></div><p>A very simplet test could be:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> unittest <span style=color:#f92672>import</span> MagicMock, TestCase, call
+<span style=color:#f92672>from</span> logging <span style=color:#f92672>import</span> Logger
+
+
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>TestUser</span>(TestCase):
+    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>setUp</span>(self):
+        BasicLogger()<span style=color:#f92672>.</span>setLevel(INFO)
+
+    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test_debug_true</span>(self):
+        user <span style=color:#f92672>=</span> User(logger<span style=color:#f92672>=</span>BasicLogger(), debug<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
+
+        self<span style=color:#f92672>.</span>assertEquals(BasicLogger()<span style=color:#f92672>.</span>level, DEBUG)
+
+    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test_debug_none</span>(self, mock_logger):
+        user <span style=color:#f92672>=</span> User(logger<span style=color:#f92672>=</span>BasicLogger(), debug<span style=color:#f92672>=</span><span style=color:#66d9ef>None</span>)
+
+        self<span style=color:#f92672>.</span>assertEquals(BasicLogger()<span style=color:#f92672>.</span>level, INFO)
+</code></pre></div><p>However, in this case this works because the logger is pretty simple but if we modify
+the level of the logger, it will affect all other tests, hence making them fail.</p>
+<p>Before any of you readers tell it, there is the possibility of patching the import of the BaseLogger. However,
+what about other uses of the logger in other components? <strong>Any use of BaseLogger should be mocked independently</strong>.</p>
+<h3 id=a-dependency-injection-test>A dependency injection test</h3>
+<p>Compare with just passing the dependencies in the constructor of the class, it is
+trivial to mock the dependencies and just implement the unit test behaviour check:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> logging <span style=color:#f92672>import</span> DEBUG
+
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>User</span>:
+    <span style=color:#66d9ef>def</span> __init__(self, logger: Logger):
+        self<span style=color:#f92672>.</span>__logger <span style=color:#f92672>=</span> logger
+        <span style=color:#66d9ef>if</span> debug:
+            self<span style=color:#f92672>.</span>__logger<span style=color:#f92672>.</span>setLevel(DEBUG)
+        <span style=color:#75715e># ...</span>
+
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> unittest <span style=color:#f92672>import</span> MagicMock, TestCase, call
+<span style=color:#f92672>from</span> logging <span style=color:#f92672>import</span> Logger, DEBUG, INFO
+
+
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>TestUser</span>(TestCase):
+    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test_debug_true</span>(self):
+        expected_serialized_user <span style=color:#f92672>=</span> json
+        logger <span style=color:#f92672>=</span> BasicLogger()
+
+        user <span style=color:#f92672>=</span> User(logger<span style=color:#f92672>=</span>logger, debug<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
+
+        self<span style=color:#f92672>.</span>assertEquals(logger<span style=color:#f92672>.</span>level, DEBUG)
+
+    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test_debug_none</span>(self):
+        expected_serialized_user <span style=color:#f92672>=</span> json
+        logger <span style=color:#f92672>=</span> BasicLogger()
+
+        user <span style=color:#f92672>=</span> User(logger<span style=color:#f92672>=</span>logger, debug<span style=color:#f92672>=</span><span style=color:#66d9ef>None</span>)
+
+        self<span style=color:#f92672>.</span>assertEquals(logger<span style=color:#f92672>.</span>level, INFO)
+</code></pre></div><h2 id=conclusion>Conclusion</h2>
+<p>This post shows several reasons why singletons should be avoided. It also focus on
+testing, because singletons make testing much harder. An example of using dependency
+injection instead is also shown.</p>
+<div class=blog-tags>
+<a href=https://diegojromerolopez.github.io/tags/software/>software</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/architecture/>architecture</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/anti-pattern/>anti-pattern</a>&nbsp;
+</div>
+</article>
+<ul class="pager blog-pager">
+<li class=previous>
+<a href=https://diegojromerolopez.github.io/blog/2024/10/my-experience-in-a-platform-team/ data-toggle=tooltip data-placement=top title="My experience in a Platform team">&larr; Previous Post</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<footer>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<ul class="list-inline text-center footer-links">
+<li>
+<a href=mailto:diegojromerolopez@gmail.com title="Email me">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://github.com/diegojromerolopez title=GitHub>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://twitter.com/diegojromerolop title=Twitter>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://linkedin.com/in/diegojromerolopez title=LinkedIn>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href title=RSS>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+</ul>
+<p class="credits copyright text-muted">
+Diego J. Romero-López
+&nbsp;&bull;&nbsp;&copy;
+2024
+&nbsp;&bull;&nbsp;
+<a href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</p>
+<p class="credits theme-by text-muted">
+<a href=https://gohugo.io>Hugo v0.91.2</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
+</p>
+</div>
+</div>
+</div>
+</footer><script src=https://diegojromerolopez.github.io/js/katex.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/auto-render.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/jquery-3.5.1.slim.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/bootstrap.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/main.js></script><script>renderMathInElement(document.body)</script><script src=https://diegojromerolopez.github.io/js/photoswipe.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/photoswipe-ui-default.min.js></script><script src=https://diegojromerolopez.github.io/js/load-photoswipe.js></script>
+</body>
+</html>

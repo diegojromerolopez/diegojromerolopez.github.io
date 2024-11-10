@@ -103,7 +103,7 @@
 <div class=post-heading>
 <h1>Posts</h1>
 <span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on September 21, 2024
+<i class="fas fa-calendar"></i>&nbsp;Posted on November 10, 2024
 &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
 &nbsp;&bull;&nbsp;Other languages: <a href=https://diegojromerolopez.github.io/es/post/ lang=es>es</a>
 </span>
@@ -117,6 +117,44 @@
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 <div class=posts-list>
+<article class=post-preview>
+<a href=https://diegojromerolopez.github.io/blog/2023/01/use-the-builder-stage-pattern-in-dockerfiles/>
+<h2 class=post-title>Use the builder stage pattern in Dockerfiles</h2>
+</a>
+<p class=post-meta>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;Posted on January 15, 2023
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
+</span>
+</p>
+<div class=post-entry>
+Use the builder stage pattern in Dockerfiles Most of the time, some libraries that we install in a docker image are only used for the construction of our executables. Could we just not include in our final docker image?
+Docker images should be minimal As we saw in our previous post, docker images should be minimal for several reasons, but the aim is to reduce the cost of the transference of the docker image.
+<a href=https://diegojromerolopez.github.io/blog/2023/01/use-the-builder-stage-pattern-in-dockerfiles/ class=post-read-more>[Read More]</a>
+</div>
+<div class=blog-tags>
+<a href=https://diegojromerolopez.github.io/tags/docker/>docker</a>&nbsp;
+</div>
+</article>
+<article class=post-preview>
+<a href=https://diegojromerolopez.github.io/blog/2023/01/reduce-the-size-of-your-builder-images/>
+<h2 class=post-title>Reduce the size of your builder images</h2>
+</a>
+<p class=post-meta>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;Posted on January 14, 2023
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
+</span>
+</p>
+<div class=post-entry>
+Reduce the size of your builder images Docker images should have a small size. For example, Alpine Linux images have a mere 50MB of size, debian-slim is 50-60MB of size. Why do we seek a small size footprint? One reason is simply because the docker images are usually pushed to, and download from, docker repositories like dockerhub or other private docker repositories.
+Use a small base image Alpine and debian-slim-stable are like 50MB.
+<a href=https://diegojromerolopez.github.io/blog/2023/01/reduce-the-size-of-your-builder-images/ class=post-read-more>[Read More]</a>
+</div>
+<div class=blog-tags>
+<a href=https://diegojromerolopez.github.io/tags/docker/>docker</a>&nbsp;
+</div>
+</article>
 <article class=post-preview>
 <a href=https://diegojromerolopez.github.io/blog/2022/12/dont-be-percival/>
 <h2 class=post-title>Don't be Percival</h2>
@@ -284,50 +322,6 @@ Anyway, that project uses files as a mean of communication, i.
 <a href=https://diegojromerolopez.github.io/tags/docker/>docker</a>&nbsp;
 <a href=https://diegojromerolopez.github.io/tags/linux/>linux</a>&nbsp;
 <a href=https://diegojromerolopez.github.io/tags/tips/>tips</a>&nbsp;
-</div>
-</article>
-<article class=post-preview>
-<a href=https://diegojromerolopez.github.io/blog/2021/07/asking-and-receiving-feedback-on-your-software-project/>
-<h2 class=post-title>Asking and receiving feedback on your software project</h2>
-</a>
-<p class=post-meta>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on July 11, 2021
-&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
-</span>
-</p>
-<div class=post-entry>
-Introduction A month ago I asked the HN Community for some feedback about my project: Gelidum.
-The experience was very positive and I have learned that asking for feedback in a software project is crucial.
-Why feedback is important? We know that feedback is important because it gives us a different point of view about a matter or in my case, a project.
-But, feedback is not limited to giving different points of view.
-<a href=https://diegojromerolopez.github.io/blog/2021/07/asking-and-receiving-feedback-on-your-software-project/ class=post-read-more>[Read More]</a>
-</div>
-<div class=blog-tags>
-<a href=https://diegojromerolopez.github.io/tags/feedback/>feedback</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/project/>project</a>&nbsp;
-</div>
-</article>
-<article class=post-preview>
-<a href=https://diegojromerolopez.github.io/blog/2021/06/immutability/>
-<h2 class=post-title>Immutability</h2>
-</a>
-<p class=post-meta>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on June 6, 2021
-&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
-</span>
-</p>
-<div class=post-entry>
-Introduction In this post I will explain the rationale about working with immutable objects and will present a personal project I&rsquo;ve been working on the last few days: Gelidum.
-La nevada by Francisco de Goya
-Why immutability? Nowadays, most processors have some kind of parallelism or concurrency embedded in themselves. Single-flow-execution software is limited by the lowest speed unit in the system. There are some solutions that try to hide the wait for these slow sub-systems by computing in other execution-flows (threads or processes).
-<a href=https://diegojromerolopez.github.io/blog/2021/06/immutability/ class=post-read-more>[Read More]</a>
-</div>
-<div class=blog-tags>
-<a href=https://diegojromerolopez.github.io/tags/immutability/>immutability</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/python/>python</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/project/>project</a>&nbsp;
 </div>
 </article>
 </div>
