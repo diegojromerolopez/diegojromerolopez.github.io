@@ -1,0 +1,308 @@
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>The runtime type-checking operator in TypeScript - Diego J.'s Software Tar Pit</title>
+<meta name=description content="The runtime type-checking operator in TypeScript I have been working with TypeScript for a while but for sure I am not an expert in the language (I feel more comfortable with Python).
+I like the idea of type-safe but limiting the static type checking process can make you confident about what you are getting from outside sources, and if you do not trust those sources (you should NOT), you would need to include a lot of repetitive checks any time we read data from the outside.">
+<meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2024\/12\/the-runtime-type-checking-operator-in-typescript\/","name":"The runtime type checking operator in type script"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"The runtime type-checking operator in TypeScript","description":"The runtime type-checking operator in TypeScript I have been working with TypeScript for a while but for sure I am not an expert in the language (I feel more comfortable with Python).\nI like the idea of type-safe but limiting the static type checking process can make you confident about what you are getting from outside sources, and if you do not trust those sources (you should NOT), you would need to include a lot of repetitive checks any time we read data from the outside.","inLanguage":"en","wordCount":719,"datePublished":"2024-12-05T00:16:53","dateModified":"2024-12-05T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["software, typescript, ideas"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2024\/12\/the-runtime-type-checking-operator-in-typescript\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
+<meta property="og:title" content="The runtime type-checking operator in TypeScript">
+<meta property="og:description" content="The runtime type-checking operator in TypeScript I have been working with TypeScript for a while but for sure I am not an expert in the language (I feel more comfortable with Python).
+I like the idea of type-safe but limiting the static type checking process can make you confident about what you are getting from outside sources, and if you do not trust those sources (you should NOT), you would need to include a lot of repetitive checks any time we read data from the outside.">
+<meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2024/12/the-runtime-type-checking-operator-in-typescript/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Diego J.'s Software Tar Pit">
+<meta name=twitter:title content="The runtime type-checking operator in TypeScript">
+<meta name=twitter:description content="The runtime type-checking operator in TypeScript I have been working with TypeScript for a while but for sure I am not an expert in the language (I feel more comfortable with Python).
+I like the idea …">
+<meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:site content="@diegojromerolop">
+<meta name=twitter:creator content="@diegojromerolop">
+<link href=https://diegojromerolopez.github.io/img/favicon.ico rel=icon type=image/x-icon>
+<meta name=generator content="Hugo 0.91.2">
+<link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=https://diegojromerolopez.github.io/css/katex.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/fontawesome/css/all.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/bootstrap.min.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/main.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/fonts.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/syntax.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/codeblock.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.default-skin.min.css>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+<div class=container-fluid>
+<div class=navbar-header>
+<button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</div>
+<div class="collapse navbar-collapse" id=main-navbar>
+<ul class="nav navbar-nav navbar-right">
+<li>
+<a title=Blog href=/>Blog</a>
+</li>
+<li>
+<a title=About href=/page/about/>About</a>
+</li>
+<li>
+<a title=Tags href=/tags>Tags</a>
+</li>
+<li>
+<a href=/es lang=es>es</a>
+</li>
+</ul>
+</div>
+<div class=avatar-container>
+<div class=avatar-img-border>
+<a title="Diego J.'s Software Tar Pit" href=https://diegojromerolopez.github.io>
+<img class=avatar-img src=https://diegojromerolopez.github.io/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit">
+</a>
+</div>
+</div>
+</div>
+</nav>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div>
+<header class=header-section>
+<div class="intro-header no-img">
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class=post-heading>
+<h1>The runtime type-checking operator in TypeScript</h1>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;Posted on December 5, 2024
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class=container role=main>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<article role=main class=blog-post>
+<h1 id=the-runtime-type-checking-operator-in-typescript>The runtime type-checking operator in TypeScript</h1>
+<p>I have been working with <a href=https://www.typescriptlang.org/>TypeScript</a>
+for a while but for sure I am not an expert in the language
+(I feel more comfortable with Python).</p>
+<p>I like the idea of type-safe but limiting the static type checking process
+can make you confident about what you are getting from <em>outside sources</em>,
+and if you do not trust those sources (you should NOT), you would need to include
+a lot of repetitive checks any time we read data from the outside.</p>
+<p><strong>This post is an intellectual exercise on how would I like TypeScript to be extended with runtime capabilities.</strong></p>
+<h2 id=typescript-types>TypeScript types</h2>
+<p>TypeScript is a superset of Javascript created by Microsoft with the intent
+of adding static typing to Javascript. Typescript code would be converted to
+Javascript by a translation process (<em>transpiling</em>) that would be
+hidden to the developer.</p>
+<p>This language brings type checking to Javascript, but only statically. The types
+are not checked at runtime, only when the</p>
+<h2 id=the-frontier-problem>The frontier problem</h2>
+<p>I am sure this issue has been treated before but with other name, but I like the idea
+of getting some data from outside sources and dealing in our TypeScript code as a
+<em>frontier</em> between our project and outside world.</p>
+<p>Having said that, the main issue I see with TypeScript is that the contract that we define
+is not enforced unless we implement that check at runtime. Of course, you could argue that
+that is not the scope of the language, but would that defeat the purpose of typing?</p>
+<p>Let&rsquo;s see a fictitious example:</p>
+<p>Suppose that we have been working in a task manager, and we have the Task type</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Priority</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;low&#34;</span> <span style=color:#f92672>|</span> <span style=color:#e6db74>&#34;medium&#34;</span> <span style=color:#f92672>|</span> <span style=color:#e6db74>&#34;high&#34;</span>
+
+<span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Task</span> <span style=color:#f92672>=</span> {
+  <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>string</span>;
+  <span style=color:#a6e22e>title</span>: <span style=color:#66d9ef>string</span>;
+  <span style=color:#a6e22e>description</span>: <span style=color:#66d9ef>string</span>;
+  <span style=color:#a6e22e>completionDate?</span>: <span style=color:#66d9ef>Date</span>;
+  <span style=color:#a6e22e>deadline?</span>: <span style=color:#66d9ef>Date</span>;
+  <span style=color:#a6e22e>priority</span>: <span style=color:#66d9ef>Priority</span>;
+};
+</code></pre></div><p>and we read the pending tasks from an external web service:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript>
+<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>url</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;https://example.com/api/tasks?status=pending&#34;</span>
+<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>response</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>fetch</span>(<span style=color:#a6e22e>url</span>, {
+  <span style=color:#a6e22e>method</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;GET&#39;</span>,
+  <span style=color:#a6e22e>headers</span><span style=color:#f92672>:</span> {<span style=color:#e6db74>&#34;Content-Type&#34;</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;application/json&#34;</span>},
+});
+
+<span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span><span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>ok</span>) {
+  <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> Error(<span style=color:#e6db74>`HTTP error! status: </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>status</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>);
+}
+
+<span style=color:#66d9ef>const</span> { <span style=color:#a6e22e>tasks</span> }<span style=color:#f92672>:</span> { <span style=color:#a6e22e>tasks</span>: <span style=color:#66d9ef>Task</span>[] } <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>json</span>();
+</code></pre></div><p>From the point of assignment of the constant tasks, it is assume that tasks is an array
+of objects of type Tasks. Of course that does not need to be true, so we would need to check
+the type in runtime.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=color:#75715e>// This function would be defined elsewhere
+</span><span style=color:#75715e></span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>checkTasks</span>(<span style=color:#a6e22e>tasks</span>: <span style=color:#66d9ef>any</span>)<span style=color:#f92672>:</span> <span style=color:#66d9ef>boolean</span> {
+  <span style=color:#66d9ef>return</span> Array.<span style=color:#a6e22e>isArray</span>(<span style=color:#a6e22e>tasks</span>) <span style=color:#f92672>&amp;&amp;</span> <span style=color:#a6e22e>tasks</span>.<span style=color:#a6e22e>every</span>(<span style=color:#a6e22e>taskI</span> <span style=color:#f92672>=&gt;</span>
+    <span style=color:#66d9ef>typeof</span> <span style=color:#a6e22e>taskI</span>.<span style=color:#a6e22e>id</span> <span style=color:#f92672>===</span> <span style=color:#e6db74>&#39;string&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+    <span style=color:#66d9ef>typeof</span> <span style=color:#a6e22e>taskI</span>.<span style=color:#a6e22e>title</span> <span style=color:#f92672>===</span> <span style=color:#e6db74>&#39;string&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+    <span style=color:#66d9ef>typeof</span> <span style=color:#a6e22e>taskI</span>.<span style=color:#a6e22e>description</span> <span style=color:#f92672>===</span> <span style=color:#e6db74>&#39;string&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+    <span style=color:#a6e22e>taskI</span>.<span style=color:#a6e22e>completionDate</span> <span style=color:#f92672>!==</span> <span style=color:#66d9ef>undefined</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#66d9ef>typeof</span> <span style=color:#a6e22e>taskI</span>.<span style=color:#a6e22e>completionDate</span> <span style=color:#f92672>===</span> <span style=color:#e6db74>&#39;Date&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+    <span style=color:#a6e22e>taskI</span>.<span style=color:#a6e22e>priority</span> <span style=color:#f92672>!==</span> <span style=color:#66d9ef>undefined</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#66d9ef>typeof</span> <span style=color:#a6e22e>taskI</span>.<span style=color:#a6e22e>deadline</span> <span style=color:#f92672>===</span> <span style=color:#e6db74>&#39;Date&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+    [<span style=color:#e6db74>&#34;low&#34;</span>,  <span style=color:#e6db74>&#34;medium&#34;</span>, <span style=color:#e6db74>&#34;high&#34;</span>].<span style=color:#a6e22e>includes</span>(<span style=color:#a6e22e>taskI</span>.<span style=color:#a6e22e>priority</span>)
+  );
+}
+
+<span style=color:#a6e22e>checkTasks</span>(<span style=color:#a6e22e>tasks</span>);
+</code></pre></div><p>Or rely on an external library like
+<a href=https://github.com/colinhacks/zod>zod</a> to do that:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>z</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#34;zod&#34;</span>;
+
+<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>TaskSchema</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>z</span>.<span style=color:#66d9ef>object</span>({
+  <span style=color:#a6e22e>id</span>: <span style=color:#66d9ef>z.string</span>(),
+  <span style=color:#a6e22e>title</span>: <span style=color:#66d9ef>z.string</span>(),
+  <span style=color:#a6e22e>description</span>: <span style=color:#66d9ef>z.string</span>(),
+  <span style=color:#a6e22e>completionDate</span>: <span style=color:#66d9ef>z.string</span>().<span style=color:#a6e22e>datetime</span>().<span style=color:#a6e22e>optional</span>(),
+  <span style=color:#a6e22e>deadline</span>: <span style=color:#66d9ef>z.string</span>().<span style=color:#a6e22e>datetime</span>().<span style=color:#a6e22e>optional</span>(),
+  <span style=color:#a6e22e>priority</span>: <span style=color:#66d9ef>z.enum</span>([<span style=color:#e6db74>&#34;low&#34;</span>, <span style=color:#e6db74>&#34;medium&#34;</span>, <span style=color:#e6db74>&#34;high&#34;</span>])
+});
+
+<span style=color:#66d9ef>function</span> <span style=color:#a6e22e>checkTasks</span>(<span style=color:#a6e22e>tasks</span>: <span style=color:#66d9ef>any</span>)<span style=color:#f92672>:</span> <span style=color:#66d9ef>boolean</span> {
+  <span style=color:#66d9ef>return</span> Array.<span style=color:#a6e22e>isArray</span>(<span style=color:#a6e22e>tasks</span>) <span style=color:#f92672>&amp;&amp;</span> <span style=color:#a6e22e>tasks</span>.<span style=color:#a6e22e>every</span>(<span style=color:#a6e22e>taskI</span> <span style=color:#f92672>=&gt;</span>
+    <span style=color:#a6e22e>tasks</span>.<span style=color:#a6e22e>every</span>(<span style=color:#a6e22e>TaskSchema</span>.<span style=color:#a6e22e>safeParse</span>().<span style=color:#a6e22e>success</span>;
+  );
+}
+</code></pre></div><p>But&mldr; wouldn&rsquo;t be nice to have a built-in system in the language to do that?</p>
+<h2 id=proposal-runtime-check-operator>Proposal: runtime check operator</h2>
+<p>I would like TypeScript to be augmented with runtime capabilities that would grant it the
+ability to check types.</p>
+<p>A possible solution would be to have some validation library in the standard library (easy),
+but as the enforcement of the type contract at runtime is one of the limitations of the
+language, I would like to add an operator just for that.</p>
+<p>Instead of doing:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=color:#66d9ef>const</span> { <span style=color:#a6e22e>tasks</span> }<span style=color:#f92672>:</span> { <span style=color:#a6e22e>tasks</span>: <span style=color:#66d9ef>Task</span>[] } <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>json</span>();
+</code></pre></div><p>We could do:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=color:#66d9ef>const</span> { <span style=color:#a6e22e>tasks</span> }<span style=color:#f92672>:</span> { <span style=color:#a6e22e>tasks</span>: <span style=color:#66d9ef>Task</span>[] } <span style=color:#f92672>&lt;-</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>json</span>();
+</code></pre></div><p>The slim arrow operation, i.e. <code>&lt;-</code>, would contain a runtime type check, and will raise
+and exception when the type does not match the left variable in the assignment.</p>
+<p>From that line onwards we could ensure the types as truthful.</p>
+<p>You could argue that runtime type checks is outside the scope of TypeScript, but as it is
+a common and frequent task, should not the language could be extended in that way? Do we need
+to be limited to static checks only?</p>
+<h2 id=conclusion>Conclusion</h2>
+<p>We have <em>fantasized</em> about adding a new operation to the types in TypeScript that would check
+the type of a variable at runtime. We will delve with the implementation in next posts.</p>
+<div class=blog-tags>
+<a href=https://diegojromerolopez.github.io/tags/software/>software</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/typescript/>typescript</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/ideas/>ideas</a>&nbsp;
+</div>
+</article>
+<ul class="pager blog-pager">
+<li class=previous>
+<a href=https://diegojromerolopez.github.io/blog/2024/11/dont-use-singletons/ data-toggle=tooltip data-placement=top title="Don't use singletons">&larr; Previous Post</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<footer>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<ul class="list-inline text-center footer-links">
+<li>
+<a href=mailto:diegojromerolopez@gmail.com title="Email me">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://github.com/diegojromerolopez title=GitHub>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://twitter.com/diegojromerolop title=Twitter>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://linkedin.com/in/diegojromerolopez title=LinkedIn>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href title=RSS>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+</ul>
+<p class="credits copyright text-muted">
+Diego J. Romero-López
+&nbsp;&bull;&nbsp;&copy;
+2024
+&nbsp;&bull;&nbsp;
+<a href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</p>
+<p class="credits theme-by text-muted">
+<a href=https://gohugo.io>Hugo v0.91.2</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
+</p>
+</div>
+</div>
+</div>
+</footer><script src=https://diegojromerolopez.github.io/js/katex.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/auto-render.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/jquery-3.5.1.slim.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/bootstrap.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/main.js></script><script>renderMathInElement(document.body)</script><script src=https://diegojromerolopez.github.io/js/photoswipe.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/photoswipe-ui-default.min.js></script><script src=https://diegojromerolopez.github.io/js/load-photoswipe.js></script>
+</body>
+</html>
