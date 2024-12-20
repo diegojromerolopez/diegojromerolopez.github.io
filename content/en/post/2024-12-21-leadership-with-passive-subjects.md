@@ -2,7 +2,7 @@
 title: Leadership with passive subjects
 date: "2024-12-21T00:00:00+02:00"
 draft: true
-tags: ["leadership"]
+tags: ["leadership", "war-story"]
 ---
 
 # Leadership with passive subjects
@@ -12,4 +12,5 @@ when a developer is not interested in improve their skills and is dragging down 
 
 
 ## Conclusion
-There are people that don't want to improve and
+There are people that don't want to improve and need to be left alone. We cannot convince them,
+nor push them in any way. 
