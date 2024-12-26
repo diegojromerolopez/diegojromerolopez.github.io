@@ -1,11 +1,11 @@
 ---
-title: The limited role of meritocracy in our profession
+title: Faulty engineering career ladders
 date: "2024-12-26T00:00:00+02:00"
 draft: false
-tags: ["career"  "opinion", "corporate"]
+tags: ["career", "opinion", "corporate"]
 ---
 
-# The limited role of meritocracy in our profession
+# Faulty engineering career ladders
 
 ## Introduction
 Let's see several issues with the *Engineering ladders* I have seen on my
