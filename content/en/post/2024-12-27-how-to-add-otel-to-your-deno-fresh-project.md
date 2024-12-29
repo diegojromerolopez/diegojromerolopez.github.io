@@ -1,7 +1,7 @@
 ---
 title: How to add OTEL to your deno fresh project
 date: "2024-12-27T00:00:00+02:00"
-draft: true
+draft: false
 tags: ["deno", "fresh", "otel"]
 ---
 
