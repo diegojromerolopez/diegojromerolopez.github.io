@@ -103,7 +103,7 @@
 <div class=post-heading>
 <h1>Posts</h1>
 <span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on December 29, 2024
+<i class="fas fa-calendar"></i>&nbsp;Posted on January 25, 2025
 &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
 &nbsp;&bull;&nbsp;Other languages: <a href=https://diegojromerolopez.github.io/es/post/ lang=es>es</a>
 </span>
@@ -117,6 +117,25 @@
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 <div class=posts-list>
+<article class=post-preview>
+<a href=https://diegojromerolopez.github.io/blog/2023/01/dockerfile-stages-must-have-a-command/>
+<h2 class=post-title>Dockerfile stages must have a command</h2>
+</a>
+<p class=post-meta>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;Posted on January 31, 2023
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
+</span>
+</p>
+<div class=post-entry>
+Dockerfile stages must have a command In multi-stage Dockerfile, you have to be careful for what stages you run. Want to avoid having misteriously exit 0 errors in containers? Add a CMD at the end of the Dockerfile stage with some dummy command like
+CMD ["/bin/bash", "echo", "Command for stage X"]Any stage that has no command will exit without informing the user of what happened. This could cause some mysterious errors if you are getting up all containers and not overwritting the command of the ones that have none.
+<a href=https://diegojromerolopez.github.io/blog/2023/01/dockerfile-stages-must-have-a-command/ class=post-read-more>[Read More]</a>
+</div>
+<div class=blog-tags>
+<a href=https://diegojromerolopez.github.io/tags/docker/>docker</a>&nbsp;
+</div>
+</article>
 <article class=post-preview>
 <a href=https://diegojromerolopez.github.io/blog/2023/01/use-the-builder-stage-pattern-in-dockerfiles/>
 <h2 class=post-title>Use the builder stage pattern in Dockerfiles</h2>
@@ -302,28 +321,6 @@ EyesOnly: a package to limit access to secrets Dealing last years with container
 <a href=https://diegojromerolopez.github.io/tags/project/>project</a>&nbsp;
 </div>
 </article>
-<article class=post-preview>
-<a href=https://diegojromerolopez.github.io/blog/2022/10/allow-writing-of-files-in-docker-in-linux/>
-<h2 class=post-title>Allow writing of files in docker in Linux</h2>
-</a>
-<p class=post-meta>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on October 17, 2022
-&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
-</span>
-</p>
-<div class=post-entry>
-Docker is a container system that allow developers to have a common environment to develop and SRE/devops to have machine-independent deployment process.
-Allow writing of files in docker in Linux I have been working on a small project in Python: functainer. The goal of this project is to provide a Python package to run functions in docker seamlessly: you only will docker and Python to run it.
-Anyway, that project uses files as a mean of communication, i.
-<a href=https://diegojromerolopez.github.io/blog/2022/10/allow-writing-of-files-in-docker-in-linux/ class=post-read-more>[Read More]</a>
-</div>
-<div class=blog-tags>
-<a href=https://diegojromerolopez.github.io/tags/docker/>docker</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/linux/>linux</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/tips/>tips</a>&nbsp;
-</div>
-</article>
 </div>
 <ul class="pager main-pager">
 <li class=previous>
@@ -385,7 +382,7 @@ Anyway, that project uses files as a mean of communication, i.
 <p class="credits copyright text-muted">
 Diego J. Romero-López
 &nbsp;&bull;&nbsp;&copy;
-2024
+2025
 &nbsp;&bull;&nbsp;
 <a href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
 </p>
