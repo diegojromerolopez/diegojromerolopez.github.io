@@ -3,23 +3,14 @@
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Joining test coverage from several test directories - Diego J.'s Software Tar Pit</title>
-<meta name=description content="Joining test coverage from several test directories This post show a simple way of computing the coverage.py&rsquo;s test coverage from different tests folders.
-Introduction I have been using coverage.py since I started working with python, and while it works pretty well, let us say that the interface of the command line tool could be better.
-I struggled for some minutes trying to filter out other folder I have in my tests folder that were not meant to have their test coverage computed.">
+<title>quality - Diego J.'s Software Tar Pit</title>
 <meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2025\/02\/joining-test-coverage-from-several-test-directories\/","name":"Joining test coverage from several test directories"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"Joining test coverage from several test directories","description":"Joining test coverage from several test directories This post show a simple way of computing the coverage.py\u0026rsquo;s test coverage from different tests folders.\nIntroduction I have been using coverage.py since I started working with python, and while it works pretty well, let us say that the interface of the command line tool could be better.\nI struggled for some minutes trying to filter out other folder I have in my tests folder that were not meant to have their test coverage computed.","inLanguage":"en","wordCount":352,"datePublished":"2025-02-14T00:00:00","dateModified":"2025-02-14T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["python, coverage"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2025\/02\/joining-test-coverage-from-several-test-directories\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
-<meta property="og:title" content="Joining test coverage from several test directories">
-<meta property="og:description" content="Joining test coverage from several test directories This post show a simple way of computing the coverage.py&rsquo;s test coverage from different tests folders.
-Introduction I have been using coverage.py since I started working with python, and while it works pretty well, let us say that the interface of the command line tool could be better.
-I struggled for some minutes trying to filter out other folder I have in my tests folder that were not meant to have their test coverage computed.">
+<meta property="og:title" content="quality">
 <meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
-<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2025/02/joining-test-coverage-from-several-test-directories/">
+<meta property="og:url" content="https://diegojromerolopez.github.io/tags/quality/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Diego J.'s Software Tar Pit">
-<meta name=twitter:title content="Joining test coverage from several test directories">
-<meta name=twitter:description content="Joining test coverage from several test directories This post show a simple way of computing the coverage.py&rsquo;s test coverage from different tests folders.
-Introduction I have been using …">
+<meta name=twitter:title content="quality">
 <meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:site content="@diegojromerolop">
@@ -109,12 +100,9 @@ Introduction I have been using …">
 <div class=container>
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<div class=post-heading>
-<h1>Joining test coverage from several test directories</h1>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on February 14, 2025
-&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
-</span>
+<div class=tags-heading>
+<h1>quality</h1>
+<hr class=small>
 </div>
 </div>
 </div>
@@ -124,61 +112,28 @@ Introduction I have been using …">
 <div class=container role=main>
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<article role=main class=blog-post>
-<h1 id=joining-test-coverage-from-several-test-directories>Joining test coverage from several test directories</h1>
-<p>This post show a simple way of computing the coverage.py&rsquo;s test coverage
-from different tests folders.</p>
-<h2 id=introduction>Introduction</h2>
-<p>I have been using
-<a href=https://coverage.readthedocs.io/en/latest/>coverage.py</a> since
-I started working with python, and while it works pretty well,
-let us say that the interface of the
-command line tool could be better.</p>
-<p>I struggled for some minutes trying to filter out other folder I have in
-my tests folder that were not meant to have their test coverage computed.
-Think about some manual tests and other tangential tools.</p>
-<p>While I was delving through the documentation, thought about using a
-different approach: what about instead of filtering out, adding the coverage
-results all together?</p>
-<h2 id=why-would-i-want-this>Why would I want this?</h2>
-<p>Because usually you have different folders for unit, and integration tests.
-Some tests are meant to be used for the test coverage, others not.</p>
-<p>These are the shell instructions that compute the test coverage for the <code>tests/unit</code>
-and <code>tests/integration</code> folders:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>coverage run -m unittest discover tests/unit
-coverage run -m -a unittest discover tests/integration
-</code></pre></div><p>Just by adding the <code>-a</code> to the following <code>coverage run</code> calls will cause the file <code>.coverage</code>
-to be extended with the results of those other runs.</p>
-<p>Hence, no need to filter the tests by folder or anything like that.</p>
-<h2 id=why-should-i-worry-about-test-coverage>Why should I worry about test coverage?</h2>
-<p>Well, that is a discussion for other post, but test coverage gives a hint about
-what is being tested or not in a test. Let me explain that a bit. When I am
-working on a test (<em>an actual useful test</em>) I like to check that the test
-is following the workflow that should be.</p>
-<p>On other other of things, a good test coverage value also <em>hints</em> that at least
-the tests fulfill a bare minimum promise of ensuring some checks. However,
-there is no guarantee that :</p>
-<ul>
-<li>the tests are actually useful.</li>
-<li>the tests are checking what they need to check.</li>
-</ul>
-<p>So, do not trust the test coverage unless you have good quality tests in your
-project.</p>
-<h2 id=conclusion>Conclusion</h2>
-<p>Split your tests by type, but compute the test coverage in one place!</p>
+<div class=posts-list>
+<article class=post-preview>
+<a href=https://diegojromerolopez.github.io/blog/2025/03/software-quality-is-not-negotiable/>
+<h2 class=post-title>Software quality is not negotiable</h2>
+</a>
+<p class=post-meta>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;Posted on March 15, 2025
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
+</span>
+</p>
+<div class=post-entry>
+Software quality is not negotiable From a conversation from one of the best software engineers I have had the please to work with, I heard the following sentence: software quality is not negotiable! And that is one of the axioms of our profession.
+Why software quality is seen as optional? Software developers/engineers come from different backgrounds The world of software has no barrier entry. People with different backgrounds can start working as software developers or engineers.
+<a href=https://diegojromerolopez.github.io/blog/2025/03/software-quality-is-not-negotiable/ class=post-read-more>[Read More]</a>
+</div>
 <div class=blog-tags>
-<a href=https://diegojromerolopez.github.io/tags/python/>python</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/coverage/>coverage</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/software/>software</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/quality/>quality</a>&nbsp;
 </div>
 </article>
-<ul class="pager blog-pager">
-<li class=previous>
-<a href=https://diegojromerolopez.github.io/blog/2025/02/joining-test-coverage-in-several-test-directories/ data-toggle=tooltip data-placement=top title="Joining test coverage in several test directories">&larr; Previous Post</a>
-</li>
-<li class=next>
-<a href=https://diegojromerolopez.github.io/blog/2025/03/software-quality-is-not-negotiable/ data-toggle=tooltip data-placement=top title="Software quality is not negotiable">Next Post &rarr;</a>
-</li>
-</ul>
+</div>
 </div>
 </div>
 </div>
@@ -220,7 +175,7 @@ project.</p>
 </a>
 </li>
 <li>
-<a href title=RSS>
+<a href=/tags/quality/index.xml title=RSS>
 <span class="fa-stack fa-lg">
 <i class="fas fa-circle fa-stack-2x"></i>
 <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
