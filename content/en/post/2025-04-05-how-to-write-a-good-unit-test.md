@@ -2,7 +2,7 @@
 title: How to write a good unit test
 date: "2025-04-05T00:00:00+02:00"
 draft: false
-tags: ["software", "tests"]
+tags: ["software", "testing"]
 ---
 
 # How to write a good unit test

@@ -2,7 +2,7 @@
 title: To test or not to test
 date: "2016-04-03T00:00:00+00:00"
 draft: false
-tags: ["software engineering", "tests"]
+tags: ["software engineering", "testing"]
 ---
 
 # Introduction
