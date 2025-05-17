@@ -1,0 +1,321 @@
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Can LLMs replace engineers? - Diego J.'s Software Tar Pit</title>
+<meta name=description content="Can LLMs replace engineers? This post provides my opinion about how a LLMs cannot replace a senior software engineer, even if the CEOs and other executives believe that it is possible.
+Introduction I have been using Artificial Intelligence (in the form of LLMs) for several years already. My experience working with LLMs is limited to working with ChatGPT, Cursor and GitHub Copilot as of May 2025 (when this post was written).">
+<meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2025\/05\/can-llms-replace-engineers\/","name":"Can llms replace engineers?"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"Can LLMs replace engineers?","description":"Can LLMs replace engineers? This post provides my opinion about how a LLMs cannot replace a senior software engineer, even if the CEOs and other executives believe that it is possible.\nIntroduction I have been using Artificial Intelligence (in the form of LLMs) for several years already. My experience working with LLMs is limited to working with ChatGPT, Cursor and GitHub Copilot as of May 2025 (when this post was written).","inLanguage":"en","wordCount":1460,"datePublished":"2025-05-17T00:00:00","dateModified":"2025-05-17T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["software, ai, llm"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2025\/05\/can-llms-replace-engineers\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
+<meta property="og:title" content="Can LLMs replace engineers?">
+<meta property="og:description" content="Can LLMs replace engineers? This post provides my opinion about how a LLMs cannot replace a senior software engineer, even if the CEOs and other executives believe that it is possible.
+Introduction I have been using Artificial Intelligence (in the form of LLMs) for several years already. My experience working with LLMs is limited to working with ChatGPT, Cursor and GitHub Copilot as of May 2025 (when this post was written).">
+<meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2025/05/can-llms-replace-engineers/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Diego J.'s Software Tar Pit">
+<meta name=twitter:title content="Can LLMs replace engineers?">
+<meta name=twitter:description content="Can LLMs replace engineers? This post provides my opinion about how a LLMs cannot replace a senior software engineer, even if the CEOs and other executives believe that it is possible.
+Introduction I …">
+<meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:site content="@diegojromerolop">
+<meta name=twitter:creator content="@diegojromerolop">
+<link href=https://diegojromerolopez.github.io/img/favicon.ico rel=icon type=image/x-icon>
+<meta name=generator content="Hugo 0.91.2">
+<link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=https://diegojromerolopez.github.io/css/katex.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/fontawesome/css/all.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/bootstrap.min.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/main.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/fonts.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/syntax.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/codeblock.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.default-skin.min.css>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+<div class=container-fluid>
+<div class=navbar-header>
+<button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</div>
+<div class="collapse navbar-collapse" id=main-navbar>
+<ul class="nav navbar-nav navbar-right">
+<li>
+<a title=Blog href=/>Blog</a>
+</li>
+<li>
+<a title=About href=/page/about/>About</a>
+</li>
+<li>
+<a title=Tags href=/tags>Tags</a>
+</li>
+<li>
+<a href=/es lang=es>es</a>
+</li>
+</ul>
+</div>
+<div class=avatar-container>
+<div class=avatar-img-border>
+<a title="Diego J.'s Software Tar Pit" href=https://diegojromerolopez.github.io>
+<img class=avatar-img src=https://diegojromerolopez.github.io/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit">
+</a>
+</div>
+</div>
+</div>
+</nav>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div>
+<header class=header-section>
+<div class="intro-header no-img">
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class=post-heading>
+<h1>Can LLMs replace engineers?</h1>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;Posted on May 17, 2025
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class=container role=main>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<article role=main class=blog-post>
+<h1 id=can-llms-replace-engineers>Can LLMs replace engineers?</h1>
+<p>This post provides my opinion about how a <a href=https://en.wikipedia.org/wiki/Large_language_model>LLMs</a>
+cannot replace a senior software engineer,
+even if the CEOs and other executives believe that it is possible.</p>
+<h2 id=introduction>Introduction</h2>
+<p>I have been using Artificial Intelligence (in the form of LLMs) for several years already.
+My experience working with LLMs is limited to working with <a href=https://chatgpt.com/>ChatGPT</a>,
+<a href=https://www.cursor.com/>Cursor</a> and <a href=https://github.com/features/copilot>GitHub Copilot</a>
+as of May 2025 (when this post was written). So please, if you read this in the future,
+take my opinion with <em>a grain of salt</em>.</p>
+<p>Maybe, you do not know but there was a time were I studied Neural Networks and even considered
+the academic route by enrolling in a PhD. programme in this field.</p>
+<p>Of course, <em>life finds a way</em> and I ended up in the square 1, i.e. Software Engineering, but that is a story
+for another day.</p>
+<h2 id=what-are-llms>What are LLMs?</h2>
+<p>I am in no way an AI expert, but let me explain succinctly what LLMs are.</p>
+<p>Large Language Models are a kind of Neural Networks that have billions of parameters (hence the <em>large</em> adjective),
+and are trained with all the knowledge of the internet. So they mimic (in a way) the human reasoning. That is why
+they are being classified as Artificial Intelligence, term that I dislike particularly because it suffers from
+inexactitude and being a marketing-loaded term.</p>
+<h2 id=how-do-they-work>How do they work?</h2>
+<p>I am not going to explain the technical details about how they work here,
+but I think that a good metaphor can be useful for people to understand the foundation of the tool.</p>
+<p>Basically, the LLMs create sequence of texts where every word is the best match (based on the previous words).
+I like to think of the LLMs as Extremely High-Powered Markov Models. Of course, Markov Models are not more than
+a plaything compared with the LLMs, as they stablish more complex relationships between information, they have
+a number of parameters that is enormous, and they are compressed. They do not need to have a conditional probability
+table for each term, the LLMs store this relationships with the Neural Network weights.</p>
+<p>Of course current state-of-the-art LLMs have memory and a lot of techniques that are very advanced, but
+we can ignore those and just keep thinking about them as <em>Parrot Machines</em>.</p>
+<h2 id=how-i-use-them>How I use them?</h2>
+<p>I have several use cases where I make use of the LLMs everyday, let&rsquo;s check them out:</p>
+<h3 id=product-ideation>Product ideation</h3>
+<p>I am currently a senior member of the Engineering Productivity team, so apart from my software development
+duties I also act as a product owner of several projects.</p>
+<p>I use LLMs as a way to get ideas of new features that could be implemented. Those features of course are polished,
+first by me, later I ask for internal and external feedback, but the seminal idea can come from whatever place,
+include a LLM.</p>
+<p>Most of the ideas are <em>recycled</em> ideas from other places or could be <em>low-hanging fruit</em>, but nonetheless, they are
+useful. There is always some new piece of information that can be useful.</p>
+<h3 id=merge-request-reviews>Merge request reviews</h3>
+<p>I think that for mistakes and simple errors a LLM can provide value. Of course, it is not going
+to get all the context and understand the state machine of your software, but for forgotten variables,
+missing returns, or inconsistent states, it can work.</p>
+<p>Think of this as a <em>high-order linter</em>.</p>
+<h3 id=pair-programming>Pair programming</h3>
+<p>While the LLMs do not have the same ability than us humans, they can be pretty useful for discussing
+technical details with them, improving our overall performance.</p>
+<p>For example, let me bring an example where I used a LLM to optimize a service that depended on a sequence
+of HTTP requests that could not be parallelized, because each request had a dependency with the previous one.
+Well, I did not notice that I was not sharing the HTTP session among the requests, so I was inadvertently adding
+some milliseconds to each loop.</p>
+<p>So, in a way the LLMs can be a good solution for getting a better solution because of these simple mistakes.</p>
+<h3 id=chore-programming-tasks>Chore programming tasks</h3>
+<p>Defining a TypedDict or a database schema is a chore. Usually I just paste some example data in the
+chat and ask the bot to create the code for me. Surprisingly, it works pretty well.</p>
+<p>When there is no room for error, no ambiguity, and the example is clear the LLMs excel.</p>
+<p>However, you need to keep being specific and meticulous when defining the task. For example,
+the generated TypedDict usually uses only strings, and not string literals. I love having literals type hints
+in my python code as they are very explicit about what they are (can it be more specific than saying
+<em>I expect this variable to have this built-in value?</em>).</p>
+<h3 id=prototyping>Prototyping</h3>
+<p>Sometimes I find myself daydreaming about how can I implement this feature or this programming language
+has the ability to do this in this way or the other&mldr;</p>
+<p>I think the last one I asked this kind of question to ChatGPT was when I wonder if there was any way
+of doing static range checks to integers in Python (not really, although you can use
+<a href=https://docs.python.org/3/library/typing.html#typing.Annotated>Annotated</a>).</p>
+<p>It is fast to prototype a functionality or check if it is possible via a LLM, however the ground work
+needs to be done by you, because you are the one that has all the context and have the information
+about what you actually want to do.</p>
+<h3 id=natural-language-style-check>Natural language style check</h3>
+<p>I just wrote <em>How I do not use them</em> when writing the title of this sub-section. I thought
+it <em>sounded wrong</em> and I asked ChatGPT, only to be confirmed that it is indeed an archaic
+sentence.</p>
+<p>The point here is that English is not my mother tongue, and I get myself lost in the idiosyncrasies
+of the English language. Differences between the American and British spelling, avoiding colloquialisms,
+or being rude are some of the aims I have when checking my English with the LLMs.</p>
+<h3 id=more-intelligent-auto-completion>More intelligent auto-completion</h3>
+<p>I think this use case is the most popular one among the software developers. Using GitHub Copilot
+to have the IDE auto-complete your sentences is useful.</p>
+<p>However, I think there is a lot of potential for errors, because of the hallucinations of the models
+(as of May 2025). There has been a good amount of instances where the suggestion made no sense at all.
+It is good for trivial and repetitive chunks of code
+(<a href=https://opentelemetry.io/docs/concepts/signals/traces/#spans>OTEL span</a> attributes, for example).</p>
+<h3 id=bonus-diagram-repair>Bonus: diagram repair</h3>
+<p>This is a small one but I found the AI diagram fix in <a href=https://mermaid.js.org/>mermaid</a> pretty useful.
+I used it recently to fix a broken diagram
+because I didn&rsquo;t want to read the syntax documentation (I should have).</p>
+<h2 id=how-i-dont-use-them>How I don&rsquo;t use them?</h2>
+<p>When the LLMs do not excel? I have encountered several scenarios where their performance is&mldr; disappointing:</p>
+<h3 id=full-project-generation>Full project generation</h3>
+<p>The amount of effort I need to use to explain myself to the LLM to create complex projects is not
+worth it when I can be faster coding it myself.</p>
+<h3 id=non-popularrapidly-evolving-technologies>Non-popular/Rapidly evolving technologies</h3>
+<p>When I was doing a microservice in <a href=https://deno.com/>deno</a> I was finding myself at loss many times.
+How to use open telemetry, how to create a middleware in <a href=https://fresh.deno.dev/>deno fresh</a>, etc.</p>
+<p>The problem is that deno (and fresh) have been changing so much that asking ChatGPT for guidance
+is a recipe for getting misleading (and non-functional) code. The LLM have been learning with
+code that is no longer correct, so it suggested wrong ways of doing things. The worst part
+was feeling like a reviewer of the LLM code and trying to convince it that the code was deprecated
+(or even removed), hence making it incorrect.</p>
+<p>At the end of the day, I searched actual deno projects and read the documentation. So,
+<strong>do not think you can avoid reading the docs by using LLMs</strong>.</p>
+<h3 id=code-refactoring>Code Refactoring</h3>
+<p>Mainly I have used Cursor and GitHub Copilot for this, with several models (ChatGPT among them)
+and the results have had less quality than what I expected.</p>
+<p>I have the theory that the current LLMs are not able to hold contexts that are big. By big I mean
+information about more than 20 implicit states, for example. I have tried to refactor a piece of
+code where there was a lot states with indirect dependencies and the result was not useful at all.</p>
+<p>I am not saying that a human could have done it better, but in my experience only small function-level
+refactors can be done based on LLMs.</p>
+<p>I hope this improves in the future, well I am sure it will.</p>
+<h2 id=conclusion>Conclusion</h2>
+<p>While the LLMs are a great tool and you should be using them, do not trust them to be
+the ultimate tool to solve <strong>all</strong> your problems.</p>
+<div class=blog-tags>
+<a href=https://diegojromerolopez.github.io/tags/software/>software</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/ai/>ai</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/llm/>llm</a>&nbsp;
+</div>
+</article>
+<ul class="pager blog-pager">
+<li class=previous>
+<a href=https://diegojromerolopez.github.io/blog/2025/04/how-to-write-a-good-unit-test/ data-toggle=tooltip data-placement=top title="How to write a good unit test">&larr; Previous Post</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<footer>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<ul class="list-inline text-center footer-links">
+<li>
+<a href=mailto:diegojromerolopez@gmail.com title="Email me">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://github.com/diegojromerolopez title=GitHub>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://twitter.com/diegojromerolop title=Twitter>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://linkedin.com/in/diegojromerolopez title=LinkedIn>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href title=RSS>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+</ul>
+<p class="credits copyright text-muted">
+Diego J. Romero-López
+&nbsp;&bull;&nbsp;&copy;
+2025
+&nbsp;&bull;&nbsp;
+<a href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</p>
+<p class="credits theme-by text-muted">
+<a href=https://gohugo.io>Hugo v0.91.2</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
+</p>
+</div>
+</div>
+</div>
+</footer><script src=https://diegojromerolopez.github.io/js/katex.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/auto-render.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/jquery-3.5.1.slim.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/bootstrap.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/main.js></script><script>renderMathInElement(document.body)</script><script src=https://diegojromerolopez.github.io/js/photoswipe.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/photoswipe-ui-default.min.js></script><script src=https://diegojromerolopez.github.io/js/load-photoswipe.js></script>
+</body>
+</html>
