@@ -126,26 +126,26 @@ Introduction This post explains why I am a fan of …">
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 <article role=main class=blog-post>
 <h1 id=i-do-not-like-args-and-kwargs-in-python>I do not like *args and **kwargs in Python</h1>
-<p>*args and **kwargs are the way to declare positional and keyword function arguments (resp.) in Python.</p>
+<p><code>*args</code> and <code>**kwargs</code> are the way to declare positional and keyword function arguments (resp.) in Python.</p>
 <h2 id=introduction>Introduction</h2>
 <p>This post explains why I am a fan of naming the arguments and I do not like positional arguments nor
-the *args and **kwargs way of passing arguments.</p>
+the <code>*args</code> and <code>**kwargs</code> way of passing arguments.</p>
 <h2 id=why-i-dont-like-args-and-kwargs>Why I don&rsquo;t like *args and **kwargs?</h2>
-<p>Most of the time I only use *args and **kwargs when strictly necessary, like when inheriting from a class
+<p>Most of the time I only use <code>*args</code> and <code>**kwargs</code> when strictly necessary, like when inheriting from a class
 that uses them, and I need to pass the parameters to the parent class. Most of the time,
 <strong>I would rater add 10 parameters with a default value than leaving an unknown interface in a function</strong>.</p>
 <p>That is what I try to do in my codebase: making everything as explicit as possible.
 However, some people have a different idea, and implement things differently.</p>
 <p>I have been working for a while with a Python library that provides an interface to an API of a
-popular code repository service. All the methods use *args and **kwargs arguments as they are implemented
+popular code repository service. All the methods use <code>*args</code> and <code>**kwargs</code> arguments as they are implemented
 in common mixins. This has lead to issues, and having a difficult type when checking the types.</p>
 <p>Below the main points that explain my posture:</p>
 <h3 id=it-looks-like-magic>It looks like magic</h3>
-<p>If I approach a function and see some *args and **kwargs parameters you have no idea about the
+<p>If I approach a function and see some <code>*args</code> and <code>**kwargs</code> parameters you have no idea about the
 parameters needed for different scenarios.</p>
 <p>I rely on type checking in most of my python projects, and even if there is the possibility of typing the
-*args and **kwargs, it looks rather difficult to read.</p>
-<p>By having *args and **kwargs in a function you tell the whole world that the function <em>accepts everything</em>.
+<code>*args</code> and <code>**kwargs</code>, it looks rather difficult to read.</p>
+<p>By having <code>*args</code> and <code>**kwargs</code> in a function you tell the whole world that the function <em>accepts everything</em>.
 Its behavior&mldr; That is another thing.</p>
 <p>For example, see this function that make a HTTP request:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>request</span>(method, url, <span style=color:#f92672>**</span>kwargs):
@@ -187,7 +187,7 @@ that makes the communication between the functions more explicit. By doing this 
 of the input parameters (as their correspondence to the function arguments is fully mapped).</p>
 <p>By using *args, we need to rely on the position of the arguments, and that is error-prone.
 Was the URL the first argument? Was the HTTP method? Too much ambiguity.</p>
-<p>On the other hand, by using **kwargs we encounter other pet peeve: there is no way that we can see if the inputs
+<p>On the other hand, by using <code>**kwargs</code> we encounter other pet peeve: there is no way that we can see if the inputs
 we are passing are correct. A simple mistake in the spelling could pass undetected.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>get(url, header<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#39;Auth-Token&#39;</span>: auth_token})
 </code></pre></div><p>Do you see the error above? It is <code>headers</code>, not <code>header</code>.</p>
@@ -210,10 +210,10 @@ end-to-end tests, and if we do integration and unit tests, we are going to hide 
 <li>Keyword-only arguments.</li>
 <li>Make the deprecation of parameters explicit.</li>
 </ul>
-<p>than have a custom code that reads from kwargs and checks the key name.</p>
+<p>than have a custom code that reads from <code>kwargs</code> and checks the key name.</p>
 <h3 id=type-hints-for-args-and-kwargs-are-not-intuitive>Type hints for *args and **kwargs are not intuitive</h3>
 <p>No, not only they are not intuitive, it is counter-intuitive, and to be fair I think I have never used type hints in
-a *args or **kwargs before. I have had to read the official documentation to know how to do it:</p>
+a <code>*args</code> or <code>**kwargs</code> before. I have had to read the official documentation to know how to do it:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Config</span>(TypedDict):
     param1: int
     param2: str
@@ -224,7 +224,7 @@ a *args or **kwargs before. I have had to read the official documentation to kno
 </code></pre></div><p>In no way this is clearer than having the actual arguments with its type hints.
 How many positional arguments are? Why not use directly the <code>param1</code> and <code>param2</code> in the function?</p>
 <h2 id=conclusion>Conclusion</h2>
-<p>Avoid using *args, **kwargs.</p>
+<p>Avoid using <code>*args</code>, <code>**kwargs</code>.</p>
 <p>Follow <a href=https://peps.python.org/pep-0020/>The Zen of Python</a>: <em>explicit is better than implicit</em>.</p>
 <div class=blog-tags>
 <a href=https://diegojromerolopez.github.io/tags/software/>software</a>&nbsp;
