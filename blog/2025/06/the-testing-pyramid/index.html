@@ -238,7 +238,7 @@ on the API component.</p>
         self<span style=color:#f92672>.</span>assertEqual([call(<span style=color:#e6db74>&#39;The user cache is healthy&#39;</span>)], mock_logger<span style=color:#f92672>.</span>debug<span style=color:#f92672>.</span>call_args_list)
         self<span style=color:#f92672>.</span>assertEqual([], mock_logger<span style=color:#f92672>.</span>error<span style=color:#f92672>.</span>call_args_list)
 
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test_unhealthy</span>(self, mock_remock_redis_classdis_is_healthy: MagicMock):
+    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test_unhealthy</span>(self, mock_redis_class: MagicMock):
         mock_redis <span style=color:#f92672>=</span> MagicMock()
         mock_redis<span style=color:#f92672>.</span>ping<span style=color:#f92672>.</span>return_value <span style=color:#f92672>=</span> <span style=color:#66d9ef>False</span>
         mock_redis_class<span style=color:#f92672>.</span>return_value <span style=color:#f92672>=</span> mock_redis
