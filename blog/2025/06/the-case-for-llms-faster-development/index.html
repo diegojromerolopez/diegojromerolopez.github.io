@@ -1,0 +1,289 @@
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>The case for LLMs: faster development - Diego J.'s Software Tar Pit</title>
+<meta name=description content="The case for LLMs: faster development Introduction Artificial Intelligence is all over the place in software development these days. From the first AI services that could generate images, to the code generation tools like GitHub Copilot, ChatGPT, Google Gemini, etc.
+I wrote in other post that LLMs are not going to replace software engineers, but they are going to empower them in a lot of cases.
+This post is a war story of mine, where I used a LLM service to create a new command for a CLI command tool written in a compiled language that I do not master.">
+<meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2025\/06\/the-case-for-llms-faster-development\/","name":"The case for llms faster development"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"The case for LLMs: faster development","description":"The case for LLMs: faster development Introduction Artificial Intelligence is all over the place in software development these days. From the first AI services that could generate images, to the code generation tools like GitHub Copilot, ChatGPT, Google Gemini, etc.\nI wrote in other post that LLMs are not going to replace software engineers, but they are going to empower them in a lot of cases.\nThis post is a war story of mine, where I used a LLM service to create a new command for a CLI command tool written in a compiled language that I do not master.","inLanguage":"en","wordCount":1118,"datePublished":"2025-06-29T00:00:00","dateModified":"2025-06-29T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["software, ai, llm"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2025\/06\/the-case-for-llms-faster-development\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
+<meta property="og:title" content="The case for LLMs: faster development">
+<meta property="og:description" content="The case for LLMs: faster development Introduction Artificial Intelligence is all over the place in software development these days. From the first AI services that could generate images, to the code generation tools like GitHub Copilot, ChatGPT, Google Gemini, etc.
+I wrote in other post that LLMs are not going to replace software engineers, but they are going to empower them in a lot of cases.
+This post is a war story of mine, where I used a LLM service to create a new command for a CLI command tool written in a compiled language that I do not master.">
+<meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2025/06/the-case-for-llms-faster-development/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Diego J.'s Software Tar Pit">
+<meta name=twitter:title content="The case for LLMs: faster development">
+<meta name=twitter:description content="The case for LLMs: faster development Introduction Artificial Intelligence is all over the place in software development these days. From the first AI services that could generate images, to the code …">
+<meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:site content="@diegojromerolop">
+<meta name=twitter:creator content="@diegojromerolop">
+<link href=https://diegojromerolopez.github.io/img/favicon.ico rel=icon type=image/x-icon>
+<meta name=generator content="Hugo 0.91.2">
+<link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=https://diegojromerolopez.github.io/css/katex.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/fontawesome/css/all.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/bootstrap.min.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/main.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/fonts.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/syntax.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/codeblock.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.default-skin.min.css>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+<div class=container-fluid>
+<div class=navbar-header>
+<button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</div>
+<div class="collapse navbar-collapse" id=main-navbar>
+<ul class="nav navbar-nav navbar-right">
+<li>
+<a title=Blog href=/>Blog</a>
+</li>
+<li>
+<a title=About href=/page/about/>About</a>
+</li>
+<li>
+<a title=Tags href=/tags>Tags</a>
+</li>
+<li>
+<a href=/es lang=es>es</a>
+</li>
+</ul>
+</div>
+<div class=avatar-container>
+<div class=avatar-img-border>
+<a title="Diego J.'s Software Tar Pit" href=https://diegojromerolopez.github.io>
+<img class=avatar-img src=https://diegojromerolopez.github.io/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit">
+</a>
+</div>
+</div>
+</div>
+</nav>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div>
+<header class=header-section>
+<div class="intro-header no-img">
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class=post-heading>
+<h1>The case for LLMs: faster development</h1>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;Posted on June 29, 2025
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class=container role=main>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<article role=main class=blog-post>
+<h1 id=the-case-for-llms-faster-development>The case for LLMs: faster development</h1>
+<h2 id=introduction>Introduction</h2>
+<p>Artificial Intelligence is all over the place in software development these days.
+From the first AI services that could generate images, to the code generation tools
+like GitHub Copilot, ChatGPT, Google Gemini, etc.</p>
+<p>I wrote in <a href=/blog/2025/05/can-llms-replace-engineers/>other post</a> that LLMs are not going to
+replace software engineers, but they are going to empower them in a lot of cases.</p>
+<p>This post is a <em>war story</em> of mine, where I used a LLM service to create a new command
+for a CLI command tool written in a compiled language that I do not <em>master</em>. I know how
+to read some code, but I am not skilled in the ecosystem nor in many patterns and conventions
+of the community.</p>
+<h2 id=the-war-story>The war story</h2>
+<p><strong>I needed to develop a new command for a CLI tool</strong> where I lack of meaningful experience with
+the programming language, the main library or the ecosystem.</p>
+<p>Most readers will remember that I am very fond of the Python programming language, while I have
+worked with Ruby, and TypeScript lately. Anyway, in this case the programming language was none
+of those, and I wanted to spend the less time possible creating it.</p>
+<h2 id=teachings>Teachings</h2>
+<h3 id=you-need-to-know-the-tool-a-little>You need to know the tool a little</h3>
+<p>I already knew the language, I learned it in 2020 via online courses, and I did an open source project
+to improve my skills (<em>you cannot learn to program without programming</em>). I like the language and saw
+(and I see) a lot of potential in it.</p>
+<p>I was not a novice with the <em>tool</em>, but I was not used to work everyday with it.</p>
+<p><strong>You need to be able to read and understand the code the LLM is generating</strong>.
+You cannot ask a LLM to create code in Rust while you do not understand how memory management works in such
+a language. You cannot ask LLM to create an async function when you do not understand what an async function is.
+You cannot create a threaded code while you do not know what a critical section is.</p>
+<h3 id=you-need-to-know-the-foundations-well>You need to know the foundations well</h3>
+<p>I am a senior engineer, I know how this kind of applications work. I know the perks of the language, and I
+consider myself skilled enough to do a good work in my language of choice, it is not the needed one.</p>
+<p><strong>When you work with LLMs you should know the issues that can rise from the code you are generating</strong>
+(e.g. concurrency, i/o, bottlenecks, algorithmic order, performance&mldr;).</p>
+<h3 id=you-need-to-know-the-task-well>You need to know the task well</h3>
+<p>I knew how to do the task in hand in other languages, but not in the one I needed to do it.
+Indeed I had implemented it in Python, so I was very knowledgeable of the functionality that I needed
+to develop.</p>
+<p>I knew that I could do the explanation (<em>the prompt</em>) in a way that the LLM could understand me,
+giving examples and making it clear the different workflows that needed to be implemented.</p>
+<p>You need to be persistent when explaining things to a LLM. If there is some room for ambiguity, the result
+will not be the one that you expect. <strong>Be as explicit as you can</strong>.</p>
+<h3 id=know-your-surroundings>Know your surroundings</h3>
+<p>Before I asked the LLM to create the code, I read some of the commands that were already implemented there.
+I have not worked with the library that the maintainers chose, so I tried to extract some patterns about how
+a new command is defined, how parameters are defined, etc.</p>
+<p>Once I had a good idea about how it worked, I then created the prompt and gave some draft about how the command
+should be. I did not started from nothing, or just plain language. I game the LLM something to work on, to fix,
+to improve, to build on.</p>
+<p>When working with LLMs, <strong>provide a code draft the LLM can base its work on</strong>.</p>
+<h3 id=llms-commit-mistakes>LLMs commit mistakes</h3>
+<p>The LLM that I was using did several important errors while generating the code.
+Indeed these errors were so big that were making the program to crash and not fulfill its
+mission.</p>
+<p>I needed to review the code and ask it to fix the part that was the culprit, explaining to the
+AI what was the condition that was wrong.</p>
+<p>I did not know exactly the name of the function that I needed to call to solve the issue, but I knew
+what had to do, so I explained it to it.</p>
+<p>So, no, <strong>LLMs are not perfect and their code has errors</strong>.</p>
+<h3 id=be-demanding-with-the-llms-work>Be demanding with the LLMs work</h3>
+<p>Once I had the code running, I asked the LLM to create some tests for a function, and one of tests
+it was a myriad of smaller tests in a loop. I did not like that.</p>
+<p>I asked the LLM to split the test in several smaller tests (as it should be), and I could select the
+actual tests that had some sense, and discard the rest.</p>
+<p><strong>Do not accept code as-is from the LLM. You need to review it and judge as if it was a junior team mate</strong>.</p>
+<h3 id=you-need-to-do-manual-changes>You need to do manual changes</h3>
+<p>You cannot spend all the day just asking the LLM to fix issues. Because every time you ask for a new version
+of the code with a fix, you risk having new breaking changes being introduced in your code.</p>
+<p>While I know there is some <em>vibe coders</em> that like to work with the LLMs modifying all the project code, that is not
+my case: I would rather give some smaller context to the LLM to help it fix it, or just fix the issues by hand.</p>
+<p>Be ready to fix some small issues by hand. <strong>Do not fall in the trap of having a back-and-forth conversation with the LLM</strong>.</p>
+<h3 id=llms-help-you-work-much-faster>LLMs help you work much faster</h3>
+<p>Of course I had the code up and ready in less time that I would have spent by coding everything by hand.</p>
+<p>Overall, it was a fruitful and pleasant experience.</p>
+<h3 id=beware-of-generating-too-many-lines-of-code>Beware of generating too many lines of code</h3>
+<p>But as all the pleasant things, it is better taken in moderation.</p>
+<p>If you generate a lot of lines of code, you cannot expect the reviewers to read as fast as a LLM.</p>
+<p>Unless you trust a LLM to review your code, you will need to first review the code yourself, and then
+create the functionality in chunks that are easily reviewable.
+<strong>Nobody likes to review pull requests with 500 changes</strong>.</p>
+<h2 id=conclusion>Conclusion</h2>
+<p>LLMs are powerful tools but need to be driven by a skilled engineer.
+They are fallible and can create tangled code easily.
+<strong>The LLMs need to be under human control always</strong>.</p>
+<div class=blog-tags>
+<a href=https://diegojromerolopez.github.io/tags/software/>software</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/ai/>ai</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/llm/>llm</a>&nbsp;
+</div>
+</article>
+<ul class="pager blog-pager">
+<li class=previous>
+<a href=https://diegojromerolopez.github.io/blog/2025/06/the-testing-pyramid/ data-toggle=tooltip data-placement=top title="The testing pyramid">&larr; Previous Post</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<footer>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<ul class="list-inline text-center footer-links">
+<li>
+<a href=mailto:diegojromerolopez@gmail.com title="Email me">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://github.com/diegojromerolopez title=GitHub>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://twitter.com/diegojromerolop title=Twitter>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://linkedin.com/in/diegojromerolopez title=LinkedIn>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href title=RSS>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+</ul>
+<p class="credits copyright text-muted">
+Diego J. Romero-López
+&nbsp;&bull;&nbsp;&copy;
+2025
+&nbsp;&bull;&nbsp;
+<a href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</p>
+<p class="credits theme-by text-muted">
+<a href=https://gohugo.io>Hugo v0.91.2</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
+</p>
+</div>
+</div>
+</div>
+</footer><script src=https://diegojromerolopez.github.io/js/katex.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/auto-render.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/jquery-3.5.1.slim.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/bootstrap.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/main.js></script><script>renderMathInElement(document.body)</script><script src=https://diegojromerolopez.github.io/js/photoswipe.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/photoswipe-ui-default.min.js></script><script src=https://diegojromerolopez.github.io/js/load-photoswipe.js></script>
+</body>
+</html>
