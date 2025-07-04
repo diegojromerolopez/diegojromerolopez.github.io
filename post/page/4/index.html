@@ -103,7 +103,7 @@
 <div class=post-heading>
 <h1>Posts</h1>
 <span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on June 29, 2025
+<i class="fas fa-calendar"></i>&nbsp;Posted on July 4, 2025
 &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
 &nbsp;&bull;&nbsp;Other languages: <a href=https://diegojromerolopez.github.io/es/post/ lang=es>es</a>
 </span>
@@ -117,6 +117,28 @@
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 <div class=posts-list>
+<article class=post-preview>
+<a href=https://diegojromerolopez.github.io/blog/2023/09/misconceptions-about-code-comments/>
+<h2 class=post-title>Misconceptions about code comments</h2>
+</a>
+<p class=post-meta>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;Posted on September 2, 2023
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
+</span>
+</p>
+<div class=post-entry>
+Misconceptions about code comments I have been working in this industry since 2008, and it seems an idea is spreading through software companies: code comments are considered harmful. Is that true?
+Where did all start? I think that this idea started with the Clean Code book and the subsequent talks by Robert C. Martin.
+Uncle Bob (as people use to call him), has the idea that code should be self-explanatory, and if there is a comment, it is because code is not well structured.
+<a href=https://diegojromerolopez.github.io/blog/2023/09/misconceptions-about-code-comments/ class=post-read-more>[Read More]</a>
+</div>
+<div class=blog-tags>
+<a href=https://diegojromerolopez.github.io/tags/documentation/>documentation</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/comments/>comments</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/software/>software</a>&nbsp;
+</div>
+</article>
 <article class=post-preview>
 <a href=https://diegojromerolopez.github.io/blog/2023/08/how-to-manage-docker-secrets/>
 <h2 class=post-title>How to manage docker secrets</h2>
@@ -296,25 +318,6 @@ My advice for future FOSDEMs Travel Pack light. Do not bring a suitcase, bring a
 Dockerfile stages must have a command In multi-stage Dockerfile, you have to be careful for what stages you run. Want to avoid having misteriously exit 0 errors in containers? Add a CMD at the end of the Dockerfile stage with some dummy command like
 CMD ["/bin/bash", "echo", "Command for stage X"]Any stage that has no command will exit without informing the user of what happened. This could cause some mysterious errors if you are getting up all containers and not overwritting the command of the ones that have none.
 <a href=https://diegojromerolopez.github.io/blog/2023/01/dockerfile-stages-must-have-a-command/ class=post-read-more>[Read More]</a>
-</div>
-<div class=blog-tags>
-<a href=https://diegojromerolopez.github.io/tags/docker/>docker</a>&nbsp;
-</div>
-</article>
-<article class=post-preview>
-<a href=https://diegojromerolopez.github.io/blog/2023/01/use-the-builder-stage-pattern-in-dockerfiles/>
-<h2 class=post-title>Use the builder stage pattern in Dockerfiles</h2>
-</a>
-<p class=post-meta>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on January 15, 2023
-&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
-</span>
-</p>
-<div class=post-entry>
-Use the builder stage pattern in Dockerfiles Most of the time, some libraries that we install in a docker image are only used for the construction of our executables. Could we just not include in our final docker image?
-Docker images should be minimal As we saw in our previous post, docker images should be minimal for several reasons, but the aim is to reduce the cost of the transference of the docker image.
-<a href=https://diegojromerolopez.github.io/blog/2023/01/use-the-builder-stage-pattern-in-dockerfiles/ class=post-read-more>[Read More]</a>
 </div>
 <div class=blog-tags>
 <a href=https://diegojromerolopez.github.io/tags/docker/>docker</a>&nbsp;
