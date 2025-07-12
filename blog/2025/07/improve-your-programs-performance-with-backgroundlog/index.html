@@ -137,7 +137,7 @@ to keep the order, but more or less, expensive I/O operations usually means thre
 <p>This got me thinking that threading has the issues we all know: synchronization and sharing
 information. But, what about the operations that did not have any of those? What about
 I/O operations that we need to do but whose result we are not interested?
-Could we <em>embarrasingly</em> implement something to provide tiny improvements to the main program flow?</p>
+Could we <em>embarrassingly</em> implement something to provide tiny improvements to the main program flow?</p>
 <h2 id=logs>Logs</h2>
 <p>So that got me to the logs. The logs are usually written in disk, and is an operation that is repeated many times.
 We also write logs in our programs and we do not consider the cost of that when we have loops or many log calls.</p>
@@ -147,13 +147,13 @@ it to the OTEL collector with background threads.</p>
 Even easier than what the opentelemetry developers created.</p>
 <h2 id=the-design>The design</h2>
 <p>My first thought is to make use of the async create_task, but the virality nature of async makes it one
-of my not-favourite things.</p>
+of my not-favorite things.</p>
 <h3 id=wrapping-a-logging-handler>Wrapping a logging handler</h3>
 <p>I also wanted to pass a standard <a href=https://docs.python.org/3/library/logging.handlers.html>logging handler</a>
 to this new background thread-based handler to avoid having to worry about how the log records are
 actually delivered (<em>emitted</em> in the jargon of Python logging). Why should the responsibility of the emission
 of the log records be owned by a threaded managing system? Let&rsquo;s not mix things up.</p>
-<p>So I decired to just pass a logging handler to the initializer:</p>
+<p>So I decided to just pass a logging handler to the initializer:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python> <span style=color:#66d9ef>def</span> __init__(
         self,
         wrapped_handler: Handler,
@@ -199,7 +199,7 @@ levels not be able to be delivered to the internal queue:</p>
         <span style=color:#66d9ef>else</span>:
             self<span style=color:#f92672>.</span>__non_blocking_queue_put(record<span style=color:#f92672>=</span>record)
 </code></pre></div><p>We could define some critical levels that need to be writen to the queue, the others could be lost.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>    <span style=color:#75715e># The initializser of the ThreadHandler where you could define what levels need to have a blocking</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>    <span style=color:#75715e># The initializer of the ThreadHandler where you could define what levels need to have a blocking</span>
     <span style=color:#75715e># delivery to the queue</span>
     <span style=color:#66d9ef>def</span> __init__(
         self,
@@ -237,7 +237,7 @@ waits until it ends.</p>
         super()<span style=color:#f92672>.</span>close()
 
 </code></pre></div><h2 id=performance-improvements>Performance improvements</h2>
-<p>By running a 100K log messsages in a loop, I have obtained the following performance gains:</p>
+<p>By running a 100K log messages in a loop, I have obtained the following performance gains:</p>
 <h3 id=python-3153-with-gil>Python 3.15.3 (with GIL)</h3>
 <pre tabindex=0><code>| Logging Handler               | Spent Time     |              | vs. Baseline |
 |-------------------------------|----------------|--------------|--------------|
