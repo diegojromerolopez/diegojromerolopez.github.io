@@ -1,0 +1,304 @@
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Write tests. Not too many. Mostly integration. - Diego J.'s Software Tar Pit</title>
+<meta name=description content="Write tests. Not too many. Mostly integration. This is some advice that appear first at Twitter by Guillermo Rauch. Years have passed since I read it and now I am at a position to reflect on them and how I was following this advice even when I did not know that explicitly.
+Introduction Some years ago I was developing an internal web application for a non-techie team. I was working with React and reading a lot of tutorials, guides, and documentation (in case you are wondering I was mostly focused on backend those days).">
+<meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2025\/07\/write-tests.-not-too-many.-mostly-integration.\/","name":"Write tests. not too many. mostly integration."}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"Write tests. Not too many. Mostly integration.","description":"Write tests. Not too many. Mostly integration. This is some advice that appear first at Twitter by Guillermo Rauch. Years have passed since I read it and now I am at a position to reflect on them and how I was following this advice even when I did not know that explicitly.\nIntroduction Some years ago I was developing an internal web application for a non-techie team. I was working with React and reading a lot of tutorials, guides, and documentation (in case you are wondering I was mostly focused on backend those days).","inLanguage":"en","wordCount":1142,"datePublished":"2025-07-27T00:00:00","dateModified":"2025-07-27T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["software, testing, reflections"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2025\/07\/write-tests.-not-too-many.-mostly-integration.\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
+<meta property="og:title" content="Write tests. Not too many. Mostly integration.">
+<meta property="og:description" content="Write tests. Not too many. Mostly integration. This is some advice that appear first at Twitter by Guillermo Rauch. Years have passed since I read it and now I am at a position to reflect on them and how I was following this advice even when I did not know that explicitly.
+Introduction Some years ago I was developing an internal web application for a non-techie team. I was working with React and reading a lot of tutorials, guides, and documentation (in case you are wondering I was mostly focused on backend those days).">
+<meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2025/07/write-tests.-not-too-many.-mostly-integration./">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Diego J.'s Software Tar Pit">
+<meta name=twitter:title content="Write tests. Not too many. Mostly integration.">
+<meta name=twitter:description content="Write tests. Not too many. Mostly integration. This is some advice that appear first at Twitter by Guillermo Rauch. Years have passed since I read it and now I am at a position to reflect on them and …">
+<meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:site content="@diegojromerolop">
+<meta name=twitter:creator content="@diegojromerolop">
+<link href=https://diegojromerolopez.github.io/img/favicon.ico rel=icon type=image/x-icon>
+<meta name=generator content="Hugo 0.91.2">
+<link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=https://diegojromerolopez.github.io/css/katex.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/fontawesome/css/all.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/bootstrap.min.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/main.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/fonts.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/syntax.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/codeblock.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.default-skin.min.css>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+<div class=container-fluid>
+<div class=navbar-header>
+<button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</div>
+<div class="collapse navbar-collapse" id=main-navbar>
+<ul class="nav navbar-nav navbar-right">
+<li>
+<a title=Blog href=/>Blog</a>
+</li>
+<li>
+<a title=About href=/page/about/>About</a>
+</li>
+<li>
+<a title=Tags href=/tags>Tags</a>
+</li>
+<li>
+<a href=/es lang=es>es</a>
+</li>
+</ul>
+</div>
+<div class=avatar-container>
+<div class=avatar-img-border>
+<a title="Diego J.'s Software Tar Pit" href=https://diegojromerolopez.github.io>
+<img class=avatar-img src=https://diegojromerolopez.github.io/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit">
+</a>
+</div>
+</div>
+</div>
+</nav>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div>
+<header class=header-section>
+<div class="intro-header no-img">
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class=post-heading>
+<h1>Write tests. Not too many. Mostly integration.</h1>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;Posted on July 27, 2025
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class=container role=main>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<article role=main class=blog-post>
+<h1 id=write-tests-not-too-many-mostly-integration>Write tests. Not too many. Mostly integration.</h1>
+<p>This is some advice that appear first at Twitter by <a href=https://rauchg.com/>Guillermo Rauch</a>.
+Years have passed since I read it and now I am at a position to reflect on them and how I
+was following this advice even when I did not know that <em>explicitly</em>.</p>
+<h2 id=introduction>Introduction</h2>
+<p>Some years ago I was developing an internal web application for a non-<em>techie</em> team.
+I was working with React and reading a lot of tutorials, guides, and documentation
+(in case you are wondering I was mostly focused on backend those days).</p>
+<p>Some of the pain points where related to the creation of tests in React with the
+<a href=https://testing-library.com/docs/react-testing-library/intro/>react-testing-library</a>,
+so I was reading a lot the blog of <a href=https://kentcdodds.com/blog/common-mistakes-with-react-testing-library>its creator</a>: <a href=https://kentcdodds.com/>Kent C. Dodds</a>.</p>
+<p>One of the posts I read in Kent&rsquo;s blog was
+<a href=https://kentcdodds.com/blog/write-tests>Write tests. Not too many. Mostly integration.</a>.</p>
+<p>The post did not make an immediate effect, but I liked the idea, to have some
+<em>foundational</em> tests, <em>relatively</em> easy to do, and run,
+and that they could detect an error in the functionality.</p>
+<p>I was working for a big corporation, with a focus in quality and detail, so
+I was <em>obsessed</em> by testing, as a way to stop possible errors in the implementation
+reaching to the QA or eventually the user.</p>
+<p>I had worked for a while with testing, but I was not skilled enough in doing
+frontend tests, so I was learning and improving my craft <em>non-stop</em>.</p>
+<h2 id=when-testing-is-important>When testing is important?</h2>
+<p>Testing is always important, the complexity that we face cannot be tackle unless
+we have some assurances that the behavior is fixed and correct.</p>
+<h2 id=are-integration-tests-more-important-than-unit-tests>Are integration tests more important than unit tests?</h2>
+<p>Integration tests are those that do not mock more than needed.
+As Kent writes it very eloquently:</p>
+<blockquote>
+<p>Regardless, I think the biggest thing you can do to write more integration tests is to stop mocking so much stuff. When you mock something you&rsquo;re removing all confidence in the integration between what you&rsquo;re testing and what&rsquo;s being mocked. I understand that sometimes it can&rsquo;t be helped (though some would disagree). You don&rsquo;t actually want to send emails or charge credit cards every test, but most of the time you can avoid mocking and you&rsquo;ll be better for it.</p>
+</blockquote>
+<p>I would say that by having tests that
+<a href=https://diegojromerolopez.github.io/blog/2025/06/the-testing-pyramid/#integration-tests>mock only the absolute minimum</a>,
+you are guarantying that big parts of the system behave as expected.</p>
+<p>And what is this <em>minimum</em> part you need to mock?
+<strong>You should be mocking only external dependencies that we have guaranteed to behave in an expected way</strong>,
+i.e. most of the time packages with good support from the community.</p>
+<p>In the case of not relying on a package, but raw service with the communication layer, we should mock that and treat it
+as a project dependency even if we have created it.</p>
+<h2 id=should-i-start-working-with-integration-tests>Should I start working with integration tests?</h2>
+<p>In my experience, integration tests tend to be more useful than unit tests before the project reaches a stable state.</p>
+<p>The codebase is going to suffer big refactorings for sure in the immediate future,
+so if you start creating unit tests, you are going to need
+to rewrite those once you are done with the expected refactorings.</p>
+<p>So yes, you should start with integration tests. Now&mldr; It is not always possible to mock
+everything in an easy manner so you will need to rely on mocking more parts than the dependencies.
+For example, this happened to me when I was working with a ChatOps bot done with the
+<a href=https://github.com/slackapi/bolt-python>Slack bolt Python framework</a>, and testing
+the reception of a message was not an easy task
+(I ended up <a href=https://github.com/diegojromerolopez/slack-bolt-testcase>creating a small library for testing with Slack bolt</a>).</p>
+<h2 id=could-not-just-rely-on-unit-tests>Could not just rely on unit tests?</h2>
+<p>No. Unit testing enforces the contract between the different layers of your application,
+so you could have 100% unit testing coverage and have failures in your project.</p>
+<p><strong>When you are mocking everything you are testing nothing</strong>.</p>
+<p>Unit tests are useful for ensuring the communication among modules is done in a certain way.
+Nothing more, nothing less.</p>
+<h2 id=should-we-just-rely-on-end-to-end-tests-instead>Should we just rely on end-to-end tests instead?</h2>
+<p>No because end-to-end tests are usually more difficult to implement, maintain, and run.</p>
+<p>End-to-end tests are implemented via mock servers. So a change in the protocol need a change
+in the server, and that is more work. Those mock servers can be based in other technology,
+or required a new release in other project.</p>
+<p>End-to-end tests are slower, they rely on starting up entire services so usually you only
+run them in your CI/CD pipeline, not locally.
+<strong>Slow tests tend to not be run as frequently as they should.</strong></p>
+<h2 id=should-then-stop-doing-so-much-tests>Should then stop doing so much tests?</h2>
+<p>Well, in my experience testing coverage does not guarantee that there are no errors,
+but having a low testing coverage is usually a symptom that there are <em>bugs</em> in the code base.</p>
+<p>I do not think we should do tests for the sake of having tests, but you need to keep this in your mind:</p>
+<ul>
+<li>Integration tests check functionality.</li>
+<li>Unit tests check relationships.</li>
+</ul>
+<p>So once you have ensured the functionality via integration tests, and once the design is all set,
+you could do unit tests for the rest of the code base.</p>
+<p>Hence, in a refactoring you will encounter failing unit tests but (ideally) no failed integration tests.</p>
+<h2 id=final-remarks>Final remarks</h2>
+<h3 id=im-not-getting-paid-for-creating-tests>I&rsquo;m not getting paid for creating tests</h3>
+<p>Then find another job.</p>
+<p>Quality is not negotiable, if your manager asks you to stop adding tests for your code,
+then you are in the wrong place. Software is not only source code with features,
+but documentation, and tests.</p>
+<h3 id=could-not-llms-tell-us-if-the-code-is-right-or-wrong>Could not LLMs tell us if the code is right or wrong?</h3>
+<p>No. The Large Language Models (LLMs) fail to work when the context is large or .
+They are useful for autocompletion, small refactors or other use cases, but
+they tend to do some small tweaks in the code automatically,</p>
+<p>Apart from that, remember that <strong>LLMs do not have a fully expected outcome</strong>.
+So a change in the model, the context, or the meta-parameters can make the
+LLM to produce a different output.</p>
+<p><strong>We need stable, and reproducible checks for our code.</strong></p>
+<h3 id=isnt-this-work-for-the-qas>Isn&rsquo;t this work for the QAs?</h3>
+<p>No. QAs could do manual or end-to-end testing or whatever tests they decide to do,
+but it is not related to the work we do.</p>
+<p>By having a separate validation process, we ensure the QA team is not influenced in
+any way by the decisions that software engineers took.</p>
+<p><strong>How many times you have forgotten testing the edge cases?</strong></p>
+<p><strong>Quality is a responsibility of the software engineers</strong>.</p>
+<h2 id=conclusion>Conclusion</h2>
+<p>Read the <a href=https://kentcdodds.com/blog/write-tests>full blog post from Kent</a>,
+it is short and contains a lot of wisdom. You do not need to be a frontend engineer
+to understand it, nor to apply it in your day to day tasks.</p>
+<div class=blog-tags>
+<a href=https://diegojromerolopez.github.io/tags/software/>software</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/testing/>testing</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/reflections/>reflections</a>&nbsp;
+</div>
+</article>
+<ul class="pager blog-pager">
+<li class=previous>
+<a href=https://diegojromerolopez.github.io/blog/2025/07/improve-your-programs-performance-with-backgroundlog/ data-toggle=tooltip data-placement=top title="Improve your programs performance with backgroundlog">&larr; Previous Post</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<footer>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<ul class="list-inline text-center footer-links">
+<li>
+<a href=mailto:diegojromerolopez@gmail.com title="Email me">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://github.com/diegojromerolopez title=GitHub>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://twitter.com/diegojromerolop title=Twitter>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://linkedin.com/in/diegojromerolopez title=LinkedIn>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href title=RSS>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+</ul>
+<p class="credits copyright text-muted">
+Diego J. Romero-López
+&nbsp;&bull;&nbsp;&copy;
+2025
+&nbsp;&bull;&nbsp;
+<a href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</p>
+<p class="credits theme-by text-muted">
+<a href=https://gohugo.io>Hugo v0.91.2</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
+</p>
+</div>
+</div>
+</div>
+</footer><script src=https://diegojromerolopez.github.io/js/katex.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/auto-render.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/jquery-3.5.1.slim.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/bootstrap.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/main.js></script><script>renderMathInElement(document.body)</script><script src=https://diegojromerolopez.github.io/js/photoswipe.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/photoswipe-ui-default.min.js></script><script src=https://diegojromerolopez.github.io/js/load-photoswipe.js></script>
+</body>
+</html>
