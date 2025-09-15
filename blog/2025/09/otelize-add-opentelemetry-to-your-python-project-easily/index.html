@@ -1,0 +1,412 @@
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Otelize, add OpenTelemetry to your Python project easily - Diego J.'s Software Tar Pit</title>
+<meta name=description content="Otelize, add OpenTelemetry to your Python project easily OpenTelemetry (sometimes abbreviated as OTEL) is a standard for telemetry and monitorization of software applications that has gain a lot of traction in these last years. We will learn here how to use the Python package otelize to add this telemetry to our Python applications without having to rely on much boilerplate.
+How did I use to add OTEL telemetry to my Python code?">
+<meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2025\/09\/otelize-add-opentelemetry-to-your-python-project-easily\/","name":"Otelize, add open telemetry to your python project easily"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"Otelize, add OpenTelemetry to your Python project easily","description":"Otelize, add OpenTelemetry to your Python project easily OpenTelemetry (sometimes abbreviated as OTEL) is a standard for telemetry and monitorization of software applications that has gain a lot of traction in these last years. We will learn here how to use the Python package otelize to add this telemetry to our Python applications without having to rely on much boilerplate.\nHow did I use to add OTEL telemetry to my Python code?","inLanguage":"en","wordCount":1339,"datePublished":"2025-09-15T00:00:00","dateModified":"2025-09-15T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["python, package, software"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2025\/09\/otelize-add-opentelemetry-to-your-python-project-easily\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
+<meta property="og:title" content="Otelize, add OpenTelemetry to your Python project easily">
+<meta property="og:description" content="Otelize, add OpenTelemetry to your Python project easily OpenTelemetry (sometimes abbreviated as OTEL) is a standard for telemetry and monitorization of software applications that has gain a lot of traction in these last years. We will learn here how to use the Python package otelize to add this telemetry to our Python applications without having to rely on much boilerplate.
+How did I use to add OTEL telemetry to my Python code?">
+<meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2025/09/otelize-add-opentelemetry-to-your-python-project-easily/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Diego J.'s Software Tar Pit">
+<meta name=twitter:title content="Otelize, add OpenTelemetry to your Python project easily">
+<meta name=twitter:description content="Otelize, add OpenTelemetry to your Python project easily OpenTelemetry (sometimes abbreviated as OTEL) is a standard for telemetry and monitorization of software applications that has gain a lot of …">
+<meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:site content="@diegojromerolop">
+<meta name=twitter:creator content="@diegojromerolop">
+<link href=https://diegojromerolopez.github.io/img/favicon.ico rel=icon type=image/x-icon>
+<meta name=generator content="Hugo 0.91.2">
+<link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=https://diegojromerolopez.github.io/css/katex.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/fontawesome/css/all.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/bootstrap.min.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/main.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/fonts.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/syntax.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/codeblock.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.default-skin.min.css>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+<div class=container-fluid>
+<div class=navbar-header>
+<button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</div>
+<div class="collapse navbar-collapse" id=main-navbar>
+<ul class="nav navbar-nav navbar-right">
+<li>
+<a title=Blog href=/>Blog</a>
+</li>
+<li>
+<a title=About href=/page/about/>About</a>
+</li>
+<li>
+<a title=Tags href=/tags>Tags</a>
+</li>
+<li>
+<a href=/es lang=es>es</a>
+</li>
+</ul>
+</div>
+<div class=avatar-container>
+<div class=avatar-img-border>
+<a title="Diego J.'s Software Tar Pit" href=https://diegojromerolopez.github.io>
+<img class=avatar-img src=https://diegojromerolopez.github.io/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit">
+</a>
+</div>
+</div>
+</div>
+</nav>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div>
+<header class=header-section>
+<div class="intro-header no-img">
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class=post-heading>
+<h1>Otelize, add OpenTelemetry to your Python project easily</h1>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;Posted on September 15, 2025
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class=container role=main>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<article role=main class=blog-post>
+<h1 id=otelize-add-opentelemetry-to-your-python-project-easily>Otelize, add OpenTelemetry to your Python project easily</h1>
+<p>OpenTelemetry (sometimes abbreviated as OTEL) is a standard for telemetry
+and monitorization of software applications that has gain a lot of traction in these last years.
+We will learn here how to use the Python package <a href=https://github.com/diegojromerolopez/otelize>otelize</a>
+to add this telemetry to our Python applications without having to rely on much boilerplate.</p>
+<h2 id=how-did-i-use-to-add-otel-telemetry-to-my-python-code>How did I use to add OTEL telemetry to my Python code?</h2>
+<p>Just by adding a lot of spans (at least one per function). This is done by relying on the context manager
+that is provided by the <a href=https://pypi.org/project/opentelemetry-api/>opentelemetry-api</a> package.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>your_function</span>():
+    <span style=color:#66d9ef>with</span> tracer<span style=color:#f92672>.</span>start_as_current_span(<span style=color:#e6db74>&#39;your_function&#39;</span>) <span style=color:#66d9ef>as</span> span:
+        <span style=color:#75715e># your code sentences</span>
+        span<span style=color:#f92672>.</span>set_attributes({<span style=color:#e6db74>&#39;an&#39;</span>: <span style=color:#e6db74>&#39;attribute&#39;</span>})
+        <span style=color:#75715e># your code sentences</span>
+        span<span style=color:#f92672>.</span>set_attributes({<span style=color:#e6db74>&#39;another&#39;</span>: <span style=color:#e6db74>&#39;attribute&#39;</span>})
+
+        <span style=color:#66d9ef>for</span> _ <span style=color:#f92672>in</span> your_iterable:
+            <span style=color:#66d9ef>with</span> tracer<span style=color:#f92672>.</span>start_as_current_span(<span style=color:#e6db74>&#39;your_function&#39;</span>) <span style=color:#66d9ef>as</span> span:
+                <span style=color:#75715e># your code sentences</span>
+                span<span style=color:#f92672>.</span>set_attributes({<span style=color:#e6db74>&#39;an&#39;</span>: <span style=color:#e6db74>&#39;attribute&#39;</span>, <span style=color:#e6db74>&#39;in_the&#39;</span>: <span style=color:#e6db74>&#39;loop&#39;</span>})
+                <span style=color:#75715e># your code sentences</span>
+</code></pre></div><p>As you can guess, this continuos use of context managers worsens the readability of the code
+and <em>pollutes</em> the code with this <em>explicit monitorization</em>.</p>
+<h2 id=otelize>Otelize</h2>
+<h2 id=rationale>Rationale</h2>
+<p>I am very eager to add a span per function to ease the debugging process of systems in production.
+Just seeing the cascade of function calls reduces my anxiety when dealing with a bug.</p>
+<p>For each function span, I usually add the input arguments and any other context information that could be
+useful for the future developer that is fixing the issue in production.</p>
+<p>I also add a span in each loop and conditional (mostly when they end up returning a value and hence,
+exiting the function scope).</p>
+<h2 id=what-is-otelize>What is Otelize?</h2>
+<p>A <a href=https://pypi.org/project/otelize/>Python package</a> with a collection of utilities with the intent of provide
+some helper tools to ease the pain of adding opentelemetry instrumentation to your custom code.</p>
+<p>As there is already <a href=https://opentelemetry.io/docs/zero-code/python/>zero-code auto-instrumentation exists for the most popular Python libraries</a>, I wanted to provide a way to add a basic instrumentation for Python code that needs to have a custom
+instrumentation.</p>
+<p>So I decided to create a decorator, and some functions that could <em>extend</em> the current code by adding a basic OTEL layer.</p>
+<h3 id=features>Features</h3>
+<h4 id=functionclass-decorator>Function/Class decorator</h4>
+<p>Usually when you want to add a span with some attributes to a function, in Python
+you use a context manager and add the span attributes or events that you desire.
+Something like this:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> json
+
+<span style=color:#f92672>from</span> opentelemetry <span style=color:#f92672>import</span> trace
+
+tracer <span style=color:#f92672>=</span> trace<span style=color:#f92672>.</span>get_tracer(__name__)
+
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>your_function</span>(a_param: str, another_param: int, a_list: list[float], a_dict: dict[str, str]):
+    <span style=color:#66d9ef>with</span> tracer<span style=color:#f92672>.</span>start_as_current_span(<span style=color:#e6db74>&#39;your_function&#39;</span>) <span style=color:#66d9ef>as</span> span:
+        span<span style=color:#f92672>.</span>set_attributes(<span style=color:#f92672>...</span>)
+        span<span style=color:#f92672>.</span>add_event(<span style=color:#f92672>...</span>)
+        <span style=color:#75715e># Your code</span>
+</code></pre></div><p>The problem with this approach is that it requires a lot of boiler plate and it becomes
+cumbersome after adding theses OpenTelemetry code to every function again and again.</p>
+<p>That is why the <code>@otelize</code> decorator does this for you. Just by adding the otelize
+decorator to your function will create an automatic span and will set the function arguments
+as attributes of the span.</p>
+<p>So by adding the decorator:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#a6e22e>@otelize</span>
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>your_function</span>(a_param: str, another_param: int, a_list: list[float], a_dict: dict[str, str]):
+</code></pre></div><p>We are actually wrapping all its contents with a span that passes all his positional and keyword arguments
+as span attributes:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#a6e22e>@otelize</span>
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>your_function</span>(a_param: str, another_param: int, a_list: list[float], a_dict: dict[str, str]):
+</code></pre></div><p>So a positional-only argument call of this function</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>your_function(<span style=color:#e6db74>&#39;a_param&#39;</span>, <span style=color:#ae81ff>2</span>, [<span style=color:#ae81ff>1.</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>2.5</span>, <span style=color:#ae81ff>3.0</span>], {<span style=color:#e6db74>&#39;debug&#39;</span>: <span style=color:#66d9ef>True</span>})
+</code></pre></div><p>will cause the code to be like this:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> json
+
+<span style=color:#f92672>from</span> opentelemetry <span style=color:#f92672>import</span> trace
+
+tracer <span style=color:#f92672>=</span> trace<span style=color:#f92672>.</span>get_tracer(__name__)
+
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>your_function</span>(a_param: str, another_param: int, a_list: list[float], a_dict: dict[str, str]):
+    <span style=color:#66d9ef>with</span> tracer<span style=color:#f92672>.</span>start_as_current_span(<span style=color:#e6db74>&#39;your_function&#39;</span>) <span style=color:#66d9ef>as</span> span:
+        span<span style=color:#f92672>.</span>set_attributes({
+            <span style=color:#e6db74>&#39;function.call.arg.a_param.value&#39;</span>: a_param,
+            <span style=color:#e6db74>&#39;function.call.arg.another_param.value&#39;</span>: another_param,
+            <span style=color:#e6db74>&#39;function.call.arg.a_list.value&#39;</span>: json<span style=color:#f92672>.</span>dumps(a_list),
+            <span style=color:#e6db74>&#39;function.call.arg.a_dict.value&#39;</span>: json<span style=color:#f92672>.</span>dumps(a_dict),
+            <span style=color:#e6db74>&#39;function.call.return.value&#39;</span>: return_value,
+        })
+</code></pre></div><p>And a keyword-only argument call of this function</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>your_function(a_param<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;param&#39;</span>, another_param<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>, a_list<span style=color:#f92672>-</span>[<span style=color:#ae81ff>1.</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>2.5</span>, <span style=color:#ae81ff>3.0</span>], a_dict<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#39;debug&#39;</span>: <span style=color:#66d9ef>True</span>})
+</code></pre></div><p>will cause the code to be like this:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> json
+
+<span style=color:#f92672>from</span> opentelemetry <span style=color:#f92672>import</span> trace
+
+tracer <span style=color:#f92672>=</span> trace<span style=color:#f92672>.</span>get_tracer(__name__)
+
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>your_function</span>(a_param: str, another_param: int, a_list: list[float], a_dict: dict[str, str]):
+    <span style=color:#66d9ef>with</span> tracer<span style=color:#f92672>.</span>start_as_current_span(<span style=color:#e6db74>&#39;your_function&#39;</span>) <span style=color:#66d9ef>as</span> span:
+        span<span style=color:#f92672>.</span>set_attributes({
+            <span style=color:#e6db74>&#39;function.call.arg.a_param.value&#39;</span>: a_param,
+            <span style=color:#e6db74>&#39;function.call.arg.another_param.value&#39;</span>: another_param,
+            <span style=color:#e6db74>&#39;function.call.arg.a_list.value&#39;</span>: json<span style=color:#f92672>.</span>dumps(a_list),
+            <span style=color:#e6db74>&#39;function.call.arg.a_dict.value&#39;</span>: json<span style=color:#f92672>.</span>dumps(a_dict),
+            <span style=color:#e6db74>&#39;return.value&#39;</span>: return_value,
+        })
+</code></pre></div><p><strong>The decorator works for classes too</strong>, it is dynamically applied to all methods of the class.
+There is several things to take in consideration:</p>
+<ol>
+<li>The dunder methods are ignored.</li>
+<li>The implicit parameter (<code>self</code> or <code>cls</code> are ignored for instance or class methods respectively).</li>
+</ol>
+<p>So, for example for this HttpClient class:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> requests
+<span style=color:#f92672>from</span> otelize <span style=color:#f92672>import</span> otelize
+
+
+<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>HttpClient</span>:
+    <span style=color:#66d9ef>def</span> __init__(self, base_url: str, headers: dict[str, str] <span style=color:#f92672>|</span> <span style=color:#66d9ef>None</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>None</span>):
+        self<span style=color:#f92672>.</span>__base_url <span style=color:#f92672>=</span> base_url<span style=color:#f92672>.</span>rstrip(<span style=color:#e6db74>&#34;/&#34;</span>)
+        self<span style=color:#f92672>.</span>__session <span style=color:#f92672>=</span> requests<span style=color:#f92672>.</span>Session()
+        self<span style=color:#f92672>.</span>__headers <span style=color:#f92672>=</span> headers <span style=color:#f92672>or</span> {}
+        self<span style=color:#f92672>.</span>__session<span style=color:#f92672>.</span>headers<span style=color:#f92672>.</span>update(self<span style=color:#f92672>.</span>__headers)
+
+    <span style=color:#a6e22e>@otelize</span>
+    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get</span>(self, path: str, params: dict[str, str] <span style=color:#f92672>|</span> <span style=color:#66d9ef>None</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>None</span>) <span style=color:#f92672>-&gt;</span> requests<span style=color:#f92672>.</span>Response:
+        url <span style=color:#f92672>=</span> <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{</span>self<span style=color:#f92672>.</span>base_url<span style=color:#e6db74>}</span><span style=color:#e6db74>/</span><span style=color:#e6db74>{</span>path<span style=color:#f92672>.</span>lstrip(<span style=color:#e6db74>&#39;/&#39;</span>)<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
+        response <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>__session<span style=color:#f92672>.</span>get(url, params<span style=color:#f92672>=</span>params)
+        response<span style=color:#f92672>.</span>raise_for_status()
+        <span style=color:#66d9ef>return</span> response
+    
+    <span style=color:#75715e># ...</span>
+</code></pre></div><p>The method get would have its code instrumentalized as if it was a decorated function.</p>
+<h4 id=iterator-instrumentation>Iterator instrumentation</h4>
+<p>Apart from functions, another use that is common is to wrap the contents of a loop in an
+OpenTelemetry span, e.g.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>items <span style=color:#f92672>=</span> [<span style=color:#e6db74>&#39;first&#39;</span>, <span style=color:#e6db74>&#39;second&#39;</span>, <span style=color:#e6db74>&#39;third&#39;</span>]
+<span style=color:#66d9ef>for</span> item <span style=color:#f92672>in</span> items:
+    <span style=color:#66d9ef>with</span> tracer<span style=color:#f92672>.</span>start_as_current_span(<span style=color:#e6db74>&#39;your_function&#39;</span>) <span style=color:#66d9ef>as</span> item_loop_span:
+        item_loop_span<span style=color:#f92672>.</span>set_attributes({<span style=color:#e6db74>&#39;item.value&#39;</span>: item})
+        
+        result <span style=color:#f92672>=</span> do_something(item)
+        item_loop_span<span style=color:#f92672>.</span>set_attributes({<span style=color:#e6db74>&#39;result.value&#39;</span>: result})
+
+        <span style=color:#75715e># ...</span>
+</code></pre></div><p>The <code>start_as_current_span</code> context manager makes the loop code difficult to understand.
+Yes, in this example the intent is clear and the OTEL code is not too much.</p>
+<p>I wanted to have a tool to wrap the loop à la enumerate, to free the developer
+of having to define the span by hand.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> otelize <span style=color:#f92672>import</span> otelize_iterable
+
+a_list <span style=color:#f92672>=</span> [<span style=color:#e6db74>&#39;first&#39;</span>, <span style=color:#e6db74>&#39;second&#39;</span>, <span style=color:#e6db74>&#39;third&#39;</span>]
+<span style=color:#66d9ef>for</span> item_span, item <span style=color:#f92672>in</span> otelize_iterable(a_list):
+    item_span<span style=color:#f92672>.</span>set_attributes({<span style=color:#e6db74>&#39;item_again&#39;</span>: item})
+</code></pre></div><p>Of course, the custom attributes still
+need to be added manually, but it is an improvement over having to write
+the context manager and indent the code.</p>
+<h4 id=context-manager-instrumentation>Context manager instrumentation</h4>
+<p>Python provides the developer with context managers to encapsulate common
+behaviors before and after a block of code.</p>
+<p>So we provide a <code>otelize_context_manager</code> function that adds a span to the
+variables returned by a context manager.</p>
+<p>For example, the following creation of temporal file is done via the tempfile module
+utilities, and we have decided to wrap the context manager in the <code>otelize_context_manager</code>
+function to have a span available for adding some span custom attributes:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> os
+<span style=color:#f92672>import</span> tempfile
+
+<span style=color:#66d9ef>with</span> otelize_context_manager(tempfile<span style=color:#f92672>.</span>NamedTemporaryFile()) <span style=color:#66d9ef>as</span> (temp_file_span, temp_file):
+    temp_file<span style=color:#f92672>.</span>write(<span style=color:#e6db74>b</span><span style=color:#e6db74>&#39;hello&#39;</span>)
+    <span style=color:#75715e># more writing ...</span>
+    temp_file<span style=color:#f92672>.</span>flush()
+
+    temp_file_span<span style=color:#f92672>.</span>set_attributes({
+        <span style=color:#e6db74>&#39;temp_file.size&#39;</span>: os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>getsize(temp_file<span style=color:#f92672>.</span>name)
+    })
+</code></pre></div><h4 id=otel-values>OTEL values</h4>
+<p>Not all the values should be added to our monitorization efforts.
+It does not matter if they are in span attributes or events, they should not be
+sent without any conversion to our monitorization provider.</p>
+<h5 id=sequences-dictionaries-sets-and-other-data-structures>Sequences, dictionaries, sets and other data structures</h5>
+<p>First, there are values that are complex data structures and would not be understood
+by our monitorization providers. That is why otelize serializes dictionaries, lists,
+and sets with <strong>JSON serialization</strong>.</p>
+<p>The <a href=https://github.com/diegojromerolopez/otelize/blob/main/otelize/adapters/otel_value_converter.py>OtelValueConverter</a>
+adapter deals with converting any kind of value to a proper (and useful) value for our OTEL provider</p>
+<h5 id=secret-information>Secret information</h5>
+<p>Second, there are some secrets, tokens or information that should not be divulged to an external entity.
+It can be an authentication token, a password, or any kind of information that we want to redact.</p>
+<p>To do it, otelize provides the possibility of telling the package what are the attribute names that should be
+redacted. otelize will read from these two environment variables:</p>
+<ul>
+<li><code>OTELIZE_SPAN_REDACTABLE_ATTRIBUTES</code>: a JSON-serialized array of strings with the attributes that need to be redacted.</li>
+<li><code>OTELIZE_SPAN_REDACTABLE_ATTRIBUTES_REGEX</code>: a string with a Python regex that will be used to match sensible attributes.</li>
+</ul>
+<p>and will use these two environment variables to check if an attribute needs to be redacted.</p>
+<p>The redacted values will take the value <code>[REDACTED]</code> in our provider. That way we show that the attribute was there,
+but we do not leak the value.</p>
+<h2 id=what-is-missing>What is missing?</h2>
+<p>There are some ideas that I would like to implement in the next releases:</p>
+<h3 id=positional-and-keyword-arguments>Positional and keyword arguments</h3>
+<p>Do we really need to make a distinction among them?</p>
+<h3 id=async-support>Async support</h3>
+<p>I could colorize my functions depending on if they are async or not.</p>
+<h3 id=secret-value-detection>Secret value detection</h3>
+<p>If you pass a token with a positional argument it will be leaked to the monitoring provider.</p>
+<h3 id=exceptions>Exceptions</h3>
+<p>We are just doing nothing. We should allow catching a list of expected exceptions.</p>
+<h2 id=conclusion>Conclusion</h2>
+<p><a href=https://github.com/diegojromerolopez/otelize>otelize</a> is a simple,
+easy and useful package to add to your project when you do
+not know exactly what to monitorize or you want to monitorize all the function calls,
+loops and context managers.</p>
+<div class=blog-tags>
+<a href=https://diegojromerolopez.github.io/tags/python/>python</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/package/>package</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/software/>software</a>&nbsp;
+</div>
+</article>
+<ul class="pager blog-pager">
+<li class=previous>
+<a href=https://diegojromerolopez.github.io/blog/2025/09/how-to-work-in-a-toxic-environment/ data-toggle=tooltip data-placement=top title="How to work in a toxic environment">&larr; Previous Post</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<footer>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<ul class="list-inline text-center footer-links">
+<li>
+<a href=mailto:diegojromerolopez@gmail.com title="Email me">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://github.com/diegojromerolopez title=GitHub>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://twitter.com/diegojromerolop title=Twitter>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://linkedin.com/in/diegojromerolopez title=LinkedIn>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href title=RSS>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+</ul>
+<p class="credits copyright text-muted">
+Diego J. Romero-López
+&nbsp;&bull;&nbsp;&copy;
+2025
+&nbsp;&bull;&nbsp;
+<a href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</p>
+<p class="credits theme-by text-muted">
+<a href=https://gohugo.io>Hugo v0.91.2</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
+</p>
+</div>
+</div>
+</div>
+</footer><script src=https://diegojromerolopez.github.io/js/katex.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/auto-render.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/jquery-3.5.1.slim.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/bootstrap.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/main.js></script><script>renderMathInElement(document.body)</script><script src=https://diegojromerolopez.github.io/js/photoswipe.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/photoswipe-ui-default.min.js></script><script src=https://diegojromerolopez.github.io/js/load-photoswipe.js></script>
+</body>
+</html>
