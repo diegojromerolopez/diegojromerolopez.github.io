@@ -1,0 +1,310 @@
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Using LLMs to create a python library - Diego J.'s Software Tar Pit</title>
+<meta name=description content="Using LLMs to create a python library I have used Gemini and Claude LLM models to create a mypy plugin to mark a function as pure: mypy-pure.
+Introduction I think that static analysis in Python is a great opportunity to catch a lot of issues before running the program.
+I do not even remember when, but I saw a thread in the Python official forum where a user was suggesting this @pure decorator idea to the Steering Council of Python.">
+<meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2025\/12\/using-llms-to-create-a-python-library\/","name":"Using llms to create a python library"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"Using LLMs to create a python library","description":"Using LLMs to create a python library I have used Gemini and Claude LLM models to create a mypy plugin to mark a function as pure: mypy-pure.\nIntroduction I think that static analysis in Python is a great opportunity to catch a lot of issues before running the program.\nI do not even remember when, but I saw a thread in the Python official forum where a user was suggesting this @pure decorator idea to the Steering Council of Python.","inLanguage":"en","wordCount":805,"datePublished":"2025-12-05T00:00:00","dateModified":"2025-12-05T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["llm, ai, war-story"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2025\/12\/using-llms-to-create-a-python-library\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
+<meta property="og:title" content="Using LLMs to create a python library">
+<meta property="og:description" content="Using LLMs to create a python library I have used Gemini and Claude LLM models to create a mypy plugin to mark a function as pure: mypy-pure.
+Introduction I think that static analysis in Python is a great opportunity to catch a lot of issues before running the program.
+I do not even remember when, but I saw a thread in the Python official forum where a user was suggesting this @pure decorator idea to the Steering Council of Python.">
+<meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2025/12/using-llms-to-create-a-python-library/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Diego J.'s Software Tar Pit">
+<meta name=twitter:title content="Using LLMs to create a python library">
+<meta name=twitter:description content="Using LLMs to create a python library I have used Gemini and Claude LLM models to create a mypy plugin to mark a function as pure: mypy-pure.
+Introduction I think that static analysis in Python is a …">
+<meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:site content="@diegojromerolop">
+<meta name=twitter:creator content="@diegojromerolop">
+<link href=https://diegojromerolopez.github.io/img/favicon.ico rel=icon type=image/x-icon>
+<meta name=generator content="Hugo 0.91.2">
+<link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=https://diegojromerolopez.github.io/css/katex.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/fontawesome/css/all.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/bootstrap.min.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/main.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/fonts.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/syntax.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/codeblock.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.default-skin.min.css>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+<div class=container-fluid>
+<div class=navbar-header>
+<button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</div>
+<div class="collapse navbar-collapse" id=main-navbar>
+<ul class="nav navbar-nav navbar-right">
+<li>
+<a title=Blog href=/>Blog</a>
+</li>
+<li>
+<a title=About href=/page/about/>About</a>
+</li>
+<li>
+<a title=Tags href=/tags>Tags</a>
+</li>
+<li>
+<a href=/es lang=es>es</a>
+</li>
+</ul>
+</div>
+<div class=avatar-container>
+<div class=avatar-img-border>
+<a title="Diego J.'s Software Tar Pit" href=https://diegojromerolopez.github.io>
+<img class=avatar-img src=https://diegojromerolopez.github.io/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit">
+</a>
+</div>
+</div>
+</div>
+</nav>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div>
+<header class=header-section>
+<div class="intro-header no-img">
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class=post-heading>
+<h1>Using LLMs to create a python library</h1>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;Posted on December 5, 2025
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class=container role=main>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<article role=main class=blog-post>
+<h1 id=using-llms-to-create-a-python-library>Using LLMs to create a python library</h1>
+<p>I have used Gemini and Claude <a href=https://en.wikipedia.org/wiki/Large_language_model>LLM</a>
+models to create a <a href=https://mypy-lang.org/>mypy</a> plugin to mark a function as pure:
+<a href=https://github.com/diegojromerolopez/mypy-pure>mypy-pure</a>.</p>
+<h2 id=introduction>Introduction</h2>
+<p>I think that static analysis in Python is a great opportunity to catch a lot of issues
+before running the program.</p>
+<p>I do not even remember when, but I saw
+<a href=https://discuss.python.org/t/static-typing-specify-if-function-is-pure/98392>a thread in the Python official forum</a>
+where a user was suggesting this <code>@pure</code> decorator idea to the Steering Council of Python.</p>
+<p>The idea got lost in the conversation, the <em>pros</em>, the <em>cons</em>, etc. But I liked the idea and got me thinking.</p>
+<h2 id=the-idea>The idea</h2>
+<p>Some weeks ago I asked ChatGPT about creating an empty decorator in Python (<code>@pure</code>), and using it
+to mark the functions in a special way. It showed me some code that I copied, studied and
+understood (The AST visitors are not the easiest part of the standard Python library).</p>
+<p>My idea was to leverage <a href=https://mypy-lang.org/>mypy</a>, and check that if the
+function had the <code>@pure</code> decorator, it could not call to functions that were not pure.</p>
+<p>I know that pure functions apart from not having side-effects, must return the same value
+for the same inputs, but I decided to ignore that part because it was going to be difficult
+to check that statically. On the other hand, checking if a function had side-effects was relatively
+easy, as we only need to check if a function calls a subset of <em>impure</em> functions
+of the Python standard library.</p>
+<p>Anyhow, I abandoned the idea because I did not have time, and was not even sure about
+the usefulness of this functionality.</p>
+<h2 id=the-final-push>The final push</h2>
+<p>Google had released <a href=https://antigravity.google/>Antigravity</a>,
+a new and shiny editor with AI agent integration, and a generous free tier.
+I thought to myself, could I implement this library by
+leveraging LLMs capabilities?</p>
+<h2 id=the-development>The development</h2>
+<p>I decided to spend two hours each day having a conversation with a LLM I started seeing results.</p>
+<p>The first day I had a decorator that was able to detect if a function was calling
+an impure function directly.</p>
+<p>The next day I was able to check if any of the ancestor called functions by a function was <em>impure</em>.</p>
+<p>In 4 days I had the 0.2.1 with support for:</p>
+<p>Support for marking as <code>@pure</code> functions:</p>
+<ul>
+<li>Properties (<code>@property</code>)</li>
+<li>Instance methods</li>
+<li>Class methods (<code>@classmethod</code>)</li>
+<li>Static methods (<code>@staticmethod</code>)</li>
+<li>Async functions (<code>async def</code>)</li>
+<li>Async methods</li>
+<li>Nested/inner functions</li>
+</ul>
+<p>Blacklisted standard functions (impure): 230+ impure functions including:</p>
+<ul>
+<li>All major stdlib modules (logging, threading, multiprocessing, signal, etc.)</li>
+<li>Network operations (http.client, urllib, ftplib, smtplib, etc.)</li>
+<li>Database operations (sqlite3, dbm, shelve)</li>
+<li>File operations (tempfile, pickle, pathlib)</li>
+<li>System operations (gc, warnings, atexit)</li>
+</ul>
+<h2 id=the-released-product>The released product</h2>
+<p>At the end of the day, I have an useful library that can detect use of functions with
+side-effects when running mypy on your code.</p>
+<h3 id=install-the-library-from-pypihttpspypiorgprojectmypy-pure>Install the library from <a href=https://pypi.org/project/mypy-pure/>pypi</a>.</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>pip install mypy-pure
+</code></pre></div><h3 id=enable-the-plugin-in-your-mypy-configuration>Enable the plugin in your mypy configuration</h3>
+<p>In your <code>mypy.ini</code> or <code>pyproject.toml</code> add mypy_pure to your list of plugins:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ini data-lang=ini><span style=color:#66d9ef>[mypy]</span>
+<span style=color:#a6e22e>plugins</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>mypy_pure.plugin</span>
+</code></pre></div><h3 id=add-a-list-of-your-known-pure-impure-functions-to-your-mypyini-or-pyprojecttoml>Add a list of your known pure impure functions to your <code>mypy.ini</code> or <code>pyproject.toml</code></h3>
+<p>In your <code>mypy.ini</code> or <code>pyproject.toml</code> you can optionally define a list of impure or pure functions.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ini data-lang=ini><span style=color:#66d9ef>[mypy-pure]</span>
+<span style=color:#75715e># Blacklist your impure functions</span>
+<span style=color:#a6e22e>impure_functions</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>my_module.send_email, my_module.log_event</span>
+
+<span style=color:#75715e># Whitelist pure third-party functions</span>
+<span style=color:#a6e22e>pure_functions</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>requests.utils.quote, requests.utils.unquote</span>
+</code></pre></div><h3 id=use-the-pure-decorator-on-your-functions>Use the <code>@pure</code> decorator on your functions</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> mypy_pure <span style=color:#f92672>import</span> pure
+
+<span style=color:#a6e22e>@pure</span>
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>calculate_total</span>(prices: list[float], tax_rate: float) <span style=color:#f92672>-&gt;</span> float:
+    subtotal <span style=color:#f92672>=</span> sum(prices)
+    <span style=color:#66d9ef>return</span> subtotal <span style=color:#f92672>*</span> (<span style=color:#ae81ff>1</span> <span style=color:#f92672>+</span> tax_rate)
+</code></pre></div><h2 id=caveats>Caveats</h2>
+<h3 id=the-llm-will-always-try-to-take-the-easiest-step>The LLM will always try to take the easiest step</h3>
+<p>Yes, the LLMs are lazy and tend to remove, and ignore complete pieces of code.</p>
+<h3 id=you-need-to-navigate-the-conversation>You need to navigate the conversation</h3>
+<p>Sometimes, the LLMs hallucinate or worse, they propose removing features that clash with their view.
+<em>You need to be at the helm</em> of the process, so in every change they propose, you can
+steer their actions to what you actually want.</p>
+<p>And everything of that without taking in account proposals that, while being</p>
+<h3 id=there-is-no-agreement-on-what-the-license-could-be-for-that-code>There is no agreement on what the license could be for that code</h3>
+<p>I even <a href=https://www.reddit.com/r/Python/comments/1pac4x0/what_should_be_the_license_of_a_library_created/>asked Reddit</a> about this!</p>
+<p>Some people say that the LLMs memorize code with different license, hence
+producing some pieces of code that came from projects with incompatible licenses.</p>
+<p>To be fair, I think that we have reached the point of <em>practicality</em>, and assumed
+that the LLMs just read everything and just adjust their weights from all they
+get their hands on.</p>
+<p>I have not seen any <em>regurgitated</em> piece of code, but that is what they say.</p>
+<p>My project has the MIT license and I will defend it arguing:</p>
+<ul>
+<li>No financial gain.</li>
+<li><a href=https://en.wikipedia.org/wiki/Fair_use>Fair use</a>.</li>
+</ul>
+<h2 id=conclusion>Conclusion</h2>
+<p>The development velocity with LLMs is surprising: what could have been 1 month of development
+was done by the LLM and checked by me, in hours.</p>
+<p>The legality of the code still seems to be an issue.</p>
+<div class=blog-tags>
+<a href=https://diegojromerolopez.github.io/tags/llm/>llm</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/ai/>ai</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/war-story/>war-story</a>&nbsp;
+</div>
+</article>
+<ul class="pager blog-pager">
+<li class=previous>
+<a href=https://diegojromerolopez.github.io/blog/2025/11/use-llms-to-handle-tedious-tasks/ data-toggle=tooltip data-placement=top title="Use LLMs to handle tedious tasks">&larr; Previous Post</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<footer>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<ul class="list-inline text-center footer-links">
+<li>
+<a href=mailto:diegojromerolopez@gmail.com title="Email me">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://github.com/diegojromerolopez title=GitHub>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://twitter.com/diegojromerolop title=Twitter>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://linkedin.com/in/diegojromerolopez title=LinkedIn>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href title=RSS>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+</ul>
+<p class="credits copyright text-muted">
+Diego J. Romero-López
+&nbsp;&bull;&nbsp;&copy;
+2025
+&nbsp;&bull;&nbsp;
+<a href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</p>
+<p class="credits theme-by text-muted">
+<a href=https://gohugo.io>Hugo v0.91.2</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
+</p>
+</div>
+</div>
+</div>
+</footer><script src=https://diegojromerolopez.github.io/js/katex.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/auto-render.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/jquery-3.5.1.slim.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/bootstrap.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/main.js></script><script>renderMathInElement(document.body)</script><script src=https://diegojromerolopez.github.io/js/photoswipe.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/photoswipe-ui-default.min.js></script><script src=https://diegojromerolopez.github.io/js/load-photoswipe.js></script>
+</body>
+</html>
