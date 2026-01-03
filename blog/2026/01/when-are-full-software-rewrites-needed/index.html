@@ -5,14 +5,14 @@
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
 <title>When are full software rewrites needed? - Diego J.'s Software Tar Pit</title>
 <meta name=description content="When are full software rewrites needed? Having dealt with a full rewrite of a software application recently, it left me wondering if it was needed at all, if there was any way to salvage the project or some parts of the project. Could we have avoided the rewrite?
-Introduction There was a time where I had to maintain and extend a deprecated project, until the deadline came. I was upset because it was a failure of management to not be able to predict this outcome, and I was the one that was ordered to create the replacement.">
+Introduction I have encountered the necessity of rewriting full software projects several times in my career but in my last years I have had to do it twice.">
 <meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2025\/07\/when-are-full-software-rewrites-needed\/","name":"When are full software rewrites needed?"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"When are full software rewrites needed?","description":"When are full software rewrites needed? Having dealt with a full rewrite of a software application recently, it left me wondering if it was needed at all, if there was any way to salvage the project or some parts of the project. Could we have avoided the rewrite?\nIntroduction There was a time where I had to maintain and extend a deprecated project, until the deadline came. I was upset because it was a failure of management to not be able to predict this outcome, and I was the one that was ordered to create the replacement.","inLanguage":"en","wordCount":820,"datePublished":"2025-07-04T00:00:00","dateModified":"2025-07-04T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["software, practices"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2025\/07\/when-are-full-software-rewrites-needed\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/01\/when-are-full-software-rewrites-needed\/","name":"When are full software rewrites needed?"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"When are full software rewrites needed?","description":"When are full software rewrites needed? Having dealt with a full rewrite of a software application recently, it left me wondering if it was needed at all, if there was any way to salvage the project or some parts of the project. Could we have avoided the rewrite?\nIntroduction I have encountered the necessity of rewriting full software projects several times in my career but in my last years I have had to do it twice.","inLanguage":"en","wordCount":1160,"datePublished":"2026-01-03T00:00:00","dateModified":"2026-01-03T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["software, practices, tech-debt, war-story"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/01\/when-are-full-software-rewrites-needed\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
 <meta property="og:title" content="When are full software rewrites needed?">
 <meta property="og:description" content="When are full software rewrites needed? Having dealt with a full rewrite of a software application recently, it left me wondering if it was needed at all, if there was any way to salvage the project or some parts of the project. Could we have avoided the rewrite?
-Introduction There was a time where I had to maintain and extend a deprecated project, until the deadline came. I was upset because it was a failure of management to not be able to predict this outcome, and I was the one that was ordered to create the replacement.">
+Introduction I have encountered the necessity of rewriting full software projects several times in my career but in my last years I have had to do it twice.">
 <meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
-<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2025/07/when-are-full-software-rewrites-needed/">
+<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2026/01/when-are-full-software-rewrites-needed/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Diego J.'s Software Tar Pit">
 <meta name=twitter:title content="When are full software rewrites needed?">
@@ -109,7 +109,7 @@ Introduction There was a time where I had to maintain and extend a deprecated pr
 <div class=post-heading>
 <h1>When are full software rewrites needed?</h1>
 <span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on July 4, 2025
+<i class="fas fa-calendar"></i>&nbsp;Posted on January 3, 2026
 &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
 </span>
 </div>
@@ -127,34 +127,69 @@ Introduction There was a time where I had to maintain and extend a deprecated pr
 wondering if it was needed at all, if there was any way to salvage the project or
 some parts of the project. Could we have avoided the rewrite?</p>
 <h2 id=introduction>Introduction</h2>
-<p>There was a time where I had to maintain and extend a deprecated project, until the deadline came.
-I was upset because it was a failure of management to not be able to predict this outcome, and I was
-the one that was ordered to create the replacement. The migration was a success, I was burned out
+<p>I have encountered the necessity of rewriting full software projects several times
+in my career but in my last years I have had to do it twice.</p>
+<p>I think that a full software rewrite is a failure (in a way), and an opportunity.</p>
+<p>A failure because if a rewrite is needed, the software was not engineered, but simply created in such a way
+that there was no improvement possible.</p>
+<p>An opportunity because we can learn from the previous project and not commit the same mistakes.</p>
+<h2 id=some-war-stories-about-rewriting-software>Some war stories about rewriting software</h2>
+<h3 id=story-1-the-deprecated-bot>Story 1: The deprecated bot</h3>
+<p>There was a time where I had to maintain and extend a deprecated project (a ChatOps bot).
+I warned my manager but I was ignored; and then, the deadline came.</p>
+<p>I was the one that was ordered to create the replacement. The migration was a success, I was burned out
 and (maybe because of that), a bit disappointed about having to retire the original project, but there
 was no alternative as our provider had sunsetted the functionality our main dependency was based on.</p>
+<h3 id=story-2-the-job-api>Story 2: The job API</h3>
 <p>I remember another case of these rewrites. In this case, it was a a project that was a simple pipeline job
 aggregator was implemented by an engineer in a programming language that was not common for backend services,
-and they decided to use domain-driven design with CQRS as the design of the application.</p>
+and they decided to use DDD (<a href=https://en.wikipedia.org/wiki/Domain-driven_design>domain-driven design</a>)
+with <a href=https://en.wikipedia.org/wiki/Command_Query_Responsibility_Segregation>CQRS</a>
+as the design of the application.</p>
 <p>For an application that just have a simple backend service that needed to:</p>
 <ol>
 <li>Receive a HTTP post with some job information and store in a database.</li>
 <li>Read the database and give job information based on some filters.</li>
 </ol>
-<p>It was a very bad decision, a way to increment the artificial complexity by 10x.</p>
-<p>So, after having done two full rewrites of applications. Is there any way to avoid this (in a way) wasted effort?
-Why do I feel that the projects were rushed and no consideration were taken with respect to maintenance?</p>
-<h2 id=things-to-take-in-account-when-considering-rewriting-a-software-project>Things to take in account when considering rewriting a software project:</h2>
+<p>That decision was unfortunate, as it incremented the artificial complexity by a large margin.</p>
+<p>I am not against DDD at all, I love that it provides a common language for software engineers
+and the patterns they bring with it (repository, services or domain objects are great!).
+However, it introduces a lot of complexity, that most developers are not
+familiar with, and that can derail the maintainability of the project.</p>
+<h2 id=things-to-take-in-account-when-considering-rewriting-a-software-project>Things to take in account when considering rewriting a software project</h2>
+<p>So, after having done two full rewrites of applications. Is there any way to avoid this (in a way)
+wasted effort? Why do I feel that the projects were rushed and no consideration were taken with
+respect to maintenance?</p>
 <h3 id=projects-die>Projects die</h3>
-<p>But software is a continuum. Software <em>rots</em> and needs to be replaced continuously. Unless your software lives
-in a vacuum and has been mathematically proven to be perfect, you would need to maintain it and create new
-features.</p>
+<p>But software is a continuum. Software <em>rots</em> and needs to be replaced, and improved continuously.
+Unless your software lives in a vacuum and has been mathematically proven to be correct,
+you would need to maintain it and create new features.</p>
 <h3 id=try-not-do-but-if-impossible-do-it>Try not do, but if impossible do it</h3>
-<p>Doing a full rewrite of a software project is less than ideal. It is like paying twice for a thing, like a lot
-of wasted time. However, sometimes there is no way to get around them and they are totally needed.</p>
+<p>Doing a full rewrite of a software project is less than ideal. It is like paying twice for a thing,
+it feels a lot of wasted time. However, sometimes there is no way to get around them and they are totally needed.</p>
+<h3 id=learn-from-your-mistakes>Learn from your mistakes</h3>
+<p>Given that a rewrite should be a last-resort measure, try to leverage the knowledge you got from working with the
+old code base to learn what went wrong. Is it the design? The artificial complexity that it entailed? The choice of the tools?</p>
+<p>Make the most of the rewrite. If you do it, make sure that the project is ready for onboarding new people in the
+easiest way possible.</p>
+<h3 id=projects-need-to-be-self-contained>Projects need to be self-contained</h3>
+<p>You should not need any external knowledge to build the project apart from the basics of the language and framework.
+Even, those should be documented.</p>
+<p>The project should have clear instructions about how to work with it:</p>
+<ul>
+<li>Architecture.</li>
+<li>Conventions.</li>
+<li>How to collaborate.</li>
+<li>How to run it locally.</li>
+<li>How to run the tests.</li>
+<li>How to extend it.</li>
+</ul>
+<p>Recently I have started working in a project where there was no instruction about how to run it locally.
+That is not acceptable.</p>
 <h3 id=full-rewrites-are-born-from-bad-past-decisions-mostly>Full rewrites are born from bad past-decisions (Mostly)</h3>
 <p>If the cost of adding new features or maintaining the current piece of software is going to grow along the years,
 maybe investing time in a full rewrite is a good decision; a good way to avoid the <em>sunken cost fallacy</em>.</p>
-<p>But what is a bad past-decision? Mainly just creating artificial complexity in the project.</p>
+<p>But what is a bad past-decision? Mainly just creating <strong>artificial complexity</strong> in the project.</p>
 <p>A unmaintainable project, well because of a bad architectural design, or a bad programming language, or a bad libraries
 can make taken de decision of the rewrite the best course.</p>
 <h3 id=full-rewrites-are-born-from-maintenance-not-being-a-requirement>Full rewrites are born from maintenance not being a requirement</h3>
@@ -168,8 +203,9 @@ it cannot happen in all the project. Following good practices is not asking for 
 taken in account.</p>
 <p>Good software patterns, complexity and coupling measurements, and testing coverage are some of the tools that need always to be used.</p>
 <h3 id=avoid-rewrites-by-using-the-better-tool-for-the-job>Avoid rewrites by using the better tool for the job</h3>
-<p>Following with the example of the job aggregator, why did they decide to use a programming language focused in mobile app development as
-a backend language? There are a lot programming languages more popular, and easier to work with that this one.
+<p>Following with the example of the job aggregator, why did they decide to use a
+programming language focused in mobile app development as a backend language?
+There are a lot programming languages more popular, and easier to work with that this one.
 Maybe they wanted to learn a new language? I would not want to guess their thinking with this respect.</p>
 <p>Anyway, try to use a tool that provides you with the most functionality for what tha aim of the application is,
 the most supported ecosystem, libraries, and the biggest community.</p>
@@ -180,19 +216,21 @@ the most supported ecosystem, libraries, and the biggest community.</p>
 <li>A library that uses a pattern that provides a 5% of performance gains or the standard way of doing things?</li>
 </ol>
 <h2 id=conclusion>Conclusion</h2>
-<p>Always consider the alternative when pondering a software rewrite, but if not possible, rewrite.</p>
-<p>Always create software the most durable possible by basing your project in popular, usable, easy, and the right tools.</p>
+<p>Always consider the alternative when pondering a software rewrite, but if not possible, learn from the mistakes
+and rewrite the project.</p>
+<p>Your job as an engineer is to make the project the easiest to understand, and work with for everybody.
+<strong>Think about others when developing software</strong>.</p>
+<p>Always create software the most durable possible by basing it in popular, usable, easy, and the right tools.</p>
 <div class=blog-tags>
 <a href=https://diegojromerolopez.github.io/tags/software/>software</a>&nbsp;
 <a href=https://diegojromerolopez.github.io/tags/practices/>practices</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/tech-debt/>tech-debt</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/war-story/>war-story</a>&nbsp;
 </div>
 </article>
 <ul class="pager blog-pager">
 <li class=previous>
-<a href=https://diegojromerolopez.github.io/blog/2025/06/the-case-for-llms-faster-development/ data-toggle=tooltip data-placement=top title="The case for LLMs: faster development">&larr; Previous Post</a>
-</li>
-<li class=next>
-<a href=https://diegojromerolopez.github.io/blog/2025/07/improve-your-programs-performance-with-backgroundlog/ data-toggle=tooltip data-placement=top title="Improve your programs performance with backgroundlog">Next Post &rarr;</a>
+<a href=https://diegojromerolopez.github.io/blog/2025/12/using-llms-to-create-a-python-library/ data-toggle=tooltip data-placement=top title="Using LLMs to create a python library">&larr; Previous Post</a>
 </li>
 </ul>
 </div>
@@ -247,7 +285,7 @@ the most supported ecosystem, libraries, and the biggest community.</p>
 <p class="credits copyright text-muted">
 Diego J. Romero-López
 &nbsp;&bull;&nbsp;&copy;
-2025
+2026
 &nbsp;&bull;&nbsp;
 <a href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
 </p>
