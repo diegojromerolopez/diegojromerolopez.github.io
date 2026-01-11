@@ -1,0 +1,323 @@
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>How to use a LLM to upgrade your project - Diego J.'s Software Tar Pit</title>
+<meta name=description content="How to use a LLM to upgrade your project In this post we pick up a Python 2.0 project and show how to use a LLM to upgrade a software project.
+Introduction I will upgrade the Djanban project as it should be done. Not only making it work with the latest versions of the software packages, but improving its quality and making sure there are guardrails that make impossible for the developers">
+<meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/01\/how-to-use-a-llm-to-upgrade-your-project\/","name":"How to use a llm to upgrade your project"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"How to use a LLM to upgrade your project","description":"How to use a LLM to upgrade your project In this post we pick up a Python 2.0 project and show how to use a LLM to upgrade a software project.\nIntroduction I will upgrade the Djanban project as it should be done. Not only making it work with the latest versions of the software packages, but improving its quality and making sure there are guardrails that make impossible for the developers","inLanguage":"en","wordCount":1371,"datePublished":"2026-01-12T00:00:00","dateModified":"2026-01-12T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["llm, ai, guide, war-stories"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/01\/how-to-use-a-llm-to-upgrade-your-project\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
+<meta property="og:title" content="How to use a LLM to upgrade your project">
+<meta property="og:description" content="How to use a LLM to upgrade your project In this post we pick up a Python 2.0 project and show how to use a LLM to upgrade a software project.
+Introduction I will upgrade the Djanban project as it should be done. Not only making it work with the latest versions of the software packages, but improving its quality and making sure there are guardrails that make impossible for the developers">
+<meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2026/01/how-to-use-a-llm-to-upgrade-your-project/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Diego J.'s Software Tar Pit">
+<meta name=twitter:title content="How to use a LLM to upgrade your project">
+<meta name=twitter:description content="How to use a LLM to upgrade your project In this post we pick up a Python 2.0 project and show how to use a LLM to upgrade a software project.
+Introduction I will upgrade the Djanban project as it …">
+<meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:site content="@diegojromerolop">
+<meta name=twitter:creator content="@diegojromerolop">
+<link href=https://diegojromerolopez.github.io/img/favicon.ico rel=icon type=image/x-icon>
+<meta name=generator content="Hugo 0.91.2">
+<link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=https://diegojromerolopez.github.io/css/katex.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/fontawesome/css/all.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/bootstrap.min.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/main.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/fonts.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/syntax.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/codeblock.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.default-skin.min.css>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+<div class=container-fluid>
+<div class=navbar-header>
+<button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</div>
+<div class="collapse navbar-collapse" id=main-navbar>
+<ul class="nav navbar-nav navbar-right">
+<li>
+<a title=Blog href=/>Blog</a>
+</li>
+<li>
+<a title=About href=/page/about/>About</a>
+</li>
+<li>
+<a title=Tags href=/tags>Tags</a>
+</li>
+<li>
+<a href=/es lang=es>es</a>
+</li>
+</ul>
+</div>
+<div class=avatar-container>
+<div class=avatar-img-border>
+<a title="Diego J.'s Software Tar Pit" href=https://diegojromerolopez.github.io>
+<img class=avatar-img src=https://diegojromerolopez.github.io/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit">
+</a>
+</div>
+</div>
+</div>
+</nav>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div>
+<header class=header-section>
+<div class="intro-header no-img">
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class=post-heading>
+<h1>How to use a LLM to upgrade your project</h1>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;Posted on January 12, 2026
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class=container role=main>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<article role=main class=blog-post>
+<h1 id=how-to-use-a-llm-to-upgrade-your-project>How to use a LLM to upgrade your project</h1>
+<p>In this post we pick up a Python 2.0 project and show how to use a LLM to upgrade a software project.</p>
+<h2 id=introduction>Introduction</h2>
+<p>I will upgrade the <a href=https://github.com/diegojromerolopez/djanban>Djanban</a> project
+as it should be done. Not only making it work with the latest versions of the software
+packages, but improving its quality and making sure there are guardrails that make impossible
+for the developers</p>
+<h2 id=the-problem>The problem</h2>
+<p>As explained in the <a href=/blog/2026/01/how-not-to-use-a-llm-to-upgrade-your-project/>previous post</a>,
+the backend of Djanban was implemented in
+<a href=https://www.python.org/doc/sunset-python-2/>Python 2.0</a> and Django 1.11.
+Python 2 has been outdated for 6 years now and is not used anymore. Django is now in version
+<a href=https://docs.djangoproject.com/en/6.0/releases/6.0.1/>6.0.1</a>.</p>
+<p>The frontend of Djanban was implemented in Angular and I have not touched Angular in almost a decade, as it was surpassed by React as the go-to frontend framework a long time ago.</p>
+<p>I want to do an upgrade but that improves the quality of the project too.</p>
+<p><strong>I want to upgrade and improve the project</strong></p>
+<h2 id=the-tool>The tool</h2>
+<p>As I did earlier, I am using <a href=https://antigravity.google/>Antigravity</a> with the model
+[Gemini 3 Flash](<a href=https://deepmind.google/models/gemini/flash/>https://deepmind.google/models/gemini/flash/</a>, because I reached my limits of the model
+Gemini 3 Pro while running doing the upgrade for the <a href=blog/2026/01/11/how-not-to-use-a-llm-to-upgrade-your-project>other post</a>.</p>
+<p>Anyway, I am not trying to have perfect comparison scenarios, but a <em>coarse-grain</em> ones.</p>
+<h2 id=the-challenge>The challenge</h2>
+<p>Upgrade everything to the latest version and make it work, but improving the project.
+This project was created as a proof of concept, and seriously lacks the quality expected
+for a Software Engineering project. This needs to change.</p>
+<h2 id=the-process>The process</h2>
+<h3 id=use-the-old-versions>Use the old versions</h3>
+<p>When dealing with an outdated project, the first step is to replicate the environment to run it with the exact same
+runtime and packages. In my case, we are talking about a Python 2.7 project, so as I am using asdf, I installed
+the last version of Python 2 in my laptop:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>asdf install python 2.7.18
+</code></pre></div><p>and set it to be the Python version in the folder.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>asdf set python 2.7.18
+</code></pre></div><h3 id=ensure-the-current-functionality>Ensure the current functionality</h3>
+<p>I wanted to preserve the functionality so I asked Gemini to create tests for every file.</p>
+<p>This is the prompt I used:</p>
+<pre tabindex=0><code>Create a virtualenv for Python 2.7.18, activate it, and install all the packages there with pip. Use always the activated Python 2.7.18 interpreter it to do any action in this project unless I told you otherwise. After that, create unit and integration tests (with unittest) for each djanban file and ensure the test coverage is 100%. The tests must be in src/djanban/tests/unit and src/djanban/tests/integration. Every test file must be placed in the analogous relative path than the tested code but with a root path of src/djanban/tests/unit or src/djanban/tests/integration.
+</code></pre><p>As you see, I also made it clear that they need to use a virtualenv with the outdated Python version.</p>
+<pre tabindex=0><code>Please run the tests and show the covered test lines
+</code></pre><p>To ensure that the files were actually covered.</p>
+<p><a href=https://github.com/diegojromerolopez/djanban/commit/d723f9a08f1abe66de71593a727deaddd5fbd3ca>See the commit</a> with the changes.</p>
+<h3 id=upgrade-python-version>Upgrade Python version</h3>
+<pre tabindex=0><code>Upgrade Python to 3.13.5 and migrate al the source code to the new Python version. Leverage the tests to ensure the functionality stays the same.
+</code></pre><p>The same mistake that in our previous post happened! The versions are not fixed, is this because the LLMs have learned a bad
+practice from thousands of repositories on GitHub?</p>
+<p><a href=https://github.com/diegojromerolopez/djanban/commit/b2cd6782d6937381fe2dfe9b17dd48c3a4c15f2d>See the commit</a>
+with the migration to Python 3.</p>
+<pre tabindex=0><code>Ensure the migrations work and freeze the requirements to minor versions. Create dockerized version of the application.
+</code></pre><p><a href=https://github.com/diegojromerolopez/djanban/commit/af164eafb7cd21cc47292f0b52803ef25f65e6a5>See the commit</a>
+with the last changes.</p>
+<h3 id=upgrade-django-version>Upgrade Django version</h3>
+<pre tabindex=0><code>Upgrade Django to the last version (6)
+</code></pre><p>This is on me, Django was already set to 6 in the requirements.txt.</p>
+<pre tabindex=0><code>Django~=6.0.0
+</code></pre><p>To be fair, now there are like 3 requirement files, so let&rsquo;s clean that up:</p>
+<pre tabindex=0><code>Clean up the requirement files. THere are 3 of them and at least the main dependencies should have the same versions.
+</code></pre><p>I did not even tell the AI Agent that there are several requirement file depending on if we want the development dependencies
+or else. But it did a good job (<a href=https://github.com/diegojromerolopez/djanban/commit/8bfbe0edde9c42df0283d6f226acf3de02124640>see the changes here</a>) it re-used the main requirements.txt file in the other files, avoid repetition.
+A good practice indeed!</p>
+<h3 id=enforce-format>Enforce format</h3>
+<p>Now, having the code format of the community is paramount. So I am going to re-format the source code to comply with the
+de-facto community rules. We will use the following tools:</p>
+<ul>
+<li><a href=https://black.readthedocs.io/en/stable/>black</a></li>
+<li><a href=https://flake8.pycqa.org/en/latest/>flake8</a></li>
+<li><a href=https://pycqa.github.io/isort/>isort</a>,</li>
+<li><a href=https://www.pylint.org/>pylint</a></li>
+<li><a href=https://docs.astral.sh/ruff/>ruff</a>.</li>
+</ul>
+<p>I would have liked to add <a href=https://mypy-lang.org/>mypy</a> for type hint checking, but the code has no type hints.
+I programmed this application in Python 2, so no type hints at that point.</p>
+<p>Anyway, this is the prompt I am using:</p>
+<pre tabindex=0><code>Clean up the project. I want all the code to be formatted by black, flake8, isort, pylint, and ruff. Add the corresponding badges to the README.md.
+</code></pre><p>As expected, leveraging on source code analysis tools works pretty well in conjunction with an AI Agent
+(<a href=https://github.com/diegojromerolopez/djanban/commit/a63698daad6cf51fa53fd8bc067b83e69329e8e5>see the changes here</a>).</p>
+<h3 id=building-a-pipeline-based-on-github-actions>Building a pipeline based on GitHub actions</h3>
+<p>I like to <em>set the functionality in stone</em> by enforcing testing and the format in the pipeline:</p>
+<pre tabindex=0><code>Now add github actions that run each time the pipeline runs. These actions must run the unit tests on one job, the integration tests in other, and a format check in another job.
+</code></pre><p>The AI Agent failed here as nor the
+<a href=https://github.com/diegojromerolopez/djanban/actions/runs/20902794227/job/60051298977>format</a>,
+nor the <a href=https://github.com/diegojromerolopez/djanban/actions/runs/20902794227/job/60051298972>unit tests</a>
+nor <a href=https://github.com/diegojromerolopez/djanban/actions/runs/20902794227/job/60051298970>integration tests</a> passed.</p>
+<p>A thing that I did not like at all, is that the AI Agent understood that I wanted them to run git commands, and
+they did. They created two commits for this prompt:</p>
+<p><a href=https://github.com/diegojromerolopez/djanban/commit/6ea9a6b3905252f0bded4bec4d91a8240866015a>See the first commit</a>,
+and the <a href=https://github.com/diegojromerolopez/djanban/commit/8db1247423565c6e486d7284deb3a204c7bdb7a5>second one</a>.</p>
+<h2 id=the-results>The results</h2>
+<h2 id=the-bad>The bad</h2>
+<p>I did not like is that at this point, the Antigravity editor was showing modified files that were already
+saved and pushed to the repository. For some reason it was unable to detect that they were not actually modified.</p>
+<p>I was not able to run the same model than in the other experiment because I reached my limit just by playing around.
+I get that they want us to pay more, but&mldr; I was disappointed but the low limits for a paying customer.</p>
+<h2 id=the-good>The good</h2>
+<p>A project that was outdated and abandoned can be brought to life by leveraging the AI technologies.
+What a wonderful thing!</p>
+<p>As long as you give orders to the AI Agent they will do it. The issue is that you need to know what to tell them
+to make their actions meaningful and correct. <strong>You need to be exhaustive in your orders</strong>. Do not assume the agent
+has enough context to understand you correctly.</p>
+<p>Leveraging tests to make changes without introducing bugs takes a new form in the LLM-assisted software development.
+If before that we needed to have a cycle of red-green testing and refactoring. Now it is much faster, but the concept
+is the same.</p>
+<h2 id=the-ugly>The ugly</h2>
+<p>I should have ben more careful when asking the AI Agent to create the GitHub actions, to avoid an accidental
+commit in the repository. It is not a big thing, but I like a clean git history. A history that I can traceback
+because I have done it.</p>
+<p>I need to fix the GitHub actions by hand. I need to investigate if you can give permissions to the agent to do actions
+in only one project. If that is the case, I will use the LLM to fix the issues.</p>
+<h1 id=conclusion>Conclusion</h1>
+<p>Just by <strong>knowing what to ask</strong> to the AI Agent in the conversation we obtain much better results than just doing a
+blind prompt with a vague requirements. Running LLMs and creating software applications does not mean you are a
+software engineer. Using LLMs to create maintainable, extensible, and performant software means you are a software engineer.</p>
+<p>Along the decades of our profession there has been a lot of technological advances, and this is the most surprising of all of them.
+However, this technological marvel does not remove the engineer from the loop.
+It frees them from some <em>menial</em> or repetitive tasks.</p>
+<p>This has been a good experiment showing that the human factor that <em>steers the ship</em> is still needed.
+We do not know what has the LLM learned, so they could be generating bad patterns or designs.</p>
+<div class=blog-tags>
+<a href=https://diegojromerolopez.github.io/tags/llm/>llm</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/ai/>ai</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/guide/>guide</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/war-stories/>war-stories</a>&nbsp;
+</div>
+</article>
+<ul class="pager blog-pager">
+<li class=previous>
+<a href=https://diegojromerolopez.github.io/blog/2026/01/how-not-to-use-a-llm-to-upgrade-your-project/ data-toggle=tooltip data-placement=top title="How not to use a LLM to upgrade your project">&larr; Previous Post</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<footer>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<ul class="list-inline text-center footer-links">
+<li>
+<a href=mailto:diegojromerolopez@gmail.com title="Email me">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://github.com/diegojromerolopez title=GitHub>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://twitter.com/diegojromerolop title=Twitter>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://linkedin.com/in/diegojromerolopez title=LinkedIn>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href title=RSS>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+</ul>
+<p class="credits copyright text-muted">
+Diego J. Romero-López
+&nbsp;&bull;&nbsp;&copy;
+2026
+&nbsp;&bull;&nbsp;
+<a href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</p>
+<p class="credits theme-by text-muted">
+<a href=https://gohugo.io>Hugo v0.91.2</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
+</p>
+</div>
+</div>
+</div>
+</footer><script src=https://diegojromerolopez.github.io/js/katex.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/auto-render.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/jquery-3.5.1.slim.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/bootstrap.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/main.js></script><script>renderMathInElement(document.body)</script><script src=https://diegojromerolopez.github.io/js/photoswipe.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/photoswipe-ui-default.min.js></script><script src=https://diegojromerolopez.github.io/js/load-photoswipe.js></script>
+</body>
+</html>
