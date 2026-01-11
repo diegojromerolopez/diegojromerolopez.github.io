@@ -1,13 +1,16 @@
 ---
-title: How not to use a LLM to upgrade your project
+title: How NOT to use a LLM to upgrade your project
 date: "2026-01-11T00:00:00+02:00"
 draft: false
 tags: ["llm", "ai", "guide", "war-stories"]
 ---
 
-# How not to use a LLM to upgrade your project
-In this post we pick up a Python 2 project and show how **not** to use a LLM to upgrade an
+# How NOT to use a LLM to upgrade your project
+In this post we pick up a Python 2 project and show how **NOT** to use a LLM to upgrade an
 outdated software project.
+
+This is a two-series go to the [next post](/blog/2026/01/how-to-use-a-llm-to-upgrade-your-project/)
+if you are only interested in how to do it correctly.
 
 ## Introduction
 I created the [Djanban](https://github.com/diegojromerolopez/djanban) project 9 years ago.
@@ -168,7 +171,5 @@ I will do the same experiment but in a more structured way to compare the two re
 
 # Conclusion
 
-You cannot leave an AI Agent running unsupervised when working on upgrades. It is true that the agent can do the migrations
-required, but it will make mistakes.
-
-A good context, and specs are needed to get enough value from AI Agents.
+You cannot leave an AI Agent running unsupervised when working on upgrades. It is true that the agent can do the required
+upgrades, but it will make mistakes, and you need to be giving directions.
