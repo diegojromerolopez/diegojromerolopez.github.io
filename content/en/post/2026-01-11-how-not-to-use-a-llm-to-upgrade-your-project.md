@@ -2,7 +2,7 @@
 title: How NOT to use a LLM to upgrade your project
 date: "2026-01-11T00:00:00+02:00"
 draft: false
-tags: ["llm", "ai", "guide", "war-stories"]
+tags: ["llm", "ai", "guide", "showcase"]
 ---
 
 # How NOT to use a LLM to upgrade your project

@@ -2,7 +2,7 @@
 title: How to use a LLM to upgrade your project
 date: "2026-01-12T00:00:00+02:00"
 draft: false
-tags: ["llm", "ai", "guide", "war-stories"]
+tags: ["llm", "ai", "guide", "showcase"]
 ---
 
 # How to use a LLM to upgrade your project
