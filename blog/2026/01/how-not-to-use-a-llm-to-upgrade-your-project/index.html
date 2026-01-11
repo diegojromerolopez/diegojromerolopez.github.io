@@ -4,13 +4,13 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
 <title>How not to use a LLM to upgrade your project - Diego J.'s Software Tar Pit</title>
-<meta name=description content="How not to use a LLM to upgrade your project In this post we pick up a Python 2.0 project and show how not to use a LLM to upgrade an outdated software project.
+<meta name=description content="How not to use a LLM to upgrade your project In this post we pick up a Python 2 project and show how not to use a LLM to upgrade an outdated software project.
 Introduction I created the Djanban project 9 years ago. At that time I was studying a Master&rsquo;s degree in Software Project Management by the Technical University of Madrid.
 The project Djanban was born as an extension of Trello.">
 <meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/01\/how-not-to-use-a-llm-to-upgrade-your-project\/","name":"How not to use a llm to upgrade your project"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"How not to use a LLM to upgrade your project","description":"How not to use a LLM to upgrade your project In this post we pick up a Python 2.0 project and show how not to use a LLM to upgrade an outdated software project.\nIntroduction I created the Djanban project 9 years ago. At that time I was studying a Master\u0026rsquo;s degree in Software Project Management by the Technical University of Madrid.\nThe project Djanban was born as an extension of Trello.","inLanguage":"en","wordCount":1307,"datePublished":"2026-01-11T00:00:00","dateModified":"2026-01-11T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["llm, ai, guide, war-stories"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/01\/how-not-to-use-a-llm-to-upgrade-your-project\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/01\/how-not-to-use-a-llm-to-upgrade-your-project\/","name":"How not to use a llm to upgrade your project"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"How not to use a LLM to upgrade your project","description":"How not to use a LLM to upgrade your project In this post we pick up a Python 2 project and show how not to use a LLM to upgrade an outdated software project.\nIntroduction I created the Djanban project 9 years ago. At that time I was studying a Master\u0026rsquo;s degree in Software Project Management by the Technical University of Madrid.\nThe project Djanban was born as an extension of Trello.","inLanguage":"en","wordCount":1307,"datePublished":"2026-01-11T00:00:00","dateModified":"2026-01-11T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["llm, ai, guide, war-stories"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/01\/how-not-to-use-a-llm-to-upgrade-your-project\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
 <meta property="og:title" content="How not to use a LLM to upgrade your project">
-<meta property="og:description" content="How not to use a LLM to upgrade your project In this post we pick up a Python 2.0 project and show how not to use a LLM to upgrade an outdated software project.
+<meta property="og:description" content="How not to use a LLM to upgrade your project In this post we pick up a Python 2 project and show how not to use a LLM to upgrade an outdated software project.
 Introduction I created the Djanban project 9 years ago. At that time I was studying a Master&rsquo;s degree in Software Project Management by the Technical University of Madrid.
 The project Djanban was born as an extension of Trello.">
 <meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
@@ -18,7 +18,7 @@ The project Djanban was born as an extension of Trello.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Diego J.'s Software Tar Pit">
 <meta name=twitter:title content="How not to use a LLM to upgrade your project">
-<meta name=twitter:description content="How not to use a LLM to upgrade your project In this post we pick up a Python 2.0 project and show how not to use a LLM to upgrade an outdated software project.
+<meta name=twitter:description content="How not to use a LLM to upgrade your project In this post we pick up a Python 2 project and show how not to use a LLM to upgrade an outdated software project.
 Introduction I created the Djanban …">
 <meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
 <meta name=twitter:card content="summary_large_image">
@@ -126,7 +126,7 @@ Introduction I created the Djanban …">
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 <article role=main class=blog-post>
 <h1 id=how-not-to-use-a-llm-to-upgrade-your-project>How not to use a LLM to upgrade your project</h1>
-<p>In this post we pick up a Python 2.0 project and show how <strong>not</strong> to use a LLM to upgrade an
+<p>In this post we pick up a Python 2 project and show how <strong>not</strong> to use a LLM to upgrade an
 outdated software project.</p>
 <h2 id=introduction>Introduction</h2>
 <p>I created the <a href=https://github.com/diegojromerolopez/djanban>Djanban</a> project 9 years ago.
@@ -144,7 +144,7 @@ intelligenia. So the aim of this tool was twofold:</p>
 Rustic and inefficient, but it worked. Anyway, the final objective was to use Trello only as an interface
 and Djanban as an insight-extraction engine.</p>
 <h2 id=the-problem>The problem</h2>
-<p>The backend of Djanban was implemented in <a href=https://www.python.org/doc/sunset-python-2/>Python 2.0</a> and Django 1.11. Python 2 has been outdated for 6 years now and is not used anymore. Django is now in version
+<p>The backend of Djanban was implemented in <a href=https://www.python.org/doc/sunset-python-2/>Python 2</a> and Django 1.11. Python 2 has been outdated for 6 years now and is not used anymore. Django is now in version
 <a href=https://docs.djangoproject.com/en/6.0/releases/6.0.1/>6.0.1</a>.</p>
 <p>The frontend of Djanban was implemented in Angular and I have not touched Angular in almost a decade, as it was surpassed by React as the go-to frontend framework a long time ago.</p>
 <p>The issue is that I would like to upgrade the code to supported versions, but I do not want to do it manually.
