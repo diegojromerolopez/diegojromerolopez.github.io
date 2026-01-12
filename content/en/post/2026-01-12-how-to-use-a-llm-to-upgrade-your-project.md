@@ -39,6 +39,8 @@ Upgrade everything to the latest version and make it work, but improving the pro
 This project was created as a proof of concept, and seriously lacks the quality expected
 for a Software Engineering project. This needs to change.
 
+I will be using *vibe-coding* as in our previous run with the zero-shot prompts.
+
 ## The process
 
 ### Use the old versions
@@ -131,6 +133,12 @@ de-facto community rules. We will use the following tools:
 I would have liked to add [mypy](https://mypy-lang.org/) for type hint checking, but the code has no type hints.
 I programmed this application in Python 2, so no type hints at that point.
 
+These tools provide a good baseline to have a standardized source code in Python projects. Sure I could remove pylint,
+as ruff more or less have the same features, but I keep using pylint because
+[pylint has plugins](https://pylint.readthedocs.io/en/latest/development_guide/how_tos/plugins.html) while ruff has not.
+So, in the case of finding a good pylint plugin that can enforce a better source code quality, it is just a matter of
+installing the package and enabling it.
+
 Anyway, this is the prompt I am using:
 
 ```
@@ -159,6 +167,52 @@ they did. They created two commits for this prompt:
 [See the first commit](https://github.com/diegojromerolopez/djanban/commit/6ea9a6b3905252f0bded4bec4d91a8240866015a),
 and the [second one](https://github.com/diegojromerolopez/djanban/commit/8db1247423565c6e486d7284deb3a204c7bdb7a5).
 
+### Upgrading the Angular app
+
+Let's forget about the GitHub issues, and let's try to upgrade the frontend that is based on Angular App.
+
+```
+Create tests for the Angular App and once you have them in place, upgrade it to the latest version.
+```
+
+To be fair, I do not remember anything about Angular, so I cannot give the agent any directions whatsoever.
+We will need to use this *shot-in-the-dark* approach for the frontend.
+
+After a while, I consumed all my weekly quota and was forced to choose other model.
+At this point, I was not interested in reproducibility nor in comparing different models but in
+the **experience of upgrading with *vibe-coding***, so I chose
+[Claude Sonnet 4.5](https://www.anthropic.com/news/claude-sonnet-4-5) and run the following prompt:
+
+```
+Ensure the tests for the Angular App are in place and that the application is upgraded to to the latest version.
+```
+
+Not even the LLM could give me a full solution, it warned me that it has created a new application that had a lot of issues:
+
+```
+Recommendation
+Given the complexity and the fact that the legacy app is extremely outdated and insecure, I recommend we:
+
+Document the current state - The new Angular app structure is in place with core services migrated
+Add the new app to git - Preserve the migration work done
+Create a migration plan - The remaining components need careful migration due to their complexity
+```
+
+So I resolved to stop here. I am running blind and the LLM is doing that too (on one hand they are telling me the migration
+is done, but on the other, the agent is telling me the opposite).
+**It seems that while most outdated dependencies and most outdated the framework/library/application is, the harder it gets**.
+
+9 years ago I added the node_modules folder to git. Big mistake! So now I needed to ignore it:
+
+```
+Ignore all the node_modules in git
+```
+
+In case you want to see
+[the commit](https://github.com/diegojromerolopez/djanban/commit/5b86f76c3d302a56933cf2785815699dcd7d828b),
+this is the sub-par work the LLM has done.
+
+
 ## The results
 
 ## The bad
@@ -182,6 +236,10 @@ Leveraging tests to make changes without introducing bugs takes a new form in th
 If before that we needed to have a cycle of red-green testing and refactoring. Now it is much faster, but the concept
 is the same.
 
+I had to trust the changes in the Angular app as I do not remember most of the framework. It is not a critical part of the
+application itself, Angular was only used in the Kanban board, but it gives me a bitter taste in the mouth to have to
+trust a LLM completely. Of course I could run the app, but that defeats the purpose of this experiment.
+
 ## The ugly
 
 I should have ben more careful when asking the AI Agent to create the GitHub actions, to avoid an accidental
@@ -190,6 +248,8 @@ because I have done it.
 
 I need to fix the GitHub actions by hand. I need to investigate if you can give permissions to the agent to do actions
 in only one project. If that is the case, I will use the LLM to fix the issues.
+
+The Google AI Plans have a very aggressive quota for personal developers. I am not sure it is worth it to have it.
 
 # Conclusion
 

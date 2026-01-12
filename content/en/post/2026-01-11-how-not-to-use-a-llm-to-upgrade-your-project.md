@@ -68,7 +68,8 @@ Upgrade everything to the latest version and make it work, using the simplest pr
 no context, no additional directions on my side (I am going to *ignore* their thought process). 
 I want an empty AI Agent that discover by themselves the issues and fixes them.
 
-I call this approach *Hands-off AI Agent assisted development*.
+I call this approach *Hands-off AI Agent assisted development*. I not only will be *vibe-coding* the application,
+but I will be giving zero directions to the LLM. The simplest the prompt, the better.
 
 ## The process
 
