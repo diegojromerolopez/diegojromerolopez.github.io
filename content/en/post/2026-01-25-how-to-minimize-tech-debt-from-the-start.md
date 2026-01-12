@@ -1,7 +1,7 @@
 ---
 title: How to minimize tech debt from the start
 date: "2026-01-25T00:00:00+02:00"
-draft: false
+draft: true
 tags: ["software", "tech-debt"]
 ---
 

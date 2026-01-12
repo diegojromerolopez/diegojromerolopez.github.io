@@ -6,20 +6,27 @@ tags: ["llm", "ai", "guide", "showcase"]
 ---
 
 # How NOT to use a LLM to upgrade your project
-In this post we pick up a Python 2 project and show how **NOT** to use a LLM to upgrade an
+In this post we pick up a Python 2 project and show how **NOT** to use a
+[LLM](https://en.wikipedia.org/wiki/Large_language_model) to upgrade an
 outdated software project.
 
 This is a two-series go to the [next post](/blog/2026/01/how-to-use-a-llm-to-upgrade-your-project/)
 if you are only interested in how to do it correctly.
 
 ## Introduction
-I created the [Djanban](https://github.com/diegojromerolopez/djanban) project 9 years ago.
+We tend to only focus on positive outcomes, following active (positive) advice, etc. But what about negative one?
+I wanted the showcase an experience about upgrading a project using LLMs but not done it correctly. With so much
+advice on how to do things, why couldn't we share how not to do it?
+
+Luckily, I have some *ancient* code lying there. Introducing... [Djanban](https://github.com/diegojromerolopez/djanban).
+I created the Djanban project 9 years ago.
 At that time I was studying a [Master's degree in Software Project Management](https://www.fi.upm.es/web/masterdgps/) by the
 [Technical University of Madrid](https://www.upm.es/internacional).
 
 ## The project
-Djanban was born as an extension of Trello. At that time, I implemented Kanban in a small team while I was working at 
-intelligenia. So the aim of this tool was twofold:
+Djanban was born as an extension of [Trello](https://trello.com/).
+At that time, I implemented Kanban in a small team while I was working at intelligenia.
+So the aim of this tool was twofold:
 
 - Provide a way of extracting advanced metrics and insights from the evolution of the tasks (bottle necks, ).
 - Have an excellent control about the time spent in each task.
@@ -45,7 +52,7 @@ The project has a lot of files and I do not want to waste time upgrading them ve
 Let's use the simplest tool possible: [Antigravity](https://antigravity.google/) with the model
 [Gemini Pro 3](https://gemini.google.com/) with [a developer plan](https://antigravity.google/pricing).
 
-### Settings
+### The tool settings
 After being authenticated in Antigravity with our Google Account (that has the Developer Plan),
 the first step is to make sure all the edits are going to be done automatically without my intervention.
 To do that, first go to the *Quick Settings Panel* on the top right corner:
@@ -138,9 +145,10 @@ it ignored important parts of the project because they could not migrate it. I a
 of all models because the format was changed in Django 5.1. The AI Agent even created a script for this: [src/comment_index_together.py](https://github.com/diegojromerolopez/djanban/blob/c5718c90f94b821ff29e137418740804cb00208b/src/comment_index_together.py)).
 Anyway, this is serious, as having no indexes can affect greatly to the performance of the application.
 
-The AI Agent did not create a virtualenv. So they ended up installing all the packages in my system Python installation.
+The AI Agent did not create a [virtual environment](https://docs.python.org/3/library/venv.html).
+So they ended up installing all the packages in my system Python installation.
 In almost no place it is recommended this approach as it pollutes the system Python libraries. 
-**The agent should have created a virtualenv**, and install the packages there.
+**The agent should have created a virtual environment**, and install the packages there.
 
 In the 
 [requirements.txt](https://github.com/diegojromerolopez/djanban/blob/feat/upgrade/src/requirements.txt) 
@@ -170,7 +178,10 @@ but that would have been cheating.
 
 I will do the same experiment but in a more structured way to compare the two results.
 
-# Conclusion
+## Conclusion
 
 You cannot leave an AI Agent running unsupervised when working on upgrades. It is true that the agent can do the required
 upgrades, but it will make mistakes, and you need to be giving directions.
+
+Now, go to the [next post](/blog/2026/01/how-to-use-a-llm-to-upgrade-your-project/)
+if you are only interested in how to do a migration correctly.

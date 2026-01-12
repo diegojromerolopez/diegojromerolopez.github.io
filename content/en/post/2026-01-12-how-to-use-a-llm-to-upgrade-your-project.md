@@ -6,7 +6,8 @@ tags: ["llm", "ai", "guide", "showcase"]
 ---
 
 # How to use a LLM to upgrade your project
-In this post we pick up a Python 2.0 project and show how to use a LLM to upgrade a software project.
+In this post we pick up a Python 2.0 project and show how to use a
+[LLM](https://en.wikipedia.org/wiki/Large_language_model) to upgrade a software project.
 
 ## Introduction
 I will upgrade the [Djanban](https://github.com/diegojromerolopez/djanban) project
@@ -29,7 +30,7 @@ I want to do an upgrade but that improves the quality of the project too.
 
 ## The tool
 As I did earlier, I am using [Antigravity](https://antigravity.google/) with the model
-[Gemini 3 Flash](https://deepmind.google/models/gemini/flash/, because I reached my limits of the model
+[Gemini 3 Flash](https://deepmind.google/models/gemini/flash/), because I reached my limits of the model
 Gemini 3 Pro while running doing the upgrade for the [other post](blog/2026/01/11/how-not-to-use-a-llm-to-upgrade-your-project).
 
 Anyway, I am not trying to have perfect comparison scenarios, but a *coarse-grain* ones.
@@ -68,7 +69,8 @@ This is the prompt I used:
 Create a virtualenv for Python 2.7.18, activate it, and install all the packages there with pip. Use always the activated Python 2.7.18 interpreter it to do any action in this project unless I told you otherwise. After that, create unit and integration tests (with unittest) for each djanban file and ensure the test coverage is 100%. The tests must be in src/djanban/tests/unit and src/djanban/tests/integration. Every test file must be placed in the analogous relative path than the tested code but with a root path of src/djanban/tests/unit or src/djanban/tests/integration.
 ```
 
-As you see, I also made it clear that they need to use a virtualenv with the outdated Python version.
+As you see, I also made it clear that they need to use a
+[virtual environment](https://docs.python.org/3/library/venv.html) with the outdated Python version.
 
 ```
 Please run the tests and show the covered test lines
@@ -215,7 +217,10 @@ this is the sub-par work the LLM has done.
 
 ## The results
 
-## The bad
+You can see the upgrade in the branch [feat/correct-upgrade](https://github.com/diegojromerolopez/djanban/tree/feat/correct-upgrade)
+on the Djanban repository.
+
+### The bad
 
 I did not like is that at this point, the Antigravity editor was showing modified files that were already
 saved and pushed to the repository. For some reason it was unable to detect that they were not actually modified.
@@ -223,7 +228,7 @@ saved and pushed to the repository. For some reason it was unable to detect that
 I was not able to run the same model than in the other experiment because I reached my limit just by playing around.
 I get that they want us to pay more, but... I was disappointed but the low limits for a paying customer.
 
-## The good
+### The good
 
 A project that was outdated and abandoned can be brought to life by leveraging the AI technologies.
 What a wonderful thing!
@@ -234,24 +239,56 @@ has enough context to understand you correctly.
 
 Leveraging tests to make changes without introducing bugs takes a new form in the LLM-assisted software development.
 If before that we needed to have a cycle of red-green testing and refactoring. Now it is much faster, but the concept
-is the same.
+is the same. I added both unit for keeping the dependencies in-check, and integration tests to keep the functionality stable.
+I have always recommended to do that. Before LLMs it was a lot of work, but not anymore!
 
 I had to trust the changes in the Angular app as I do not remember most of the framework. It is not a critical part of the
 application itself, Angular was only used in the Kanban board, but it gives me a bitter taste in the mouth to have to
 trust a LLM completely. Of course I could run the app, but that defeats the purpose of this experiment.
 
-## The ugly
+### The ugly
 
 I should have ben more careful when asking the AI Agent to create the GitHub actions, to avoid an accidental
 commit in the repository. It is not a big thing, but I like a clean git history. A history that I can traceback
-because I have done it.
+because I have created it.
 
 I need to fix the GitHub actions by hand. I need to investigate if you can give permissions to the agent to do actions
 in only one project. If that is the case, I will use the LLM to fix the issues.
 
-The Google AI Plans have a very aggressive quota for personal developers. I am not sure it is worth it to have it.
+## What's missing?
 
-# Conclusion
+What's missing from this experiment? I would say that once we have tests in place, we can improve the code a lot.
+Even by going out of the scope of this experiment. Depending on our scope some of them can be included or not in our
+project.
+
+### Adding rules to the project
+
+I would like to have a standardized set of files with rules, guidelines, and useful information
+for my projects. Most of my projects are programmed with Python, and I can leverage that to have a common
+set of rules that encapsulate my preferences.
+
+While we are not going to refactor the project unless it is required by the upgrade, it is a good practice
+to always have some constraints about how to modify the code.
+
+### Adding context to the project
+
+Does this project has some unusual behaviors or structure that needs to be considered when doing changes?
+Things that are not explicit but need to be considered? Maybe something like implicit dependencies?
+A particular set of conventions? Those need to be added.
+
+In this case, I do not remember any of those. Yes this project is a proof of concept, so anything that
+requires special attention should be described here.
+
+### Adding specs
+
+Sometimes even having rules and context is not enough, because we need to give order. The LLM cannot
+decide correctly the dependencies of the tasks, and can even leave the code in an inconsistent state if we are not
+careful.
+
+Having a clear sequence of steps can help us to check that the process is correct and in case of the LLM being
+*stuck* we can traceback our steps or undo the last step.
+
+## Conclusion
 
 Just by **knowing what to ask** to the AI Agent in the conversation we obtain much better results than just doing a
 blind prompt with a vague requirements. Running LLMs and creating software applications does not mean you are a
@@ -262,4 +299,5 @@ However, this technological marvel does not remove the engineer from the loop.
 It frees them from some *menial* or repetitive tasks.
 
 This has been a good experiment showing that the human factor that *steers the ship* is still needed.
-We do not know what has the LLM learned, so they could be generating bad patterns or designs.
+Of course there is some room for improvement, as we saw in when showing the missing pieces in our process,
+and indeed we will show a showcase with them soon.
