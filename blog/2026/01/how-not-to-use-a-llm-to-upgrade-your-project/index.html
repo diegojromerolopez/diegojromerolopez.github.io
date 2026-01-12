@@ -6,13 +6,13 @@
 <title>How NOT to use a LLM to upgrade your project - Diego J.'s Software Tar Pit</title>
 <meta name=description content="How NOT to use a LLM to upgrade your project In this post we pick up a Python 2 project and show how NOT to use a LLM to upgrade an outdated software project.
 This is a two-series go to the next post if you are only interested in how to do it correctly.
-Introduction I created the Djanban project 9 years ago. At that time I was studying a Master&rsquo;s degree in Software Project Management by the Technical University of Madrid.">
+Introduction We tend to only focus on positive outcomes, following active (positive) advice, etc. But what about negative one?">
 <meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/01\/how-not-to-use-a-llm-to-upgrade-your-project\/","name":"How not to use a llm to upgrade your project"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"How NOT to use a LLM to upgrade your project","description":"How NOT to use a LLM to upgrade your project In this post we pick up a Python 2 project and show how NOT to use a LLM to upgrade an outdated software project.\nThis is a two-series go to the next post if you are only interested in how to do it correctly.\nIntroduction I created the Djanban project 9 years ago. At that time I was studying a Master\u0026rsquo;s degree in Software Project Management by the Technical University of Madrid.","inLanguage":"en","wordCount":1344,"datePublished":"2026-01-11T00:00:00","dateModified":"2026-01-11T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["llm, ai, guide, showcase"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/01\/how-not-to-use-a-llm-to-upgrade-your-project\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/01\/how-not-to-use-a-llm-to-upgrade-your-project\/","name":"How not to use a llm to upgrade your project"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"How NOT to use a LLM to upgrade your project","description":"How NOT to use a LLM to upgrade your project In this post we pick up a Python 2 project and show how NOT to use a LLM to upgrade an outdated software project.\nThis is a two-series go to the next post if you are only interested in how to do it correctly.\nIntroduction We tend to only focus on positive outcomes, following active (positive) advice, etc. But what about negative one?","inLanguage":"en","wordCount":1427,"datePublished":"2026-01-11T00:00:00","dateModified":"2026-01-11T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["llm, ai, guide, showcase"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/01\/how-not-to-use-a-llm-to-upgrade-your-project\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
 <meta property="og:title" content="How NOT to use a LLM to upgrade your project">
 <meta property="og:description" content="How NOT to use a LLM to upgrade your project In this post we pick up a Python 2 project and show how NOT to use a LLM to upgrade an outdated software project.
 This is a two-series go to the next post if you are only interested in how to do it correctly.
-Introduction I created the Djanban project 9 years ago. At that time I was studying a Master&rsquo;s degree in Software Project Management by the Technical University of Madrid.">
+Introduction We tend to only focus on positive outcomes, following active (positive) advice, etc. But what about negative one?">
 <meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
 <meta property="og:url" content="https://diegojromerolopez.github.io/blog/2026/01/how-not-to-use-a-llm-to-upgrade-your-project/">
 <meta property="og:type" content="website">
@@ -126,17 +126,23 @@ This is a two-series go to the next post …">
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 <article role=main class=blog-post>
 <h1 id=how-not-to-use-a-llm-to-upgrade-your-project>How NOT to use a LLM to upgrade your project</h1>
-<p>In this post we pick up a Python 2 project and show how <strong>NOT</strong> to use a LLM to upgrade an
+<p>In this post we pick up a Python 2 project and show how <strong>NOT</strong> to use a
+<a href=https://en.wikipedia.org/wiki/Large_language_model>LLM</a> to upgrade an
 outdated software project.</p>
 <p>This is a two-series go to the <a href=/blog/2026/01/how-to-use-a-llm-to-upgrade-your-project/>next post</a>
 if you are only interested in how to do it correctly.</p>
 <h2 id=introduction>Introduction</h2>
-<p>I created the <a href=https://github.com/diegojromerolopez/djanban>Djanban</a> project 9 years ago.
+<p>We tend to only focus on positive outcomes, following active (positive) advice, etc. But what about negative one?
+I wanted the showcase an experience about upgrading a project using LLMs but not done it correctly. With so much
+advice on how to do things, why couldn&rsquo;t we share how not to do it?</p>
+<p>Luckily, I have some <em>ancient</em> code lying there. Introducing&mldr; <a href=https://github.com/diegojromerolopez/djanban>Djanban</a>.
+I created the Djanban project 9 years ago.
 At that time I was studying a <a href=https://www.fi.upm.es/web/masterdgps/>Master&rsquo;s degree in Software Project Management</a> by the
 <a href=https://www.upm.es/internacional>Technical University of Madrid</a>.</p>
 <h2 id=the-project>The project</h2>
-<p>Djanban was born as an extension of Trello. At that time, I implemented Kanban in a small team while I was working at
-intelligenia. So the aim of this tool was twofold:</p>
+<p>Djanban was born as an extension of <a href=https://trello.com/>Trello</a>.
+At that time, I implemented Kanban in a small team while I was working at intelligenia.
+So the aim of this tool was twofold:</p>
 <ul>
 <li>Provide a way of extracting advanced metrics and insights from the evolution of the tasks (bottle necks, ).</li>
 <li>Have an excellent control about the time spent in each task.</li>
@@ -155,7 +161,7 @@ The project has a lot of files and I do not want to waste time upgrading them ve
 <h2 id=the-tool>The tool</h2>
 <p>Let&rsquo;s use the simplest tool possible: <a href=https://antigravity.google/>Antigravity</a> with the model
 <a href=https://gemini.google.com/>Gemini Pro 3</a> with <a href=https://antigravity.google/pricing>a developer plan</a>.</p>
-<h3 id=settings>Settings</h3>
+<h3 id=the-tool-settings>The tool settings</h3>
 <p>After being authenticated in Antigravity with our Google Account (that has the Developer Plan),
 the first step is to make sure all the edits are going to be done automatically without my intervention.
 To do that, first go to the <em>Quick Settings Panel</em> on the top right corner:</p>
@@ -236,9 +242,11 @@ the quality of the code a lot.</li>
 but that would have been cheating.</li>
 </ul>
 <p>I will do the same experiment but in a more structured way to compare the two results.</p>
-<h1 id=conclusion>Conclusion</h1>
+<h2 id=conclusion>Conclusion</h2>
 <p>You cannot leave an AI Agent running unsupervised when working on upgrades. It is true that the agent can do the required
 upgrades, but it will make mistakes, and you need to be giving directions.</p>
+<p>Now, go to the <a href=/blog/2026/01/how-to-use-a-llm-to-upgrade-your-project/>next post</a>
+if you are only interested in how to do a migration correctly.</p>
 <div class=blog-tags>
 <a href=https://diegojromerolopez.github.io/tags/llm/>llm</a>&nbsp;
 <a href=https://diegojromerolopez.github.io/tags/ai/>ai</a>&nbsp;

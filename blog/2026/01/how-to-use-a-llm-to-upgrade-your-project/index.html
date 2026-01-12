@@ -7,7 +7,7 @@
 <meta name=description content="How to use a LLM to upgrade your project In this post we pick up a Python 2.0 project and show how to use a LLM to upgrade a software project.
 Introduction I will upgrade the Djanban project as it should be done. Not only making it work with the latest versions of the software packages, but improving its quality and making sure there are guardrails that make impossible for the developers">
 <meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/01\/how-to-use-a-llm-to-upgrade-your-project\/","name":"How to use a llm to upgrade your project"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"How to use a LLM to upgrade your project","description":"How to use a LLM to upgrade your project In this post we pick up a Python 2.0 project and show how to use a LLM to upgrade a software project.\nIntroduction I will upgrade the Djanban project as it should be done. Not only making it work with the latest versions of the software packages, but improving its quality and making sure there are guardrails that make impossible for the developers","inLanguage":"en","wordCount":1878,"datePublished":"2026-01-12T00:00:00","dateModified":"2026-01-12T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["llm, ai, guide, showcase"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/01\/how-to-use-a-llm-to-upgrade-your-project\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/01\/how-to-use-a-llm-to-upgrade-your-project\/","name":"How to use a llm to upgrade your project"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"How to use a LLM to upgrade your project","description":"How to use a LLM to upgrade your project In this post we pick up a Python 2.0 project and show how to use a LLM to upgrade a software project.\nIntroduction I will upgrade the Djanban project as it should be done. Not only making it work with the latest versions of the software packages, but improving its quality and making sure there are guardrails that make impossible for the developers","inLanguage":"en","wordCount":2195,"datePublished":"2026-01-12T00:00:00","dateModified":"2026-01-12T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["llm, ai, guide, showcase"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/01\/how-to-use-a-llm-to-upgrade-your-project\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
 <meta property="og:title" content="How to use a LLM to upgrade your project">
 <meta property="og:description" content="How to use a LLM to upgrade your project In this post we pick up a Python 2.0 project and show how to use a LLM to upgrade a software project.
 Introduction I will upgrade the Djanban project as it should be done. Not only making it work with the latest versions of the software packages, but improving its quality and making sure there are guardrails that make impossible for the developers">
@@ -124,7 +124,8 @@ Introduction I will upgrade the Djanban project as it …">
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 <article role=main class=blog-post>
 <h1 id=how-to-use-a-llm-to-upgrade-your-project>How to use a LLM to upgrade your project</h1>
-<p>In this post we pick up a Python 2.0 project and show how to use a LLM to upgrade a software project.</p>
+<p>In this post we pick up a Python 2.0 project and show how to use a
+<a href=https://en.wikipedia.org/wiki/Large_language_model>LLM</a> to upgrade a software project.</p>
 <h2 id=introduction>Introduction</h2>
 <p>I will upgrade the <a href=https://github.com/diegojromerolopez/djanban>Djanban</a> project
 as it should be done. Not only making it work with the latest versions of the software
@@ -241,12 +242,14 @@ is done, but on the other, the agent is telling me the opposite).
 <a href=https://github.com/diegojromerolopez/djanban/commit/5b86f76c3d302a56933cf2785815699dcd7d828b>the commit</a>,
 this is the sub-par work the LLM has done.</p>
 <h2 id=the-results>The results</h2>
-<h2 id=the-bad>The bad</h2>
+<p>You can see the upgrade in the branch <a href=https://github.com/diegojromerolopez/djanban/tree/feat/correct-upgrade>feat/correct-upgrade</a>
+on the Djanban repository.</p>
+<h3 id=the-bad>The bad</h3>
 <p>I did not like is that at this point, the Antigravity editor was showing modified files that were already
 saved and pushed to the repository. For some reason it was unable to detect that they were not actually modified.</p>
 <p>I was not able to run the same model than in the other experiment because I reached my limit just by playing around.
 I get that they want us to pay more, but&mldr; I was disappointed but the low limits for a paying customer.</p>
-<h2 id=the-good>The good</h2>
+<h3 id=the-good>The good</h3>
 <p>A project that was outdated and abandoned can be brought to life by leveraging the AI technologies.
 What a wonderful thing!</p>
 <p>As long as you give orders to the AI Agent they will do it. The issue is that you need to know what to tell them
@@ -254,18 +257,40 @@ to make their actions meaningful and correct. <strong>You need to be exhaustive 
 has enough context to understand you correctly.</p>
 <p>Leveraging tests to make changes without introducing bugs takes a new form in the LLM-assisted software development.
 If before that we needed to have a cycle of red-green testing and refactoring. Now it is much faster, but the concept
-is the same.</p>
+is the same. I added both unit for keeping the dependencies in-check, and integration tests to keep the functionality stable.
+I have always recommended to do that. Before LLMs it was a lot of work, but not anymore!</p>
 <p>I had to trust the changes in the Angular app as I do not remember most of the framework. It is not a critical part of the
 application itself, Angular was only used in the Kanban board, but it gives me a bitter taste in the mouth to have to
 trust a LLM completely. Of course I could run the app, but that defeats the purpose of this experiment.</p>
-<h2 id=the-ugly>The ugly</h2>
+<h3 id=the-ugly>The ugly</h3>
 <p>I should have ben more careful when asking the AI Agent to create the GitHub actions, to avoid an accidental
 commit in the repository. It is not a big thing, but I like a clean git history. A history that I can traceback
-because I have done it.</p>
+because I have created it.</p>
 <p>I need to fix the GitHub actions by hand. I need to investigate if you can give permissions to the agent to do actions
 in only one project. If that is the case, I will use the LLM to fix the issues.</p>
-<p>The Google AI Plans have a very aggressive quota for personal developers. I am not sure it is worth it to have it.</p>
-<h1 id=conclusion>Conclusion</h1>
+<h2 id=whats-missing>What&rsquo;s missing?</h2>
+<p>What&rsquo;s missing from this experiment? I would say that once we have tests in place, we can improve the code a lot.
+Even by going out of the scope of this experiment. Depending on our scope some of them can be included or not in our
+project.</p>
+<h3 id=adding-rules-to-the-project>Adding rules to the project</h3>
+<p>I would like to have a standardized set of files with rules, guidelines, and useful information
+for my projects. Most of my projects are programmed with Python, and I can leverage that to have a common
+set of rules that encapsulate my preferences.</p>
+<p>While we are not going to refactor the project unless it is required by the upgrade, it is a good practice
+to always have some constraints about how to modify the code.</p>
+<h3 id=adding-context-to-the-project>Adding context to the project</h3>
+<p>Does this project has some unusual behaviors or structure that needs to be considered when doing changes?
+Things that are not explicit but need to be considered? Maybe something like implicit dependencies?
+A particular set of conventions? Those need to be added.</p>
+<p>In this case, I do not remember any of those. Yes this project is a proof of concept, so anything that
+requires special attention should be described here.</p>
+<h3 id=adding-specs>Adding specs</h3>
+<p>Sometimes even having rules and context is not enough, because we need to give order. The LLM cannot
+decide correctly the dependencies of the tasks, and can even leave the code in an inconsistent state if we are not
+careful.</p>
+<p>Having a clear sequence of steps can help us to check that the process is correct and in case of the LLM being
+<em>stuck</em> we can traceback our steps or undo the last step.</p>
+<h2 id=conclusion>Conclusion</h2>
 <p>Just by <strong>knowing what to ask</strong> to the AI Agent in the conversation we obtain much better results than just doing a
 blind prompt with a vague requirements. Running LLMs and creating software applications does not mean you are a
 software engineer. Using LLMs to create maintainable, extensible, and performant software means you are a software engineer.</p>
@@ -273,7 +298,8 @@ software engineer. Using LLMs to create maintainable, extensible, and performant
 However, this technological marvel does not remove the engineer from the loop.
 It frees them from some <em>menial</em> or repetitive tasks.</p>
 <p>This has been a good experiment showing that the human factor that <em>steers the ship</em> is still needed.
-We do not know what has the LLM learned, so they could be generating bad patterns or designs.</p>
+Of course there is some room for improvement, as we saw in when showing the missing pieces in our process,
+and indeed we will show a showcase with them soon.</p>
 <div class=blog-tags>
 <a href=https://diegojromerolopez.github.io/tags/llm/>llm</a>&nbsp;
 <a href=https://diegojromerolopez.github.io/tags/ai/>ai</a>&nbsp;
