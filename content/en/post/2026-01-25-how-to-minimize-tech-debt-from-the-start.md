@@ -10,7 +10,7 @@ In this post we are going to lay some guidelines about how to prevent your proje
 
 ## Introduction
 Tech debt has been a constant in all my work. All projects I have started working with had an amount of tech debt.
-Why does this happen? And better yet, what can we do to avoid falling on this tech-debt trap?
+Why does this happen? And better yet, what can we do to avoid falling on this tech debt trap?
 
 ## What is tech debt?
 [Tech debt](https://en.wikipedia.org/wiki/Technical_debt) was a metaphor created by
@@ -37,7 +37,7 @@ tech debt and what it is not.
 
 ## How projects grow in tech debt?
 
-### By going to fast
+### By going too fast
 
 Mainly by cutting corners during development. As the market pressure mounts up, the software engineers/developers feel pressured
 to release the features early. That means, less tests, worse designs, not relying on software patterns, and not applying decades
@@ -47,9 +47,9 @@ of empirical evidence when developing the project.
 
 Now that the [vibe-coding](https://en.wikipedia.org/wiki/Vibe_coding) is popular,
 I see a lot of people doing showcases of software projects done by non-developers.
-They show a flashy interface and some functionality that works fine. However, let me tell you a secret: this does not scale.
-Once you want to productize the project, the tangled mess that is the code is impossible to deal with. That is why it is so
-important to direct, and review what the LLMs are doing when we ask them to work for us.
+They show a *flashy* interface and some functionality that works fine. However, let me tell you a secret: this does not scale.
+Once you want to productize the project, the *tangled mess* that is the code[^2] is impossible to deal with. That is why it is so
+important to give directions, and review what the LLMs are doing when we ask them to work for us.
 
 ### Consequences
 
@@ -57,7 +57,7 @@ The PM (product managers) are happy because the developers release faster, but t
 the *sweeping below the rug* that is happening in front of them. The developers are going fast because
 they are postponing tasks to the future.
 
-The *invisible* backlog of tasks is growing, but developers do not have the resources to deal with it, and product managers
+The *invisible task backlog* is growing, but developers do not have the resources to deal with it, and product managers
 do not see that pile. Most of product managers do not have no technical background, or they would rather simply ignore
 the issues, and release.
 
@@ -67,23 +67,24 @@ Also the matter of quality arises: *why or project has so many bugs?*.
 ### Important: where the analogy fails
 
 The tech debt metaphor was created as an analogy between the financial world and the software one. However, there is a missing
-piece of the puzzle: the interest. When paying debt, there is usually an interest rate. However, the tech debt does not keep
+piece of the puzzle: the interest rate. When paying debt, there is usually an interest rate. However, the tech debt does not keep
 the same interest as the time passes. If no technical debt reduction effort is done, the *interest rate* is also cumulative.
-So instead of having a constant 1%, 2% increase of resources because of tech debt, every year we find +0.5% or +1%
+So instead of having a constant 1%, 2% increase of resources because of tech debt[^3], every year we find +0.5% or +1%
 (or a similar value). The complexity keeps growing because we are keeping adding new features, modifications on the code base.
-**The entropy always grow unless we dedicate an effort to keep it contained**.
 
 This increase is what people do not understand. If a library is deprecated and your project depends on it, you should immediately
 start searching for a replacement. If not, it is only a matter of time when it becomes unsupported and bugs or CVEs start 
 appearing. Add this to a tangled flow on the most important feature of the project that needs to be changed, an outdated runtime,
 and no tests, and the project is a house of cards.
 
+ This phenomenon is like *an escalator that not only goes down when we try to climb up, but it keeps accelerating its descent*. **The entropy always grow unless we dedicate an effort to keep it contained**.
+
 ## What can be done to reduce it?
 The best way to tackle the tech debt is to keep it minimal from the start.
 **Refactoring a code that is tech debt ridden should always be the last resort.**
 
 ### Rules/Guidelines/Culture
-There are some people that advocates for creating a culture of responsibility and quality. I think this is a must.
+Advocating for creating a culture of responsibility and quality is a must.
 
 Clear guidelines on:
 
@@ -98,16 +99,31 @@ Clear guidelines on:
 
 All of them are the bare minimum to contain the chaos that can be born on a software project.
 
+Unless you are creating software that can automatically be verified (like in some programming languages), every software
+developer/engineer has a different background and different preferences. While we must respect that, we need to set clear
+boundaries about what is accepted, and what is not.
+
 ### Automatic enforcement
 
 However, I do not think this is enough for keeping the tech debt at bay. The temptation of going faster is going to always
 be there, and the PMs are going to be always pushing.
 
 This is my favorite way of keeping tech debt to a minimum: to have a series of pipeline jobs that analyze the code and
-detect formatting issues, bad smells on your code, and any other issues that could be automatically detected.
+detect formatting issues, [bad smells](https://martinfowler.com/bliki/CodeSmell.html) on your code,
+and any other issues that could be automatically detected.
 
-Although I would rather use static analysis tools, now that we have LLMs, we could even describe the guidelines as context in the project and run the LLM on each one of the files that the developer has modified. Keep in mind that testing is not replaced by
-static analysis.
+Although I would rather use static analysis tools, now that we have LLMs, we could even describe the guidelines as context in the project and run the LLM on each one of the files that the developer has modified.
+
+If we force to have different tests we also will be ensuring good quality. There is an adage that says:
+*good code is easily testable code*, and I would say it is true, as the pain of having to deal with the bad code
+is felt by the same developer that has created it. Add some rules to the tests, and now you are golden!
+
+Keep in mind that testing is not replaced by static analysis, nor by LLM-based code analysis. A good codebase has tests always,
+and while tests do not guarantee that the code has good quality, not having tests guarantee a bad codebase.
+
+Indeed, I would rather have a lot of static analysis tools and testing than LLMs. LLMs can be unpredictable:
+they hallucinate and depend on their training data. Maybe the data is outdated, or is outdated with bad practices.
+Anyway, do not trust LLMs solutions blindly[^4].
 
 Some tools that you should be using:
 
@@ -120,15 +136,45 @@ Some tools that you should be using:
 - [black](https://black.readthedocs.io/en/stable/)
 - [flake8](https://flake8.pycqa.org/en/latest/)
 - [isort](https://pycqa.github.io/isort/)
-- [pyflakes](https://github.com/PyCQA/pyflakes/)
+- [pyflakes](https://github.com/PyCQA/pyflakes/) (I reckon that I have not used it)
 - [mypy](https://mypy-lang.org/) or [ty](https://docs.astral.sh/ty/)
 - [pylint](https://www.pylint.org/) or [ruff](https://docs.astral.sh/ruff/)
+
+In case you want to see an example of these tools in action, see my
+[format check GitHub action](https://github.com/diegojromerolopez/otelize/blob/main/.github/workflows/check_format.yml#L21)
+in my open source [otelize](https://github.com/diegojromerolopez/otelize/) Python library.
+
+#### Ruby
+
+- [Rubocop](https://rubocop.org/)
+- [Reek](https://github.com/troessner/reek)
+- [flay](https://github.com/seattlerb/flay)
+- [flog](https://github.com/seattlerb/flog)
+- 
+
+Flay and flog are very hard to work with, but they can give you a lot of pointers of code that needs to be refactored.
+I remember reading the [Confessions of a Ruby Sadist website](https://ruby.sadi.st/Ruby_Sadist.html) almost 10 years ago.
+
+I do not recommend using [heckle](https://ruby.sadi.st/Heckle.html) as it seems to be unsupported.
 
 ## Conclusion
 Reducing tech debt once that is there is costly, and usually involves rewriting parts of the project. It is much better
 to rely on tools that contain it. These tools need to be visible to the developers and to the product managers,
 as the efforts to reduce technical debt must be considered as part of all development tasks, always. No exceptions.
 
+Rewriting software should always be avoided.
+
 [^1]: I wrote about this in my [MRes. thesis](https://github.com/diegojromerolopez/djbdd/blob/master/doc/memoria.pdf).
 Sadly there is only a Spanish version, but you can take a look at the library
 [djbdd](https://github.com/diegojromerolopez/djbdd) that I created for that.
+
+[^2]: Usually those are codebases that had no abstraction, no structure, everything is at the same level.
+They do not enforce guidelines, nor in the format nor in the design. The *tangled* part comes from having
+dependencies all spread through the code.
+
+[^3]: I have not taken into the account the inflation. If the inflation is greater than the interest rate, it can be
+a good financial decision to delay payments. For the sake of the argument I have left this concept out. This
+post is not financial advice.
+
+[^4]: Yesterday I asked a LLM to create a test that depended on the current time and it set a constant time as input.
+That test was working perfectly, but it would have failed in a couple of weeks.

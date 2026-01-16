@@ -100,7 +100,7 @@ can make taken de decision of the rewrite the best course.
 
 ### Full rewrites are born from maintenance not being a requirement
 In this world, having a fast time to market is encouraged, maintainability takes a second (if not the last) position.
-The popular concept of tech-debt can make projects impossible to extend, or even worse, fix in any way.
+The popular concept of tech debt can make projects impossible to extend, or even worse, fix in any way.
 
 Now that the LLMs are being used by myriads of people to develop software as fast as possible,
 I wonder *who is going to maintain that*.
