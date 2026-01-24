@@ -1,7 +1,7 @@
 ---
 title: How to minimize tech debt from the start
-date: "2026-01-25T00:00:00+02:00"
-draft: true
+date: "2026-01-24T00:00:00+02:00"
+draft: false
 tags: ["software", "tech-debt"]
 ---
 
@@ -84,12 +84,15 @@ The best way to tackle the tech debt is to keep it minimal from the start.
 **Refactoring a code that is tech debt ridden should always be the last resort.**
 
 ### Rules/Guidelines/Culture
-Advocating for creating a culture of responsibility and quality is a must.
+Advocating for creating a culture of responsibility and quality is a must. What I mean by that is that every software engineer
+is responsible of the project well-being. I am advocating for communal collaboration among the engineers, not having niches,
+nor having irreplaceable developers in the team. All members of the team must be always looking for ways to improve the project,
+*Kaizen* they call it in Japanese.
 
-Clear guidelines on:
+You must have clear guidelines on software quality:
 
-- Development guidelines.
 - Design patterns.
+- Software design god practices ([Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design) practices, [SOLID](https://en.wikipedia.org/wiki/SOLID), etc.)
 - System design.
 - Testing on all flows.
 - Coding quality rules.
