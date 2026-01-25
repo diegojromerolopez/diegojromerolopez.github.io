@@ -1,0 +1,365 @@
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>How to use LLM context to upgrade your project - Diego J.'s Software Tar Pit</title>
+<meta name=description content="How to use LLM context to upgrade your project In this post we pick up a Python 2.0 project and show how to use a LLM to upgrade a software project. This time we will be using contexts.
+Introduction I will upgrade the Djanban project as it should be done. Not only making it work with the latest versions of the software packages, but improving its quality and making sure there are guardrails that make impossible for the developers">
+<meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/01\/how-to-use-llm-context-to-upgrade-your-project\/","name":"How to use llm context to upgrade your project"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"How to use LLM context to upgrade your  project","description":"How to use LLM context to upgrade your project In this post we pick up a Python 2.0 project and show how to use a LLM to upgrade a software project. This time we will be using contexts.\nIntroduction I will upgrade the Djanban project as it should be done. Not only making it work with the latest versions of the software packages, but improving its quality and making sure there are guardrails that make impossible for the developers","inLanguage":"en","wordCount":1764,"datePublished":"2026-01-25T00:00:00","dateModified":"2026-01-25T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["llm, ai, guide, showcase"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/01\/how-to-use-llm-context-to-upgrade-your-project\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
+<meta property="og:title" content="How to use LLM context to upgrade your  project">
+<meta property="og:description" content="How to use LLM context to upgrade your project In this post we pick up a Python 2.0 project and show how to use a LLM to upgrade a software project. This time we will be using contexts.
+Introduction I will upgrade the Djanban project as it should be done. Not only making it work with the latest versions of the software packages, but improving its quality and making sure there are guardrails that make impossible for the developers">
+<meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2026/01/how-to-use-llm-context-to-upgrade-your-project/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Diego J.'s Software Tar Pit">
+<meta name=twitter:title content="How to use LLM context to upgrade your  project">
+<meta name=twitter:description content="How to use LLM context to upgrade your project In this post we pick up a Python 2.0 project and show how to use a LLM to upgrade a software project. This time we will be using contexts.
+Introduction I …">
+<meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:site content="@diegojromerolop">
+<meta name=twitter:creator content="@diegojromerolop">
+<link href=https://diegojromerolopez.github.io/img/favicon.ico rel=icon type=image/x-icon>
+<meta name=generator content="Hugo 0.91.2">
+<link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=https://diegojromerolopez.github.io/css/katex.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/fontawesome/css/all.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/bootstrap.min.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/main.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/fonts.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/syntax.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/codeblock.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.default-skin.min.css>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+<div class=container-fluid>
+<div class=navbar-header>
+<button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</div>
+<div class="collapse navbar-collapse" id=main-navbar>
+<ul class="nav navbar-nav navbar-right">
+<li>
+<a title=Blog href=/>Blog</a>
+</li>
+<li>
+<a title=About href=/page/about/>About</a>
+</li>
+<li>
+<a title=Tags href=/tags>Tags</a>
+</li>
+<li>
+<a href=/es lang=es>es</a>
+</li>
+</ul>
+</div>
+<div class=avatar-container>
+<div class=avatar-img-border>
+<a title="Diego J.'s Software Tar Pit" href=https://diegojromerolopez.github.io>
+<img class=avatar-img src=https://diegojromerolopez.github.io/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit">
+</a>
+</div>
+</div>
+</div>
+</nav>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div>
+<header class=header-section>
+<div class="intro-header no-img">
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class=post-heading>
+<h1>How to use LLM context to upgrade your project</h1>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;Posted on January 25, 2026
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class=container role=main>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<article role=main class=blog-post>
+<h1 id=how-to-use-llm-context-to-upgrade-your--project>How to use LLM context to upgrade your project</h1>
+<p>In this post we pick up a Python 2.0 project and show how to use a
+<a href=https://en.wikipedia.org/wiki/Large_language_model>LLM</a> to upgrade a software project.
+This time we will be using contexts.</p>
+<h2 id=introduction>Introduction</h2>
+<p>I will upgrade the <a href=https://github.com/diegojromerolopez/djanban>Djanban</a> project
+as it should be done. Not only making it work with the latest versions of the software
+packages, but improving its quality and making sure there are guardrails that make impossible
+for the developers</p>
+<h2 id=the-problem>The problem</h2>
+<p>As explained in the <a href=/blog/2026/01/how-not-to-use-a-llm-to-upgrade-your-project/>first post of this series</a>,
+the backend of Djanban was implemented in
+<a href=https://www.python.org/doc/sunset-python-2/>Python 2.0</a> and Django 1.11.
+Python 2 has been outdated for 6 years now and is not used anymore. Django is now in version
+<a href=https://docs.djangoproject.com/en/6.0/releases/6.0.1/>6.0.1</a>.</p>
+<p>The frontend of Djanban was implemented in Angular.</p>
+<p>I want to do an upgrade but that improves the quality of the project too.</p>
+<h2 id=the-tool>The tool</h2>
+<p>I keep using <a href=https://antigravity.google/>Antigravity</a> with the model
+<a href=https://deepmind.google/models/gemini/pro/>Gemini 3 Pro</a>.</p>
+<p>However, I will not be writing prompts only. I will be making use of the specs and context files.</p>
+<h2 id=the-challenge>The challenge</h2>
+<p>Upgrade everything to the latest version and make it work, but improving the project.
+Via context files.</p>
+<p>The aim is to have a project where any developer used to Python community standards can be onboarded
+almost immediately.</p>
+<h2 id=the-process>The process</h2>
+<h2 id=previous-attempts>Previous attempts</h2>
+<p>First, we just showcase <a href=/blog/2026/01/how-not-to-use-a-llm-to-upgrade-your-project/>how to upgrade the project without directing the AI agent at all</a>. We saw how this strategy is not enough to achieve good results.</p>
+<p>In a second post of this series we showcased <a href=/blog/2026/01/how-to-use-a-llm-to-upgrade-your-project/>how to upgrade the project by giving useful prompts to the AI agent</a>. We achieved a good result by sending prompts to the AI agent, but we missed
+having a record of the specific steps the agent took to solve the problem. While this strategy worked fine, you can lose
+track easily during the conversation with the AI agent.</p>
+<h3 id=adding-context-to-the-project>Adding context to the project</h3>
+<p>In this attempt, we want to rely as much as possible on the LLM context and not on the prompts.</p>
+<p>The context is a markdown file that you should put at the root of your project.
+This file is then read by the LLM and it will add the contents of it as context.</p>
+<p>In our case, I do not want to spend a lot of time creating a
+<a href=https://geminicli.com/docs/cli/gemini-md/>GEMINI.md</a> file,
+so I thought about picking up a context template file, but decided to take other path: could we just ask the
+LLM to create the context file? So I used the following prompt:</p>
+<pre tabindex=0><code>Scan this Django project and create an appropriate GEMINI.md file in the root folder. I am interested in including
+- the Django and Python versions
+- what the application does (Kanban board with optional connection to Trello)
+- the folder structure.
+- how the Django application should be upgraded: first create tests for the project, then upgrade Python to 3.14, then upgrade the Django version. Use the tests to ensure the functionality stays the same. 
+- the development should leverage testing as much as possible. Use TDD when possible: First create the basic test, a draft non-trivial implementation that passes the tests, and then refactor the implementation.
+- how the project should follow black, flake8, isort, mypy, pylint, and ruff linters 
+- how the project should follow the active record pattern, SOLID, single-statement assignment, extensive use of type hinting
+- how the dependencies should be fixed in the requirements.txt, then we should move to uv
+- Include any other recommendation that the Python development community uses. The main aim is to have the easiest onboarding for a seasoned Python developer that uses the de-facto standards.
+</code></pre><p>This is a way of <em>dogfooding</em> our LLMs that provide a good draft of the context for future interactions with LLM.
+However, we need to make sure to review this context as it will be crucial to have a good framework where all our
+interactions with the LLM can develop.</p>
+<p><a href=https://github.com/diegojromerolopez/djanban/pull/6/commits/d7582fc50055021d924cc44b79f1909d4c8a0821>This is the commit with the basic GEMINI.md file</a></p>
+<p>I had to rerun the prompt because there was an agent error.</p>
+<p><img src=/img/2026/01/26/agent-error.png alt="Gemini Pro agent error"></p>
+<p>I tried to run a prompt to improve the context again, and again an error.</p>
+<p>So it looks like another factor to be considered when dealing with LLMs is the <em>quality of service</em>.
+We have reached a point where not only the performance is important, but the availability
+of the LLM service itself.</p>
+<p>I had to tune a bit the GEMINI.md file because the description about the Django app is poor, so I typed:</p>
+<pre tabindex=0><code>Move inside apps and go through each sub-folder to check what is each one, and include that information in the GEMINI.md file.
+</code></pre><p><a href=https://github.com/diegojromerolopez/djanban/pull/6/commits/891f4a28863e5fa34994f03ef968ee883fea5148>Corresponding commit</a></p>
+<h2 id=upgrading-the-project>Upgrading the project</h2>
+<p>Once I had the context file, I decide that it was time to ask the LLM for upgrading the project, and so I did it.</p>
+<pre tabindex=0><code>Upgrade the project following the instructions
+</code></pre><p>Well, it was a failure. I should have make it more explicit that the first thing is to create tests for
+the project without changing the version, because that is exactly what the LLM did not do. It upgraded the version
+to Python 3.14, and started changing the code. This is once again, an example that the LLM needs explicit
+instructions.</p>
+<p>Anyway, I decided to update the context by giving the exact sequence of steps to upgrade the project:</p>
+<pre tabindex=0><code>Update your context. To upgrade the project follow these steps:
+
+1. Create a virtualenv with Python 2.
+2. Create tests for all the functionality with Python 2 code.
+3. Ensure all the test is covered by tests.
+4. Remove the virtualenv with Python 2.
+5. Create a virtual environment with Python 3.14.
+6. Convert all the Python 2 code to Python 3.
+7. Run the tests again and check if any functionality is broken. If it is, fix it to make the test pass.
+</code></pre><p>Just after running the prompt above, it updated the context, created a .tool-versions file, and started
+with the testing.</p>
+<p>After several minutes, it started creating the new virtual environment and the migration itself.
+To be fair, I felt that I was just reading their comments and clicking <em>Accept</em>.</p>
+<p><a href=https://github.com/diegojromerolopez/djanban/pull/6/commits/464d6178706ea025c99b897baba5e3cda9cb60de>Corresponding commit</a></p>
+<p>But the results were not promising. I just asked the LLM to do the upgrade.</p>
+<pre tabindex=0><code>Upgrade the project to Python 3. Does it work fine? If not, fix the issues in the code by leveraging the tests.
+</code></pre><p>To be fair, <em>I was starting to lose my patience</em>. The context was not working and I thought that maybe I should have
+added the steps one by one, and confirm manually that they were fine. The results were buggy and the LLM was
+complaining about not being able to use uv correctly. It was a disappointing experience.</p>
+<p>So I reviewed the context to make it even more explicit.</p>
+<p><a href=https://github.com/diegojromerolopez/djanban/pull/6/commits/c3aada6a749417e7d401cc248df942149d0321a7>Corresponding commit</a> that improves the upgrade process in the context.</p>
+<p>Now, I was tired of waiting for the commands to run, and I was dreading the upgrade process
+(<em>is impatience measured as metric when working with LLMs?</em>), so I tuned up things a bit, and
+pressured Gemini LLM to do the work fast:</p>
+<pre tabindex=0><code>Apply the upgrade process to the project. Make it as fast as possible.
+</code></pre><p><a href=https://github.com/diegojromerolopez/djanban/pull/6/commits/9985328c33e8a8c03b41b96defc44830426f212e>Corresponding commit</a>.</p>
+<h3 id=the-good>The good</h3>
+<p>We start seeing some results, the application runs successfully:</p>
+<p><img src=/img/2026/01/26/djanban-runs.png alt="Djanban runs"></p>
+<p>Another important fact to highlight is that all the guidelines that we set up in the context have already been applied to the code.
+So by leveraging the LLM context, and tests that ensure that the functionality keeps being the same, we have achieved a lot of
+improvements in the code. Nominally:</p>
+<ul>
+<li>Upgrade to Python 3.</li>
+<li>Django upgrade to 6.0.1.</li>
+<li>Linter and formatting tools:
+<ul>
+<li>black</li>
+<li>flake8</li>
+<li>isort</li>
+<li>mypy</li>
+<li>pylint</li>
+<li>ruff</li>
+</ul>
+</li>
+</ul>
+<h3 id=the-bad>The bad</h3>
+<p>But there are some issues:</p>
+<ul>
+<li>Not quality tests: the test coverage is of 36%. Most of the tests are just dummy ones.</li>
+<li>For each application the AI agent has left <em>_original.py</em> files with the original content of the file.</li>
+</ul>
+<h3 id=the-ugly>The ugly</h3>
+<p>The experience of working with Antigravity is not the best. Every time it decides to upgrade I am forced to restart the IDE.
+<em>Losing</em> my train of thought with my conversation with te agent.</p>
+<p>Apart from that, I saw the resulting <em>half-backed</em> upgrade, so I wrote a simple prompt to try to clean up the project:</p>
+<pre tabindex=0><code>Remove the _original.py files.
+
+Why are pyc files through all the code? Just remove those.
+
+The tests need to be in a src/tests folder. Do not just rely on single test.py file in each application.
+</code></pre><p><a href=https://github.com/diegojromerolopez/djanban/pull/6/commits/2de222fcc743ed30fa94717f835b40929ecaffa3>Corresponding commit</a>.</p>
+<p>I had to order the AI Agent to increase the test coverage. Even when that is in the context, the AI has ignored the steps.
+The second step clearly orders the creation of tests before the upgrade. The step also is very explicit about what functionality
+to test (<code>all or it</code>).</p>
+<p>I had to ask Gemini to create new tests fo all applications.</p>
+<pre tabindex=0><code>Create new tests that increase the test coverage to 100%
+</code></pre><p><strong>Very simple prompt, and that was my mistake</strong>.</p>
+<p>I was surprised to find that that the LLM does not obey because of the task being one of a big effort. Look at the response of the LLM:</p>
+<pre tabindex=0><code>The major blocker for 100% coverage is the sheer volume of code in  views, remote_backends, and other apps models that remains untested. Achieving 100% coverage typically requires a dedicated effort over a longer period, mocking external services (like Trello), and covering every branch of logic.
+
+I recommend continuing this process iteratively:
+
+Pick an app (e.g., members, then charts).
+Write model tests.
+Write view tests (using Client).
+Mock external calls for fetch and remote_backends.
+</code></pre><p>So this is one of the big hurdles. We need to be directing the LLM in each step. I was lazy, I admit it. Maybe it was
+because I was tired of running prompts trying to fix the <em>misunderstood</em> context. But thanks to this, I think that
+I will not forget that the size of the tasks at hand by the LLM cannot have arbitrarily size.</p>
+<h2 id=conclusion>Conclusion</h2>
+<p>Contexts are a useful tool for enforcing behaviors on LLMs. We can use them to ensure the project is being developed according
+to some ground rules.</p>
+<p>The upgrade use case does not work leverage well LLM contexts, because the upgrading is only done once.
+Contexts are more useful for establishing rules and guidelines that will be kept for the developing of the software project.</p>
+<p>We have shown that the tasks need to be well-defined, auto-contained, and the smallest possible.</p>
+<p>This experiment has been a challenge, and a fruitful experience, albeit not as much as I would have liked.</p>
+<div class=blog-tags>
+<a href=https://diegojromerolopez.github.io/tags/llm/>llm</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/ai/>ai</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/guide/>guide</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/showcase/>showcase</a>&nbsp;
+</div>
+</article>
+<ul class="pager blog-pager">
+<li class=previous>
+<a href=https://diegojromerolopez.github.io/blog/2026/01/how-to-minimize-tech-debt-from-the-start/ data-toggle=tooltip data-placement=top title="How to minimize tech debt from the start">&larr; Previous Post</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<footer>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<ul class="list-inline text-center footer-links">
+<li>
+<a href=mailto:diegojromerolopez@gmail.com title="Email me">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://github.com/diegojromerolopez title=GitHub>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://twitter.com/diegojromerolop title=Twitter>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://linkedin.com/in/diegojromerolopez title=LinkedIn>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href title=RSS>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+</ul>
+<p class="credits copyright text-muted">
+Diego J. Romero-López
+&nbsp;&bull;&nbsp;&copy;
+2026
+&nbsp;&bull;&nbsp;
+<a href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</p>
+<p class="credits theme-by text-muted">
+<a href=https://gohugo.io>Hugo v0.91.2</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
+</p>
+</div>
+</div>
+</div>
+</footer><script src=https://diegojromerolopez.github.io/js/katex.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/auto-render.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/jquery-3.5.1.slim.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/bootstrap.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/main.js></script><script>renderMathInElement(document.body)</script><script src=https://diegojromerolopez.github.io/js/photoswipe.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/photoswipe-ui-default.min.js></script><script src=https://diegojromerolopez.github.io/js/load-photoswipe.js></script>
+</body>
+</html>
