@@ -301,3 +301,6 @@ It frees them from some *menial* or repetitive tasks.
 This has been a good experiment showing that the human factor that *steers the ship* is still needed.
 Of course there is some room for improvement, as we saw in when showing the missing pieces in our process,
 and indeed we will show a showcase with them soon.
+
+Follow reading the [next post of the series](/blog/2026/01/how-to-use-llm--context-to-upgrade-your-project/),
+if you are interested in the role of the LLM contexts in this upgrade process.
