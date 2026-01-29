@@ -163,7 +163,7 @@ Apply the upgrade process to the project. Make it as fast as possible.
 
 We start seeing some results, the application runs successfully:
 
-![Djanban runs](/img/2026/01/26/djanban-runs.png)
+![Djanban runs](/img/2026/01/26/djanban-running.png)
 
 Another important fact to highlight is that all the guidelines that we set up in the context have already been applied to the code.
 So by leveraging the LLM context, and tests that ensure that the functionality keeps being the same, we have achieved a lot of
