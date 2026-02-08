@@ -1,6 +1,6 @@
 ---
 title: Creating a complex project with LLMs
-date: "2026-02-12T00:00:00+02:00"
+date: "2026-02-09T00:00:00+02:00"
 draft: true
 tags: ["llm", "showcase"]
 ---
@@ -29,6 +29,21 @@ I could not have done this if I did not know the problem well. I would have need
 process (maybe using this LLM), to learn about the different system designs for a web crawler.
 I know that the one I chose is not the best, nor the most efficient,
 but **it is easy to understand** and this was an experiment, not a real project.
+
+## Knowing the tools well
+I have some experience with the Python programming language[^1], less with golang, but I know enough
+to understand it and know what it does. At the end of the day is just another syntax, with
+a lot of *cool features*, but mostly the same.
+
+I dabbled a lot with Docker in my previous job, so I am equipped to deal with the issues that can
+arise. To be fair, Docker is not a tool that worries me much, as it is well-defined and works
+pretty well[^2].
+
+I had just discovered [localstack](https://www.localstack.cloud/) several weeks ago,
+played around enough to know that it can
+simulate the most popular AWS services, so I could run the infrastructure locally.
+I do not want to pay AWS for a showcase, and I am not worried about performance for a
+proof of concept. I just want a way to develop and run a *non-trivial* project.
 
 ## The virtuous cycle
 I work in cycles similar to what the TDD developers do. But instead of creating the test first,
@@ -155,16 +170,16 @@ and all edit permissions on is a good way to work. I do not know.
 ### Several AI agents
 Maybe my project would have been built better or faster if I would have used a network
 of agents working together. Sometimes I think that this virtuous cycle could have been
-completely automated.
+completely automated[^3].
 
 If I achieve something on that direction I will write it here.
 
 ### Keeping the same model
-To be fair, when my quota run out I just selected another model and kept working.
+To be fair, when my quota ran out I just selected another model and kept working.
 Should I have waited until my quota was renewed? I do not know. I have not detected
 issues when using Gemini 3 Flash vs Gemini 3 Pro (for example). Maybe I needed to be
 more inquisitive in my orders but... who cares if the result was improved again and again
-until it reached a good quality?
+until it reached a good quality?[^4]
 
 ## Conclusion
 In this post I have explained how I have created a complex project (a web scraper)
@@ -173,3 +188,19 @@ feedback loop with me and other tools.
 
 I also explain how I stopped myself when I could not go faster more without
 understanding de decisions that the LLM was taking, and hence, making mistakes.
+
+[^1]: in case you are interested in checking out some of my *most interesting* Python projects, take a look at
+[gelidum](https://github.com/diegojromerolopez/gelidum), [otelize](https://github.com/diegojromerolopez/otelize),
+[mypy-raise](https://github.com/diegojromerolopez/mypy-raise),
+and [mypy-pure](https://github.com/diegojromerolopez/mypy-pure). If you work with Django, take a look at
+[Django-async-include](https://github.com/diegojromerolopez/django-async-include), and
+[Django-ws-include](https://github.com/diegojromerolopez/django-ws-include).
+
+[^2]: well some years ago I hit a roadblock with some different implementation details between the Linux and MacOS
+docker versions, but apart from that, my experience with docker is smooth.
+
+[^3]: there are some LLM agent *architectures* that seem to be working well for some developers,
+creating this develop-review cycle almost autonomously.
+[Claude Code has enabled a preview of this feature](https://code.claude.com/docs/en/agent-teams).
+
+[^4]: as of February 2026, having a good context is better than running the latest LLM model.
