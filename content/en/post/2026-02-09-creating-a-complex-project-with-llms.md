@@ -1,7 +1,7 @@
 ---
 title: Creating a complex project with LLMs
 date: "2026-02-09T00:00:00+02:00"
-draft: true
+draft: false
 tags: ["llm", "showcase"]
 ---
 
@@ -17,7 +17,22 @@ The other day I thought about using LLMs to replicate the project and talk about
 So I have been working with Gemini, and I have I created a scraper
 ([Isidorus Web Scraper](https://github.com/diegojromerolopez/isidorus-web-scraper)) that could run in AWS with minimal configuration and that would perform well.
 
-## Knowing the problem well
+## The Isidorus project
+
+![Isidorus index page](/img/2026/02/09/isidorus-index.png)
+
+While not being the focus of this post, let me give you some context about the project.
+
+Isidorus is a web scraper that extracts the images, explains them, summarizes the content, and index web pages in an OpenSearch database. All the communication is based on SQS queues, and the work is done by Python (Page summarizer, image explainer, and deletion) and golang workers (scraper, image extractor, open search indexer, and database writer).
+
+The main aim of this project is to serve as a showcase for a real use-case built by heavily leveraging LLMs.
+
+The project is not deployed to any cloud, but it runs locally by making use of
+[LocalStack](https://www.localstack.cloud/).
+
+## What do you need?
+
+### Knowing the problem well
 I tend to start defining the aim at the beginning. As any aim, it is a bit vague, but in this case,
 after I told the aim (*to build a web scraper*), I started describing to the LLM the architecture that I had
 on my mind.
@@ -30,7 +45,7 @@ process (maybe using this LLM), to learn about the different system designs for 
 I know that the one I chose is not the best, nor the most efficient,
 but **it is easy to understand** and this was an experiment, not a real project.
 
-## Knowing the tools well
+### Knowing the tools well
 I have some experience with the Python programming language[^1], less with golang, but I know enough
 to understand it and know what it does. At the end of the day is just another syntax, with
 a lot of *cool features*, but mostly the same.
@@ -39,18 +54,18 @@ I dabbled a lot with Docker in my previous job, so I am equipped to deal with th
 arise. To be fair, Docker is not a tool that worries me much, as it is well-defined and works
 pretty well[^2].
 
-I had just discovered [localstack](https://www.localstack.cloud/) several weeks ago,
+I had just discovered LocalStack several weeks ago,
 played around enough to know that it can
 simulate the most popular AWS services, so I could run the infrastructure locally.
 I do not want to pay AWS for a showcase, and I am not worried about performance for a
 proof of concept. I just want a way to develop and run a *non-trivial* project.
 
-## The virtuous cycle
+## How to do it? i.e. the virtuous cycle
 I work in cycles similar to what the TDD developers do. But instead of creating the test first,
 I create some draft code that has the functionality, and then I create the tests that ensure
 the functionality. When I say tests, I mean unit tests and end to end tests.
 
-![The virtuous cycle](/img/2026/02/12/virtuous-cycle.png)
+![The virtuous cycle](/img/2026/02/09/virtuous-cycle.png)
 
 ### 1. Drafting the code
 I ask the AI agent to create the minimum piece of code that does what I want. I do not care
@@ -138,7 +153,7 @@ the LLM has learned on. Most of the people follow the community guidelines (e.g.
 by following us too we ease the understanding of the code by the LLM. So we are improving
 the generational process (this is a hypothesis, but it seems logical).
 
-## Knowing when to stop
+### Knowing when to stop
 One of the most important lessons I learned while doing this project is to know your limitations,
 i.e. know when to stop. Let me tell you the full story.
 
@@ -160,7 +175,7 @@ most engineers can understand it. The proposal the LLM showed to me was not obvi
 for sure it was better but I am more concerned in the maintainability than in being
 10% more performant.
 
-## What I did not use
+## What I did not use?
 
 ### Roles
 I did not asked the LLM to play a role, nor deal with the problem as if they were an
