@@ -132,6 +132,7 @@ and I had to fix scalability issues, release it to AWS, and create a user interf
 So I have been working with Gemini, and I have I created a scraper
 (<a href=https://github.com/diegojromerolopez/isidorus-web-scraper>Isidorus Web Scraper</a>) that could run in AWS with minimal configuration and that would perform well.</p>
 <h2 id=the-isidorus-project>The Isidorus project</h2>
+<p><img src=/img/2026/02/09/isidorus-index.png alt="Isidorus index page"></p>
 <p>While not being the focus of this post, let me give you some context about the project.</p>
 <p>Isidorus is a web scraper that extracts the images, explains them, summarizes the content, and index web pages in an OpenSearch database. All the communication is based on SQS queues, and the work is done by Python (Page summarizer, image explainer, and deletion) and golang workers (scraper, image extractor, open search indexer, and database writer).</p>
 <p>The main aim of this project is to serve as a showcase for a real use-case built by heavily leveraging LLMs.</p>
