@@ -1,8 +1,8 @@
 ---
 title: Release always, even partial features
 date: "2026-02-08T00:00:00+02:00"
-draft: true
-tags: ["release", "war-story"]
+draft: false
+tags: ["agile", "war-story"]
 ---
 
 # Release always, even partial features
