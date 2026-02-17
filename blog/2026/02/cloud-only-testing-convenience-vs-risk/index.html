@@ -1,0 +1,362 @@
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Cloud-Only Testing: Convenience vs Risk - Diego J.'s Software Tar Pit</title>
+<meta name=description content="Cloud-Only Testing: Convenience vs Risk The cloud did not removed complexity, it only centralized it.
+The infrastructure became more programmable, flexible, scalable, and abstracted. But that did not mean that the systems became simpler.
+Architecting for the cloud The cloud companies were born as a way to reduce complexity for the engineering teams. However, the complexity was not removed, but moved from the engineering teams to the cloud systems.
+But creating complex architectures in the cloud has a clear counterpart: how can we ensure they work properly?">
+<meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/02\/cloud-only-testing-convenience-vs-risk\/","name":"Cloud only testing convenience vs risk"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"Cloud-Only Testing: Convenience vs Risk","description":"Cloud-Only Testing: Convenience vs Risk The cloud did not removed complexity, it only centralized it.\nThe infrastructure became more programmable, flexible, scalable, and abstracted. But that did not mean that the systems became simpler.\nArchitecting for the cloud The cloud companies were born as a way to reduce complexity for the engineering teams. However, the complexity was not removed, but moved from the engineering teams to the cloud systems.\nBut creating complex architectures in the cloud has a clear counterpart: how can we ensure they work properly?","inLanguage":"en","wordCount":1703,"datePublished":"2026-02-17T00:00:00","dateModified":"2026-02-17T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["testing, cloud"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/02\/cloud-only-testing-convenience-vs-risk\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
+<meta property="og:title" content="Cloud-Only Testing: Convenience vs Risk">
+<meta property="og:description" content="Cloud-Only Testing: Convenience vs Risk The cloud did not removed complexity, it only centralized it.
+The infrastructure became more programmable, flexible, scalable, and abstracted. But that did not mean that the systems became simpler.
+Architecting for the cloud The cloud companies were born as a way to reduce complexity for the engineering teams. However, the complexity was not removed, but moved from the engineering teams to the cloud systems.
+But creating complex architectures in the cloud has a clear counterpart: how can we ensure they work properly?">
+<meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2026/02/cloud-only-testing-convenience-vs-risk/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Diego J.'s Software Tar Pit">
+<meta name=twitter:title content="Cloud-Only Testing: Convenience vs Risk">
+<meta name=twitter:description content="Cloud-Only Testing: Convenience vs Risk The cloud did not removed complexity, it only centralized it.
+The infrastructure became more programmable, flexible, scalable, and abstracted. But that did not …">
+<meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:site content="@diegojromerolop">
+<meta name=twitter:creator content="@diegojromerolop">
+<link href=https://diegojromerolopez.github.io/img/favicon.ico rel=icon type=image/x-icon>
+<meta name=generator content="Hugo 0.91.2">
+<link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=https://diegojromerolopez.github.io/css/katex.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/fontawesome/css/all.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/bootstrap.min.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/main.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/fonts.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/syntax.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/codeblock.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.default-skin.min.css>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+<div class=container-fluid>
+<div class=navbar-header>
+<button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</div>
+<div class="collapse navbar-collapse" id=main-navbar>
+<ul class="nav navbar-nav navbar-right">
+<li>
+<a title=Blog href=/>Blog</a>
+</li>
+<li>
+<a title=About href=/page/about/>About</a>
+</li>
+<li>
+<a title=Tags href=/tags>Tags</a>
+</li>
+<li>
+<a href=/es lang=es>es</a>
+</li>
+</ul>
+</div>
+<div class=avatar-container>
+<div class=avatar-img-border>
+<a title="Diego J.'s Software Tar Pit" href=https://diegojromerolopez.github.io>
+<img class=avatar-img src=https://diegojromerolopez.github.io/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit">
+</a>
+</div>
+</div>
+</div>
+</nav>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div>
+<header class=header-section>
+<div class="intro-header no-img">
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class=post-heading>
+<h1>Cloud-Only Testing: Convenience vs Risk</h1>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;Posted on February 17, 2026
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class=container role=main>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<article role=main class=blog-post>
+<h1 id=cloud-only-testing-convenience-vs-risk>Cloud-Only Testing: Convenience vs Risk</h1>
+<p>The cloud did not removed complexity, it only centralized it.</p>
+<p>The infrastructure became more programmable, flexible, scalable, and abstracted.
+But that did not mean that the systems became simpler.</p>
+<h2 id=architecting-for-the-cloud>Architecting for the cloud</h2>
+<p>The cloud companies were born as a way to reduce complexity for the engineering teams.
+However, the complexity was not removed, but moved from the engineering teams to the cloud systems.</p>
+<p>But creating complex architectures in the cloud has a clear counterpart: how can we ensure they work properly?
+How can we make sure that our solution does the right thing, and is sufficiently performant?</p>
+<p>Testing the project in a <em>live</em> environment is the natural choice for assessing the correctness, scalability, and performance.</p>
+<h2 id=cloud-testing-strategies>Cloud testing strategies</h2>
+<p>When people show the testing pyramid they make clear the distinction among the different types of tests.
+The traditional testing pyramid distinguishes tests by scope.</p>
+<p>However, our focus here is not testing scope but architectural validation.</p>
+<p>The effect of building cloud end-to-end tests is an increase in complexity. It can shift to the infrastructure,
+to the software, or to the organization.</p>
+<p><img src=/img/2026/02/17/where-does-complexity-go.png alt="Where does complexity go?"></p>
+<p>The difference lies in where that complexity is placed.</p>
+<h3 id=system-tests>System tests</h3>
+<h4 id=what-is-it>What is it?</h4>
+<p>A job in the CI/CD pipelines that run a series of tests that depend on cloud services.
+Tests that are part of the project software tests.</p>
+<h4 id=pros>Pros</h4>
+<p>It is easy to implement, as the tests are part of the project test harness.</p>
+<p>There is no need for mocking services, as the tests use the actual real cloud services.</p>
+<h4 id=cons>Cons</h4>
+<p>Require a live environment but it cannot be used for manual testing, as it will be modified again and again when the CI/CD pipelines run.
+If it is the same environment for all runs, there can be conflicts.</p>
+<p>Connecting a pipeline job to an environment can be a challenge from the security point of view.</p>
+<h3 id=playground-environments>Playground environments</h3>
+<h4 id=what-is-it-1>What is it?</h4>
+<p>Allow deploying any <em>change</em> on a project on an isolated environment. If you need to test a feature,
+deploy to this <em>partial mirror</em> of production, but that only contains the services you want to test.</p>
+<p>Deploying to this environment is not a requirement and checking the changes in this environment is seen
+as a good but not mandatory practice. However, as it is difficult to replicate the production services in this
+playground environment, most of the times I have seen this strategy, there was limited testing here, and the
+dependencies were usually supplanted by mock services.</p>
+<p>This strategy is done by allowing deploying developers in their feature branches, and allowing them
+to deploy their dependencies by using the same branch name.</p>
+<h4 id=pros-1>Pros</h4>
+<p>You achieve total isolation for testing. Developers can run destructive operations on the environments
+without any care at all. No other developer nor user is going to be affected by that.</p>
+<p>Total customization of the state, data, and code is possible.</p>
+<p>If the ephemeral environments are mirrors or similar to the production environment, the development pace
+can be much faster as the tests and QA assessment can be done in parallel.</p>
+<h4 id=cons-1>Cons</h4>
+<p>The cost can <em>skyrocket</em>. We are talking of replicating the production
+environment every time a developer wants to test their changes. If they
+are not careful, we can find ourselves with a big cloud bill.</p>
+<p>We need some balance between production-similarity and cost. Having an
+environment more production-like will be expensive (as all of its services
+need to be deployed). On the contrary, just having a bunch of mock servers
+talking among each other can be cheap, but useless.</p>
+<p>Management of the state of the environment can be painful. Starting up, restarting them,
+and above all shutting them down are operations that need to be done frequently.
+So they need to be implemented in the ecosystem as first-citizens.</p>
+<p>Given the ephemeral nature of these environments, there needs to be an import of data,
+that needs to be curated to work with the mock services. That work cannot
+be disdained.</p>
+<h3 id=pre-production-environment>Pre-production environment</h3>
+<h4 id=what-is-it-2>What is it?</h4>
+<p>A full mirror of the production systems, with all the dependencies. Changes here are a mandatory step before
+deploying to production. Once you have reached this environment, it is assumed that the code has enough
+quality for production, and has been tested by the software engineers (and maybe by the QA engineers).</p>
+<p>There is only one pre-production (sometimes called staging), as the environment is linked to the default branch.
+Production and staging are only in the same branch and different commit (production is always behind or at the
+same level than staging).</p>
+<h4 id=pros-2>Pros</h4>
+<p>It is much cheaper to keep a lone mirror of the production environment, than potentially <em>infinite</em> ones.</p>
+<p>Given that the data stays in the environment, it is more difficult to start the tests from a clean slate.</p>
+<p>Also, the environment is up all the time. There is no need for implementing operations that grant the shutting down,
+starting up, or restart operations to the developers<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>. In case of issues the devops team can do these tasks,
+because they are only happening on an environment, so there is no need to grant special privileges to the developers.</p>
+<h4 id=cons-2>Cons</h4>
+<p>Conflicts, serialization, and deployment dependencies appear as soon as we use this strategy. The environment
+becomes a shared resource, and it causes friction among teams as once a new deployment is complete, it will
+replace the state and data that was there in the pre-production environment.</p>
+<p>Do not disregard conflicts for a shared resource, as if the project is used by many teams, and each team has
+5-7 developers, we can find ourselves spending a lot of time dealing with the synchronization of the
+deployments on the pre-production environment. This downtime not only is a waste of time, but they can be
+demoralizing for the developers.</p>
+<h3 id=production-environment>Production environment</h3>
+<h4 id=whats-it>What&rsquo;s it?</h4>
+<p>By deploying in production we can just test the feature in production. This is done by setting the new feature
+under a feature flag, so the old behavior is preserved unless we decide to do the updated way.</p>
+<p>Sometimes it is difficult to implement this change with feature flags, because maybe the change is
+destructive and affects several parts of the service, rendering several of them unable to work as they were.</p>
+<p>The test is done by setting a flag and running the operation via a headless browser.</p>
+<h4 id=pros-3>Pros</h4>
+<p>There is a much lower cost of maintaining the environments in the cloud. There is only one.</p>
+<h4 id=cons-3>Cons</h4>
+<p>A bug can be promoted to production, so the design of the feature flags needs to be done very
+carefully to not crash the production environment.</p>
+<p>The hardest part is not toggling the feature flag, but making the software so resilient that in case
+of an update of the data in any of the data stores, the application does not crash.</p>
+<p>What happens if the feature needs to be tested and has overlap with another one already deployed?
+It will need to wait. So we have a similar situation of having a shared resource for the developers.
+Not as dramatic as with the pre-production environment, as the changes are under feature flags,
+but there can be conflicts among the developers.</p>
+<p>Dealing with feature flags is risky. A bad configuration can enable features that were not supposed
+to be public yet. Even worse, <em>buggy</em> features can be enabled by mistake.</p>
+<p>To sum up, we trade devops complexity by software complexity.</p>
+<h2 id=limitations-of-testing-on-the-cloud>Limitations of testing on the cloud</h2>
+<p>Apart from the specific issues that have been named, there are several problems
+with running the tests on a cloud environment: consolidation of architectural
+mistakes and cost.</p>
+<h3 id=consolidation-of-architectural-mistakes>Consolidation of architectural mistakes</h3>
+<p>First let me explain that when I say <em>test the design</em>,
+I do not only mean testing that the design is correct, but that it performs well,
+and scales well. Just <em>throwing money</em> to a problem in the cloud can solve any issue you find, it is tempting
+but that is not the optimal solution.</p>
+<p>The temptation of just accepting the first iteration of the architecture can anchor the project in a
+sub-optimal and static architecture that can be painful to improve.</p>
+<p>As you cannot really test the architecture before having all deployed in your cloud provider,
+a mistake in the design becomes permanent.</p>
+<h3 id=cost>Cost</h3>
+<p>At the end of the day, running in the cloud is going to be more expensive than running in your local.
+You are paying processing capacity, memory, data storage, and transfer. Maybe it is not much for a test,
+but if your architecture comprises hundreds of services, and you need to keep an environment just for
+testing, you are effectively doubling your cloud bill.</p>
+<p>In other words: <strong>your infrastructure works fine, but at what cost?</strong></p>
+<h2 id=conclusion>Conclusion</h2>
+<p>None of these testing strategies remove complexity.
+Every strategy moves the complexity to a different place: organization, infrastructure, or software.</p>
+<p><img src=/img/2026/02/17/cloud-testing-complexity.png alt="Cloud testing iron triangle"></p>
+<ul>
+<li><strong>System tests</strong>: implementation of end-to-end tests with real infrastructure in your pipeline.
+Keeping in mind that the target environment is owned by the pipeline.
+The early iterations of end-to-end-tests tend to be coupled with the architecture.</li>
+<li><strong>Playground environments</strong>: most expensive. Useful for achieving total isolated tests,
+and the dependencies can be mocked easily. Infrastructure complexity will be the one that needs to be tackled by the devops team.
+What you gain in flexibility you pay in day-to-day operations.</li>
+<li><strong>Pre-production environments</strong>: expensive, as it replicates the production environment.
+Use it when there is no way to transfer the changes to production, and it is not going
+to be conflicts among the developers for the use of the environment.
+Complexity will be organizational mainly as there is a shared resource.
+Synchronization among developers will be the main issue to solve in this scenario.</li>
+<li><strong>Production environment</strong>: cheapest but most dangerous. Use it only when the cost of
+replicating the environment is prohibitive. Complexity stays in the software realm.
+However, it will increase: backwards compatibility, migrations, and feature isolation
+will need to be dealt more carefully by software engineers.</li>
+</ul>
+<p><img src=/img/2026/02/17/trade-offs.png alt=Trade-offs></p>
+<p>Testing is not about tooling. It is about where you decide to put the risk.</p>
+<p>The cloud does not remove complexity. Complexity is just moved to other part of the system.</p>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p>do not disregard the maintenance cost of having to shutdown, restart, or start environments for each developer.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+<div class=blog-tags>
+<a href=https://diegojromerolopez.github.io/tags/testing/>testing</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/cloud/>cloud</a>&nbsp;
+</div>
+</article>
+<ul class="pager blog-pager">
+<li class=previous>
+<a href=https://diegojromerolopez.github.io/blog/2026/02/creating-a-complex-project-with-llms/ data-toggle=tooltip data-placement=top title="Creating a complex project with LLMs">&larr; Previous Post</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<footer>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<ul class="list-inline text-center footer-links">
+<li>
+<a href=mailto:diegojromerolopez@gmail.com title="Email me">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://github.com/diegojromerolopez title=GitHub>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://twitter.com/diegojromerolop title=Twitter>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://linkedin.com/in/diegojromerolopez title=LinkedIn>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href title=RSS>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+</ul>
+<p class="credits copyright text-muted">
+Diego J. Romero-López
+&nbsp;&bull;&nbsp;&copy;
+2026
+&nbsp;&bull;&nbsp;
+<a href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</p>
+<p class="credits theme-by text-muted">
+<a href=https://gohugo.io>Hugo v0.91.2</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
+</p>
+</div>
+</div>
+</div>
+</footer><script src=https://diegojromerolopez.github.io/js/katex.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/auto-render.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/jquery-3.5.1.slim.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/bootstrap.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/main.js></script><script>renderMathInElement(document.body)</script><script src=https://diegojromerolopez.github.io/js/photoswipe.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/photoswipe-ui-default.min.js></script><script src=https://diegojromerolopez.github.io/js/load-photoswipe.js></script>
+</body>
+</html>
