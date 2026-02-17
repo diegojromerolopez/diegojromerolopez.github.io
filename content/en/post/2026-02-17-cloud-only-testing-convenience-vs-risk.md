@@ -1,8 +1,8 @@
 ---
-title: Cloud-Only Testing: Convenience vs Risk
-date: "2026-02-20T00:00:00+02:00"
-draft: true
-tags: ["testing"]
+title: "Cloud-Only Testing: Convenience vs Risk"
+date: "2026-02-17T00:00:00+02:00"
+draft: false
+tags: ["testing", "cloud"]
 ---
 
 # Cloud-Only Testing: Convenience vs Risk
@@ -23,23 +23,24 @@ Testing the project in a *live* environment is the natural choice for assessing 
 
 ## Cloud testing strategies
 
-When people show the testing pyramid they make clear the distinction among the different types of tests,
-but they just group all the end-to-end tests together. In my sixteen years working I have worked with
-teams that had several strategies that take in consideration the service mesh that is our full project.
+When people show the testing pyramid they make clear the distinction among the different types of tests.
+The traditional testing pyramid distinguishes tests by scope.
 
-On these strategies, testing is done end-to-end, in the case of web services (the usual one), by running
-headless-browser or batch http request scripts against the environment running on the cloud.
+However, our focus here is not testing scope but architectural validation.
 
-These tests can be run in the pipeline, and use one of these environments as a black box that needs to be checked,
-or it can be tested with a more traditional QA approach: running an assessment on the service. This can be
-manual or automatized.
+The effect of building cloud end-to-end tests is an increase in complexity. It can shift to the infrastructure,
+to the software, or to the organization. 
+
+![Where does complexity go?](/img/2026/02/17/where-does-complexity-go.png)
+
+The difference lies in where that complexity is placed.
 
 ### System tests
 
-#### What's it?
+#### What is it?
 
-A job in the CI/CD pipelines that run a series of tests that depend on cloud services. A sort of end-to-end test
-that are part of the project tests.
+A job in the CI/CD pipelines that run a series of tests that depend on cloud services.
+Tests that are part of the project software tests.
 
 #### Pros
 
@@ -56,7 +57,7 @@ Connecting a pipeline job to an environment can be a challenge from the security
 
 ### Playground environments
 
-#### What's it?
+#### What is it?
 
 Allow deploying any *change* on a project on an isolated environment. If you need to test a feature,
 deploy to this *partial mirror* of production, but that only contains the services you want to test.
@@ -100,7 +101,7 @@ be disdained.
 
 ### Pre-production environment
 
-#### What's it?
+#### What is it?
 
 A full mirror of the production systems, with all the dependencies. Changes here are a mandatory step before
 deploying to production. Once you have reached this environment, it is assumed that the code has enough
@@ -198,6 +199,8 @@ In other words: **your infrastructure works fine, but at what cost?**
 None of these testing strategies remove complexity.
 Every strategy moves the complexity to a different place: organization, infrastructure, or software.
 
+![Cloud testing iron triangle](/img/2026/02/17/cloud-testing-complexity.png)
+
 - **System tests**: implementation of end-to-end tests with real infrastructure in your pipeline.
 Keeping in mind that the target environment is owned by the pipeline.
 The early iterations of end-to-end-tests tend to be coupled with the architecture.
@@ -214,9 +217,11 @@ replicating the environment is prohibitive. Complexity stays in the software rea
 However, it will increase: backwards compatibility, migrations, and feature isolation
 will need to be dealt more carefully by software engineers.
 
-Testing is a risk allocating decision, not a resource, nor skill decision.
+![Trade-offs](/img/2026/02/17/trade-offs.png)
 
-Complexity does not disappear when using the cloud, it only centralizes it.
+Testing is not about tooling. It is about where you decide to put the risk.
+
+The cloud does not remove complexity. Complexity is just moved to other part of the system.
 
 [^1]: master or main, meaning your default branch.
 
