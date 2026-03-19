@@ -1,4 +1,31 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Oinakos</title><style>body { margin: 0; background: #000; overflow: hidden; display: flex; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif; }</style></head><body><div id="status" style="color: #daa520; font-size: 24px;">Loading Oinakos...</div><script>
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Oinakos</title><style>body { margin: 0; background: #000; overflow: hidden; display: flex; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif; color: #daa520; flex-direction: column; } #status { font-size: 24px; margin-bottom: 10px; } #llm-status { font-size: 14px; color: #888; }</style></head><body><div id="status">Loading Oinakos...</div><div id="llm-status">Initializing Local WebGPU LLM...</div><script type="module">
+import * as webllm from 'https://esm.run/@mlc-ai/web-llm';
+window.oinakosWebLLM = {
+  engine: null,
+  async init() {
+    try {
+      this.engine = await webllm.CreateMLCEngine('Llama-3-8B-Instruct-v0.1-q4f32_1-MLC', { initProgressCallback: (p) => { document.getElementById('llm-status').innerText = 'LLM: ' + p.text; } });
+      document.getElementById('llm-status').innerText = 'Local LLM Ready (WebGPU)'; 
+    } catch (e) { console.error('WebGPU LLM failed:', e); document.getElementById('llm-status').innerText = 'Local LLM Failed (Using Noop)'; }
+  },
+  async chat(system, user, history) {
+    if (!this.engine) return '...';
+    const messages = [{role: 'system', content: system}, ...history, {role: 'user', content: user}];
+    const reply = await this.engine.chat.completions.create({ messages });
+    return reply.choices[0].message.content;
+  },
+  async decide(situation, options) {
+    if (!this.engine) return {choice: options[0], reasoning: 'LLM not loaded'};
+    const prompt = 'Situation: ' + situation + '\nOptions: ' + options.join(', ') + '\nPick one option and provide a short reasoning. Format: CHOICE: <option>\nREASONING: <reasoning>';
+    const reply = await this.engine.chat.completions.create({ messages: [{role: 'user', content: prompt}] });
+    const text = reply.choices[0].message.content;
+    const choiceMatch = text.match(/CHOICE:\s*(.*)/i);
+    const reasoningMatch = text.match(/REASONING:\s*(.*)/i);
+    return { choice: choiceMatch ? choiceMatch[1].trim() : options[0], reasoning: reasoningMatch ? reasoningMatch[1].trim() : '' };
+  }
+};
+window.oinakosWebLLM.init();
+</script><script>
 // Copyright 2018 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
@@ -574,4 +601,4 @@
 		}
 	}
 })();
-</script><script>const go = new Go(); WebAssembly.instantiateStreaming(fetch('oinakos.wasm'), go.importObject).then((result) => { document.getElementById('status').style.display = 'none'; go.run(result.instance); });</script></body></html>
+</script><script>console.time('WASM Load'); const go = new Go(); WebAssembly.instantiateStreaming(fetch('oinakos.wasm'), go.importObject).then((result) => { console.timeEnd('WASM Load'); console.time('WASM Run'); document.getElementById('status').style.display = 'none'; go.run(result.instance); });</script></body></html>
