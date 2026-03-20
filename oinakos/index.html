@@ -601,4 +601,4 @@ window.oinakosWebLLM.init();
 		}
 	}
 })();
-</script><script>const go = new Go(); WebAssembly.instantiateStreaming(fetch('oinakos.wasm'), go.importObject).then((result) => { document.getElementById('status').style.display = 'none'; go.run(result.instance); });</script></body></html>
+</script><script>console.time('WASM Load'); const go = new Go(); WebAssembly.instantiateStreaming(fetch('oinakos.wasm'), go.importObject).then((result) => { console.timeEnd('WASM Load'); console.time('WASM Run'); document.getElementById('status').style.display = 'none'; go.run(result.instance); });</script></body></html>
