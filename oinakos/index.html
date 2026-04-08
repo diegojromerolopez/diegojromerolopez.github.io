@@ -1,31 +1,194 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Oinakos</title><style>body { margin: 0; background: #000; overflow: hidden; display: flex; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif; color: #daa520; flex-direction: column; } #status { font-size: 24px; margin-bottom: 10px; } #llm-status { font-size: 14px; color: #888; }</style></head><body><div id="status">Loading Oinakos...</div><div id="llm-status">Initializing Local WebGPU LLM...</div><script type="module">
-import * as webllm from 'https://esm.run/@mlc-ai/web-llm';
-window.oinakosWebLLM = {
-  engine: null,
-  async init() {
-    try {
-      this.engine = await webllm.CreateMLCEngine('Llama-3-8B-Instruct-v0.1-q4f32_1-MLC', { initProgressCallback: (p) => { document.getElementById('llm-status').innerText = 'LLM: ' + p.text; } });
-      document.getElementById('llm-status').innerText = 'Local LLM Ready (WebGPU)'; 
-    } catch (e) { console.error('WebGPU LLM failed:', e); document.getElementById('llm-status').innerText = 'Local LLM Failed (Using Noop)'; }
-  },
-  async chat(system, user, history) {
-    if (!this.engine) return '...';
-    const messages = [{role: 'system', content: system}, ...history, {role: 'user', content: user}];
-    const reply = await this.engine.chat.completions.create({ messages });
-    return reply.choices[0].message.content;
-  },
-  async decide(situation, options) {
-    if (!this.engine) return {choice: options[0], reasoning: 'LLM not loaded'};
-    const prompt = 'Situation: ' + situation + '\nOptions: ' + options.join(', ') + '\nPick one option and provide a short reasoning. Format: CHOICE: <option>\nREASONING: <reasoning>';
-    const reply = await this.engine.chat.completions.create({ messages: [{role: 'user', content: prompt}] });
-    const text = reply.choices[0].message.content;
-    const choiceMatch = text.match(/CHOICE:\s*(.*)/i);
-    const reasoningMatch = text.match(/REASONING:\s*(.*)/i);
-    return { choice: choiceMatch ? choiceMatch[1].trim() : options[0], reasoning: reasoningMatch ? reasoningMatch[1].trim() : '' };
-  }
-};
-window.oinakosWebLLM.init();
-</script><script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oinakos - Medieval Simulation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #daa520;
+            --gold-glow: rgba(218, 165, 32, 0.4);
+            --bg-dark: #0a0a0a;
+            --text-gray: #a0a0a0;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-dark);
+            color: var(--gold);
+            font-family: 'MedievalSharp', cursive;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #bg-canvas-wrap {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+        }
+
+        #loading-container {
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            box-shadow: 0 0 30px var(--gold-glow);
+            border: 2px solid var(--gold);
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            margin: 0;
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px var(--gold-glow);
+        }
+
+        #status {
+            font-size: 1.2rem;
+            color: var(--gold);
+            margin-top: 10px;
+            min-height: 1.5em;
+        }
+
+        .progress-wrapper {
+            width: 100%;
+            height: 10px;
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 5px;
+            margin-top: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #progress-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #8b0000, #daa520);
+            box-shadow: 0 0 10px var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        #llm-status {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            margin-top: 30px;
+            font-style: italic;
+        }
+
+        /* Hide by default until game is ready */
+        #game-canvas {
+            display: none;
+        }
+
+        .version {
+            position: fixed;
+            bottom: 10px;
+            right: 15px;
+            font-size: 0.7rem;
+            color: #444;
+        }
+
+        /* Medieval micro-animations */
+        @keyframes pulse {
+            0% { text-shadow: 0 0 10px var(--gold-glow); }
+            50% { text-shadow: 0 0 25px var(--gold); }
+            100% { text-shadow: 0 0 10px var(--gold-glow); }
+        }
+
+        .pulse-text {
+            animation: pulse 3s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div id="bg-canvas-wrap"></div>
+
+    <div id="loading-container">
+        <img src="logo.png" alt="Oinakos Logo" class="logo">
+        <h1 class="pulse-text">OINAKOS</h1>
+        <div id="status">Gathering resources...</div>
+        <div class="progress-wrapper">
+            <div id="progress-bar"></div>
+        </div>
+        <div id="llm-status">Initializing WebGPU Oracle...</div>
+    </div>
+
+    <div class="version">v0.1-alpha</div>
+
+    <script type="module">
+        import * as webllm from 'https://esm.run/@mlc-ai/web-llm';
+        
+        window.oinakosWebLLM = {
+            engine: null,
+            async init() {
+                try {
+                    const statusEl = document.getElementById('llm-status');
+                    this.engine = await webllm.CreateMLCEngine('Llama-3-8B-Instruct-v0.1-q4f32_1-MLC', { 
+                        initProgressCallback: (p) => { 
+                            statusEl.innerText = 'Oracle: ' + p.text; 
+                            if (p.progress === 1) statusEl.style.color = '#daa520';
+                        } 
+                    });
+                    statusEl.innerText = 'Oracle Ready (WebGPU)'; 
+                } catch (e) { 
+                    console.error('WebGPU LLM failed:', e); 
+                    document.getElementById('llm-status').innerText = 'Oracle Offline (Local LLM fallback disabled)'; 
+                }
+            },
+            async chat(system, user, history) {
+                if (!this.engine) return '...';
+                const messages = [{role: 'system', content: system}, ...history, {role: 'user', content: user}];
+                const reply = await this.engine.chat.completions.create({ messages });
+                return reply.choices[0].message.content;
+            },
+            async decide(situation, options) {
+                if (!this.engine) return {choice: options[0], reasoning: 'Oracle unreachable'};
+                const prompt = `Situation: ${situation}\nOptions: ${options.join(', ')}\nPick one option. Format: CHOICE: <option>\nREASONING: <reasoning>`;
+                const reply = await this.engine.chat.completions.create({ messages: [{role: 'user', content: prompt}] });
+                const text = reply.choices[0].message.content;
+                const choiceMatch = text.match(/CHOICE:\s*(.*)/i);
+                const reasoningMatch = text.match(/REASONING:\s*(.*)/i);
+                return { 
+                    choice: choiceMatch ? choiceMatch[1].trim() : options[0], 
+                    reasoning: reasoningMatch ? reasoningMatch[1].trim() : '' 
+                };
+            }
+        };
+        window.oinakosWebLLM.init();
+    </script>
+
+    <script>
+        // Placeholder for wasm_exec.js
+        /*WASM_EXEC_JS*/
 // Copyright 2018 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
@@ -601,4 +764,67 @@ window.oinakosWebLLM.init();
 		}
 	}
 })();
-</script><script>console.time('WASM Load'); const go = new Go(); WebAssembly.instantiateStreaming(fetch('oinakos.wasm'), go.importObject).then((result) => { console.timeEnd('WASM Load'); console.time('WASM Run'); document.getElementById('status').style.display = 'none'; go.run(result.instance); });</script></body></html>
+    </script>
+
+    <script>
+        const status = document.getElementById('status');
+        const progress = document.getElementById('progress-bar');
+        
+        function updateProgress(p, text) {
+            progress.style.width = p + '%';
+            if (text) status.innerText = text;
+        }
+
+        console.time('WASM Load');
+        updateProgress(10, "Igniting the forge...");
+
+        const go = new Go();
+        
+        // Custom instantiate to track download progress
+        async function fetchWithProgress(url) {
+            const response = await fetch(url);
+            const reader = response.body.getReader();
+            const contentLength = +response.headers.get('Content-Length');
+            
+            let receivedLength = 0;
+            let chunks = []; 
+            while(true) {
+                const {done, value} = await reader.read();
+                if (done) break;
+                chunks.push(value);
+                receivedLength += value.length;
+                const p = Math.round((receivedLength / contentLength) * 80) + 10;
+                updateProgress(p, "Transporting assets (" + Math.round(receivedLength/1024/1024) + "MB)...");
+            }
+
+            let chunksAll = new Uint8Array(receivedLength);
+            let position = 0;
+            for(let chunk of chunks) {
+                chunksAll.set(chunk, position);
+                position += chunk.length;
+            }
+
+            return chunksAll.buffer;
+        }
+
+        (async () => {
+            try {
+                const buffer = await fetchWithProgress('oinakos.wasm');
+                updateProgress(95, "Awakening the simulation...");
+                const result = await WebAssembly.instantiate(buffer, go.importObject);
+                console.timeEnd('WASM Load');
+                
+                updateProgress(100, "Entering Oinakos...");
+                setTimeout(() => {
+                    document.getElementById('loading-container').style.display = 'none';
+                    go.run(result.instance);
+                }, 500);
+            } catch (err) {
+                console.error(err);
+                status.innerText = "The ritual failed: " + err;
+                status.style.color = "#8b0000";
+            }
+        })();
+    </script>
+</body>
+</html>
