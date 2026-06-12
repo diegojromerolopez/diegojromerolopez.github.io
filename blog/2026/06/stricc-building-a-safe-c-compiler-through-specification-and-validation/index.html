@@ -1,0 +1,286 @@
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>stricc: Building a Safe C Compiler Through Specification and Validation - Diego J.'s Software Tar Pit</title>
+<meta name=description content="stricc: A Specification-Driven Compiler Experiment I have created a C compiler that has improved features on safety and defined behavior.
+Introduction In this post I am going to show how it is possible to create software where your knowledge of the domain and my Rust programming language skill are both limited. I will show how with a good spec, a validation process, and a Large Language Model (LLM) it can be done.">
+<meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/06\/stricc-building-a-safe-c-compiler-through-specification-and-validation\/","name":"Stricc building a safe c compiler through specification and validation"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"stricc: Building a Safe C Compiler Through Specification and Validation","description":"stricc: A Specification-Driven Compiler Experiment I have created a C compiler that has improved features on safety and defined behavior.\nIntroduction In this post I am going to show how it is possible to create software where your knowledge of the domain and my Rust programming language skill are both limited. I will show how with a good spec, a validation process, and a Large Language Model (LLM) it can be done.","inLanguage":"en","wordCount":944,"datePublished":"2026-06-12T00:00:00","dateModified":"2026-06-12T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["llm, software engineering"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/06\/stricc-building-a-safe-c-compiler-through-specification-and-validation\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
+<meta property="og:title" content="stricc: Building a Safe C Compiler Through Specification and Validation">
+<meta property="og:description" content="stricc: A Specification-Driven Compiler Experiment I have created a C compiler that has improved features on safety and defined behavior.
+Introduction In this post I am going to show how it is possible to create software where your knowledge of the domain and my Rust programming language skill are both limited. I will show how with a good spec, a validation process, and a Large Language Model (LLM) it can be done.">
+<meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2026/06/stricc-building-a-safe-c-compiler-through-specification-and-validation/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Diego J.'s Software Tar Pit">
+<meta name=twitter:title content="stricc: Building a Safe C Compiler Through Specification and …">
+<meta name=twitter:description content="stricc: A Specification-Driven Compiler Experiment I have created a C compiler that has improved features on safety and defined behavior.
+Introduction In this post I am going to show how it is …">
+<meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:site content="@diegojromerolop">
+<meta name=twitter:creator content="@diegojromerolop">
+<link href=https://diegojromerolopez.github.io/img/favicon.ico rel=icon type=image/x-icon>
+<meta name=generator content="Hugo 0.91.2">
+<link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=https://diegojromerolopez.github.io/css/katex.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/fontawesome/css/all.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/bootstrap.min.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/main.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/fonts.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/syntax.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/codeblock.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.min.css>
+<link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.default-skin.min.css>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+<div class=container-fluid>
+<div class=navbar-header>
+<button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</div>
+<div class="collapse navbar-collapse" id=main-navbar>
+<ul class="nav navbar-nav navbar-right">
+<li>
+<a title=Blog href=/>Blog</a>
+</li>
+<li>
+<a title=About href=/page/about/>About</a>
+</li>
+<li>
+<a title=CV href=/cv.pdf>CV</a>
+</li>
+<li>
+<a title=Tags href=/tags>Tags</a>
+</li>
+<li>
+<a href=/es lang=es>es</a>
+</li>
+</ul>
+</div>
+<div class=avatar-container>
+<div class=avatar-img-border>
+<a title="Diego J.'s Software Tar Pit" href=https://diegojromerolopez.github.io>
+<img class=avatar-img src=https://diegojromerolopez.github.io/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit">
+</a>
+</div>
+</div>
+</div>
+</nav>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div>
+<header class=header-section>
+<div class="intro-header no-img">
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class=post-heading>
+<h1>stricc: Building a Safe C Compiler Through Specification and Validation</h1>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;Posted on June 12, 2026
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class=container role=main>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<article role=main class=blog-post>
+<h1 id=stricc-a-specification-driven-compiler-experiment>stricc: A Specification-Driven Compiler Experiment</h1>
+<p>I have created a C compiler that has improved features on safety and defined behavior.</p>
+<h2 id=introduction>Introduction</h2>
+<p>In this post I am going to show how it is possible to create software where your knowledge of the domain
+and my Rust programming language skill are both limited. I will show how with a good spec, a validation process,
+and a Large Language Model (LLM) it can be done.</p>
+<h2 id=stricc>stricc</h2>
+<p><a href=https://github.com/diegojromerolopez/stricc>stricc</a> a safe C compiler built with <a href=https://rust-lang.org/>Rust</a>
+and <a href=https://llvm.org/>LLVM</a>.</p>
+<p>This compiler has been built by defining a <a href=https://github.com/diegojromerolopez/stricc/blob/main/PLAN.md>spec</a>
+and minor prompts LLMs.</p>
+<p>Let me be clear that I have no working experience in compilers (although I have some theoretical knowledge)
+nor much experience in Rust (I did some examples of the tutorial).
+But I know what to ask, and I have the foundations on compiler construction, so I am able to understand the different types of
+undefined behaviors that <em>plague</em> the specification of the C programming language.</p>
+<p>stricc has a test harness with integration tests that check all the safety and fixed undefined behaviors. It also runs the GCC and
+llvm <a href=https://github.com/diegojromerolopez/stricc/tree/main/stricc/tests>test suites</a>. It should have enough quality to work.
+This test harness is one of the foundational parts of the development process. Without a validation process,
+there is no possible win.
+In this case, as the C programming language is popular, there are multiple test suites, so I decided to rely on those.</p>
+<h3 id=project-facts>Project facts</h3>
+<ul>
+<li>Around 12068 lines of Rust.
+<ul>
+<li>Compiler code: 9720 lines.</li>
+<li>Tests: 2348 lines.</li>
+</ul>
+</li>
+<li>Developed over 8 days.</li>
+<li>33 tests in verifying defined behaviors.</li>
+<li>31 tests in verifying that runtime safety traps cleanly abort execution.</li>
+<li>144 Rust unit tests checking individual compiler components.</li>
+<li>Uses GCC Test Suite (over 1500 tests) and LLVM SingleSource Unit Tests.</li>
+<li>No manual review of most generated code.</li>
+</ul>
+<h3 id=lessons-learned>Lessons learned</h3>
+<h4 id=spec-is-an-iterative-process>Spec is an iterative process</h4>
+<p>As I said earlier, the specification was most of the time spent on the project. If I am honest, I had to prompt some formatting
+and linter changes by hand after the spec was done.</p>
+<p>If I would have to do it again, I would devote even more time to the spec, and I would run a proof-of-concept based on the spec,
+to check if I am missing anything. If not, you could end up just doing prompting again (even if it is for small details).</p>
+<h4 id=llms-can-help-you-with-the-domain>LLMs can help you with the domain</h4>
+<p>In this case, the domain is undefined behavior in the C programming language. The last time I touched some C code is more than 20
+years ago. So I had to rely on the knowledge of the LLM to list me all the safety issues the C programming language has.</p>
+<p>Instead of spending a week investigating, you can just ask the LLM for information. True, you need to check it out, because maybe it
+hallucinates, but when we are talking about source code that can be checked with a test, hallucinations can be detected, and
+more importantly, they can be detected automatically.</p>
+<h4 id=ensure-llm-feedback>Ensure LLM feedback</h4>
+<p>As the LLMs are non-deterministic, we need a deterministic feedback mechanism that tells the LLM if the
+generated code is right or wrong. The specification is not enough. This is the validation harness, the tests and all other
+automated linters and code analyzers that can ensure code stability.</p>
+<p>In my case, I ordered the AI to implement the solutions for the undefined behaviors one by one, and to always create a test
+and have it in place after the implementation is done. There is no other way to ensure the functionality is not lost.</p>
+<p>In this case, having the GCC and LLVM test suites was a lifesaver. The LLM was the one to suggest me to use these suites,
+and it was a great surprise to discover that there are a lot of tests that ensure correct functionality for a compiler.</p>
+<h4 id=for-some-domains-code-does-not-need-to-be-understood-line-by-line-anymore>(For some domains) Code does not need to be understood line-by-line anymore</h4>
+<p>I have not reviewed the Rust code. I have given some guidelines, but I have not actively
+make an effort to understand every line of the project.</p>
+<p>I am relying on the validation (the test harness) to ensure that the code fulfill its function.</p>
+<p>However, I would be more sure about the code if:</p>
+<ul>
+<li>The test coverage was 100%. I know that the test coverage does not mean much, and you can have dummy tests, but
+it is a minimal assurance.</li>
+<li>I should have compiled popular programs in C (Sqlite or Doom can be good examples).</li>
+</ul>
+<p>But the thing is that I could do that using LLMs.</p>
+<p>As with the binary code that is generated by a compiler, we are moving towards an era where the source code
+has most of its value in its validation.</p>
+<p>Having said that, I am a defender of full code reviews for industries like medicine, defense, or finance.</p>
+<h4 id=llms-empower-software-engineers>LLMs empower software engineers</h4>
+<p>I spent some hours in the evenings for a week to have a functional compiler. In summer 2022 this would have been impossible.</p>
+<h2 id=conclusion>Conclusion</h2>
+<p>Start by defining the minimal requirements and work for a while in your specification document. Include what you want and what you
+do not want. Iterate and refine the specification document until you all the functionality and all the technical decisions described.
+Do not rush when working on the spec.</p>
+<p>Do not forget to add to the spec the architectural, design, format, and any other decisions you want the LLM to take.</p>
+<p>Make sure you have a test harness that can check every change in a loop.</p>
+<p>In stricc, implementation was not the bottleneck of the process. The main pieces were specification and validation.</p>
+<div class=blog-tags>
+<a href=https://diegojromerolopez.github.io/tags/llm/>llm</a>&nbsp;
+<a href=https://diegojromerolopez.github.io/tags/software-engineering/>software engineering</a>&nbsp;
+</div>
+</article>
+<ul class="pager blog-pager">
+<li class=previous>
+<a href=https://diegojromerolopez.github.io/blog/2026/05/llm-mental-fatigue/ data-toggle=tooltip data-placement=top title="LLM mental fatigue">&larr; Previous Post</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<footer>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<ul class="list-inline text-center footer-links">
+<li>
+<a href=mailto:diegojromerolopez@gmail.com title="Email me">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://github.com/diegojromerolopez title=GitHub>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://twitter.com/diegojromerolop title=Twitter>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href=https://linkedin.com/in/diegojromerolopez title=LinkedIn>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a href title=RSS>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+</ul>
+<p class="credits copyright text-muted">
+Diego J. Romero-López
+&nbsp;&bull;&nbsp;&copy;
+2026
+&nbsp;&bull;&nbsp;
+<a href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
+</p>
+<p class="credits theme-by text-muted">
+<a href=https://gohugo.io>Hugo v0.91.2</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
+</p>
+</div>
+</div>
+</div>
+</footer><script src=https://diegojromerolopez.github.io/js/katex.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/auto-render.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/jquery-3.5.1.slim.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/bootstrap.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/main.js></script><script>renderMathInElement(document.body)</script><script src=https://diegojromerolopez.github.io/js/photoswipe.min.js></script>
+<script src=https://diegojromerolopez.github.io/js/photoswipe-ui-default.min.js></script><script src=https://diegojromerolopez.github.io/js/load-photoswipe.js></script>
+</body>
+</html>
