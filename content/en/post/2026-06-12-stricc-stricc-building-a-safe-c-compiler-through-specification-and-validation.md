@@ -1,0 +1,106 @@
+---
+title: "stricc: Building a Safe C Compiler Through Specification and Validation"
+date: "2026-06-12T00:00:00+02:00"
+draft: false
+tags: ["llm", "software engineering"]
+---
+
+# stricc: Building a Safe C Compiler Through Specification and Validation
+I have created a C compiler that has improved features on safety and defined behavior.
+I am not an expert in Rust, not in compiler construction. How have I done it?
+
+## Introduction
+In this post I am going to show how it is possible to create software where your knowledge of the domain
+and my Rust programming language skill are both limited. I will show how with a good spec, a validation process,
+and a Large Language Model (LLM) it can be done.
+
+## stricc
+[stricc](https://github.com/diegojromerolopez/stricc) a safe C compiler built with [Rust](https://rust-lang.org/)
+and [LLVM](https://llvm.org/).
+
+This compiler has been built by defining a [spec](https://github.com/diegojromerolopez/stricc/blob/main/PLAN.md)
+and minor prompts LLMs.
+
+Let me be clear that I have no working experience in compilers (although I have some theoretical knowledge)
+nor much experience in Rust (I did some examples of the tutorial).
+But I know what to ask, and I have the foundations on compiler construction, so I am able to understand the different types of
+undefined behaviors that *plague* the specification of the C programming language.
+
+stricc has a test harness with integration tests that check all the safety and fixed undefined behaviors. It also runs the GCC and
+llvm [test suites](https://github.com/diegojromerolopez/stricc/tree/main/stricc/tests). It should have enough quality to work.
+This test harness is one of the foundational parts of the development process. Without a validation process,
+there is no possible win.
+In this case, as the C programming language is popular, there are multiple test suites, so I decided to rely on those.
+
+### Project facts
+
+- Around 12068 lines of Rust.
+  - Compiler code: 9720 lines.
+  - Tests: 2348 lines.
+- Developed over 8 days.
+- 33 tests in verifying defined behaviors.
+- 31 tests in verifying that runtime safety traps cleanly abort execution.
+- 144 Rust unit tests checking individual compiler components.
+- Uses GCC Test Suite (over 1500 tests) and LLVM SingleSource Unit Tests.
+- No manual review of most generated code.
+
+### Lessons learned
+
+#### Spec is an iterative process
+As I said earlier, the specification was most of the time spent on the project. If I am honest, I had to prompt some formatting
+and linter changes by hand after the spec was done.
+
+If I would have to do it again, I would devote even more time to the spec, and I would run a proof-of-concept based on the spec,
+to check if I am missing anything. If not, you could end up just doing prompting again (even if it is for small details).
+
+#### LLMs can help you with the domain
+In this case, the domain is undefined behavior in the C programming language. The last time I touched some C code is more than 20
+years ago. So I had to rely on the knowledge of the LLM to list me all the safety issues the C programming language has.
+
+Instead of spending a week investigating, you can just ask the LLM for information. True, you need to check it out, because maybe it
+hallucinates, but when we are talking about source code that can be checked with a test, hallucinations can be detected, and
+more importantly, they can be detected automatically.
+
+#### Ensure LLM feedback
+As the LLMs are non-deterministic, we need a deterministic feedback mechanism that tells the LLM if the
+generated code is right or wrong. The specification is not enough. This is the validation harness, the tests and all other
+automated linters and code analyzers that can ensure code stability.
+
+In my case, I ordered the AI to implement the solutions for the undefined behaviors one by one, and to always create a test
+and have it in place after the implementation is done. There is no other way to ensure the functionality is not lost.
+
+In this case, having the GCC and LLVM test suites was a lifesaver. The LLM was the one to suggest me to use these suites,
+and it was a great surprise to discover that there are a lot of tests that ensure correct functionality for a compiler.
+
+#### (For some domains) Code does not need to be understood line-by-line anymore
+I have not reviewed the Rust code. I have given some guidelines, but I have not actively
+make an effort to understand every line of the project.
+
+I am relying on the validation (the test harness) to ensure that the code fulfill its function.
+
+However, I would be more sure about the code if:
+
+- The test coverage was 100%. I know that the test coverage does not mean much, and you can have dummy tests, but
+it is a minimal assurance.
+- I should have compiled popular programs in C (Sqlite or Doom can be good examples).
+
+But the thing is that I could do that using LLMs.
+
+As with the binary code that is generated by a compiler, we are moving towards an era where the source code
+has most of its value in its validation.
+
+Having said that, I am a defender of full code reviews for industries like medicine, defense, or finance.
+
+#### LLMs empower software engineers
+I spent some hours in the evenings for a week to have a functional compiler. In summer 2022 this would have been impossible.
+
+## Conclusion
+Start by defining the minimal requirements and work for a while in your specification document. Include what you want and what you
+do not want. Iterate and refine the specification document until you all the functionality and all the technical decisions described.
+Do not rush when working on the spec.
+
+Do not forget to add to the spec the architectural, design, format, and any other decisions you want the LLM to take.
+
+Make sure you have a test harness that can check every change in a loop.
+
+In stricc, implementation was not the bottleneck of the process. The main pieces were specification and validation.
