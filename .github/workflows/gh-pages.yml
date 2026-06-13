@@ -24,7 +24,12 @@ jobs:
           extended: true
 
       - name: Install Dart Sass
-        run: npm install -g sass
+        run: |
+          curl -L https://github.com/sass/dart-sass/releases/download/1.77.5/dart-sass-1.77.5-linux-x64.tar.gz -o dart-sass.tar.gz
+          tar -xzf dart-sass.tar.gz
+          sudo cp -rf dart-sass /usr/local/share/
+          sudo ln -sf /usr/local/share/dart-sass/sass /usr/local/bin/sass
+          rm -rf dart-sass.tar.gz dart-sass
 
       - name: Build
         run: hugo --minify
