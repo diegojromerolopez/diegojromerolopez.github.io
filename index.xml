@@ -1,36 +1,36 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Diego J.'s Software Tar Pit</title><link>https://diegojromerolopez.github.io/</link><description>Recent content on Diego J.'s Software Tar Pit</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 12 Jun 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://diegojromerolopez.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>stricc: Building a Safe C Compiler Through Specification and Validation</title><link>https://diegojromerolopez.github.io/blog/2026/06/stricc-building-a-safe-c-compiler-through-specification-and-validation/</link><pubDate>Fri, 12 Jun 2026 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2026/06/stricc-building-a-safe-c-compiler-through-specification-and-validation/</guid><description>&lt;p&gt;I have created a C compiler that has improved features on safety and defined behavior.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Diego J.'s Software Tar Pit</title><link>https://diegojromerolopez.github.io/</link><description>Recent content on Diego J.'s Software Tar Pit</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 12 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://diegojromerolopez.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>stricc: Building a Safe C Compiler Through Specification and Validation</title><link>https://diegojromerolopez.github.io/blog/2026/06/stricc-building-a-safe-c-compiler-through-specification-and-validation/</link><pubDate>Fri, 12 Jun 2026 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2026/06/stricc-building-a-safe-c-compiler-through-specification-and-validation/</guid><description>&lt;p&gt;I have created a C compiler that has improved features on safety and defined behavior.
 I am not an expert in Rust, not in compiler construction. How have I done it?&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In this post I am going to show how it is possible to create software where your knowledge of the domain
 and my Rust programming language skill are both limited. I will show how with a good spec, a validation process,
-and a Large Language Model (LLM) it can be done.&lt;/p&gt;</description></item><item><title>LLM mental fatigue</title><link>https://diegojromerolopez.github.io/blog/2026/05/llm-mental-fatigue/</link><pubDate>Sun, 17 May 2026 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2026/05/llm-mental-fatigue/</guid><description>&lt;p&gt;LLMs (Large Language Models) provide a wonderful tool for the construction of software
+and a Large Language Model (LLM) it can be done.&lt;/p&gt;</description></item><item><title>LLM mental fatigue</title><link>https://diegojromerolopez.github.io/blog/2026/05/llm-mental-fatigue/</link><pubDate>Sun, 17 May 2026 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2026/05/llm-mental-fatigue/</guid><description>&lt;p&gt;LLMs (Large Language Models) provide a wonderful tool for the construction of software
 that speed up the process of coding. But are there some downsides to them?&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;The past 3 years have been a total change in the software engineering discipline,
 first the AI-based autocomplete, then the LLM-based code generation.
 Now, non-software engineers are creating and releasing software &lt;em&gt;in the wild&lt;/em&gt;, and
-software engineers are being pressured to produce software faster.&lt;/p&gt;</description></item><item><title>Using LLMs on an unknown domain</title><link>https://diegojromerolopez.github.io/blog/2026/04/using-llms-on-an-unknown-domain/</link><pubDate>Sat, 11 Apr 2026 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2026/04/using-llms-on-an-unknown-domain/</guid><description>&lt;p&gt;We often hear that Large Language Models (LLMs) empower engineers by augmenting their existing
+software engineers are being pressured to produce software faster.&lt;/p&gt;</description></item><item><title>Using LLMs on an unknown domain</title><link>https://diegojromerolopez.github.io/blog/2026/04/using-llms-on-an-unknown-domain/</link><pubDate>Sat, 11 Apr 2026 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2026/04/using-llms-on-an-unknown-domain/</guid><description>&lt;p&gt;We often hear that Large Language Models (LLMs) empower engineers by augmenting their existing
 expertise. But what happens when the engineer is a complete novice in the domain? Can a LLM be more
 than just a powerful autocomplete? Can it be a partner when developing for a domain
 you have never touched?&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I have been &amp;ldquo;vibe coding&amp;rdquo; extensively for the last six months. My background is primarily in web
 technologies, but I decided to push the limits: build a desktop application in a language I have
-&lt;em&gt;played around&lt;/em&gt; but don&amp;rsquo;t consider my &amp;ldquo;forte&amp;rdquo;. So I decided to use golang to develop a videogame.&lt;/p&gt;</description></item><item><title>Cloud-Only Testing: Convenience vs Risk</title><link>https://diegojromerolopez.github.io/blog/2026/02/cloud-only-testing-convenience-vs-risk/</link><pubDate>Tue, 17 Feb 2026 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2026/02/cloud-only-testing-convenience-vs-risk/</guid><description>&lt;p&gt;The cloud did not removed complexity, it only centralized it.&lt;/p&gt;
+&lt;em&gt;played around&lt;/em&gt; but don&amp;rsquo;t consider my &amp;ldquo;forte&amp;rdquo;. So I decided to use golang to develop a videogame.&lt;/p&gt;</description></item><item><title>Cloud-Only Testing: Convenience vs Risk</title><link>https://diegojromerolopez.github.io/blog/2026/02/cloud-only-testing-convenience-vs-risk/</link><pubDate>Tue, 17 Feb 2026 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2026/02/cloud-only-testing-convenience-vs-risk/</guid><description>&lt;p&gt;The cloud did not removed complexity, it only centralized it.&lt;/p&gt;
 &lt;p&gt;The infrastructure became more programmable, flexible, scalable, and abstracted.
 But that did not mean that the systems became simpler.&lt;/p&gt;
 &lt;h2 id="architecting-for-the-cloud"&gt;Architecting for the cloud&lt;/h2&gt;
 &lt;p&gt;The cloud companies were born as a way to reduce complexity for the engineering teams.
 However, the complexity was not removed, but moved from the engineering teams to the cloud systems.&lt;/p&gt;
 &lt;p&gt;But creating complex architectures in the cloud has a clear counterpart: how can we ensure they work properly?
-How can we make sure that our solution does the right thing, and is sufficiently performant?&lt;/p&gt;</description></item><item><title>Creating a complex project with LLMs</title><link>https://diegojromerolopez.github.io/blog/2026/02/creating-a-complex-project-with-llms/</link><pubDate>Mon, 09 Feb 2026 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2026/02/creating-a-complex-project-with-llms/</guid><description>&lt;p&gt;I have been using Gemini for a while and I was up for a challenge of creating a complex
+How can we make sure that our solution does the right thing, and is sufficiently performant?&lt;/p&gt;</description></item><item><title>Creating a complex project with LLMs</title><link>https://diegojromerolopez.github.io/blog/2026/02/creating-a-complex-project-with-llms/</link><pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2026/02/creating-a-complex-project-with-llms/</guid><description>&lt;p&gt;I have been using Gemini for a while and I was up for a challenge of creating a complex
 project with microservices for testing their capabilities, so I created a scalable scraper.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Some years ago I worked at a company that had a scraper. The architecture was already in place
 and I had to fix scalability issues, release it to AWS, and create a user interface.&lt;/p&gt;
 &lt;p&gt;The other day I thought about using LLMs to replicate the project and talk about the experience.
 So I have been working with Gemini, and I have I created a scraper
-(&lt;a href="https://github.com/diegojromerolopez/isidorus-web-scraper"&gt;Isidorus Web Scraper&lt;/a&gt;) that could run in AWS with minimal configuration and that would perform well.&lt;/p&gt;</description></item><item><title>Release always, even partial features</title><link>https://diegojromerolopez.github.io/blog/2026/02/release-always-even-partial-features/</link><pubDate>Sun, 08 Feb 2026 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2026/02/release-always-even-partial-features/</guid><description>&lt;p&gt;Have you wondered what to do when a feature takes more time than the scheduled one?
+(&lt;a href="https://github.com/diegojromerolopez/isidorus-web-scraper"&gt;Isidorus Web Scraper&lt;/a&gt;) that could run in AWS with minimal configuration and that would perform well.&lt;/p&gt;</description></item><item><title>Release always, even partial features</title><link>https://diegojromerolopez.github.io/blog/2026/02/release-always-even-partial-features/</link><pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2026/02/release-always-even-partial-features/</guid><description>&lt;p&gt;Have you wondered what to do when a feature takes more time than the scheduled one?
 What can you do if you reach the deadline but the feature is incomplete?&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In this post I will tell an early in my career story when
@@ -38,7 +38,7 @@ I first learned that the release of anything is always
 better than release nothing.&lt;/p&gt;
 &lt;h2 id="the-contract"&gt;The contract&lt;/h2&gt;
 &lt;p&gt;There was a contact where the company I worked for at that time, needed to provide a web service
-to a local branch of one of the most important companies in the world of c&amp;hellip;&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;</description></item><item><title>How to use LLM context to upgrade your project</title><link>https://diegojromerolopez.github.io/blog/2026/01/how-to-use-llm-context-to-upgrade-your-project/</link><pubDate>Sun, 25 Jan 2026 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2026/01/how-to-use-llm-context-to-upgrade-your-project/</guid><description>&lt;p&gt;In this post we pick up a Python 2.0 project and show how to use a
+to a local branch of one of the most important companies in the world of c&amp;hellip;&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;</description></item><item><title>How to use LLM context to upgrade your project</title><link>https://diegojromerolopez.github.io/blog/2026/01/how-to-use-llm-context-to-upgrade-your-project/</link><pubDate>Sun, 25 Jan 2026 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2026/01/how-to-use-llm-context-to-upgrade-your-project/</guid><description>&lt;p&gt;In this post we pick up a Python 2.0 project and show how to use a
 &lt;a href="https://en.wikipedia.org/wiki/Large_language_model"&gt;LLM&lt;/a&gt; to upgrade a software project.
 This time we will be using contexts.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
@@ -51,14 +51,14 @@ for the developers&lt;/p&gt;
 the backend of Djanban was implemented in
 &lt;a href="https://www.python.org/doc/sunset-python-2/"&gt;Python 2.0&lt;/a&gt; and Django 1.11.
 Python 2 has been outdated for 6 years now and is not used anymore. Django is now in version
-&lt;a href="https://docs.djangoproject.com/en/6.0/releases/6.0.1/"&gt;6.0.1&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>How to minimize tech debt from the start</title><link>https://diegojromerolopez.github.io/blog/2026/01/how-to-minimize-tech-debt-from-the-start/</link><pubDate>Sat, 24 Jan 2026 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2026/01/how-to-minimize-tech-debt-from-the-start/</guid><description>&lt;p&gt;In this post we are going to lay some guidelines about how to prevent your project of accumulating tech debt.&lt;/p&gt;
+&lt;a href="https://docs.djangoproject.com/en/6.0/releases/6.0.1/"&gt;6.0.1&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>How to minimize tech debt from the start</title><link>https://diegojromerolopez.github.io/blog/2026/01/how-to-minimize-tech-debt-from-the-start/</link><pubDate>Sat, 24 Jan 2026 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2026/01/how-to-minimize-tech-debt-from-the-start/</guid><description>&lt;p&gt;In this post we are going to lay some guidelines about how to prevent your project of accumulating tech debt.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Tech debt has been a constant in all my work. All projects I have started working with had an amount of tech debt.
 Why does this happen? And better yet, what can we do to avoid falling on this tech debt trap?&lt;/p&gt;
 &lt;h2 id="what-is-tech-debt"&gt;What is tech debt?&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Technical_debt"&gt;Tech debt&lt;/a&gt; was a metaphor created by
 &lt;a href="https://en.wikipedia.org/wiki/Ward_Cunningham"&gt;Ward Cunningham&lt;/a&gt; to help non-technical people
-the necessity of investing resources in keeping the software projects with the lesser level of accidental complexity possible.&lt;/p&gt;</description></item><item><title>How to use a LLM to upgrade your project</title><link>https://diegojromerolopez.github.io/blog/2026/01/how-to-use-a-llm-to-upgrade-your-project/</link><pubDate>Mon, 12 Jan 2026 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2026/01/how-to-use-a-llm-to-upgrade-your-project/</guid><description>&lt;p&gt;In this post we pick up a Python 2.0 project and show how to use a
+the necessity of investing resources in keeping the software projects with the lesser level of accidental complexity possible.&lt;/p&gt;</description></item><item><title>How to use a LLM to upgrade your project</title><link>https://diegojromerolopez.github.io/blog/2026/01/how-to-use-a-llm-to-upgrade-your-project/</link><pubDate>Mon, 12 Jan 2026 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2026/01/how-to-use-a-llm-to-upgrade-your-project/</guid><description>&lt;p&gt;In this post we pick up a Python 2.0 project and show how to use a
 &lt;a href="https://en.wikipedia.org/wiki/Large_language_model"&gt;LLM&lt;/a&gt; to upgrade a software project.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I will upgrade the &lt;a href="https://github.com/diegojromerolopez/djanban"&gt;Djanban&lt;/a&gt; project
@@ -70,7 +70,7 @@ for the developers&lt;/p&gt;
 the backend of Djanban was implemented in
 &lt;a href="https://www.python.org/doc/sunset-python-2/"&gt;Python 2.0&lt;/a&gt; and Django 1.11.
 Python 2 has been outdated for 6 years now and is not used anymore. Django is now in version
-&lt;a href="https://docs.djangoproject.com/en/6.0/releases/6.0.1/"&gt;6.0.1&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>How NOT to use a LLM to upgrade your project</title><link>https://diegojromerolopez.github.io/blog/2026/01/how-not-to-use-a-llm-to-upgrade-your-project/</link><pubDate>Sun, 11 Jan 2026 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2026/01/how-not-to-use-a-llm-to-upgrade-your-project/</guid><description>&lt;p&gt;In this post we pick up a Python 2 project and show how &lt;strong&gt;NOT&lt;/strong&gt; to use a
+&lt;a href="https://docs.djangoproject.com/en/6.0/releases/6.0.1/"&gt;6.0.1&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>How NOT to use a LLM to upgrade your project</title><link>https://diegojromerolopez.github.io/blog/2026/01/how-not-to-use-a-llm-to-upgrade-your-project/</link><pubDate>Sun, 11 Jan 2026 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2026/01/how-not-to-use-a-llm-to-upgrade-your-project/</guid><description>&lt;p&gt;In this post we pick up a Python 2 project and show how &lt;strong&gt;NOT&lt;/strong&gt; to use a
 &lt;a href="https://en.wikipedia.org/wiki/Large_language_model"&gt;LLM&lt;/a&gt; to upgrade an
 outdated software project.&lt;/p&gt;
 &lt;p&gt;This is a two-series go to the &lt;a href="https://diegojromerolopez.github.io/blog/2026/01/how-to-use-a-llm-to-upgrade-your-project/"&gt;next post&lt;/a&gt;
@@ -78,12 +78,12 @@ if you are only interested in how to do it correctly.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;We tend to only focus on positive outcomes, following active (positive) advice, etc. But what about negative one?
 I wanted the showcase an experience about upgrading a project using LLMs but not done it correctly. With so much
-advice on how to do things, why couldn&amp;rsquo;t we share how not to do it?&lt;/p&gt;</description></item><item><title>When are full software rewrites needed?</title><link>https://diegojromerolopez.github.io/blog/2026/01/when-are-full-software-rewrites-needed/</link><pubDate>Sat, 03 Jan 2026 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2026/01/when-are-full-software-rewrites-needed/</guid><description>&lt;p&gt;Having dealt with a full rewrite of a software application recently, it left me
+advice on how to do things, why couldn&amp;rsquo;t we share how not to do it?&lt;/p&gt;</description></item><item><title>When are full software rewrites needed?</title><link>https://diegojromerolopez.github.io/blog/2026/01/when-are-full-software-rewrites-needed/</link><pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2026/01/when-are-full-software-rewrites-needed/</guid><description>&lt;p&gt;Having dealt with a full rewrite of a software application recently, it left me
 wondering if it was needed at all, if there was any way to salvage the project or
 some parts of the project. Could we have avoided the rewrite?&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I have encountered the necessity of rewriting full software projects several times
-in my career but in my last years I have had to do it twice.&lt;/p&gt;</description></item><item><title>Using LLMs to create a python library</title><link>https://diegojromerolopez.github.io/blog/2025/12/using-llms-to-create-a-python-library/</link><pubDate>Fri, 05 Dec 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/12/using-llms-to-create-a-python-library/</guid><description>&lt;p&gt;I have used Gemini and Claude &lt;a href="https://en.wikipedia.org/wiki/Large_language_model"&gt;LLM&lt;/a&gt;
+in my career but in my last years I have had to do it twice.&lt;/p&gt;</description></item><item><title>Using LLMs to create a python library</title><link>https://diegojromerolopez.github.io/blog/2025/12/using-llms-to-create-a-python-library/</link><pubDate>Fri, 05 Dec 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/12/using-llms-to-create-a-python-library/</guid><description>&lt;p&gt;I have used Gemini and Claude &lt;a href="https://en.wikipedia.org/wiki/Large_language_model"&gt;LLM&lt;/a&gt;
 models to create a &lt;a href="https://mypy-lang.org/"&gt;mypy&lt;/a&gt; plugin to mark a function as pure:
 &lt;a href="https://github.com/diegojromerolopez/mypy-pure"&gt;mypy-pure&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
@@ -92,13 +92,13 @@ before running the program.&lt;/p&gt;
 &lt;p&gt;I do not even remember when, but I saw
 &lt;a href="https://discuss.python.org/t/static-typing-specify-if-function-is-pure/98392"&gt;a thread in the Python official forum&lt;/a&gt;
 where a user was suggesting this &lt;code&gt;@pure&lt;/code&gt; decorator idea to the Steering Council of Python.&lt;/p&gt;
-&lt;p&gt;The idea got lost in the conversation, the &lt;em&gt;pros&lt;/em&gt;, the &lt;em&gt;cons&lt;/em&gt;, etc. But I liked the idea and got me thinking.&lt;/p&gt;</description></item><item><title>Use LLMs to handle tedious tasks</title><link>https://diegojromerolopez.github.io/blog/2025/11/use-llms-to-handle-tedious-tasks/</link><pubDate>Mon, 24 Nov 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/11/use-llms-to-handle-tedious-tasks/</guid><description>&lt;p&gt;There are some times where there are tedious tasks that need to be done in our software projects.
+&lt;p&gt;The idea got lost in the conversation, the &lt;em&gt;pros&lt;/em&gt;, the &lt;em&gt;cons&lt;/em&gt;, etc. But I liked the idea and got me thinking.&lt;/p&gt;</description></item><item><title>Use LLMs to handle tedious tasks</title><link>https://diegojromerolopez.github.io/blog/2025/11/use-llms-to-handle-tedious-tasks/</link><pubDate>Mon, 24 Nov 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/11/use-llms-to-handle-tedious-tasks/</guid><description>&lt;p&gt;There are some times where there are tedious tasks that need to be done in our software projects.
 We know how to do it but usually delay them because they are boring,
 not challenging and painfully long. The LLMs (Large Language Models) promise faster
 and better software development.
 Could we use a LLM to do them? Could we leverage the LLMs to free them from these chores?&lt;/p&gt;
 &lt;h2 id="the-problem"&gt;The problem&lt;/h2&gt;
-&lt;p&gt;I wanted to fix the type hints of my &lt;a href="https://github.com/diegojromerolopez/gelidum"&gt;Gelidum&lt;/a&gt; project.&lt;/p&gt;</description></item><item><title>Use Static Single-Assignment when possible</title><link>https://diegojromerolopez.github.io/blog/2025/11/use-static-single-assignment-when-possible/</link><pubDate>Mon, 03 Nov 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/11/use-static-single-assignment-when-possible/</guid><description>&lt;p&gt;This post discuss a way of coding assignments in code where
+&lt;p&gt;I wanted to fix the type hints of my &lt;a href="https://github.com/diegojromerolopez/gelidum"&gt;Gelidum&lt;/a&gt; project.&lt;/p&gt;</description></item><item><title>Use Static Single-Assignment when possible</title><link>https://diegojromerolopez.github.io/blog/2025/11/use-static-single-assignment-when-possible/</link><pubDate>Mon, 03 Nov 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/11/use-static-single-assignment-when-possible/</guid><description>&lt;p&gt;This post discuss a way of coding assignments in code where
 all variables are treated as constants.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;There are simple ways to improve our source code that are simple but effective.
@@ -106,13 +106,13 @@ Static Single-Assignment (SSA) is one of them.&lt;/p&gt;
 &lt;p&gt;By changing the way variable assignments are done, we can achieve some
 benefits in maintainability that cannot be overlooked.&lt;/p&gt;
 &lt;h2 id="what-is-static-single-assignment"&gt;What is Static Single-Assignment?&lt;/h2&gt;
-&lt;p&gt;Just treating the variables as constants, i.e. do only one assignment per variable.&lt;/p&gt;</description></item><item><title>Otelize, add OpenTelemetry to your Python project easily</title><link>https://diegojromerolopez.github.io/blog/2025/09/otelize-add-opentelemetry-to-your-python-project-easily/</link><pubDate>Mon, 15 Sep 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/09/otelize-add-opentelemetry-to-your-python-project-easily/</guid><description>&lt;p&gt;OpenTelemetry (sometimes abbreviated as OTEL) is a standard for telemetry
+&lt;p&gt;Just treating the variables as constants, i.e. do only one assignment per variable.&lt;/p&gt;</description></item><item><title>Otelize, add OpenTelemetry to your Python project easily</title><link>https://diegojromerolopez.github.io/blog/2025/09/otelize-add-opentelemetry-to-your-python-project-easily/</link><pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/09/otelize-add-opentelemetry-to-your-python-project-easily/</guid><description>&lt;p&gt;OpenTelemetry (sometimes abbreviated as OTEL) is a standard for telemetry
 and monitorization of software applications that has gain a lot of traction in these last years.
 We will learn here how to use the Python package &lt;a href="https://github.com/diegojromerolopez/otelize"&gt;otelize&lt;/a&gt;
 to add this telemetry to our Python applications without having to rely on much boilerplate.&lt;/p&gt;
 &lt;h2 id="how-did-i-use-to-add-otel-telemetry-to-my-python-code"&gt;How did I use to add OTEL telemetry to my Python code?&lt;/h2&gt;
 &lt;p&gt;Just by adding a lot of spans (at least one per function). This is done by relying on the context manager
-that is provided by the &lt;a href="https://pypi.org/project/opentelemetry-api/"&gt;opentelemetry-api&lt;/a&gt; package.&lt;/p&gt;</description></item><item><title>How to work in a toxic environment</title><link>https://diegojromerolopez.github.io/blog/2025/09/how-to-work-in-a-toxic-environment/</link><pubDate>Sun, 14 Sep 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/09/how-to-work-in-a-toxic-environment/</guid><description>&lt;p&gt;There are many posts about growing a good culture of empathy
+that is provided by the &lt;a href="https://pypi.org/project/opentelemetry-api/"&gt;opentelemetry-api&lt;/a&gt; package.&lt;/p&gt;</description></item><item><title>How to work in a toxic environment</title><link>https://diegojromerolopez.github.io/blog/2025/09/how-to-work-in-a-toxic-environment/</link><pubDate>Sun, 14 Sep 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/09/how-to-work-in-a-toxic-environment/</guid><description>&lt;p&gt;There are many posts about growing a good culture of empathy
 in teams. But how could you deal with a toxic culture?
 In this post we are going to delve into this question.&lt;/p&gt;
 &lt;h2 id="toxic-behaviors"&gt;Toxic behaviors&lt;/h2&gt;
@@ -121,13 +121,13 @@ In this post we are going to delve into this question.&lt;/p&gt;
 &lt;p&gt;As simple as that. There are people doing things that affect negatively to others,
 and nobody is correcting them. So the ones behaving badly feel supported by &lt;em&gt;the collective&lt;/em&gt;,
 and they keep behaving the same way (sometimes they can even increase the frequency
-and magnitude of their actions).&lt;/p&gt;</description></item><item><title>Remote work</title><link>https://diegojromerolopez.github.io/blog/2025/08/remote-work/</link><pubDate>Sat, 23 Aug 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/08/remote-work/</guid><description>&lt;p&gt;In this post I would like to voice my opinion about remote work.&lt;/p&gt;
+and magnitude of their actions).&lt;/p&gt;</description></item><item><title>Remote work</title><link>https://diegojromerolopez.github.io/blog/2025/08/remote-work/</link><pubDate>Sat, 23 Aug 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/08/remote-work/</guid><description>&lt;p&gt;In this post I would like to voice my opinion about remote work.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Remote work grew a lot in the 2020 because of the COVID-19 pandemic, but now
 it has started to being seen as diminishing from the corporate world. Less and less
 remote positions, more in-office requirements, and more one-sided conversations
 about the benefits of in-person work, or blaming remote workers for &lt;em&gt;slacking&lt;/em&gt;
-or being simply lazy (as if there weren’t people who go to the office and do nothing all day).&lt;/p&gt;</description></item><item><title>Everybody has value</title><link>https://diegojromerolopez.github.io/blog/2025/08/everybody-has-value/</link><pubDate>Fri, 22 Aug 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/08/everybody-has-value/</guid><description>&lt;p&gt;In this post I tell a &lt;em&gt;war story&lt;/em&gt; that happened during my time in a
+or being simply lazy (as if there weren’t people who go to the office and do nothing all day).&lt;/p&gt;</description></item><item><title>Everybody has value</title><link>https://diegojromerolopez.github.io/blog/2025/08/everybody-has-value/</link><pubDate>Fri, 22 Aug 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/08/everybody-has-value/</guid><description>&lt;p&gt;In this post I tell a &lt;em&gt;war story&lt;/em&gt; that happened during my time in a
 medium-sized multi-national company where I had a leadership role.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Working there I had a good developer in my team with some
@@ -135,20 +135,20 @@ physical disabilities (vision related). Others hand the idea that they were frus
 day-to-day role, and indeed it looked like they were.&lt;/p&gt;
 &lt;p&gt;This developer felt not being used at their 100% capacity, and consequently,
 they felt undervalued. Not because anybody in the company was saying or even
-implying that, but they felt that way.&lt;/p&gt;</description></item><item><title>Write tests. Not too many. Mostly integration.</title><link>https://diegojromerolopez.github.io/blog/2025/07/write-tests.-not-too-many.-mostly-integration./</link><pubDate>Sun, 27 Jul 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/07/write-tests.-not-too-many.-mostly-integration./</guid><description>&lt;p&gt;This is some advice that appear first at Twitter by &lt;a href="https://rauchg.com/"&gt;Guillermo Rauch&lt;/a&gt;.
+implying that, but they felt that way.&lt;/p&gt;</description></item><item><title>Write tests. Not too many. Mostly integration.</title><link>https://diegojromerolopez.github.io/blog/2025/07/write-tests.-not-too-many.-mostly-integration./</link><pubDate>Sun, 27 Jul 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/07/write-tests.-not-too-many.-mostly-integration./</guid><description>&lt;p&gt;This is some advice that appear first at Twitter by &lt;a href="https://rauchg.com/"&gt;Guillermo Rauch&lt;/a&gt;.
 Years have passed since I read it and now I am at a position to reflect on them and how I
 was following this advice even when I did not know that &lt;em&gt;explicitly&lt;/em&gt;.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Some years ago I was developing an internal web application for a non-&lt;em&gt;techie&lt;/em&gt; team.
 I was working with React and reading a lot of tutorials, guides, and documentation
-(in case you are wondering I was mostly focused on backend those days).&lt;/p&gt;</description></item><item><title>Improve your programs performance with backgroundlog</title><link>https://diegojromerolopez.github.io/blog/2025/07/improve-your-programs-performance-with-backgroundlog/</link><pubDate>Sat, 12 Jul 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/07/improve-your-programs-performance-with-backgroundlog/</guid><description>&lt;p&gt;&lt;a href="https://github.com/diegojromerolopez/backgroundlog"&gt;backgroundlog&lt;/a&gt; is a library that
+(in case you are wondering I was mostly focused on backend those days).&lt;/p&gt;</description></item><item><title>Improve your programs performance with backgroundlog</title><link>https://diegojromerolopez.github.io/blog/2025/07/improve-your-programs-performance-with-backgroundlog/</link><pubDate>Sat, 12 Jul 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/07/improve-your-programs-performance-with-backgroundlog/</guid><description>&lt;p&gt;&lt;a href="https://github.com/diegojromerolopez/backgroundlog"&gt;backgroundlog&lt;/a&gt; is a library that
 allows you to use a background thread to write log messages.
 The idea for that is to be transparent to the developer, in the sense that they do not need
 to worry about async functions, the event loop, or managing threads.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;The other day I was having a conversation with another software engineer about how to read lines
 from a file and write in another file in the most performant way possible. Take in account that
-the file was supposed to have several GB of information and we could not block the flow.&lt;/p&gt;</description></item><item><title>The case for LLMs: faster development</title><link>https://diegojromerolopez.github.io/blog/2025/06/the-case-for-llms-faster-development/</link><pubDate>Sun, 29 Jun 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/06/the-case-for-llms-faster-development/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+the file was supposed to have several GB of information and we could not block the flow.&lt;/p&gt;</description></item><item><title>The case for LLMs: faster development</title><link>https://diegojromerolopez.github.io/blog/2025/06/the-case-for-llms-faster-development/</link><pubDate>Sun, 29 Jun 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/06/the-case-for-llms-faster-development/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Artificial Intelligence is all over the place in software development these days.
 From the first AI services that could generate images, to the code generation tools
 like GitHub Copilot, ChatGPT, Google Gemini, etc.&lt;/p&gt;
@@ -157,7 +157,7 @@ replace software engineers, but they are going to empower them in a lot of cases
 &lt;p&gt;This post is a &lt;em&gt;war story&lt;/em&gt; of mine, where I used a LLM service to create a new command
 for a CLI command tool written in a compiled language that I do not &lt;em&gt;master&lt;/em&gt;. I know how
 to read some code, but I am not skilled in the ecosystem nor in many patterns and conventions
-of the community.&lt;/p&gt;</description></item><item><title>The testing pyramid</title><link>https://diegojromerolopez.github.io/blog/2025/06/the-testing-pyramid/</link><pubDate>Sat, 07 Jun 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/06/the-testing-pyramid/</guid><description>&lt;p&gt;This post revisit one of my favorite topics: &lt;a href="https://diegojromerolopez.github.io/tags/testing/"&gt;testing&lt;/a&gt;.
+of the community.&lt;/p&gt;</description></item><item><title>The testing pyramid</title><link>https://diegojromerolopez.github.io/blog/2025/06/the-testing-pyramid/</link><pubDate>Sat, 07 Jun 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/06/the-testing-pyramid/</guid><description>&lt;p&gt;This post revisit one of my favorite topics: &lt;a href="https://diegojromerolopez.github.io/tags/testing/"&gt;testing&lt;/a&gt;.
 We are going to delve into what are the different types of tests that you should do in your software
 to have some assurance about your code.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
@@ -165,14 +165,14 @@ to have some assurance about your code.&lt;/p&gt;
 &lt;a href="https://diegojromerolopez.github.io/blog/2022/11/actual-integration-tests/"&gt;difference between unit and integration testing&lt;/a&gt;,
 and while re-reading it today I was not convinced that it was clear enough.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Integration tests&lt;/em&gt; is a concept that has been used many times in different environments and at different
-levels, so I want to give a proper definition of each one of the test types at project and system level.&lt;/p&gt;</description></item><item><title>I do not like *args and **kwargs in Python</title><link>https://diegojromerolopez.github.io/blog/2025/05/i-do-not-like-args-and-kwargs-in-python/</link><pubDate>Sun, 18 May 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/05/i-do-not-like-args-and-kwargs-in-python/</guid><description>&lt;p&gt;&lt;code&gt;*args&lt;/code&gt; and &lt;code&gt;**kwargs&lt;/code&gt; are the way to declare positional and keyword function arguments (resp.) in Python.&lt;/p&gt;
+levels, so I want to give a proper definition of each one of the test types at project and system level.&lt;/p&gt;</description></item><item><title>I do not like *args and **kwargs in Python</title><link>https://diegojromerolopez.github.io/blog/2025/05/i-do-not-like-args-and-kwargs-in-python/</link><pubDate>Sun, 18 May 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/05/i-do-not-like-args-and-kwargs-in-python/</guid><description>&lt;p&gt;&lt;code&gt;*args&lt;/code&gt; and &lt;code&gt;**kwargs&lt;/code&gt; are the way to declare positional and keyword function arguments (resp.) in Python.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;This post explains why I am a fan of naming the arguments and I do not like positional arguments nor
 the &lt;code&gt;*args&lt;/code&gt; and &lt;code&gt;**kwargs&lt;/code&gt; way of passing arguments.&lt;/p&gt;
 &lt;h2 id="why-i-dont-like-args-and-kwargs"&gt;Why I don&amp;rsquo;t like *args and **kwargs?&lt;/h2&gt;
 &lt;p&gt;Most of the time I only use &lt;code&gt;*args&lt;/code&gt; and &lt;code&gt;**kwargs&lt;/code&gt; when strictly necessary, like when inheriting from a class
 that uses them, and I need to pass the parameters to the parent class. Most of the time,
-&lt;strong&gt;I would rater add 10 parameters with a default value than leaving an unknown interface in a function&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Can LLMs replace engineers?</title><link>https://diegojromerolopez.github.io/blog/2025/05/can-llms-replace-engineers/</link><pubDate>Sat, 17 May 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/05/can-llms-replace-engineers/</guid><description>&lt;p&gt;This post provides my opinion about how a &lt;a href="https://en.wikipedia.org/wiki/Large_language_model"&gt;LLMs&lt;/a&gt;
+&lt;strong&gt;I would rater add 10 parameters with a default value than leaving an unknown interface in a function&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Can LLMs replace engineers?</title><link>https://diegojromerolopez.github.io/blog/2025/05/can-llms-replace-engineers/</link><pubDate>Sat, 17 May 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/05/can-llms-replace-engineers/</guid><description>&lt;p&gt;This post provides my opinion about how a &lt;a href="https://en.wikipedia.org/wiki/Large_language_model"&gt;LLMs&lt;/a&gt;
 cannot replace a senior software engineer,
 even if the CEOs and other executives believe that it is possible.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
@@ -180,7 +180,7 @@ even if the CEOs and other executives believe that it is possible.&lt;/p&gt;
 My experience working with LLMs is limited to working with &lt;a href="https://chatgpt.com/"&gt;ChatGPT&lt;/a&gt;,
 &lt;a href="https://www.cursor.com/"&gt;Cursor&lt;/a&gt; and &lt;a href="https://github.com/features/copilot"&gt;GitHub Copilot&lt;/a&gt;
 as of May 2025 (when this post was written). So please, if you read this in the future,
-take my opinion with &lt;em&gt;a grain of salt&lt;/em&gt;.&lt;/p&gt;</description></item><item><title>How to write a good unit test</title><link>https://diegojromerolopez.github.io/blog/2025/04/how-to-write-a-good-unit-test/</link><pubDate>Sat, 05 Apr 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/04/how-to-write-a-good-unit-test/</guid><description>&lt;p&gt;This post provides some guidelines about how to write a good unit test.
+take my opinion with &lt;em&gt;a grain of salt&lt;/em&gt;.&lt;/p&gt;</description></item><item><title>How to write a good unit test</title><link>https://diegojromerolopez.github.io/blog/2025/04/how-to-write-a-good-unit-test/</link><pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/04/how-to-write-a-good-unit-test/</guid><description>&lt;p&gt;This post provides some guidelines about how to write a good unit test.
 There are some examples in Python with unittest.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In my last post I wrote about
@@ -188,14 +188,14 @@ There are some examples in Python with unittest.&lt;/p&gt;
 not being taken seriously sometimes.&lt;/p&gt;
 &lt;p&gt;Tests are a good part of the &lt;em&gt;software quality&lt;/em&gt; so I wanted to write a bit
 about the testing effort we should be doing in our code.&lt;/p&gt;
-&lt;p&gt;Having said that, let us delve in the unit testing world with some examples in Python!&lt;/p&gt;</description></item><item><title>Software quality is not negotiable</title><link>https://diegojromerolopez.github.io/blog/2025/03/software-quality-is-not-negotiable/</link><pubDate>Sat, 15 Mar 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/03/software-quality-is-not-negotiable/</guid><description>&lt;p&gt;From a conversation from one of the best software engineers I have had the please to work with,
+&lt;p&gt;Having said that, let us delve in the unit testing world with some examples in Python!&lt;/p&gt;</description></item><item><title>Software quality is not negotiable</title><link>https://diegojromerolopez.github.io/blog/2025/03/software-quality-is-not-negotiable/</link><pubDate>Sat, 15 Mar 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/03/software-quality-is-not-negotiable/</guid><description>&lt;p&gt;From a conversation from one of the best software engineers I have had the please to work with,
 I heard the following sentence: &lt;em&gt;software quality is not negotiable!&lt;/em&gt; And that is one of the
 axioms of our profession.&lt;/p&gt;
 &lt;h2 id="why-software-quality-is-seen-as-optional"&gt;Why software quality is seen as optional?&lt;/h2&gt;
 &lt;h2 id="software-developersengineers-come-from-different-backgrounds"&gt;Software developers/engineers come from different backgrounds&lt;/h2&gt;
 &lt;p&gt;The world of software has no barrier entry. People with different backgrounds can start working
 as software developers or engineers. That is a good thing as diversity can enrich the organization
-but there is also the matter of different perceived levels of professionalism in the discipline.&lt;/p&gt;</description></item><item><title>Joining test coverage from several test directories</title><link>https://diegojromerolopez.github.io/blog/2025/02/joining-test-coverage-from-several-test-directories/</link><pubDate>Fri, 14 Feb 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/02/joining-test-coverage-from-several-test-directories/</guid><description>&lt;p&gt;This post show a simple way of computing the coverage.py&amp;rsquo;s test coverage
+but there is also the matter of different perceived levels of professionalism in the discipline.&lt;/p&gt;</description></item><item><title>Joining test coverage from several test directories</title><link>https://diegojromerolopez.github.io/blog/2025/02/joining-test-coverage-from-several-test-directories/</link><pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/02/joining-test-coverage-from-several-test-directories/</guid><description>&lt;p&gt;This post show a simple way of computing the coverage.py&amp;rsquo;s test coverage
 from different tests folders.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I have been using
@@ -205,7 +205,7 @@ let us say that the interface of the
 command line tool could be better.&lt;/p&gt;
 &lt;p&gt;I struggled for some minutes trying to filter out other folder I have in
 my tests folder that were not meant to have their test coverage computed.
-Think about some manual tests and other tangential tools.&lt;/p&gt;</description></item><item><title>Patching on setUp in Python's unittest</title><link>https://diegojromerolopez.github.io/blog/2025/02/patching-on-setup-in-pythons-unittest/</link><pubDate>Thu, 13 Feb 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/02/patching-on-setup-in-pythons-unittest/</guid><description>&lt;p&gt;One of my favorite programming languages is Python,
+Think about some manual tests and other tangential tools.&lt;/p&gt;</description></item><item><title>Patching on setUp in Python's unittest</title><link>https://diegojromerolopez.github.io/blog/2025/02/patching-on-setup-in-pythons-unittest/</link><pubDate>Thu, 13 Feb 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/02/patching-on-setup-in-pythons-unittest/</guid><description>&lt;p&gt;One of my favorite programming languages is Python,
 and I think that tests should be a foundational part
 of software development, so it is not strange that I
 delve a lot in Python&amp;rsquo;s unittest.&lt;/p&gt;
@@ -216,7 +216,7 @@ not in a decorator (the usual case) but in the &lt;code&gt;setUp&lt;/code&gt; me
 working with python (intermittently), because I was just used
 to the patch decorator. However, we can stop repeating the code
 and save some precious space (and possible bugs) if we just
-re-use the code by injecting some code in the &lt;code&gt;setUp&lt;/code&gt; method.&lt;/p&gt;</description></item><item><title>The world is full of irrational people</title><link>https://diegojromerolopez.github.io/blog/2025/01/the-world-is-full-of-irrational-people/</link><pubDate>Sat, 25 Jan 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/01/the-world-is-full-of-irrational-people/</guid><description>&lt;p&gt;Recently I took &lt;a href="https://diegojromerolopez.github.io/blog/2024/12/the-different-types-of-personality"&gt;a personality test&lt;/a&gt;
+re-use the code by injecting some code in the &lt;code&gt;setUp&lt;/code&gt; method.&lt;/p&gt;</description></item><item><title>The world is full of irrational people</title><link>https://diegojromerolopez.github.io/blog/2025/01/the-world-is-full-of-irrational-people/</link><pubDate>Sat, 25 Jan 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/01/the-world-is-full-of-irrational-people/</guid><description>&lt;p&gt;Recently I took &lt;a href="https://diegojromerolopez.github.io/blog/2024/12/the-different-types-of-personality"&gt;a personality test&lt;/a&gt;
 where I ended up being classified as an analytical person, and I am that indeed.
 How can I thrive in a world where the critical thinking and the rationality are being
 attacked everyday?&lt;/p&gt;
@@ -226,12 +226,12 @@ attacked everyday?&lt;/p&gt;
 multiple ways of do the same thing. In Science you can have an hypothesis,
 design an experiment, get the data, and hence, refute or corroborate your hunch.
 In more pure Sciences like Mathematics, it is even better, as you can give proof
-that your hypothesis is correct (or incorrect).&lt;/p&gt;</description></item><item><title>10 years of this blog</title><link>https://diegojromerolopez.github.io/blog/2024/12/10-years-of-this-blog/</link><pubDate>Sun, 29 Dec 2024 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/12/10-years-of-this-blog/</guid><description>&lt;p&gt;I have been blogging about software and technology in this blog for a decade.
+that your hypothesis is correct (or incorrect).&lt;/p&gt;</description></item><item><title>10 years of this blog</title><link>https://diegojromerolopez.github.io/blog/2024/12/10-years-of-this-blog/</link><pubDate>Sun, 29 Dec 2024 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/12/10-years-of-this-blog/</guid><description>&lt;p&gt;I have been blogging about software and technology in this blog for a decade.
 What was the rationale of this blog? Why should you write a technical blog?&lt;/p&gt;
 &lt;h2 id="how-it-all-started"&gt;How it all started&lt;/h2&gt;
 &lt;p&gt;I started blogging in 2014, when I was improving my skills via a Masters Program.
 I was a bit burned out because studying and working at the same time require an
-energy I did not have during that time.&lt;/p&gt;</description></item><item><title>How to create a Dockerfile for your deno fresh project</title><link>https://diegojromerolopez.github.io/blog/2024/12/how-to-create-a-dockerfile-for-your-deno-fresh-project/</link><pubDate>Sat, 28 Dec 2024 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/12/how-to-create-a-dockerfile-for-your-deno-fresh-project/</guid><description>&lt;p&gt;Sometimes creating a Dockerfile is an art, you need to be aware of what files include in each layer to leverage
+energy I did not have during that time.&lt;/p&gt;</description></item><item><title>How to create a Dockerfile for your deno fresh project</title><link>https://diegojromerolopez.github.io/blog/2024/12/how-to-create-a-dockerfile-for-your-deno-fresh-project/</link><pubDate>Sat, 28 Dec 2024 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/12/how-to-create-a-dockerfile-for-your-deno-fresh-project/</guid><description>&lt;p&gt;Sometimes creating a Dockerfile is an art, you need to be aware of what files include in each layer to leverage
 the docker cache. How can we do this with &lt;a href="https://fresh.deno.dev/"&gt;deno fresh&lt;/a&gt;?&lt;/p&gt;
 &lt;h2 id="recommended-or-usual-dockerfile"&gt;Recommended or usual Dockerfile&lt;/h2&gt;
 &lt;p&gt;Most of the examples I have found in the internet
@@ -250,7 +250,7 @@ tend to copy all the files in the same Docker instruction:&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;CMD&lt;/span&gt; [&lt;span style="color:#e6db74"&gt;&amp;#34;run&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;-A&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;main.ts&amp;#34;&lt;/span&gt;]&lt;span style="color:#960050;background-color:#1e0010"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This of course works, but we are just copying all the files in the Docker image,
-and that can cause many issues:&lt;/p&gt;</description></item><item><title>How to add OTEL to your deno fresh project</title><link>https://diegojromerolopez.github.io/blog/2024/12/how-to-add-otel-to-your-deno-fresh-project/</link><pubDate>Fri, 27 Dec 2024 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/12/how-to-add-otel-to-your-deno-fresh-project/</guid><description>&lt;p&gt;&lt;a href="https://opentelemetry.io/"&gt;OpenTelemetry&lt;/a&gt; is a standard for adding telemetry to your application.
+and that can cause many issues:&lt;/p&gt;</description></item><item><title>How to add OTEL to your deno fresh project</title><link>https://diegojromerolopez.github.io/blog/2024/12/how-to-add-otel-to-your-deno-fresh-project/</link><pubDate>Fri, 27 Dec 2024 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/12/how-to-add-otel-to-your-deno-fresh-project/</guid><description>&lt;p&gt;&lt;a href="https://opentelemetry.io/"&gt;OpenTelemetry&lt;/a&gt; is a standard for adding telemetry to your application.
 There are a myriad of implementations for almost all the programming languages.
 But you need to be aware that the particularities of each language can make integrating
 with OTEL very different in one case or other.&lt;/p&gt;
@@ -261,7 +261,7 @@ is, the best practices and the bare minimum that is
 accepted nowadays in modern applications. We would also suppose that you know what OpenTelemetry is,
 how it works and the best practices when adding OTEL to an application.
 We will not delve in explanations about those concepts, we will only show some examples
-about how to add OTEL to a &lt;a href="https://fresh.deno.dev/"&gt;deno fresh&lt;/a&gt; application.&lt;/p&gt;</description></item><item><title>Faulty engineering career ladders</title><link>https://diegojromerolopez.github.io/blog/2024/12/faulty-engineering-career-ladders/</link><pubDate>Thu, 26 Dec 2024 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/12/faulty-engineering-career-ladders/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+about how to add OTEL to a &lt;a href="https://fresh.deno.dev/"&gt;deno fresh&lt;/a&gt; application.&lt;/p&gt;</description></item><item><title>Faulty engineering career ladders</title><link>https://diegojromerolopez.github.io/blog/2024/12/faulty-engineering-career-ladders/</link><pubDate>Thu, 26 Dec 2024 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/12/faulty-engineering-career-ladders/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Let&amp;rsquo;s see several issues with the &lt;em&gt;Engineering ladders&lt;/em&gt; I have seen on my
 16 years of experience.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;This is a long post, I do not recommend reading it in one sitting&lt;/em&gt;.&lt;/p&gt;
@@ -272,12 +272,12 @@ there is no clear path for promotion.&lt;/p&gt;
 &lt;h3 id="no-clear-way-to-be-promoted"&gt;No clear way to be promoted&lt;/h3&gt;
 &lt;p&gt;This is one of the most common faults in the &lt;em&gt;career ladders&lt;/em&gt; I have seen.
 All the supposedly clarity of the ladder dissipates when I ask for the
-promotion process. There are no defined goals, nor a structured process.&lt;/p&gt;</description></item><item><title>How to write a simple middleware in deno fresh</title><link>https://diegojromerolopez.github.io/blog/2024/12/how-to-write-a-simple-middleware-in-deno-fresh/</link><pubDate>Thu, 26 Dec 2024 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/12/how-to-write-a-simple-middleware-in-deno-fresh/</guid><description>&lt;p&gt;Middlewares are layers that inject data or check the HTTP request and are used by a set of routes.
+promotion process. There are no defined goals, nor a structured process.&lt;/p&gt;</description></item><item><title>How to write a simple middleware in deno fresh</title><link>https://diegojromerolopez.github.io/blog/2024/12/how-to-write-a-simple-middleware-in-deno-fresh/</link><pubDate>Thu, 26 Dec 2024 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/12/how-to-write-a-simple-middleware-in-deno-fresh/</guid><description>&lt;p&gt;Middlewares are layers that inject data or check the HTTP request and are used by a set of routes.
 They are very useful as they group functionality together. Let&amp;rsquo;s see how to implement a middleware
 in deno fresh.&lt;/p&gt;
 &lt;h2 id="select-the-routes-the-middleware-is-going-to-affect"&gt;Select the routes the middleware is going to affect&lt;/h2&gt;
 &lt;p&gt;The middlewares in deno fresh are created inside a &lt;code&gt;_middleware.ts&lt;/code&gt; file. This file will affect
-the routes that are from its level to the bottom. Let&amp;rsquo;s see an example:&lt;/p&gt;</description></item><item><title>The different types of personality</title><link>https://diegojromerolopez.github.io/blog/2024/12/the-different-types-of-personality/</link><pubDate>Wed, 25 Dec 2024 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/12/the-different-types-of-personality/</guid><description>&lt;p&gt;There are several frames that try to define the different types of personality
+the routes that are from its level to the bottom. Let&amp;rsquo;s see an example:&lt;/p&gt;</description></item><item><title>The different types of personality</title><link>https://diegojromerolopez.github.io/blog/2024/12/the-different-types-of-personality/</link><pubDate>Wed, 25 Dec 2024 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/12/the-different-types-of-personality/</guid><description>&lt;p&gt;There are several frames that try to define the different types of personality
 (without any kind of particular order):&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.surroundedbyidiots.com/en/books/surrounded-by-idiots/"&gt;Surrounded by idiots&lt;/a&gt;&lt;/li&gt;
@@ -298,7 +298,7 @@ the routes that are from its level to the bottom. Let&amp;rsquo;s see an example
 &lt;h2 id="how-do-they-affect-your-communication"&gt;How do they affect your communication?&lt;/h2&gt;
 &lt;p&gt;Depending on what dimension reflects more on you, you will need to improve other areas
 were you are not so skilled. For example if you are not a &lt;em&gt;social animal&lt;/em&gt;, maybe you
-need to be more careful or have more tact when talking with team mates.&lt;/p&gt;</description></item><item><title>Leadership with passive subjects</title><link>https://diegojromerolopez.github.io/blog/2024/12/leadership-with-passive-subjects/</link><pubDate>Tue, 24 Dec 2024 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/12/leadership-with-passive-subjects/</guid><description>&lt;p&gt;Most leadership advice (that I have read) assumes all the team members are motivated
+need to be more careful or have more tact when talking with team mates.&lt;/p&gt;</description></item><item><title>Leadership with passive subjects</title><link>https://diegojromerolopez.github.io/blog/2024/12/leadership-with-passive-subjects/</link><pubDate>Tue, 24 Dec 2024 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/12/leadership-with-passive-subjects/</guid><description>&lt;p&gt;Most leadership advice (that I have read) assumes all the team members are motivated
 and want to improve themselves. However, what about the opposite? What can happen
 when a developer is not interested in improve their skills and is dragging down the team?&lt;/p&gt;
 &lt;p&gt;Along this post we will delve on the subject of what to do when you have to lead over
@@ -307,7 +307,7 @@ different types of developers.&lt;/p&gt;
 &lt;p&gt;In Spain, contractors are hired as a temporal replacement for full-time permanent employees.
 They work in the same office than the company employees but are paid monthly by the contracting
 company. They have the same responsibilities of the employees but they are paid by the
-contracting company.&lt;/p&gt;</description></item><item><title>CV Driven Development</title><link>https://diegojromerolopez.github.io/blog/2024/12/cv-driven-development/</link><pubDate>Mon, 23 Dec 2024 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/12/cv-driven-development/</guid><description>&lt;p&gt;&lt;a href="https://www.clairecodes.com/blog/2019-05-15-cv-driven-development/"&gt;CV Driven Development&lt;/a&gt; or
+contracting company.&lt;/p&gt;</description></item><item><title>CV Driven Development</title><link>https://diegojromerolopez.github.io/blog/2024/12/cv-driven-development/</link><pubDate>Mon, 23 Dec 2024 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/12/cv-driven-development/</guid><description>&lt;p&gt;&lt;a href="https://www.clairecodes.com/blog/2019-05-15-cv-driven-development/"&gt;CV Driven Development&lt;/a&gt; or
 Resume Driven Development consist on taken strategic decisions based on how they improve
 the CV of the developers that work on that project.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
@@ -316,7 +316,7 @@ clients and users. Most of the time by removing friction between them and the de
 or by reducing waste.&lt;/p&gt;
 &lt;p&gt;CV Driven Development has as one of the non-functional requirements &lt;em&gt;learning something new&lt;/em&gt;. It does
 not have to be a bad thing, but if it is not done properly, it can be chaos when dealing with
-maintenance of the project.&lt;/p&gt;</description></item><item><title>War stories</title><link>https://diegojromerolopez.github.io/blog/2024/12/war-stories/</link><pubDate>Fri, 20 Dec 2024 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/12/war-stories/</guid><description>&lt;p&gt;When talking about software documentation we usually describe the &lt;em&gt;what&lt;/em&gt; and &lt;em&gt;how&lt;/em&gt;,
+maintenance of the project.&lt;/p&gt;</description></item><item><title>War stories</title><link>https://diegojromerolopez.github.io/blog/2024/12/war-stories/</link><pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/12/war-stories/</guid><description>&lt;p&gt;When talking about software documentation we usually describe the &lt;em&gt;what&lt;/em&gt; and &lt;em&gt;how&lt;/em&gt;,
 but explaining the reason (&lt;em&gt;why&lt;/em&gt;) is it left out. Giving a background about why
 the team took some decisions can help developers understand better why the software
 is the way it is.&lt;/p&gt;
@@ -324,13 +324,13 @@ is the way it is.&lt;/p&gt;
 &lt;p&gt;I would say that nobody doubts that a piece os software without documentation
 is not useful. Software can have a big complexity and maintaining it and extend
 it can be hard if there is no guide. It would be akin finding the exit from a
-maze without a map.&lt;/p&gt;</description></item><item><title>The runtime type-checking operator in TypeScript</title><link>https://diegojromerolopez.github.io/blog/2024/12/the-runtime-type-checking-operator-in-typescript/</link><pubDate>Thu, 05 Dec 2024 00:16:53 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/12/the-runtime-type-checking-operator-in-typescript/</guid><description>&lt;p&gt;I have been working with &lt;a href="https://www.typescriptlang.org/"&gt;TypeScript&lt;/a&gt;
+maze without a map.&lt;/p&gt;</description></item><item><title>The runtime type-checking operator in TypeScript</title><link>https://diegojromerolopez.github.io/blog/2024/12/the-runtime-type-checking-operator-in-typescript/</link><pubDate>Thu, 05 Dec 2024 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/12/the-runtime-type-checking-operator-in-typescript/</guid><description>&lt;p&gt;I have been working with &lt;a href="https://www.typescriptlang.org/"&gt;TypeScript&lt;/a&gt;
 for a while but for sure I am not an expert in the language
 (I feel more comfortable with Python).&lt;/p&gt;
 &lt;p&gt;I like the idea of type-safe but limiting the static type checking process
 can make you confident about what you are getting from &lt;em&gt;outside sources&lt;/em&gt;,
 and if you do not trust those sources (you should NOT), you would need to include
-a lot of repetitive checks any time we read data from the outside.&lt;/p&gt;</description></item><item><title>Don't use singletons</title><link>https://diegojromerolopez.github.io/blog/2024/11/dont-use-singletons/</link><pubDate>Sun, 10 Nov 2024 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/11/dont-use-singletons/</guid><description>&lt;p&gt;The Singleton pattern is one of the patterns that appeared
+a lot of repetitive checks any time we read data from the outside.&lt;/p&gt;</description></item><item><title>Don't use singletons</title><link>https://diegojromerolopez.github.io/blog/2024/11/dont-use-singletons/</link><pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/11/dont-use-singletons/</guid><description>&lt;p&gt;The Singleton pattern is one of the patterns that appeared
 in the &lt;a href="https://en.wikipedia.org/wiki/Design_Patterns"&gt;Design Patterns book by Erich Gamma et al.&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id="what-is-a-singleton"&gt;What is a singleton?&lt;/h2&gt;
 &lt;p&gt;The singleton is one design patter to share a resource in a controlled manner
@@ -338,7 +338,7 @@ in a code base. That resource could be a configuration, a connection or any othe
 global state that should be unique.&lt;/p&gt;
 &lt;h2 id="how-to-implement-it"&gt;How to implement it?&lt;/h2&gt;
 &lt;p&gt;There are several ways to implement this, but in Python (for example)
-you can implement it by making use of the &lt;a href="https://realpython.com/python-metaclasses/"&gt;Python metaclasses&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>My experience in a Platform team</title><link>https://diegojromerolopez.github.io/blog/2024/10/my-experience-in-a-platform-team/</link><pubDate>Wed, 30 Oct 2024 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/10/my-experience-in-a-platform-team/</guid><description>&lt;h2 id="my-experience-in-a-platform-team"&gt;My experience in a platform team&lt;/h2&gt;
+you can implement it by making use of the &lt;a href="https://realpython.com/python-metaclasses/"&gt;Python metaclasses&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>My experience in a Platform team</title><link>https://diegojromerolopez.github.io/blog/2024/10/my-experience-in-a-platform-team/</link><pubDate>Wed, 30 Oct 2024 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/10/my-experience-in-a-platform-team/</guid><description>&lt;h2 id="my-experience-in-a-platform-team"&gt;My experience in a platform team&lt;/h2&gt;
 &lt;p&gt;This post is going to summarize the main points of
 my experience while working in a
 Platform/Productivity team for two years. I also worked
@@ -348,7 +348,7 @@ to create tools that help other engineers.&lt;/p&gt;
 &lt;p&gt;Developers do not care about the platform their sofware runs,
 they intend to developed features that product teams require, I mean
 that is what they should do as developers need to provide value to the
-company (no question on that).&lt;/p&gt;</description></item><item><title>The long silence</title><link>https://diegojromerolopez.github.io/blog/2024/09/the-long-silence/</link><pubDate>Sat, 21 Sep 2024 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/09/the-long-silence/</guid><description>&lt;p&gt;It has been some months since I wrote here for the last time.
+company (no question on that).&lt;/p&gt;</description></item><item><title>The long silence</title><link>https://diegojromerolopez.github.io/blog/2024/09/the-long-silence/</link><pubDate>Sat, 21 Sep 2024 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/09/the-long-silence/</guid><description>&lt;p&gt;It has been some months since I wrote here for the last time.
 Why have I been silent all this time? I could say that life
 matters have made me pretty busy (and that is true), but
 apart from that, what things have I been working on?&lt;/p&gt;
@@ -358,13 +358,13 @@ apart from that, what things have I been working on?&lt;/p&gt;
 the Node.js creator.&lt;/p&gt;
 &lt;p&gt;It think it is a great idea but it has some rough edges, let&amp;rsquo;s hope that with the
 coming of &lt;a href="https://deno.com/blog/v2.0-release-candidate"&gt;Deno 2&lt;/a&gt; and the full support
-for commonJS modules and other new features it can achieve the status it deserves.&lt;/p&gt;</description></item><item><title>Troubleshooting guides</title><link>https://diegojromerolopez.github.io/blog/2024/02/troubleshooting-guides/</link><pubDate>Tue, 20 Feb 2024 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/02/troubleshooting-guides/</guid><description>&lt;p&gt;Usually software is considered only to be code that is executable, sometimes
+for commonJS modules and other new features it can achieve the status it deserves.&lt;/p&gt;</description></item><item><title>Troubleshooting guides</title><link>https://diegojromerolopez.github.io/blog/2024/02/troubleshooting-guides/</link><pubDate>Tue, 20 Feb 2024 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/02/troubleshooting-guides/</guid><description>&lt;p&gt;Usually software is considered only to be code that is executable, sometimes
 the documentation is also considered part of software, but are the
 troubleshooting guides part of software? Are these rulebooks useful for
 the team that uses, maintains, develop or support the software?&lt;/p&gt;
 &lt;h2 id="what-is-a-troubleshooting-guide"&gt;What is a troubleshooting guide?&lt;/h2&gt;
 &lt;p&gt;A troubleshooting guide is a rulebook or more explained a collection of items
-that should help the users navigate through the issues that could happen.&lt;/p&gt;</description></item><item><title>New Year's resolutions</title><link>https://diegojromerolopez.github.io/blog/2024/01/new-years-resolutions/</link><pubDate>Sat, 27 Jan 2024 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/01/new-years-resolutions/</guid><description>&lt;p&gt;This new year has just started (well 27 days ago), but
+that should help the users navigate through the issues that could happen.&lt;/p&gt;</description></item><item><title>New Year's resolutions</title><link>https://diegojromerolopez.github.io/blog/2024/01/new-years-resolutions/</link><pubDate>Sat, 27 Jan 2024 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/01/new-years-resolutions/</guid><description>&lt;p&gt;This new year has just started (well 27 days ago), but
 I have been thinking about what I would like to learn
 and change during this 2024. Here are my personal thoughts
 on the matter. I hope they could inspire you to do a
@@ -377,7 +377,7 @@ tech debt, and the code structure is very different depending
 on the developer that created the code. Do not know if true,
 but the promise of a common language not only between the
 product team and developers, but even among themselves, seems
-seductive.&lt;/p&gt;</description></item><item><title>Do what the community does</title><link>https://diegojromerolopez.github.io/blog/2023/12/do-what-the-community-does/</link><pubDate>Sat, 30 Dec 2023 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/12/do-what-the-community-does/</guid><description>&lt;p&gt;The other day I had a conversation with a team mate about
+seductive.&lt;/p&gt;</description></item><item><title>Do what the community does</title><link>https://diegojromerolopez.github.io/blog/2023/12/do-what-the-community-does/</link><pubDate>Sat, 30 Dec 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/12/do-what-the-community-does/</guid><description>&lt;p&gt;The other day I had a conversation with a team mate about
 how to implement different patterns to solve a common issue
 in a interpreted programming language. He was sugesting using
 a pattern not used at all by the community that indeed was
@@ -386,7 +386,7 @@ a cool, interesting, and &lt;em&gt;we could argue that&lt;/em&gt; it was a more 
 &lt;h2 id="humans-are-gregarious-and-tend-to-form-communities"&gt;Humans are gregarious and tend to form communities&lt;/h2&gt;
 &lt;p&gt;&amp;hellip; even programming language communitites! And they
 develop their own culture for years and years, being
-unique and different than the ones from other languages!&lt;/p&gt;</description></item><item><title>Corporate empathy</title><link>https://diegojromerolopez.github.io/blog/2023/12/corporate-empathy/</link><pubDate>Sat, 23 Dec 2023 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/12/corporate-empathy/</guid><description>&lt;p&gt;In this times of diversity based on gender, ethnical background,
+unique and different than the ones from other languages!&lt;/p&gt;</description></item><item><title>Corporate empathy</title><link>https://diegojromerolopez.github.io/blog/2023/12/corporate-empathy/</link><pubDate>Sat, 23 Dec 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/12/corporate-empathy/</guid><description>&lt;p&gt;In this times of diversity based on gender, ethnical background,
 culture, etc. Is that enough? Do we have to be careful when
 talking with other coworker if they do not belong to any
 of the main categories? Can we say what we would like and in the way we
@@ -396,14 +396,14 @@ would like? No, we need to treat them &lt;em&gt;empthically&lt;/em&gt;.&lt;/p&gt
 We do not work in a bubble, we need something from them, they
 need something from us, we need to warn them or send them a piece
 or information they need. These are possible reasons we need to
-do what humans do best: communicate.&lt;/p&gt;</description></item><item><title>Rambos</title><link>https://diegojromerolopez.github.io/blog/2023/12/rambos/</link><pubDate>Sat, 16 Dec 2023 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/12/rambos/</guid><description>&lt;p&gt;A &lt;em&gt;one-person army&lt;/em&gt;, alone, in the &lt;em&gt;jungle&lt;/em&gt; of software, fighting
+do what humans do best: communicate.&lt;/p&gt;</description></item><item><title>Rambos</title><link>https://diegojromerolopez.github.io/blog/2023/12/rambos/</link><pubDate>Sat, 16 Dec 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/12/rambos/</guid><description>&lt;p&gt;A &lt;em&gt;one-person army&lt;/em&gt;, alone, in the &lt;em&gt;jungle&lt;/em&gt; of software, fighting
 against the &lt;em&gt;peskiest&lt;/em&gt;, complex, and soul-eating bugs.
 He (or she) can work for hours, with a tenacity of a
 human-hunter machine coming from the future, and his value
 is sometimes considered 10 times the standard engineer.
 Your organization depends on this individual. You cross your
 fingers and pray to your deity to not make you loss this
-prolific, highly-valued and know-it-all individal contributor.&lt;/p&gt;</description></item><item><title>What is your constraint? Mine is anti-work</title><link>https://diegojromerolopez.github.io/blog/2023/11/what-is-your-constraint-mine-is-anti-work/</link><pubDate>Fri, 24 Nov 2023 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/11/what-is-your-constraint-mine-is-anti-work/</guid><description>&lt;p&gt;We, as engineers, not only are worried about creating new things,
+prolific, highly-valued and know-it-all individal contributor.&lt;/p&gt;</description></item><item><title>What is your constraint? Mine is anti-work</title><link>https://diegojromerolopez.github.io/blog/2023/11/what-is-your-constraint-mine-is-anti-work/</link><pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/11/what-is-your-constraint-mine-is-anti-work/</guid><description>&lt;p&gt;We, as engineers, not only are worried about creating new things,
 we need to be able to detect the cause of future issues. However,
 we must not limit ourselves to software, but to the entire software
 development team organization.&lt;/p&gt;
@@ -415,7 +415,7 @@ resonated with mine, but to be fair nothing else nothing more. An outage
 here, the IT infrastructure being a &lt;em&gt;dumpster fire&lt;/em&gt;, software that is not
 tested at all, violent communication between teams, bad leadership, etc.
 To sum up nothing that in my 15 years of work I had not already
-&lt;del&gt;experienced&lt;/del&gt; suffered: the human condition.&lt;/p&gt;</description></item><item><title>Don't touch that</title><link>https://diegojromerolopez.github.io/blog/2023/10/dont-touch-that/</link><pubDate>Thu, 12 Oct 2023 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/10/dont-touch-that/</guid><description>&lt;p&gt;Have you ever been told &amp;ldquo;don&amp;rsquo;t touch that, if you modify that piece
+&lt;del&gt;experienced&lt;/del&gt; suffered: the human condition.&lt;/p&gt;</description></item><item><title>Don't touch that</title><link>https://diegojromerolopez.github.io/blog/2023/10/dont-touch-that/</link><pubDate>Thu, 12 Oct 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/10/dont-touch-that/</guid><description>&lt;p&gt;Have you ever been told &amp;ldquo;don&amp;rsquo;t touch that, if you modify that piece
 of code you are going to break anything&amp;rdquo;? How did you react to this
 comment? Did you feel &amp;ldquo;attacked&amp;rdquo; or simply ignored that piece of &lt;em&gt;advice&lt;/em&gt;?&lt;/p&gt;
 &lt;h2 id="code-jungle"&gt;Code jungle&lt;/h2&gt;
@@ -426,7 +426,7 @@ daunting task but following some guidelines can be useful.&lt;/p&gt;
 to understand, but code that has unintended consequences if modified.
 Code that if it is changed in order, breaks something. Of course the code
 has no tests at all, or even worse, the tests do not help with detecting
-errors.&lt;/p&gt;</description></item><item><title>Misconceptions about code comments</title><link>https://diegojromerolopez.github.io/blog/2023/09/misconceptions-about-code-comments/</link><pubDate>Sat, 02 Sep 2023 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/09/misconceptions-about-code-comments/</guid><description>&lt;p&gt;I have been working in this industry since 2008, and
+errors.&lt;/p&gt;</description></item><item><title>Misconceptions about code comments</title><link>https://diegojromerolopez.github.io/blog/2023/09/misconceptions-about-code-comments/</link><pubDate>Sat, 02 Sep 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/09/misconceptions-about-code-comments/</guid><description>&lt;p&gt;I have been working in this industry since 2008, and
 it seems an idea is spreading through software companies:
 code comments &lt;em&gt;are considered harmful&lt;/em&gt;. Is that true?&lt;/p&gt;
 &lt;h2 id="where-did-all-start"&gt;Where did all start?&lt;/h2&gt;
@@ -437,7 +437,7 @@ book and the subsequent talks by &lt;a href="http://cleancoder.com/products"&gt;
 that code should be self-explanatory, and if there is a
 comment, it is because code is not well structured. So the
 code needs to be refactored, and then, the comment could be
-removed as the code would be clear enough to be understandable.&lt;/p&gt;</description></item><item><title>How to manage docker secrets</title><link>https://diegojromerolopez.github.io/blog/2023/08/how-to-manage-docker-secrets/</link><pubDate>Sat, 12 Aug 2023 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/08/how-to-manage-docker-secrets/</guid><description>&lt;p&gt;The product that is produced by most software developer teams is a docker image.
+removed as the code would be clear enough to be understandable.&lt;/p&gt;</description></item><item><title>How to manage docker secrets</title><link>https://diegojromerolopez.github.io/blog/2023/08/how-to-manage-docker-secrets/</link><pubDate>Sat, 12 Aug 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/08/how-to-manage-docker-secrets/</guid><description>&lt;p&gt;The product that is produced by most software developer teams is a docker image.
 How can be sure that we are not leaking secrets in docker images? If we include
 them as building arguments for sure they are going to be stored in the own image.
 Is there any way to avoid having them inside the docker image?&lt;/p&gt;
@@ -445,7 +445,7 @@ Is there any way to avoid having them inside the docker image?&lt;/p&gt;
 &lt;p&gt;Suppose you have a docker image that requires a secret, you do not want to include
 it in the image, but you need during the process of building the image. In other words,
 you cannot pass the secrets as environment variables because you need during the
-construction of the image, not when running a container based on that image.&lt;/p&gt;</description></item><item><title>Software engineer, programmer or wizard</title><link>https://diegojromerolopez.github.io/blog/2023/06/software-engineer-programmer-or-wizard/</link><pubDate>Sun, 11 Jun 2023 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/06/software-engineer-programmer-or-wizard/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+construction of the image, not when running a container based on that image.&lt;/p&gt;</description></item><item><title>Software engineer, programmer or wizard</title><link>https://diegojromerolopez.github.io/blog/2023/06/software-engineer-programmer-or-wizard/</link><pubDate>Sun, 11 Jun 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/06/software-engineer-programmer-or-wizard/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I have been named many things (with respect to my
 profession) some of them were not actually correct.
 Should I correct people? Should I be worried about
@@ -456,7 +456,7 @@ Does being called a Software Engineer increases
 our work level? Does it give more respect profession-wise?&lt;/p&gt;
 &lt;p&gt;As our discipline evolves, we have had many names
 from programmers, to software developers, software
-engineers, or even wizards!&lt;/p&gt;</description></item><item><title>Code reviews or understanding the code</title><link>https://diegojromerolopez.github.io/blog/2023/05/code-reviews-or-understanding-the-code/</link><pubDate>Tue, 02 May 2023 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/05/code-reviews-or-understanding-the-code/</guid><description>&lt;p&gt;How would you do a code review? Only by reading the code
+engineers, or even wizards!&lt;/p&gt;</description></item><item><title>Code reviews or understanding the code</title><link>https://diegojromerolopez.github.io/blog/2023/05/code-reviews-or-understanding-the-code/</link><pubDate>Tue, 02 May 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/05/code-reviews-or-understanding-the-code/</guid><description>&lt;p&gt;How would you do a code review? Only by reading the code
 changes or do you thing you need to actually run the code,
 and what is more important, fully understand the
 modifications?&lt;/p&gt;
@@ -465,14 +465,14 @@ modifications?&lt;/p&gt;
 &lt;h3 id="slow-but-safe-team"&gt;Slow but safe team&lt;/h3&gt;
 &lt;p&gt;Imagine a team were reviews are done by several members.
 There is a focus on the detail, PRs are slow to be merged as they are
-improved several times before the final merge.&lt;/p&gt;</description></item><item><title>Don't work more than enough</title><link>https://diegojromerolopez.github.io/blog/2023/05/dont-work-more-than-enough/</link><pubDate>Mon, 01 May 2023 00:30:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/05/dont-work-more-than-enough/</guid><description>&lt;p&gt;Sometimes we push ourselves to the max. maybe because it is
+improved several times before the final merge.&lt;/p&gt;</description></item><item><title>Don't work more than enough</title><link>https://diegojromerolopez.github.io/blog/2023/05/dont-work-more-than-enough/</link><pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/05/dont-work-more-than-enough/</guid><description>&lt;p&gt;Sometimes we push ourselves to the max. maybe because it is
 there are some deadlines when we are not going to be able to
 release the new version, maybe it is because our life outside
 work is not good enough or maybe because we are excited to be
 working in such a company/technology/team.&lt;/p&gt;
 &lt;p&gt;However, our mental health is going to be damaged by overworking.
 The question is not how much, but when we are going to get burned
-out by overworking.&lt;/p&gt;</description></item><item><title>Bike sheding in merge reviews</title><link>https://diegojromerolopez.github.io/blog/2023/04/bike-sheding-in-merge-reviews/</link><pubDate>Wed, 26 Apr 2023 00:30:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/04/bike-sheding-in-merge-reviews/</guid><description>&lt;p&gt;Focusing on the important things is a crucial matter.
+out by overworking.&lt;/p&gt;</description></item><item><title>Bike sheding in merge reviews</title><link>https://diegojromerolopez.github.io/blog/2023/04/bike-sheding-in-merge-reviews/</link><pubDate>Wed, 26 Apr 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/04/bike-sheding-in-merge-reviews/</guid><description>&lt;p&gt;Focusing on the important things is a crucial matter.
 When trying to solve a problem, sometimes we
 subconsciously focus on the &lt;em&gt;easy&lt;/em&gt; part,
 the known part, the part we know we can tackle,
@@ -488,7 +488,7 @@ They had 12 months to do it. That power plant
 would have to had (among other things) a bike
 shed. The engineers used 80% of their time
 designing the bike shed instead of designing
-the hard parts: the actual nuclear power plant.&lt;/em&gt;&lt;/p&gt;</description></item><item><title>Git History in PRs</title><link>https://diegojromerolopez.github.io/blog/2023/04/git-history-in-prs/</link><pubDate>Sat, 22 Apr 2023 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/04/git-history-in-prs/</guid><description>&lt;p&gt;Suppose you have a big feature, and you are creating
+the hard parts: the actual nuclear power plant.&lt;/em&gt;&lt;/p&gt;</description></item><item><title>Git History in PRs</title><link>https://diegojromerolopez.github.io/blog/2023/04/git-history-in-prs/</link><pubDate>Sat, 22 Apr 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/04/git-history-in-prs/</guid><description>&lt;p&gt;Suppose you have a big feature, and you are creating
 a pull-request with all your changes. How do you
 organize the changes? Only one commit? One per sub-feature
 or sub-fix? How do you make that division? Or maybe you
@@ -500,7 +500,7 @@ approaches I have found during my years in the workforce.&lt;/p&gt;
 the git history does not matter, only the versions matter.
 i.e. the history of the commits is not examined at all.
 The version of the project is what is important, no PR
-reverts are made, only forward modifications.&lt;/p&gt;</description></item><item><title>Open Source dependencies in software projects</title><link>https://diegojromerolopez.github.io/blog/2023/04/open-source-dependencies-in-software-projects/</link><pubDate>Tue, 18 Apr 2023 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/04/open-source-dependencies-in-software-projects/</guid><description>&lt;p&gt;Most of the foundations of current commercial software
+reverts are made, only forward modifications.&lt;/p&gt;</description></item><item><title>Open Source dependencies in software projects</title><link>https://diegojromerolopez.github.io/blog/2023/04/open-source-dependencies-in-software-projects/</link><pubDate>Tue, 18 Apr 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/04/open-source-dependencies-in-software-projects/</guid><description>&lt;p&gt;Most of the foundations of current commercial software
 projects are open source. But what happens when an
 open source project becomens unmaintained?&lt;/p&gt;
 &lt;h2 id="dependencies-dependencies-everywhere"&gt;Dependencies, dependencies everywhere!&lt;/h2&gt;
@@ -509,7 +509,7 @@ Why? Because we (as software engineers) are not going to
 reinvent the wheel. Having your software depend on a
 well-tested, maintained, and supported is a bliss. It
 saves you time, and work very easily: you only have to
-be aware of two things:&lt;/p&gt;</description></item><item><title>FOSDEM 2023</title><link>https://diegojromerolopez.github.io/blog/2023/02/fosdem-2023/</link><pubDate>Sun, 12 Feb 2023 00:00:00 +0100</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/02/fosdem-2023/</guid><description>&lt;p&gt;Past week I assisted the FOSSDEM 2023 conference
+be aware of two things:&lt;/p&gt;</description></item><item><title>FOSDEM 2023</title><link>https://diegojromerolopez.github.io/blog/2023/02/fosdem-2023/</link><pubDate>Sun, 12 Feb 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/02/fosdem-2023/</guid><description>&lt;p&gt;Past week I assisted the FOSSDEM 2023 conference
 in Brussels. It was two days of talks of different
 topics like programming languages, containers,
 security, etc. It was a blast! &lt;a href="https://fosdem.org/2023/schedule/events/"&gt;I am these days
@@ -539,7 +539,7 @@ restaurant and eat &lt;em&gt;proper&lt;/em&gt; food there.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="is-fosdem-worth-it"&gt;Is FOSDEM worth it?&lt;/h2&gt;
 &lt;p&gt;Being that Brussels is only a short plane trip away from where I am based
-from (Madrid), it is convenient.&lt;/p&gt;</description></item><item><title>Dockerfile stages must have a command</title><link>https://diegojromerolopez.github.io/blog/2023/01/dockerfile-stages-must-have-a-command/</link><pubDate>Tue, 31 Jan 2023 00:00:00 +0100</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/01/dockerfile-stages-must-have-a-command/</guid><description>&lt;p&gt;In multi-stage Dockerfile, you have to be careful
+from (Madrid), it is convenient.&lt;/p&gt;</description></item><item><title>Dockerfile stages must have a command</title><link>https://diegojromerolopez.github.io/blog/2023/01/dockerfile-stages-must-have-a-command/</link><pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/01/dockerfile-stages-must-have-a-command/</guid><description>&lt;p&gt;In multi-stage Dockerfile, you have to be careful
 for what stages you run. Want to avoid having
 misteriously exit 0 errors in containers?
 Add a CMD at the end of the Dockerfile stage
@@ -549,7 +549,7 @@ with some dummy command like&lt;/p&gt;
 informing the user of what happened. This could
 cause some &lt;em&gt;mysterious&lt;/em&gt; errors if you are getting
 up all containers and not overwritting the command
-of the ones that have none.&lt;/p&gt;</description></item><item><title>Use the builder stage pattern in Dockerfiles</title><link>https://diegojromerolopez.github.io/blog/2023/01/use-the-builder-stage-pattern-in-dockerfiles/</link><pubDate>Sun, 15 Jan 2023 00:00:00 +0100</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/01/use-the-builder-stage-pattern-in-dockerfiles/</guid><description>&lt;p&gt;Most of the time, some libraries that we install in a
+of the ones that have none.&lt;/p&gt;</description></item><item><title>Use the builder stage pattern in Dockerfiles</title><link>https://diegojromerolopez.github.io/blog/2023/01/use-the-builder-stage-pattern-in-dockerfiles/</link><pubDate>Sun, 15 Jan 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/01/use-the-builder-stage-pattern-in-dockerfiles/</guid><description>&lt;p&gt;Most of the time, some libraries that we install in a
 docker image are only used for the construction of our
 executables. Could we just not include in our final docker image?&lt;/p&gt;
 &lt;h2 id="docker-images-should-be-minimal"&gt;Docker images should be minimal&lt;/h2&gt;
@@ -561,14 +561,14 @@ aim is to reduce the cost of the transference of the docker image.&lt;/p&gt;
 &lt;p&gt;By having a stage build the required files, we can create a slimmer
 docker image by using
 &lt;a href="https://docs.docker.com/build/building/multi-stage/"&gt;multi-stage builds&lt;/a&gt;.
-We can see a golang example that follows this pattern:&lt;/p&gt;</description></item><item><title>Reduce the size of your builder images</title><link>https://diegojromerolopez.github.io/blog/2023/01/reduce-the-size-of-your-builder-images/</link><pubDate>Sat, 14 Jan 2023 00:00:00 +0100</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/01/reduce-the-size-of-your-builder-images/</guid><description>&lt;p&gt;Docker images should have a small size. For example, Alpine Linux images
+We can see a golang example that follows this pattern:&lt;/p&gt;</description></item><item><title>Reduce the size of your builder images</title><link>https://diegojromerolopez.github.io/blog/2023/01/reduce-the-size-of-your-builder-images/</link><pubDate>Sat, 14 Jan 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/01/reduce-the-size-of-your-builder-images/</guid><description>&lt;p&gt;Docker images should have a small size. For example, Alpine Linux images
 have a mere 50MB of size, debian-slim is 50-60MB of size.
 Why do we seek a small size footprint? One reason is simply because the
 docker images are usually pushed to, and download from, docker repositories like
 &lt;a href="https://hub.docker.com/"&gt;dockerhub&lt;/a&gt; or other private docker repositories.&lt;/p&gt;
 &lt;h2 id="use-a-small-base-image"&gt;Use a small base image&lt;/h2&gt;
 &lt;p&gt;Alpine and debian-slim-stable are like 50MB. Use these kind of
-images instead of bigger images.&lt;/p&gt;</description></item><item><title>Don't be Percival</title><link>https://diegojromerolopez.github.io/blog/2022/12/dont-be-percival/</link><pubDate>Mon, 19 Dec 2022 00:30:00 +0100</pubDate><guid>https://diegojromerolopez.github.io/blog/2022/12/dont-be-percival/</guid><description>&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Percival"&gt;Percival&lt;/a&gt;
+images instead of bigger images.&lt;/p&gt;</description></item><item><title>Don't be Percival</title><link>https://diegojromerolopez.github.io/blog/2022/12/dont-be-percival/</link><pubDate>Mon, 19 Dec 2022 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2022/12/dont-be-percival/</guid><description>&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Percival"&gt;Percival&lt;/a&gt;
 is a mythologic figure, a mighty knight associated with
 King Arthur, the knights of the round table,
 and the search for the grail. How is the myth
@@ -581,7 +581,7 @@ tradition of knights (his deceased father and grandfather
 were knights) but he does not know. His mother keeps him
 in the dark about this, fearing that knowing his roots
 would make he more likely to follow the steps of his father, and hence
-face some dangers and die.&lt;/p&gt;</description></item><item><title>Fail fast and often</title><link>https://diegojromerolopez.github.io/blog/2022/12/fail-fast-and-often/</link><pubDate>Sat, 17 Dec 2022 17:33:00 +0100</pubDate><guid>https://diegojromerolopez.github.io/blog/2022/12/fail-fast-and-often/</guid><description>&lt;p&gt;Being fail-tolerant is valued in organizations as in a changing
+face some dangers and die.&lt;/p&gt;</description></item><item><title>Fail fast and often</title><link>https://diegojromerolopez.github.io/blog/2022/12/fail-fast-and-often/</link><pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2022/12/fail-fast-and-often/</guid><description>&lt;p&gt;Being fail-tolerant is valued in organizations as in a changing
 world where requirements, technologies or even team members
 can change from one day to the next, having adaptative capacities &lt;em&gt;is gold&lt;/em&gt;.&lt;/p&gt;
 &lt;h2 id="wait-what-are-you-talking-about"&gt;Wait, what are you talking about?&lt;/h2&gt;
@@ -592,14 +592,14 @@ importance and our resources are finite.&lt;/p&gt;
 Are you working for a well-positioned big company that
 is looking the excellence in its products? Or are you
 working for a startup that is trying to create the product
-as fast as possible?&lt;/p&gt;</description></item><item><title>Override docker-compose.yml files</title><link>https://diegojromerolopez.github.io/blog/2022/12/override-docker-compose.yml-files/</link><pubDate>Mon, 05 Dec 2022 19:50:00 +0100</pubDate><guid>https://diegojromerolopez.github.io/blog/2022/12/override-docker-compose.yml-files/</guid><description>&lt;p&gt;Sometimes we want to have different versions of docker-compose.yml files
+as fast as possible?&lt;/p&gt;</description></item><item><title>Override docker-compose.yml files</title><link>https://diegojromerolopez.github.io/blog/2022/12/override-docker-compose.yml-files/</link><pubDate>Mon, 05 Dec 2022 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2022/12/override-docker-compose.yml-files/</guid><description>&lt;p&gt;Sometimes we want to have different versions of docker-compose.yml files
 (one for production and one for development). Each environment has their
 own characteristics (slightly different images for example) we show here
 a good way to override sections of a docker-compose.yml file easily.&lt;/p&gt;
 &lt;h2 id="why"&gt;Why?&lt;/h2&gt;
 &lt;p&gt;Sometimes we have several environments that share almost all docker configuration.
 Having a common docker-compose.yml file and several docker-compose.override.yml
-files is a great way to manage your service configurations.&lt;/p&gt;</description></item><item><title>Actual integration tests</title><link>https://diegojromerolopez.github.io/blog/2022/11/actual-integration-tests/</link><pubDate>Sun, 27 Nov 2022 18:47:00 +0100</pubDate><guid>https://diegojromerolopez.github.io/blog/2022/11/actual-integration-tests/</guid><description>&lt;p&gt;Many times we have some piece of code that is tested but is still failing
+files is a great way to manage your service configurations.&lt;/p&gt;</description></item><item><title>Actual integration tests</title><link>https://diegojromerolopez.github.io/blog/2022/11/actual-integration-tests/</link><pubDate>Sun, 27 Nov 2022 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2022/11/actual-integration-tests/</guid><description>&lt;p&gt;Many times we have some piece of code that is tested but is still failing
 in production. How is that possible? Is that because of bad tests or
 we have a greater hidden issue?&lt;/p&gt;
 &lt;p&gt;Integration tests are the best way make sure that a functionality
@@ -607,7 +607,7 @@ does not degradate when adding new features.&lt;/p&gt;
 &lt;h2 id="what-are-integration-tests"&gt;What are integration tests&lt;/h2&gt;
 &lt;p&gt;Integration tests are tests that check a full feature of the project.
 So, in the case of adding new features, we can guarantee that at least
-the covered features are going to keep working as expected.&lt;/p&gt;</description></item><item><title>Add changes to your last commit</title><link>https://diegojromerolopez.github.io/blog/2022/11/add-changes-to-your-last-commit/</link><pubDate>Wed, 16 Nov 2022 18:36:00 +0100</pubDate><guid>https://diegojromerolopez.github.io/blog/2022/11/add-changes-to-your-last-commit/</guid><description>&lt;p&gt;Have you ever created a commit with a meaningful message and,
+the covered features are going to keep working as expected.&lt;/p&gt;</description></item><item><title>Add changes to your last commit</title><link>https://diegojromerolopez.github.io/blog/2022/11/add-changes-to-your-last-commit/</link><pubDate>Wed, 16 Nov 2022 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2022/11/add-changes-to-your-last-commit/</guid><description>&lt;p&gt;Have you ever created a commit with a meaningful message and,
 later wanted to add or modify something to it? And what about if you pushed
 that commit? Here we are going to see how you add changes to a commit,
 independently of if it was pushed or not.&lt;/p&gt;
@@ -633,7 +633,7 @@ a package to limit access to secrets&lt;/p&gt;
 thinking in how we are passing some secrets as environment variables
 to the container. This is standard practice by the Cloud Native
 practitioners. However, once you pass an environment variable you
-fall in two different issues:&lt;/p&gt;</description></item><item><title>Allow writing of files in docker in Linux</title><link>https://diegojromerolopez.github.io/blog/2022/10/allow-writing-of-files-in-docker-in-linux/</link><pubDate>Mon, 17 Oct 2022 18:49:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2022/10/allow-writing-of-files-in-docker-in-linux/</guid><description>&lt;p&gt;I have been working on a small project in Python:
+fall in two different issues:&lt;/p&gt;</description></item><item><title>Allow writing of files in docker in Linux</title><link>https://diegojromerolopez.github.io/blog/2022/10/allow-writing-of-files-in-docker-in-linux/</link><pubDate>Mon, 17 Oct 2022 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2022/10/allow-writing-of-files-in-docker-in-linux/</guid><description>&lt;p&gt;I have been working on a small project in Python:
 &lt;a href="https://github.com/diegojromerolopez/functainer"&gt;functainer&lt;/a&gt;.
 The goal of this project is to provide a Python package to run functions
 in docker seamlessly: you only will &lt;a href="https://www.docker.com/"&gt;docker&lt;/a&gt; and Python to run it.&lt;/p&gt;
@@ -730,12 +730,12 @@ it was funny to learn its peculiarities and of course, its &lt;em&gt;dark corner
 &lt;p&gt;Now the rules of the game have changed and nobody expects that almost from any profession. Maybe you are a baker and expect to use the same ingredients and make the same bread over and over again, but your clients can change or acquire new tastes! Thus, what about improving the costs? Maybe a new machine could make the baking process cheaper and you should know about its existence&amp;hellip;&lt;/p&gt;</description></item><item><title>Agile project management</title><link>https://diegojromerolopez.github.io/blog/2016/01/agile-project-management/</link><pubDate>Sun, 10 Jan 2016 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2016/01/agile-project-management/</guid><description>&lt;h2 id="software-engineering-is-a-special-type-of-engineering"&gt;Software Engineering is a special type of Engineering&lt;/h2&gt;
 &lt;p&gt;During too much time Software Engineering has been molded as a traditional Engineering, with the same terms and ideas that came from this disciplines. But they failed.&lt;/p&gt;
 &lt;p&gt;Firstly, Software Engineering has an immaterial final product. It is not a bridge, a road, or a mine for example. Thus, software engineers works with ideas more than anything else.&lt;/p&gt;
-&lt;p&gt;Thus, traditional engineers are limited by Physics laws while software engineers are only limited by the computational model they use and by the power of the machines their software run. Nowadays, for non-complex tasks (traditional business logic), these machines are more than enough.&lt;/p&gt;</description></item><item><title>Literate programming</title><link>https://diegojromerolopez.github.io/blog/2015/12/literate-programming/</link><pubDate>Tue, 25 Aug 2015 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2015/12/literate-programming/</guid><description>&lt;p&gt;Donald E. Knuth coined the term Literate programming in this &lt;a href="http://www.literateprogramming.com/knuthweb.pdf"&gt;paper&lt;/a&gt; he wrote almost 40 years ago.&lt;/p&gt;
-&lt;p&gt;Knuth wrote a tool called WEB as a demonstration of what Literate Programming should be. This tool would understand Pascal and TeX code, using Pascal code to create a binary executable and using TeX code to compile its documentation file. Pascal code would be a bit different because of the use of predefined macros and it would be interleaved by TeX code describing what actions execute.&lt;/p&gt;</description></item><item><title>Out of the tar pit</title><link>https://diegojromerolopez.github.io/blog/2015/09/out-of-the-tar-pit/</link><pubDate>Tue, 25 Aug 2015 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2015/09/out-of-the-tar-pit/</guid><description>&lt;p&gt;&amp;ldquo;Tar pit&amp;rdquo; is an idiom used since 1970s based on the similarity between software complexity and tar pits trapping engineers and animals (resp.).&lt;/p&gt;
+&lt;p&gt;Thus, traditional engineers are limited by Physics laws while software engineers are only limited by the computational model they use and by the power of the machines their software run. Nowadays, for non-complex tasks (traditional business logic), these machines are more than enough.&lt;/p&gt;</description></item><item><title>Literate programming</title><link>https://diegojromerolopez.github.io/blog/2015/12/literate-programming/</link><pubDate>Wed, 30 Dec 2015 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2015/12/literate-programming/</guid><description>&lt;p&gt;Donald E. Knuth coined the term Literate programming in this &lt;a href="http://www.literateprogramming.com/knuthweb.pdf"&gt;paper&lt;/a&gt; he wrote almost 40 years ago.&lt;/p&gt;
+&lt;p&gt;Knuth wrote a tool called WEB as a demonstration of what Literate Programming should be. This tool would understand Pascal and TeX code, using Pascal code to create a binary executable and using TeX code to compile its documentation file. Pascal code would be a bit different because of the use of predefined macros and it would be interleaved by TeX code describing what actions execute.&lt;/p&gt;</description></item><item><title>Out of the tar pit</title><link>https://diegojromerolopez.github.io/blog/2015/09/out-of-the-tar-pit/</link><pubDate>Mon, 14 Sep 2015 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2015/09/out-of-the-tar-pit/</guid><description>&lt;p&gt;&amp;ldquo;Tar pit&amp;rdquo; is an idiom used since 1970s based on the similarity between software complexity and tar pits trapping engineers and animals (resp.).&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.shaffner.us/cs/papers/tarpit.pdf"&gt;Out of the tar pit&lt;/a&gt; is a paper that analyzes the causes of this complexity and classifies it in several categories. The authors also analyzes the approaches that each type of programming technique uses to sove this complexity problem.&lt;/p&gt;
 &lt;p&gt;But the most important contribution the authors do is giving a solution in the form of a new paradigm of computer programming. They show a declarative language based on Relational Algebra invented by E. Codd that solves the inherent complexity that plagues the imperative languages code we use everyday.&lt;/p&gt;</description></item><item><title>Software construction</title><link>https://diegojromerolopez.github.io/blog/2015/08/software-construction/</link><pubDate>Tue, 25 Aug 2015 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2015/08/software-construction/</guid><description>&lt;p&gt;&lt;em&gt;In my voyage from a simply Software Engineer to a master in Software Engineering I&amp;rsquo;m reading several books. Thus, I&amp;rsquo;m posting in this blog whatever thoughts appear in my mind about Software Developing.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m several chapters in &lt;strong&gt;Code Complete 2nd Ed. of Steve McConnel&lt;/strong&gt; and I&amp;rsquo;m amazed by the knowledge that it contains. As time goes by I will update this blog with more information about my findings.&lt;/p&gt;
-&lt;p&gt;Specially I&amp;rsquo;ve been struck by one basic principle: Software construction is the only activity that is warrantied to be made in a software development project.&lt;/p&gt;</description></item><item><title>Peopleware</title><link>https://diegojromerolopez.github.io/blog/2015/08/peopleware/</link><pubDate>Fri, 14 Aug 2015 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2015/08/peopleware/</guid><description>&lt;p&gt;I&amp;rsquo;ve just finished reading &lt;a href="https://en.wikipedia.org/wiki/Peopleware:_Productive_Projects_and_Teams"&gt;Tom De Marco &amp;amp; Timothy Lister&amp;rsquo;s Peopleware&lt;/a&gt; and I feel like this book should be recommended to all new Software Engineer graduates. Let me put some light in this matter.&lt;/p&gt;
+&lt;p&gt;Specially I&amp;rsquo;ve been struck by one basic principle: Software construction is the only activity that is warrantied to be made in a software development project.&lt;/p&gt;</description></item><item><title>Peopleware</title><link>https://diegojromerolopez.github.io/blog/2015/08/peopleware/</link><pubDate>Thu, 20 Aug 2015 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2015/08/peopleware/</guid><description>&lt;p&gt;I&amp;rsquo;ve just finished reading &lt;a href="https://en.wikipedia.org/wiki/Peopleware:_Productive_Projects_and_Teams"&gt;Tom De Marco &amp;amp; Timothy Lister&amp;rsquo;s Peopleware&lt;/a&gt; and I feel like this book should be recommended to all new Software Engineer graduates. Let me put some light in this matter.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve been working for 8 years in a startup and none of my formal education in the University prepared me for what I was going to experiment. Software Engineering is a social discipline (we work in teams) but in my Computer Engineering degree&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt; there are no management or organization courses. So, when you scape the Engineering school you know how to make code but you don&amp;rsquo;t know really know how to work with another humans and of course know nothing about the perks of the job. To sum up, you have no clue about the social component of the job.&lt;/p&gt;</description></item><item><title>Progress towards and engineering discipline of software by Mary Shaw</title><link>https://diegojromerolopez.github.io/blog/2015/08/progress-towards-and-engineering-discipline-of-software-by-mary-shaw/</link><pubDate>Fri, 14 Aug 2015 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2015/08/progress-towards-and-engineering-discipline-of-software-by-mary-shaw/</guid><description>&lt;p&gt;Several days ago, I watched this videotalk of Mary Shaw that tried to give an answer to the question is Software Engineering an Engineering discipline yet?&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=S03bsjs2YnQ"&gt;&lt;img src="http://img.youtube.com/vi/S03bsjs2YnQ/0.jpg" alt="http://img.youtube.com/vi/S03bsjs2YnQ/0.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Dr. Shaw makes a parallelism with Civil Engineering that started as a empirical discipline and, thanks to strong scientific foundations, evolved to what we could call full engineering.&lt;/p&gt;

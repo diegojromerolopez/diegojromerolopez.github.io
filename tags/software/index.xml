@@ -1,35 +1,35 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Software on Diego J.'s Software Tar Pit</title><link>https://diegojromerolopez.github.io/tags/software/</link><description>Recent content in Software on Diego J.'s Software Tar Pit</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sat, 24 Jan 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://diegojromerolopez.github.io/tags/software/index.xml" rel="self" type="application/rss+xml"/><item><title>How to minimize tech debt from the start</title><link>https://diegojromerolopez.github.io/blog/2026/01/how-to-minimize-tech-debt-from-the-start/</link><pubDate>Sat, 24 Jan 2026 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2026/01/how-to-minimize-tech-debt-from-the-start/</guid><description>&lt;p&gt;In this post we are going to lay some guidelines about how to prevent your project of accumulating tech debt.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Software on Diego J.'s Software Tar Pit</title><link>https://diegojromerolopez.github.io/tags/software/</link><description>Recent content in Software on Diego J.'s Software Tar Pit</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 24 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://diegojromerolopez.github.io/tags/software/index.xml" rel="self" type="application/rss+xml"/><item><title>How to minimize tech debt from the start</title><link>https://diegojromerolopez.github.io/blog/2026/01/how-to-minimize-tech-debt-from-the-start/</link><pubDate>Sat, 24 Jan 2026 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2026/01/how-to-minimize-tech-debt-from-the-start/</guid><description>&lt;p&gt;In this post we are going to lay some guidelines about how to prevent your project of accumulating tech debt.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Tech debt has been a constant in all my work. All projects I have started working with had an amount of tech debt.
 Why does this happen? And better yet, what can we do to avoid falling on this tech debt trap?&lt;/p&gt;
 &lt;h2 id="what-is-tech-debt"&gt;What is tech debt?&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Technical_debt"&gt;Tech debt&lt;/a&gt; was a metaphor created by
 &lt;a href="https://en.wikipedia.org/wiki/Ward_Cunningham"&gt;Ward Cunningham&lt;/a&gt; to help non-technical people
-the necessity of investing resources in keeping the software projects with the lesser level of accidental complexity possible.&lt;/p&gt;</description></item><item><title>When are full software rewrites needed?</title><link>https://diegojromerolopez.github.io/blog/2026/01/when-are-full-software-rewrites-needed/</link><pubDate>Sat, 03 Jan 2026 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2026/01/when-are-full-software-rewrites-needed/</guid><description>&lt;p&gt;Having dealt with a full rewrite of a software application recently, it left me
+the necessity of investing resources in keeping the software projects with the lesser level of accidental complexity possible.&lt;/p&gt;</description></item><item><title>When are full software rewrites needed?</title><link>https://diegojromerolopez.github.io/blog/2026/01/when-are-full-software-rewrites-needed/</link><pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2026/01/when-are-full-software-rewrites-needed/</guid><description>&lt;p&gt;Having dealt with a full rewrite of a software application recently, it left me
 wondering if it was needed at all, if there was any way to salvage the project or
 some parts of the project. Could we have avoided the rewrite?&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I have encountered the necessity of rewriting full software projects several times
-in my career but in my last years I have had to do it twice.&lt;/p&gt;</description></item><item><title>Otelize, add OpenTelemetry to your Python project easily</title><link>https://diegojromerolopez.github.io/blog/2025/09/otelize-add-opentelemetry-to-your-python-project-easily/</link><pubDate>Mon, 15 Sep 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/09/otelize-add-opentelemetry-to-your-python-project-easily/</guid><description>&lt;p&gt;OpenTelemetry (sometimes abbreviated as OTEL) is a standard for telemetry
+in my career but in my last years I have had to do it twice.&lt;/p&gt;</description></item><item><title>Otelize, add OpenTelemetry to your Python project easily</title><link>https://diegojromerolopez.github.io/blog/2025/09/otelize-add-opentelemetry-to-your-python-project-easily/</link><pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/09/otelize-add-opentelemetry-to-your-python-project-easily/</guid><description>&lt;p&gt;OpenTelemetry (sometimes abbreviated as OTEL) is a standard for telemetry
 and monitorization of software applications that has gain a lot of traction in these last years.
 We will learn here how to use the Python package &lt;a href="https://github.com/diegojromerolopez/otelize"&gt;otelize&lt;/a&gt;
 to add this telemetry to our Python applications without having to rely on much boilerplate.&lt;/p&gt;
 &lt;h2 id="how-did-i-use-to-add-otel-telemetry-to-my-python-code"&gt;How did I use to add OTEL telemetry to my Python code?&lt;/h2&gt;
 &lt;p&gt;Just by adding a lot of spans (at least one per function). This is done by relying on the context manager
-that is provided by the &lt;a href="https://pypi.org/project/opentelemetry-api/"&gt;opentelemetry-api&lt;/a&gt; package.&lt;/p&gt;</description></item><item><title>Write tests. Not too many. Mostly integration.</title><link>https://diegojromerolopez.github.io/blog/2025/07/write-tests.-not-too-many.-mostly-integration./</link><pubDate>Sun, 27 Jul 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/07/write-tests.-not-too-many.-mostly-integration./</guid><description>&lt;p&gt;This is some advice that appear first at Twitter by &lt;a href="https://rauchg.com/"&gt;Guillermo Rauch&lt;/a&gt;.
+that is provided by the &lt;a href="https://pypi.org/project/opentelemetry-api/"&gt;opentelemetry-api&lt;/a&gt; package.&lt;/p&gt;</description></item><item><title>Write tests. Not too many. Mostly integration.</title><link>https://diegojromerolopez.github.io/blog/2025/07/write-tests.-not-too-many.-mostly-integration./</link><pubDate>Sun, 27 Jul 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/07/write-tests.-not-too-many.-mostly-integration./</guid><description>&lt;p&gt;This is some advice that appear first at Twitter by &lt;a href="https://rauchg.com/"&gt;Guillermo Rauch&lt;/a&gt;.
 Years have passed since I read it and now I am at a position to reflect on them and how I
 was following this advice even when I did not know that &lt;em&gt;explicitly&lt;/em&gt;.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Some years ago I was developing an internal web application for a non-&lt;em&gt;techie&lt;/em&gt; team.
 I was working with React and reading a lot of tutorials, guides, and documentation
-(in case you are wondering I was mostly focused on backend those days).&lt;/p&gt;</description></item><item><title>Improve your programs performance with backgroundlog</title><link>https://diegojromerolopez.github.io/blog/2025/07/improve-your-programs-performance-with-backgroundlog/</link><pubDate>Sat, 12 Jul 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/07/improve-your-programs-performance-with-backgroundlog/</guid><description>&lt;p&gt;&lt;a href="https://github.com/diegojromerolopez/backgroundlog"&gt;backgroundlog&lt;/a&gt; is a library that
+(in case you are wondering I was mostly focused on backend those days).&lt;/p&gt;</description></item><item><title>Improve your programs performance with backgroundlog</title><link>https://diegojromerolopez.github.io/blog/2025/07/improve-your-programs-performance-with-backgroundlog/</link><pubDate>Sat, 12 Jul 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/07/improve-your-programs-performance-with-backgroundlog/</guid><description>&lt;p&gt;&lt;a href="https://github.com/diegojromerolopez/backgroundlog"&gt;backgroundlog&lt;/a&gt; is a library that
 allows you to use a background thread to write log messages.
 The idea for that is to be transparent to the developer, in the sense that they do not need
 to worry about async functions, the event loop, or managing threads.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;The other day I was having a conversation with another software engineer about how to read lines
 from a file and write in another file in the most performant way possible. Take in account that
-the file was supposed to have several GB of information and we could not block the flow.&lt;/p&gt;</description></item><item><title>The case for LLMs: faster development</title><link>https://diegojromerolopez.github.io/blog/2025/06/the-case-for-llms-faster-development/</link><pubDate>Sun, 29 Jun 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/06/the-case-for-llms-faster-development/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+the file was supposed to have several GB of information and we could not block the flow.&lt;/p&gt;</description></item><item><title>The case for LLMs: faster development</title><link>https://diegojromerolopez.github.io/blog/2025/06/the-case-for-llms-faster-development/</link><pubDate>Sun, 29 Jun 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/06/the-case-for-llms-faster-development/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Artificial Intelligence is all over the place in software development these days.
 From the first AI services that could generate images, to the code generation tools
 like GitHub Copilot, ChatGPT, Google Gemini, etc.&lt;/p&gt;
@@ -38,7 +38,7 @@ replace software engineers, but they are going to empower them in a lot of cases
 &lt;p&gt;This post is a &lt;em&gt;war story&lt;/em&gt; of mine, where I used a LLM service to create a new command
 for a CLI command tool written in a compiled language that I do not &lt;em&gt;master&lt;/em&gt;. I know how
 to read some code, but I am not skilled in the ecosystem nor in many patterns and conventions
-of the community.&lt;/p&gt;</description></item><item><title>The testing pyramid</title><link>https://diegojromerolopez.github.io/blog/2025/06/the-testing-pyramid/</link><pubDate>Sat, 07 Jun 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/06/the-testing-pyramid/</guid><description>&lt;p&gt;This post revisit one of my favorite topics: &lt;a href="https://diegojromerolopez.github.io/tags/testing/"&gt;testing&lt;/a&gt;.
+of the community.&lt;/p&gt;</description></item><item><title>The testing pyramid</title><link>https://diegojromerolopez.github.io/blog/2025/06/the-testing-pyramid/</link><pubDate>Sat, 07 Jun 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/06/the-testing-pyramid/</guid><description>&lt;p&gt;This post revisit one of my favorite topics: &lt;a href="https://diegojromerolopez.github.io/tags/testing/"&gt;testing&lt;/a&gt;.
 We are going to delve into what are the different types of tests that you should do in your software
 to have some assurance about your code.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
@@ -46,14 +46,14 @@ to have some assurance about your code.&lt;/p&gt;
 &lt;a href="https://diegojromerolopez.github.io/blog/2022/11/actual-integration-tests/"&gt;difference between unit and integration testing&lt;/a&gt;,
 and while re-reading it today I was not convinced that it was clear enough.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Integration tests&lt;/em&gt; is a concept that has been used many times in different environments and at different
-levels, so I want to give a proper definition of each one of the test types at project and system level.&lt;/p&gt;</description></item><item><title>I do not like *args and **kwargs in Python</title><link>https://diegojromerolopez.github.io/blog/2025/05/i-do-not-like-args-and-kwargs-in-python/</link><pubDate>Sun, 18 May 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/05/i-do-not-like-args-and-kwargs-in-python/</guid><description>&lt;p&gt;&lt;code&gt;*args&lt;/code&gt; and &lt;code&gt;**kwargs&lt;/code&gt; are the way to declare positional and keyword function arguments (resp.) in Python.&lt;/p&gt;
+levels, so I want to give a proper definition of each one of the test types at project and system level.&lt;/p&gt;</description></item><item><title>I do not like *args and **kwargs in Python</title><link>https://diegojromerolopez.github.io/blog/2025/05/i-do-not-like-args-and-kwargs-in-python/</link><pubDate>Sun, 18 May 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/05/i-do-not-like-args-and-kwargs-in-python/</guid><description>&lt;p&gt;&lt;code&gt;*args&lt;/code&gt; and &lt;code&gt;**kwargs&lt;/code&gt; are the way to declare positional and keyword function arguments (resp.) in Python.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;This post explains why I am a fan of naming the arguments and I do not like positional arguments nor
 the &lt;code&gt;*args&lt;/code&gt; and &lt;code&gt;**kwargs&lt;/code&gt; way of passing arguments.&lt;/p&gt;
 &lt;h2 id="why-i-dont-like-args-and-kwargs"&gt;Why I don&amp;rsquo;t like *args and **kwargs?&lt;/h2&gt;
 &lt;p&gt;Most of the time I only use &lt;code&gt;*args&lt;/code&gt; and &lt;code&gt;**kwargs&lt;/code&gt; when strictly necessary, like when inheriting from a class
 that uses them, and I need to pass the parameters to the parent class. Most of the time,
-&lt;strong&gt;I would rater add 10 parameters with a default value than leaving an unknown interface in a function&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Can LLMs replace engineers?</title><link>https://diegojromerolopez.github.io/blog/2025/05/can-llms-replace-engineers/</link><pubDate>Sat, 17 May 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/05/can-llms-replace-engineers/</guid><description>&lt;p&gt;This post provides my opinion about how a &lt;a href="https://en.wikipedia.org/wiki/Large_language_model"&gt;LLMs&lt;/a&gt;
+&lt;strong&gt;I would rater add 10 parameters with a default value than leaving an unknown interface in a function&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Can LLMs replace engineers?</title><link>https://diegojromerolopez.github.io/blog/2025/05/can-llms-replace-engineers/</link><pubDate>Sat, 17 May 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/05/can-llms-replace-engineers/</guid><description>&lt;p&gt;This post provides my opinion about how a &lt;a href="https://en.wikipedia.org/wiki/Large_language_model"&gt;LLMs&lt;/a&gt;
 cannot replace a senior software engineer,
 even if the CEOs and other executives believe that it is possible.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
@@ -61,7 +61,7 @@ even if the CEOs and other executives believe that it is possible.&lt;/p&gt;
 My experience working with LLMs is limited to working with &lt;a href="https://chatgpt.com/"&gt;ChatGPT&lt;/a&gt;,
 &lt;a href="https://www.cursor.com/"&gt;Cursor&lt;/a&gt; and &lt;a href="https://github.com/features/copilot"&gt;GitHub Copilot&lt;/a&gt;
 as of May 2025 (when this post was written). So please, if you read this in the future,
-take my opinion with &lt;em&gt;a grain of salt&lt;/em&gt;.&lt;/p&gt;</description></item><item><title>How to write a good unit test</title><link>https://diegojromerolopez.github.io/blog/2025/04/how-to-write-a-good-unit-test/</link><pubDate>Sat, 05 Apr 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/04/how-to-write-a-good-unit-test/</guid><description>&lt;p&gt;This post provides some guidelines about how to write a good unit test.
+take my opinion with &lt;em&gt;a grain of salt&lt;/em&gt;.&lt;/p&gt;</description></item><item><title>How to write a good unit test</title><link>https://diegojromerolopez.github.io/blog/2025/04/how-to-write-a-good-unit-test/</link><pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/04/how-to-write-a-good-unit-test/</guid><description>&lt;p&gt;This post provides some guidelines about how to write a good unit test.
 There are some examples in Python with unittest.&lt;/p&gt;
 &lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In my last post I wrote about
@@ -69,20 +69,20 @@ There are some examples in Python with unittest.&lt;/p&gt;
 not being taken seriously sometimes.&lt;/p&gt;
 &lt;p&gt;Tests are a good part of the &lt;em&gt;software quality&lt;/em&gt; so I wanted to write a bit
 about the testing effort we should be doing in our code.&lt;/p&gt;
-&lt;p&gt;Having said that, let us delve in the unit testing world with some examples in Python!&lt;/p&gt;</description></item><item><title>Software quality is not negotiable</title><link>https://diegojromerolopez.github.io/blog/2025/03/software-quality-is-not-negotiable/</link><pubDate>Sat, 15 Mar 2025 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/03/software-quality-is-not-negotiable/</guid><description>&lt;p&gt;From a conversation from one of the best software engineers I have had the please to work with,
+&lt;p&gt;Having said that, let us delve in the unit testing world with some examples in Python!&lt;/p&gt;</description></item><item><title>Software quality is not negotiable</title><link>https://diegojromerolopez.github.io/blog/2025/03/software-quality-is-not-negotiable/</link><pubDate>Sat, 15 Mar 2025 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2025/03/software-quality-is-not-negotiable/</guid><description>&lt;p&gt;From a conversation from one of the best software engineers I have had the please to work with,
 I heard the following sentence: &lt;em&gt;software quality is not negotiable!&lt;/em&gt; And that is one of the
 axioms of our profession.&lt;/p&gt;
 &lt;h2 id="why-software-quality-is-seen-as-optional"&gt;Why software quality is seen as optional?&lt;/h2&gt;
 &lt;h2 id="software-developersengineers-come-from-different-backgrounds"&gt;Software developers/engineers come from different backgrounds&lt;/h2&gt;
 &lt;p&gt;The world of software has no barrier entry. People with different backgrounds can start working
 as software developers or engineers. That is a good thing as diversity can enrich the organization
-but there is also the matter of different perceived levels of professionalism in the discipline.&lt;/p&gt;</description></item><item><title>The runtime type-checking operator in TypeScript</title><link>https://diegojromerolopez.github.io/blog/2024/12/the-runtime-type-checking-operator-in-typescript/</link><pubDate>Thu, 05 Dec 2024 00:16:53 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/12/the-runtime-type-checking-operator-in-typescript/</guid><description>&lt;p&gt;I have been working with &lt;a href="https://www.typescriptlang.org/"&gt;TypeScript&lt;/a&gt;
+but there is also the matter of different perceived levels of professionalism in the discipline.&lt;/p&gt;</description></item><item><title>The runtime type-checking operator in TypeScript</title><link>https://diegojromerolopez.github.io/blog/2024/12/the-runtime-type-checking-operator-in-typescript/</link><pubDate>Thu, 05 Dec 2024 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/12/the-runtime-type-checking-operator-in-typescript/</guid><description>&lt;p&gt;I have been working with &lt;a href="https://www.typescriptlang.org/"&gt;TypeScript&lt;/a&gt;
 for a while but for sure I am not an expert in the language
 (I feel more comfortable with Python).&lt;/p&gt;
 &lt;p&gt;I like the idea of type-safe but limiting the static type checking process
 can make you confident about what you are getting from &lt;em&gt;outside sources&lt;/em&gt;,
 and if you do not trust those sources (you should NOT), you would need to include
-a lot of repetitive checks any time we read data from the outside.&lt;/p&gt;</description></item><item><title>Don't use singletons</title><link>https://diegojromerolopez.github.io/blog/2024/11/dont-use-singletons/</link><pubDate>Sun, 10 Nov 2024 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/11/dont-use-singletons/</guid><description>&lt;p&gt;The Singleton pattern is one of the patterns that appeared
+a lot of repetitive checks any time we read data from the outside.&lt;/p&gt;</description></item><item><title>Don't use singletons</title><link>https://diegojromerolopez.github.io/blog/2024/11/dont-use-singletons/</link><pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/11/dont-use-singletons/</guid><description>&lt;p&gt;The Singleton pattern is one of the patterns that appeared
 in the &lt;a href="https://en.wikipedia.org/wiki/Design_Patterns"&gt;Design Patterns book by Erich Gamma et al.&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id="what-is-a-singleton"&gt;What is a singleton?&lt;/h2&gt;
 &lt;p&gt;The singleton is one design patter to share a resource in a controlled manner
@@ -90,7 +90,7 @@ in a code base. That resource could be a configuration, a connection or any othe
 global state that should be unique.&lt;/p&gt;
 &lt;h2 id="how-to-implement-it"&gt;How to implement it?&lt;/h2&gt;
 &lt;p&gt;There are several ways to implement this, but in Python (for example)
-you can implement it by making use of the &lt;a href="https://realpython.com/python-metaclasses/"&gt;Python metaclasses&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>My experience in a Platform team</title><link>https://diegojromerolopez.github.io/blog/2024/10/my-experience-in-a-platform-team/</link><pubDate>Wed, 30 Oct 2024 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/10/my-experience-in-a-platform-team/</guid><description>&lt;h2 id="my-experience-in-a-platform-team"&gt;My experience in a platform team&lt;/h2&gt;
+you can implement it by making use of the &lt;a href="https://realpython.com/python-metaclasses/"&gt;Python metaclasses&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>My experience in a Platform team</title><link>https://diegojromerolopez.github.io/blog/2024/10/my-experience-in-a-platform-team/</link><pubDate>Wed, 30 Oct 2024 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/10/my-experience-in-a-platform-team/</guid><description>&lt;h2 id="my-experience-in-a-platform-team"&gt;My experience in a platform team&lt;/h2&gt;
 &lt;p&gt;This post is going to summarize the main points of
 my experience while working in a
 Platform/Productivity team for two years. I also worked
@@ -100,13 +100,13 @@ to create tools that help other engineers.&lt;/p&gt;
 &lt;p&gt;Developers do not care about the platform their sofware runs,
 they intend to developed features that product teams require, I mean
 that is what they should do as developers need to provide value to the
-company (no question on that).&lt;/p&gt;</description></item><item><title>Troubleshooting guides</title><link>https://diegojromerolopez.github.io/blog/2024/02/troubleshooting-guides/</link><pubDate>Tue, 20 Feb 2024 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/02/troubleshooting-guides/</guid><description>&lt;p&gt;Usually software is considered only to be code that is executable, sometimes
+company (no question on that).&lt;/p&gt;</description></item><item><title>Troubleshooting guides</title><link>https://diegojromerolopez.github.io/blog/2024/02/troubleshooting-guides/</link><pubDate>Tue, 20 Feb 2024 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/02/troubleshooting-guides/</guid><description>&lt;p&gt;Usually software is considered only to be code that is executable, sometimes
 the documentation is also considered part of software, but are the
 troubleshooting guides part of software? Are these rulebooks useful for
 the team that uses, maintains, develop or support the software?&lt;/p&gt;
 &lt;h2 id="what-is-a-troubleshooting-guide"&gt;What is a troubleshooting guide?&lt;/h2&gt;
 &lt;p&gt;A troubleshooting guide is a rulebook or more explained a collection of items
-that should help the users navigate through the issues that could happen.&lt;/p&gt;</description></item><item><title>New Year's resolutions</title><link>https://diegojromerolopez.github.io/blog/2024/01/new-years-resolutions/</link><pubDate>Sat, 27 Jan 2024 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/01/new-years-resolutions/</guid><description>&lt;p&gt;This new year has just started (well 27 days ago), but
+that should help the users navigate through the issues that could happen.&lt;/p&gt;</description></item><item><title>New Year's resolutions</title><link>https://diegojromerolopez.github.io/blog/2024/01/new-years-resolutions/</link><pubDate>Sat, 27 Jan 2024 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/01/new-years-resolutions/</guid><description>&lt;p&gt;This new year has just started (well 27 days ago), but
 I have been thinking about what I would like to learn
 and change during this 2024. Here are my personal thoughts
 on the matter. I hope they could inspire you to do a
@@ -119,7 +119,7 @@ tech debt, and the code structure is very different depending
 on the developer that created the code. Do not know if true,
 but the promise of a common language not only between the
 product team and developers, but even among themselves, seems
-seductive.&lt;/p&gt;</description></item><item><title>Do what the community does</title><link>https://diegojromerolopez.github.io/blog/2023/12/do-what-the-community-does/</link><pubDate>Sat, 30 Dec 2023 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/12/do-what-the-community-does/</guid><description>&lt;p&gt;The other day I had a conversation with a team mate about
+seductive.&lt;/p&gt;</description></item><item><title>Do what the community does</title><link>https://diegojromerolopez.github.io/blog/2023/12/do-what-the-community-does/</link><pubDate>Sat, 30 Dec 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/12/do-what-the-community-does/</guid><description>&lt;p&gt;The other day I had a conversation with a team mate about
 how to implement different patterns to solve a common issue
 in a interpreted programming language. He was sugesting using
 a pattern not used at all by the community that indeed was
@@ -128,7 +128,7 @@ a cool, interesting, and &lt;em&gt;we could argue that&lt;/em&gt; it was a more 
 &lt;h2 id="humans-are-gregarious-and-tend-to-form-communities"&gt;Humans are gregarious and tend to form communities&lt;/h2&gt;
 &lt;p&gt;&amp;hellip; even programming language communitites! And they
 develop their own culture for years and years, being
-unique and different than the ones from other languages!&lt;/p&gt;</description></item><item><title>Corporate empathy</title><link>https://diegojromerolopez.github.io/blog/2023/12/corporate-empathy/</link><pubDate>Sat, 23 Dec 2023 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/12/corporate-empathy/</guid><description>&lt;p&gt;In this times of diversity based on gender, ethnical background,
+unique and different than the ones from other languages!&lt;/p&gt;</description></item><item><title>Corporate empathy</title><link>https://diegojromerolopez.github.io/blog/2023/12/corporate-empathy/</link><pubDate>Sat, 23 Dec 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/12/corporate-empathy/</guid><description>&lt;p&gt;In this times of diversity based on gender, ethnical background,
 culture, etc. Is that enough? Do we have to be careful when
 talking with other coworker if they do not belong to any
 of the main categories? Can we say what we would like and in the way we
@@ -138,14 +138,14 @@ would like? No, we need to treat them &lt;em&gt;empthically&lt;/em&gt;.&lt;/p&gt
 We do not work in a bubble, we need something from them, they
 need something from us, we need to warn them or send them a piece
 or information they need. These are possible reasons we need to
-do what humans do best: communicate.&lt;/p&gt;</description></item><item><title>Rambos</title><link>https://diegojromerolopez.github.io/blog/2023/12/rambos/</link><pubDate>Sat, 16 Dec 2023 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/12/rambos/</guid><description>&lt;p&gt;A &lt;em&gt;one-person army&lt;/em&gt;, alone, in the &lt;em&gt;jungle&lt;/em&gt; of software, fighting
+do what humans do best: communicate.&lt;/p&gt;</description></item><item><title>Rambos</title><link>https://diegojromerolopez.github.io/blog/2023/12/rambos/</link><pubDate>Sat, 16 Dec 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/12/rambos/</guid><description>&lt;p&gt;A &lt;em&gt;one-person army&lt;/em&gt;, alone, in the &lt;em&gt;jungle&lt;/em&gt; of software, fighting
 against the &lt;em&gt;peskiest&lt;/em&gt;, complex, and soul-eating bugs.
 He (or she) can work for hours, with a tenacity of a
 human-hunter machine coming from the future, and his value
 is sometimes considered 10 times the standard engineer.
 Your organization depends on this individual. You cross your
 fingers and pray to your deity to not make you loss this
-prolific, highly-valued and know-it-all individal contributor.&lt;/p&gt;</description></item><item><title>What is your constraint? Mine is anti-work</title><link>https://diegojromerolopez.github.io/blog/2023/11/what-is-your-constraint-mine-is-anti-work/</link><pubDate>Fri, 24 Nov 2023 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/11/what-is-your-constraint-mine-is-anti-work/</guid><description>&lt;p&gt;We, as engineers, not only are worried about creating new things,
+prolific, highly-valued and know-it-all individal contributor.&lt;/p&gt;</description></item><item><title>What is your constraint? Mine is anti-work</title><link>https://diegojromerolopez.github.io/blog/2023/11/what-is-your-constraint-mine-is-anti-work/</link><pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/11/what-is-your-constraint-mine-is-anti-work/</guid><description>&lt;p&gt;We, as engineers, not only are worried about creating new things,
 we need to be able to detect the cause of future issues. However,
 we must not limit ourselves to software, but to the entire software
 development team organization.&lt;/p&gt;
@@ -157,7 +157,7 @@ resonated with mine, but to be fair nothing else nothing more. An outage
 here, the IT infrastructure being a &lt;em&gt;dumpster fire&lt;/em&gt;, software that is not
 tested at all, violent communication between teams, bad leadership, etc.
 To sum up nothing that in my 15 years of work I had not already
-&lt;del&gt;experienced&lt;/del&gt; suffered: the human condition.&lt;/p&gt;</description></item><item><title>Don't touch that</title><link>https://diegojromerolopez.github.io/blog/2023/10/dont-touch-that/</link><pubDate>Thu, 12 Oct 2023 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/10/dont-touch-that/</guid><description>&lt;p&gt;Have you ever been told &amp;ldquo;don&amp;rsquo;t touch that, if you modify that piece
+&lt;del&gt;experienced&lt;/del&gt; suffered: the human condition.&lt;/p&gt;</description></item><item><title>Don't touch that</title><link>https://diegojromerolopez.github.io/blog/2023/10/dont-touch-that/</link><pubDate>Thu, 12 Oct 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/10/dont-touch-that/</guid><description>&lt;p&gt;Have you ever been told &amp;ldquo;don&amp;rsquo;t touch that, if you modify that piece
 of code you are going to break anything&amp;rdquo;? How did you react to this
 comment? Did you feel &amp;ldquo;attacked&amp;rdquo; or simply ignored that piece of &lt;em&gt;advice&lt;/em&gt;?&lt;/p&gt;
 &lt;h2 id="code-jungle"&gt;Code jungle&lt;/h2&gt;
@@ -168,7 +168,7 @@ daunting task but following some guidelines can be useful.&lt;/p&gt;
 to understand, but code that has unintended consequences if modified.
 Code that if it is changed in order, breaks something. Of course the code
 has no tests at all, or even worse, the tests do not help with detecting
-errors.&lt;/p&gt;</description></item><item><title>Misconceptions about code comments</title><link>https://diegojromerolopez.github.io/blog/2023/09/misconceptions-about-code-comments/</link><pubDate>Sat, 02 Sep 2023 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/09/misconceptions-about-code-comments/</guid><description>&lt;p&gt;I have been working in this industry since 2008, and
+errors.&lt;/p&gt;</description></item><item><title>Misconceptions about code comments</title><link>https://diegojromerolopez.github.io/blog/2023/09/misconceptions-about-code-comments/</link><pubDate>Sat, 02 Sep 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/09/misconceptions-about-code-comments/</guid><description>&lt;p&gt;I have been working in this industry since 2008, and
 it seems an idea is spreading through software companies:
 code comments &lt;em&gt;are considered harmful&lt;/em&gt;. Is that true?&lt;/p&gt;
 &lt;h2 id="where-did-all-start"&gt;Where did all start?&lt;/h2&gt;

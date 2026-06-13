@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on Diego J.'s Software Tar Pit</title><link>https://diegojromerolopez.github.io/tags/docker/</link><description>Recent content in Docker on Diego J.'s Software Tar Pit</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sat, 28 Dec 2024 00:00:00 +0200</lastBuildDate><atom:link href="https://diegojromerolopez.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>How to create a Dockerfile for your deno fresh project</title><link>https://diegojromerolopez.github.io/blog/2024/12/how-to-create-a-dockerfile-for-your-deno-fresh-project/</link><pubDate>Sat, 28 Dec 2024 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/12/how-to-create-a-dockerfile-for-your-deno-fresh-project/</guid><description>&lt;p&gt;Sometimes creating a Dockerfile is an art, you need to be aware of what files include in each layer to leverage
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on Diego J.'s Software Tar Pit</title><link>https://diegojromerolopez.github.io/tags/docker/</link><description>Recent content in Docker on Diego J.'s Software Tar Pit</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 28 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://diegojromerolopez.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>How to create a Dockerfile for your deno fresh project</title><link>https://diegojromerolopez.github.io/blog/2024/12/how-to-create-a-dockerfile-for-your-deno-fresh-project/</link><pubDate>Sat, 28 Dec 2024 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2024/12/how-to-create-a-dockerfile-for-your-deno-fresh-project/</guid><description>&lt;p&gt;Sometimes creating a Dockerfile is an art, you need to be aware of what files include in each layer to leverage
 the docker cache. How can we do this with &lt;a href="https://fresh.deno.dev/"&gt;deno fresh&lt;/a&gt;?&lt;/p&gt;
 &lt;h2 id="recommended-or-usual-dockerfile"&gt;Recommended or usual Dockerfile&lt;/h2&gt;
 &lt;p&gt;Most of the examples I have found in the internet
@@ -17,7 +17,7 @@ tend to copy all the files in the same Docker instruction:&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;CMD&lt;/span&gt; [&lt;span style="color:#e6db74"&gt;&amp;#34;run&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;-A&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;main.ts&amp;#34;&lt;/span&gt;]&lt;span style="color:#960050;background-color:#1e0010"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This of course works, but we are just copying all the files in the Docker image,
-and that can cause many issues:&lt;/p&gt;</description></item><item><title>How to manage docker secrets</title><link>https://diegojromerolopez.github.io/blog/2023/08/how-to-manage-docker-secrets/</link><pubDate>Sat, 12 Aug 2023 00:00:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/08/how-to-manage-docker-secrets/</guid><description>&lt;p&gt;The product that is produced by most software developer teams is a docker image.
+and that can cause many issues:&lt;/p&gt;</description></item><item><title>How to manage docker secrets</title><link>https://diegojromerolopez.github.io/blog/2023/08/how-to-manage-docker-secrets/</link><pubDate>Sat, 12 Aug 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/08/how-to-manage-docker-secrets/</guid><description>&lt;p&gt;The product that is produced by most software developer teams is a docker image.
 How can be sure that we are not leaking secrets in docker images? If we include
 them as building arguments for sure they are going to be stored in the own image.
 Is there any way to avoid having them inside the docker image?&lt;/p&gt;
@@ -25,7 +25,7 @@ Is there any way to avoid having them inside the docker image?&lt;/p&gt;
 &lt;p&gt;Suppose you have a docker image that requires a secret, you do not want to include
 it in the image, but you need during the process of building the image. In other words,
 you cannot pass the secrets as environment variables because you need during the
-construction of the image, not when running a container based on that image.&lt;/p&gt;</description></item><item><title>Dockerfile stages must have a command</title><link>https://diegojromerolopez.github.io/blog/2023/01/dockerfile-stages-must-have-a-command/</link><pubDate>Tue, 31 Jan 2023 00:00:00 +0100</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/01/dockerfile-stages-must-have-a-command/</guid><description>&lt;p&gt;In multi-stage Dockerfile, you have to be careful
+construction of the image, not when running a container based on that image.&lt;/p&gt;</description></item><item><title>Dockerfile stages must have a command</title><link>https://diegojromerolopez.github.io/blog/2023/01/dockerfile-stages-must-have-a-command/</link><pubDate>Tue, 31 Jan 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/01/dockerfile-stages-must-have-a-command/</guid><description>&lt;p&gt;In multi-stage Dockerfile, you have to be careful
 for what stages you run. Want to avoid having
 misteriously exit 0 errors in containers?
 Add a CMD at the end of the Dockerfile stage
@@ -35,7 +35,7 @@ with some dummy command like&lt;/p&gt;
 informing the user of what happened. This could
 cause some &lt;em&gt;mysterious&lt;/em&gt; errors if you are getting
 up all containers and not overwritting the command
-of the ones that have none.&lt;/p&gt;</description></item><item><title>Use the builder stage pattern in Dockerfiles</title><link>https://diegojromerolopez.github.io/blog/2023/01/use-the-builder-stage-pattern-in-dockerfiles/</link><pubDate>Sun, 15 Jan 2023 00:00:00 +0100</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/01/use-the-builder-stage-pattern-in-dockerfiles/</guid><description>&lt;p&gt;Most of the time, some libraries that we install in a
+of the ones that have none.&lt;/p&gt;</description></item><item><title>Use the builder stage pattern in Dockerfiles</title><link>https://diegojromerolopez.github.io/blog/2023/01/use-the-builder-stage-pattern-in-dockerfiles/</link><pubDate>Sun, 15 Jan 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/01/use-the-builder-stage-pattern-in-dockerfiles/</guid><description>&lt;p&gt;Most of the time, some libraries that we install in a
 docker image are only used for the construction of our
 executables. Could we just not include in our final docker image?&lt;/p&gt;
 &lt;h2 id="docker-images-should-be-minimal"&gt;Docker images should be minimal&lt;/h2&gt;
@@ -47,21 +47,21 @@ aim is to reduce the cost of the transference of the docker image.&lt;/p&gt;
 &lt;p&gt;By having a stage build the required files, we can create a slimmer
 docker image by using
 &lt;a href="https://docs.docker.com/build/building/multi-stage/"&gt;multi-stage builds&lt;/a&gt;.
-We can see a golang example that follows this pattern:&lt;/p&gt;</description></item><item><title>Reduce the size of your builder images</title><link>https://diegojromerolopez.github.io/blog/2023/01/reduce-the-size-of-your-builder-images/</link><pubDate>Sat, 14 Jan 2023 00:00:00 +0100</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/01/reduce-the-size-of-your-builder-images/</guid><description>&lt;p&gt;Docker images should have a small size. For example, Alpine Linux images
+We can see a golang example that follows this pattern:&lt;/p&gt;</description></item><item><title>Reduce the size of your builder images</title><link>https://diegojromerolopez.github.io/blog/2023/01/reduce-the-size-of-your-builder-images/</link><pubDate>Sat, 14 Jan 2023 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2023/01/reduce-the-size-of-your-builder-images/</guid><description>&lt;p&gt;Docker images should have a small size. For example, Alpine Linux images
 have a mere 50MB of size, debian-slim is 50-60MB of size.
 Why do we seek a small size footprint? One reason is simply because the
 docker images are usually pushed to, and download from, docker repositories like
 &lt;a href="https://hub.docker.com/"&gt;dockerhub&lt;/a&gt; or other private docker repositories.&lt;/p&gt;
 &lt;h2 id="use-a-small-base-image"&gt;Use a small base image&lt;/h2&gt;
 &lt;p&gt;Alpine and debian-slim-stable are like 50MB. Use these kind of
-images instead of bigger images.&lt;/p&gt;</description></item><item><title>Override docker-compose.yml files</title><link>https://diegojromerolopez.github.io/blog/2022/12/override-docker-compose.yml-files/</link><pubDate>Mon, 05 Dec 2022 19:50:00 +0100</pubDate><guid>https://diegojromerolopez.github.io/blog/2022/12/override-docker-compose.yml-files/</guid><description>&lt;p&gt;Sometimes we want to have different versions of docker-compose.yml files
+images instead of bigger images.&lt;/p&gt;</description></item><item><title>Override docker-compose.yml files</title><link>https://diegojromerolopez.github.io/blog/2022/12/override-docker-compose.yml-files/</link><pubDate>Mon, 05 Dec 2022 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2022/12/override-docker-compose.yml-files/</guid><description>&lt;p&gt;Sometimes we want to have different versions of docker-compose.yml files
 (one for production and one for development). Each environment has their
 own characteristics (slightly different images for example) we show here
 a good way to override sections of a docker-compose.yml file easily.&lt;/p&gt;
 &lt;h2 id="why"&gt;Why?&lt;/h2&gt;
 &lt;p&gt;Sometimes we have several environments that share almost all docker configuration.
 Having a common docker-compose.yml file and several docker-compose.override.yml
-files is a great way to manage your service configurations.&lt;/p&gt;</description></item><item><title>Allow writing of files in docker in Linux</title><link>https://diegojromerolopez.github.io/blog/2022/10/allow-writing-of-files-in-docker-in-linux/</link><pubDate>Mon, 17 Oct 2022 18:49:00 +0200</pubDate><guid>https://diegojromerolopez.github.io/blog/2022/10/allow-writing-of-files-in-docker-in-linux/</guid><description>&lt;p&gt;I have been working on a small project in Python:
+files is a great way to manage your service configurations.&lt;/p&gt;</description></item><item><title>Allow writing of files in docker in Linux</title><link>https://diegojromerolopez.github.io/blog/2022/10/allow-writing-of-files-in-docker-in-linux/</link><pubDate>Mon, 17 Oct 2022 00:00:00 +0000</pubDate><guid>https://diegojromerolopez.github.io/blog/2022/10/allow-writing-of-files-in-docker-in-linux/</guid><description>&lt;p&gt;I have been working on a small project in Python:
 &lt;a href="https://github.com/diegojromerolopez/functainer"&gt;functainer&lt;/a&gt;.
 The goal of this project is to provide a Python package to run functions
 in docker seamlessly: you only will &lt;a href="https://www.docker.com/"&gt;docker&lt;/a&gt; and Python to run it.&lt;/p&gt;
