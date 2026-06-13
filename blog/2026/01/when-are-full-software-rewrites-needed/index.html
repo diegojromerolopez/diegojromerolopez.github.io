@@ -1,311 +1,60 @@
-<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>When are full software rewrites needed? - Diego J.'s Software Tar Pit</title>
-<meta name=description content="When are full software rewrites needed? Having dealt with a full rewrite of a software application recently, it left me wondering if it was needed at all, if there was any way to salvage the project or some parts of the project. Could we have avoided the rewrite?
-Introduction I have encountered the necessity of rewriting full software projects several times in my career but in my last years I have had to do it twice.">
-<meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/01\/when-are-full-software-rewrites-needed\/","name":"When are full software rewrites needed?"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"When are full software rewrites needed?","description":"When are full software rewrites needed? Having dealt with a full rewrite of a software application recently, it left me wondering if it was needed at all, if there was any way to salvage the project or some parts of the project. Could we have avoided the rewrite?\nIntroduction I have encountered the necessity of rewriting full software projects several times in my career but in my last years I have had to do it twice.","inLanguage":"en","wordCount":1161,"datePublished":"2026-01-03T00:00:00","dateModified":"2026-01-03T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["software, practices, tech-debt, war-story"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/01\/when-are-full-software-rewrites-needed\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
-<meta property="og:title" content="When are full software rewrites needed?">
-<meta property="og:description" content="When are full software rewrites needed? Having dealt with a full rewrite of a software application recently, it left me wondering if it was needed at all, if there was any way to salvage the project or some parts of the project. Could we have avoided the rewrite?
-Introduction I have encountered the necessity of rewriting full software projects several times in my career but in my last years I have had to do it twice.">
-<meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
-<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2026/01/when-are-full-software-rewrites-needed/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Diego J.'s Software Tar Pit">
-<meta name=twitter:title content="When are full software rewrites needed?">
-<meta name=twitter:description content="When are full software rewrites needed? Having dealt with a full rewrite of a software application recently, it left me wondering if it was needed at all, if there was any way to salvage the project …">
-<meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
-<meta name=twitter:card content="summary_large_image">
-<meta name=twitter:site content="@diegojromerolop">
-<meta name=twitter:creator content="@diegojromerolop">
-<link href=https://diegojromerolopez.github.io/img/favicon.ico rel=icon type=image/x-icon>
-<meta name=generator content="Hugo 0.91.2">
-<link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=https://diegojromerolopez.github.io/css/katex.min.css>
-<link rel=stylesheet href=https://diegojromerolopez.github.io/fontawesome/css/all.css>
-<link rel=stylesheet href=https://diegojromerolopez.github.io/css/bootstrap.min.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/main.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/fonts.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/syntax.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/codeblock.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.min.css>
-<link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.default-skin.min.css>
-</head>
-<body>
-<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
-<div class=container-fluid>
-<div class=navbar-header>
-<button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
-<span class=sr-only>Toggle navigation</span>
-<span class=icon-bar></span>
-<span class=icon-bar></span>
-<span class=icon-bar></span>
-</button>
-<a class=navbar-brand href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
-</div>
-<div class="collapse navbar-collapse" id=main-navbar>
-<ul class="nav navbar-nav navbar-right">
-<li>
-<a title=Blog href=/>Blog</a>
-</li>
-<li>
-<a title=About href=/page/about/>About</a>
-</li>
-<li>
-<a title=CV href=/cv.pdf>CV</a>
-</li>
-<li>
-<a title=Tags href=/tags>Tags</a>
-</li>
-<li>
-<a href=/es lang=es>es</a>
-</li>
-</ul>
-</div>
-<div class=avatar-container>
-<div class=avatar-img-border>
-<a title="Diego J.'s Software Tar Pit" href=https://diegojromerolopez.github.io>
-<img class=avatar-img src=https://diegojromerolopez.github.io/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit">
-</a>
-</div>
-</div>
-</div>
-</nav>
-<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
-<div class=pswp__bg></div>
-<div class=pswp__scroll-wrap>
-<div class=pswp__container>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-</div>
-<div class="pswp__ui pswp__ui--hidden">
-<div class=pswp__top-bar>
-<div class=pswp__counter></div>
-<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-<button class="pswp__button pswp__button--share" title=Share></button>
-<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-<div class=pswp__preloader>
-<div class=pswp__preloader__icn>
-<div class=pswp__preloader__cut>
-<div class=pswp__preloader__donut></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-<div class=pswp__share-tooltip></div>
-</div>
-<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-</button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-</button>
-<div class=pswp__caption>
-<div class=pswp__caption__center></div>
-</div>
-</div>
-</div>
-</div>
-<header class=header-section>
-<div class="intro-header no-img">
-<div class=container>
-<div class=row>
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<div class=post-heading>
-<h1>When are full software rewrites needed?</h1>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on January 3, 2026
-&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
-</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</header>
-<div class=container role=main>
-<div class=row>
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<article role=main class=blog-post>
-<h1 id=when-are-full-software-rewrites-needed>When are full software rewrites needed?</h1>
-<p>Having dealt with a full rewrite of a software application recently, it left me
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage><head><script>(function(){var t,n=localStorage.getItem("theme"),e=!1;n==="dark"?(document.documentElement.setAttribute("data-theme","dark"),e=!0):n==="light"?document.documentElement.setAttribute("data-theme","light"):window.matchMedia("(prefers-color-scheme: dark)").matches&&(document.documentElement.setAttribute("data-theme","dark"),e=!0),t=document.getElementById("hljs-dark"),t&&(t.disabled=!e)})()</script><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><title>When are full software rewrites needed?</title><meta name=description content="Having dealt with a full rewrite of a software application recently, it left me
 wondering if it was needed at all, if there was any way to salvage the project or
-some parts of the project. Could we have avoided the rewrite?</p>
-<h2 id=introduction>Introduction</h2>
-<p>I have encountered the necessity of rewriting full software projects several times
-in my career but in my last years I have had to do it twice.</p>
-<p>I think that a full software rewrite is a failure (in a way), and an opportunity.</p>
-<p>A failure because if a rewrite is needed, the software was not engineered, but simply created in such a way
-that there was no improvement possible.</p>
-<p>An opportunity because we can learn from the previous project and not commit the same mistakes.</p>
-<h2 id=some-war-stories-about-rewriting-software>Some war stories about rewriting software</h2>
-<h3 id=story-1-the-deprecated-bot>Story 1: The deprecated bot</h3>
-<p>There was a time where I had to maintain and extend a deprecated project (a ChatOps bot).
-I warned my manager but I was ignored; and then, the deadline came.</p>
-<p>I was the one that was ordered to create the replacement. The migration was a success, I was burned out
+some parts of the project. Could we have avoided the rewrite?
+Introduction
+I have encountered the necessity of rewriting full software projects several times
+in my career but in my last years I have had to do it twice."><script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@id":"https://diegojromerolopez.github.io/#website","@type":"WebSite","name":"Diego J.'s Software Tar Pit","publisher":{"@id":"https://diegojromerolopez.github.io/#organization"},"url":"https://diegojromerolopez.github.io/"},{"@id":"https://diegojromerolopez.github.io/#organization","@type":"Organization","name":null,"url":"https://diegojromerolopez.github.io/"},{"@id":"https://diegojromerolopez.github.io/blog/2026/01/when-are-full-software-rewrites-needed/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://diegojromerolopez.github.io/","name":"Home","position":1},{"@type":"ListItem","item":"https://diegojromerolopez.github.io/post/","name":"Posts","position":2},{"@type":"ListItem","item":"https://diegojromerolopez.github.io/blog/2026/01/when-are-full-software-rewrites-needed/","name":"When are full software rewrites needed?","position":3}]},{"@id":"https://diegojromerolopez.github.io/blog/2026/01/when-are-full-software-rewrites-needed/#webpage","@type":"WebPage","breadcrumb":{"@id":"https://diegojromerolopez.github.io/blog/2026/01/when-are-full-software-rewrites-needed/#breadcrumb"},"isPartOf":{"@id":"https://diegojromerolopez.github.io/#website"},"name":"When are full software rewrites needed?","url":"https://diegojromerolopez.github.io/blog/2026/01/when-are-full-software-rewrites-needed/"},{"@id":"https://diegojromerolopez.github.io/blog/2026/01/when-are-full-software-rewrites-needed/#article","@type":"Article","author":[],"dateCreated":"2026-01-03T00:00:00+02:00","dateModified":"2026-01-03T00:00:00+02:00","datePublished":"2026-01-03T00:00:00+02:00","description":"Having dealt with a full rewrite of a software application recently, it left me wondering if it was needed at all, if there was any way to salvage the project or some parts of the project. Could we have avoided the rewrite?\nIntroduction I have encountered the necessity of rewriting full software projects several times in my career but in my last years I have had to do it twice.\n","headline":"When are full software rewrites needed?","image":"https://diegojromerolopez.github.io/img/diegoj-logo.png","inLanguage":"en","keywords":["software","practices","tech-debt","war-story"],"mainEntityOfPage":{"@id":"https://diegojromerolopez.github.io/blog/2026/01/when-are-full-software-rewrites-needed/#webpage"},"publisher":{"@id":"https://diegojromerolopez.github.io/#organization"},"timeRequired":"PT6M","wordCount":1155}]}</script><meta property="og:url" content="https://diegojromerolopez.github.io/blog/2026/01/when-are-full-software-rewrites-needed/"><meta property="og:site_name" content="Diego J.'s Software Tar Pit"><meta property="og:title" content="When are full software rewrites needed?"><meta property="og:description" content="Having dealt with a full rewrite of a software application recently, it left me wondering if it was needed at all, if there was any way to salvage the project or some parts of the project. Could we have avoided the rewrite?
+Introduction I have encountered the necessity of rewriting full software projects several times in my career but in my last years I have had to do it twice."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2026-01-03T00:00:00+02:00"><meta property="article:modified_time" content="2026-01-03T00:00:00+02:00"><meta property="article:tag" content="Software"><meta property="article:tag" content="Practices"><meta property="article:tag" content="Tech-Debt"><meta property="article:tag" content="War-Story"><link rel=canonical href=https://diegojromerolopez.github.io/blog/2026/01/when-are-full-software-rewrites-needed/><meta name=twitter:title content="When are full software rewrites needed?"><meta name=twitter:description content="Having dealt with a full rewrite of a software application recently, it left me
+wondering if it was needed at all, if there was any way to salvage the project or
+some parts of the project. Could we …"><meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png"><meta name=twitter:card content="summary_large_image"><link href=/img/favicon.ico rel=icon type=image/x-icon><meta name=generator content="Hugo 0.163.1"><link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=/css/katex.min.css><link rel=stylesheet href=/fontawesome/css/brands.min.css><link rel=stylesheet href=/fontawesome/css/fontawesome.min.css><link rel=stylesheet href=/fontawesome/css/regular.min.css><link rel=stylesheet href=/fontawesome/css/solid.min.css><link rel=stylesheet href=/fontawesome/css/svg.min.css><link rel=stylesheet href=/fontawesome/css/svg-with-js.min.css><link rel=stylesheet href=/fontawesome/css/v4-font-face.min.css><link rel=stylesheet href=/fontawesome/css/v4-shims.min.css><link rel=stylesheet href=/fontawesome/css/v5-font-face.min.css><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/main.css><link rel=stylesheet href=/css/print.css media=print><link rel=stylesheet href=/css/dark.css><link rel=stylesheet href=/css/fonts.css><link rel=stylesheet href=/css/syntax.css><link id=hljs-dark rel=stylesheet href=/css/syntax-dark.css><link rel=stylesheet href=/css/codeblock.css><link rel=stylesheet href=/css/toc.css><link rel=stylesheet href=/css/photoswipe.css></head><body><nav class="navbar navbar-expand-md navbar-light navbar-custom fixed-top"><div class=container-fluid><a class=navbar-brand href=/>Diego J.'s Software Tar Pit</a><div class="d-flex align-items-center"><button class=theme-toggle id=toc-toggle aria-label="Table of contents" data-bs-toggle=tooltip data-bs-placement=bottom title="Table of contents">
+<span class="fas fa-list"></span>
+</button>
+<button class=theme-toggle id=theme-toggle aria-label=Theme data-bs-toggle=tooltip data-bs-placement=bottom data-tooltip-auto="Auto (follows system)" data-tooltip-light="Light mode" data-tooltip-dark="Dark mode" title="Auto (follows system)">
+<span class="fas fa-adjust" id=theme-icon-auto></span>
+<span class="fas fa-sun" id=theme-icon-light style=display:none></span>
+<span class="fas fa-moon" id=theme-icon-dark style=display:none></span>
+</button>
+<button type=button class=navbar-toggler data-bs-toggle=collapse data-bs-target=#main-navbar aria-controls=main-navbar aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button></div><div class="collapse navbar-collapse" id=main-navbar><ul class="navbar-nav ms-auto"><li class=nav-item><a class=nav-link title=Blog href=/>Blog</a></li><li class=nav-item><a class=nav-link title=About href=/page/about/>About</a></li><li class=nav-item><a class=nav-link title=CV href=/cv.pdf>CV</a></li><li class=nav-item><a class=nav-link title=Tags href=/tags>Tags</a></li></ul></div><div class=avatar-container><div class=avatar-img-border><a title="Diego J.'s Software Tar Pit" href=/><img class=avatar-img src=/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit"></a></div></div></div></nav><header class=header-section><div class="intro-header no-img"><div class=container><div class=row><div class="col-md-10 offset-md-1"><div class=post-heading><h1>When are full software rewrites needed?</h1><span class=post-meta><i class="fas fa-calendar"></i>&nbsp;Posted on January 3, 2026
+&nbsp;|&nbsp;</span></div></div></div></div></div></header><div class=container role=main><div class=row><div class="col-md-10 offset-md-1"><article role=main class=blog-post><p>Having dealt with a full rewrite of a software application recently, it left me
+wondering if it was needed at all, if there was any way to salvage the project or
+some parts of the project. Could we have avoided the rewrite?</p><h2 id=introduction>Introduction</h2><p>I have encountered the necessity of rewriting full software projects several times
+in my career but in my last years I have had to do it twice.</p><p>I think that a full software rewrite is a failure (in a way), and an opportunity.</p><p>A failure because if a rewrite is needed, the software was not engineered, but simply created in such a way
+that there was no improvement possible.</p><p>An opportunity because we can learn from the previous project and not commit the same mistakes.</p><h2 id=some-war-stories-about-rewriting-software>Some war stories about rewriting software</h2><h3 id=story-1-the-deprecated-bot>Story 1: The deprecated bot</h3><p>There was a time where I had to maintain and extend a deprecated project (a ChatOps bot).
+I warned my manager but I was ignored; and then, the deadline came.</p><p>I was the one that was ordered to create the replacement. The migration was a success, I was burned out
 and (maybe because of that), a bit disappointed about having to retire the original project, but there
-was no alternative as our provider had sunsetted the functionality our main dependency was based on.</p>
-<h3 id=story-2-the-job-api>Story 2: The job API</h3>
-<p>I remember another case of these rewrites. In this case, it was a a project that was a simple pipeline job
+was no alternative as our provider had sunsetted the functionality our main dependency was based on.</p><h3 id=story-2-the-job-api>Story 2: The job API</h3><p>I remember another case of these rewrites. In this case, it was a a project that was a simple pipeline job
 aggregator was implemented by an engineer in a programming language that was not common for backend services,
 and they decided to use DDD (<a href=https://en.wikipedia.org/wiki/Domain-driven_design>domain-driven design</a>)
 with <a href=https://en.wikipedia.org/wiki/Command_Query_Responsibility_Segregation>CQRS</a>
-as the design of the application.</p>
-<p>For an application that just have a simple backend service that needed to:</p>
-<ol>
-<li>Receive a HTTP post with some job information and store in a database.</li>
-<li>Read the database and give job information based on some filters.</li>
-</ol>
-<p>That decision was unfortunate, as it incremented the artificial complexity by a large margin.</p>
-<p>I am not against DDD at all, I love that it provides a common language for software engineers
+as the design of the application.</p><p>For an application that just have a simple backend service that needed to:</p><ol><li>Receive a HTTP post with some job information and store in a database.</li><li>Read the database and give job information based on some filters.</li></ol><p>That decision was unfortunate, as it incremented the artificial complexity by a large margin.</p><p>I am not against DDD at all, I love that it provides a common language for software engineers
 and the patterns they bring with it (repository, services or domain objects are great!).
 However, it introduces a lot of complexity, that most developers are not
-familiar with, and that can derail the maintainability of the project.</p>
-<h2 id=things-to-take-in-account-when-considering-rewriting-a-software-project>Things to take in account when considering rewriting a software project</h2>
-<p>So, after having done two full rewrites of applications. Is there any way to avoid this (in a way)
+familiar with, and that can derail the maintainability of the project.</p><h2 id=things-to-take-in-account-when-considering-rewriting-a-software-project>Things to take in account when considering rewriting a software project</h2><p>So, after having done two full rewrites of applications. Is there any way to avoid this (in a way)
 wasted effort? Why do I feel that the projects were rushed and no consideration were taken with
-respect to maintenance?</p>
-<h3 id=projects-die>Projects die</h3>
-<p>But software is a continuum. Software <em>rots</em> and needs to be replaced, and improved continuously.
+respect to maintenance?</p><h3 id=projects-die>Projects die</h3><p>But software is a continuum. Software <em>rots</em> and needs to be replaced, and improved continuously.
 Unless your software lives in a vacuum and has been mathematically proven to be correct,
-you would need to maintain it and create new features.</p>
-<h3 id=try-not-do-but-if-impossible-do-it>Try not do, but if impossible do it</h3>
-<p>Doing a full rewrite of a software project is less than ideal. It is like paying twice for a thing,
-it feels a lot of wasted time. However, sometimes there is no way to get around them and they are totally needed.</p>
-<h3 id=learn-from-your-mistakes>Learn from your mistakes</h3>
-<p>Given that a rewrite should be a last-resort measure, try to leverage the knowledge you got from working with the
-old code base to learn what went wrong. Is it the design? The artificial complexity that it entailed? The choice of the tools?</p>
-<p>Make the most of the rewrite. If you do it, make sure that the project is ready for onboarding new people in the
-easiest way possible.</p>
-<h3 id=projects-need-to-be-self-contained>Projects need to be self-contained</h3>
-<p>You should not need any external knowledge to build the project apart from the basics of the language and framework.
-Even, those should be documented.</p>
-<p>The project should have clear instructions about how to work with it:</p>
-<ul>
-<li>Architecture.</li>
-<li>Conventions.</li>
-<li>How to collaborate.</li>
-<li>How to run it locally.</li>
-<li>How to run the tests.</li>
-<li>How to extend it.</li>
-</ul>
-<p>Recently I have started working in a project where there was no instruction about how to run it locally.
-That is not acceptable.</p>
-<h3 id=full-rewrites-are-born-from-bad-past-decisions-mostly>Full rewrites are born from bad past-decisions (Mostly)</h3>
-<p>If the cost of adding new features or maintaining the current piece of software is going to grow along the years,
-maybe investing time in a full rewrite is a good decision; a good way to avoid the <em>sunken cost fallacy</em>.</p>
-<p>But what is a bad past-decision? Mainly just creating <strong>artificial complexity</strong> in the project.</p>
-<p>A unmaintainable project, well because of a bad architectural design, or a bad programming language, or a bad libraries
-can make taken de decision of the rewrite the best course.</p>
-<h3 id=full-rewrites-are-born-from-maintenance-not-being-a-requirement>Full rewrites are born from maintenance not being a requirement</h3>
-<p>In this world, having a fast time to market is encouraged, maintainability takes a second (if not the last) position.
-The popular concept of tech debt can make projects impossible to extend, or even worse, fix in any way.</p>
-<p>Now that the LLMs are being used by myriads of people to develop software as fast as possible,
-I wonder <em>who is going to maintain that</em>.</p>
-<p>Maintainability is a must, is a requirement always. I am not asking for discussing every decision with the team an reaching
+you would need to maintain it and create new features.</p><h3 id=try-not-do-but-if-impossible-do-it>Try not do, but if impossible do it</h3><p>Doing a full rewrite of a software project is less than ideal. It is like paying twice for a thing,
+it feels a lot of wasted time. However, sometimes there is no way to get around them and they are totally needed.</p><h3 id=learn-from-your-mistakes>Learn from your mistakes</h3><p>Given that a rewrite should be a last-resort measure, try to leverage the knowledge you got from working with the
+old code base to learn what went wrong. Is it the design? The artificial complexity that it entailed? The choice of the tools?</p><p>Make the most of the rewrite. If you do it, make sure that the project is ready for onboarding new people in the
+easiest way possible.</p><h3 id=projects-need-to-be-self-contained>Projects need to be self-contained</h3><p>You should not need any external knowledge to build the project apart from the basics of the language and framework.
+Even, those should be documented.</p><p>The project should have clear instructions about how to work with it:</p><ul><li>Architecture.</li><li>Conventions.</li><li>How to collaborate.</li><li>How to run it locally.</li><li>How to run the tests.</li><li>How to extend it.</li></ul><p>Recently I have started working in a project where there was no instruction about how to run it locally.
+That is not acceptable.</p><h3 id=full-rewrites-are-born-from-bad-past-decisions-mostly>Full rewrites are born from bad past-decisions (Mostly)</h3><p>If the cost of adding new features or maintaining the current piece of software is going to grow along the years,
+maybe investing time in a full rewrite is a good decision; a good way to avoid the <em>sunken cost fallacy</em>.</p><p>But what is a bad past-decision? Mainly just creating <strong>artificial complexity</strong> in the project.</p><p>A unmaintainable project, well because of a bad architectural design, or a bad programming language, or a bad libraries
+can make taken de decision of the rewrite the best course.</p><h3 id=full-rewrites-are-born-from-maintenance-not-being-a-requirement>Full rewrites are born from maintenance not being a requirement</h3><p>In this world, having a fast time to market is encouraged, maintainability takes a second (if not the last) position.
+The popular concept of tech debt can make projects impossible to extend, or even worse, fix in any way.</p><p>Now that the LLMs are being used by myriads of people to develop software as fast as possible,
+I wonder <em>who is going to maintain that</em>.</p><p>Maintainability is a must, is a requirement always. I am not asking for discussing every decision with the team an reaching
 agreements about the best way to do it. I understand that some times functionality takes precedence over quality. However,
 it cannot happen in all the project. Following good practices is not asking for the impossible, and quality should always be
-taken in account.</p>
-<p>Good software patterns, complexity and coupling measurements, and testing coverage are some of the tools that need always to be used.</p>
-<h3 id=avoid-rewrites-by-using-the-better-tool-for-the-job>Avoid rewrites by using the better tool for the job</h3>
-<p>Following with the example of the job aggregator, why did they decide to use a
+taken in account.</p><p>Good software patterns, complexity and coupling measurements, and testing coverage are some of the tools that need always to be used.</p><h3 id=avoid-rewrites-by-using-the-better-tool-for-the-job>Avoid rewrites by using the better tool for the job</h3><p>Following with the example of the job aggregator, why did they decide to use a
 programming language focused in mobile app development as a backend language?
 There are a lot programming languages more popular, and easier to work with that this one.
-Maybe they wanted to learn a new language? I would not want to guess their thinking with this respect.</p>
-<p>Anyway, try to use a tool that provides you with the most functionality for what tha aim of the application is,
-the most supported ecosystem, libraries, and the biggest community.</p>
-<p>What would you choose?</p>
-<ol>
-<li>The most used programming language (Python) or one that is cool and you want to learn?</li>
-<li>An official library or one done by a lone developer?</li>
-<li>A library that uses a pattern that provides a 5% of performance gains or the standard way of doing things?</li>
-</ol>
-<h2 id=conclusion>Conclusion</h2>
-<p>Always consider the alternative when pondering a software rewrite, but if not possible, learn from the mistakes
-and rewrite the project.</p>
-<p>Your job as an engineer is to make the project the easiest to understand, and work with for everybody.
-<strong>Think about others when developing software</strong>.</p>
-<p>Always create software the most durable possible by basing it in popular, usable, easy, and the right tools.</p>
-<div class=blog-tags>
-<a href=https://diegojromerolopez.github.io/tags/software/>software</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/practices/>practices</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/tech-debt/>tech-debt</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/war-story/>war-story</a>&nbsp;
-</div>
-</article>
-<ul class="pager blog-pager">
-<li class=previous>
-<a href=https://diegojromerolopez.github.io/blog/2025/12/using-llms-to-create-a-python-library/ data-toggle=tooltip data-placement=top title="Using LLMs to create a python library">&larr; Previous Post</a>
-</li>
-<li class=next>
-<a href=https://diegojromerolopez.github.io/blog/2026/01/how-not-to-use-a-llm-to-upgrade-your-project/ data-toggle=tooltip data-placement=top title="How NOT to use a LLM to upgrade your project">Next Post &rarr;</a>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<footer>
-<div class=container>
-<div class=row>
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<ul class="list-inline text-center footer-links">
-<li>
-<a href=mailto:diegojromerolopez@gmail.com title="Email me">
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href=https://github.com/diegojromerolopez title=GitHub>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fab fa-github fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href=https://twitter.com/diegojromerolop title=Twitter>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href=https://linkedin.com/in/diegojromerolopez title=LinkedIn>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href title=RSS>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-</ul>
-<p class="credits copyright text-muted">
-Diego J. Romero-López
-&nbsp;&bull;&nbsp;&copy;
+Maybe they wanted to learn a new language? I would not want to guess their thinking with this respect.</p><p>Anyway, try to use a tool that provides you with the most functionality for what tha aim of the application is,
+the most supported ecosystem, libraries, and the biggest community.</p><p>What would you choose?</p><ol><li>The most used programming language (Python) or one that is cool and you want to learn?</li><li>An official library or one done by a lone developer?</li><li>A library that uses a pattern that provides a 5% of performance gains or the standard way of doing things?</li></ol><h2 id=conclusion>Conclusion</h2><p>Always consider the alternative when pondering a software rewrite, but if not possible, learn from the mistakes
+and rewrite the project.</p><p>Your job as an engineer is to make the project the easiest to understand, and work with for everybody.
+<strong>Think about others when developing software</strong>.</p><p>Always create software the most durable possible by basing it in popular, usable, easy, and the right tools.</p><div class=blog-tags><span>Tags: </span><a href=/tags/software/>software</a>&nbsp;<a href=/tags/practices/>practices</a>&nbsp;<a href=/tags/tech-debt/>tech-debt</a>&nbsp;<a href=/tags/war-story/>war-story</a>&nbsp;</div></article><a href=/blog/2025/12/using-llms-to-create-a-python-library/ class="nav-side-arrow nav-side-prev" title="Using LLMs to create a python library" aria-label="Previous Post: Using LLMs to create a python library"><i class="fas fa-chevron-left"></i>
+</a><a href=/blog/2026/01/how-not-to-use-a-llm-to-upgrade-your-project/ class="nav-side-arrow nav-side-next" title="How NOT to use a LLM to upgrade your project" aria-label="Next Post: How NOT to use a LLM to upgrade your project"><i class="fas fa-chevron-right"></i></a><ul class="post-pager blog-post-pager"><li class=pager-prev><a href=/blog/2025/12/using-llms-to-create-a-python-library/ data-bs-toggle=tooltip data-bs-placement=top title="Using LLMs to create a python library"><i class="fas fa-chevron-left"></i> Previous Post</a></li><li class=pager-center></li><li class=pager-next><a href=/blog/2026/01/how-not-to-use-a-llm-to-upgrade-your-project/ data-bs-toggle=tooltip data-bs-placement=top title="How NOT to use a LLM to upgrade your project">Next Post <i class="fas fa-chevron-right"></i></a></li></ul><div class=toc-wrapper id=toc-wrapper data-toc-mode=headings><div class=toc-panel id=toc-panel role=dialog aria-label="Table of contents"><div class=toc-header><span class=toc-title>Table of Contents</span>
+<button class=toc-close id=toc-close aria-label="Close table of contents">&#215;</button></div><nav class=toc-body><nav id=TableOfContents><ul><li><a href=#introduction>Introduction</a></li><li><a href=#some-war-stories-about-rewriting-software>Some war stories about rewriting software</a><ul><li><a href=#story-1-the-deprecated-bot>Story 1: The deprecated bot</a></li><li><a href=#story-2-the-job-api>Story 2: The job API</a></li></ul></li><li><a href=#things-to-take-in-account-when-considering-rewriting-a-software-project>Things to take in account when considering rewriting a software project</a><ul><li><a href=#projects-die>Projects die</a></li><li><a href=#try-not-do-but-if-impossible-do-it>Try not do, but if impossible do it</a></li><li><a href=#learn-from-your-mistakes>Learn from your mistakes</a></li><li><a href=#projects-need-to-be-self-contained>Projects need to be self-contained</a></li><li><a href=#full-rewrites-are-born-from-bad-past-decisions-mostly>Full rewrites are born from bad past-decisions (Mostly)</a></li><li><a href=#full-rewrites-are-born-from-maintenance-not-being-a-requirement>Full rewrites are born from maintenance not being a requirement</a></li><li><a href=#avoid-rewrites-by-using-the-better-tool-for-the-job>Avoid rewrites by using the better tool for the job</a></li></ul></li><li><a href=#conclusion>Conclusion</a></li></ul></nav></nav></div><div class=toc-backdrop id=toc-backdrop></div></div></div></div></div><footer><div class=container><div class=row><div class="col-md-10 offset-md-1"><ul class="list-inline text-center footer-links"><li class=list-inline-item><a href=/index.xml title=RSS><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="credits copyright text-muted">&copy;
 2026
-&nbsp;&bull;&nbsp;
-<a href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
-</p>
-<p class="credits theme-by text-muted">
-<a href=https://gohugo.io>Hugo v0.91.2</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
-</p>
-</div>
-</div>
-</div>
-</footer><script src=https://diegojromerolopez.github.io/js/katex.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/auto-render.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/jquery-3.5.1.slim.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/bootstrap.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/main.js></script><script>renderMathInElement(document.body)</script><script src=https://diegojromerolopez.github.io/js/photoswipe.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/photoswipe-ui-default.min.js></script><script src=https://diegojromerolopez.github.io/js/load-photoswipe.js></script>
-</body>
-</html>
+<a href=/>Diego J.'s Software Tar Pit</a></p><p class="credits theme-by text-muted"><a href=https://gohugo.io>Hugo v0.163.1</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a></p></div></div></div></footer><script defer src=/js/katex.min.js></script><script defer src=/js/auto-render.min.js onload=renderMathInElement(document.body)></script><script src=/js/jquery-4.0.0.slim.min.js></script><script src=/js/bootstrap.min.js></script><script src=/js/main.js></script><script src=/js/toc.js></script><script src=/js/photoswipe.umd.min.js></script><script src=/js/photoswipe-lightbox.umd.min.js></script><script src=/js/load-photoswipe.js></script></body></html>

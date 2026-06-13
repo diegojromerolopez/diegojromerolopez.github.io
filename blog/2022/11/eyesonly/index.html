@@ -1,426 +1,189 @@
-<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>EyesOnly - Diego J.'s Software Tar Pit</title>
-<meta name=description content="Secrets are usually involuntary leaked by developers. Sometimes they are sent to external services like or written in a log by accident. Would not be useful to have a tool to limit the access to secrets? Enter EyesOnly.
-EyesOnly: a package to limit access to secrets Dealing last years with containerazing applications has left me thinking in how we are passing some secrets as environment variables to the container. This is standard practice by the Cloud Native practitioners.">
-<meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2022\/11\/eyesonly\/","name":"Eyes only"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"EyesOnly","description":"Secrets are usually involuntary leaked by developers. Sometimes they are sent to external services like or written in a log by accident. Would not be useful to have a tool to limit the access to secrets? Enter EyesOnly.\nEyesOnly: a package to limit access to secrets Dealing last years with containerazing applications has left me thinking in how we are passing some secrets as environment variables to the container. This is standard practice by the Cloud Native practitioners.","inLanguage":"en","wordCount":1003,"datePublished":"2022-11-05T00:00:00","dateModified":"2022-11-05T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["secrets, python, project"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2022\/11\/eyesonly\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
-<meta property="og:title" content="EyesOnly">
-<meta property="og:description" content="Secrets are usually involuntary leaked by developers. Sometimes they are sent to external services like or written in a log by accident. Would not be useful to have a tool to limit the access to secrets? Enter EyesOnly.
-EyesOnly: a package to limit access to secrets Dealing last years with containerazing applications has left me thinking in how we are passing some secrets as environment variables to the container. This is standard practice by the Cloud Native practitioners.">
-<meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
-<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2022/11/eyesonly/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Diego J.'s Software Tar Pit">
-<meta name=twitter:title content="EyesOnly">
-<meta name=twitter:description content="Secrets are usually involuntary leaked by developers. Sometimes they are sent to external services like or written in a log by accident. Would not be useful to have a tool to limit the access to …">
-<meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
-<meta name=twitter:card content="summary_large_image">
-<meta name=twitter:site content="@diegojromerolop">
-<meta name=twitter:creator content="@diegojromerolop">
-<link href=https://diegojromerolopez.github.io/img/favicon.ico rel=icon type=image/x-icon>
-<meta name=generator content="Hugo 0.91.2">
-<link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=https://diegojromerolopez.github.io/css/katex.min.css>
-<link rel=stylesheet href=https://diegojromerolopez.github.io/fontawesome/css/all.css>
-<link rel=stylesheet href=https://diegojromerolopez.github.io/css/bootstrap.min.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/main.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/fonts.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/syntax.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/codeblock.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.min.css>
-<link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.default-skin.min.css>
-</head>
-<body>
-<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
-<div class=container-fluid>
-<div class=navbar-header>
-<button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
-<span class=sr-only>Toggle navigation</span>
-<span class=icon-bar></span>
-<span class=icon-bar></span>
-<span class=icon-bar></span>
-</button>
-<a class=navbar-brand href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
-</div>
-<div class="collapse navbar-collapse" id=main-navbar>
-<ul class="nav navbar-nav navbar-right">
-<li>
-<a title=Blog href=/>Blog</a>
-</li>
-<li>
-<a title=About href=/page/about/>About</a>
-</li>
-<li>
-<a title=CV href=/cv.pdf>CV</a>
-</li>
-<li>
-<a title=Tags href=/tags>Tags</a>
-</li>
-<li>
-<a href=/es lang=es>es</a>
-</li>
-</ul>
-</div>
-<div class=avatar-container>
-<div class=avatar-img-border>
-<a title="Diego J.'s Software Tar Pit" href=https://diegojromerolopez.github.io>
-<img class=avatar-img src=https://diegojromerolopez.github.io/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit">
-</a>
-</div>
-</div>
-</div>
-</nav>
-<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
-<div class=pswp__bg></div>
-<div class=pswp__scroll-wrap>
-<div class=pswp__container>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-</div>
-<div class="pswp__ui pswp__ui--hidden">
-<div class=pswp__top-bar>
-<div class=pswp__counter></div>
-<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-<button class="pswp__button pswp__button--share" title=Share></button>
-<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-<div class=pswp__preloader>
-<div class=pswp__preloader__icn>
-<div class=pswp__preloader__cut>
-<div class=pswp__preloader__donut></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-<div class=pswp__share-tooltip></div>
-</div>
-<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-</button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-</button>
-<div class=pswp__caption>
-<div class=pswp__caption__center></div>
-</div>
-</div>
-</div>
-</div>
-<div id=header-big-imgs data-num-img=1 data-img-src-1=https://diegojromerolopez.github.io/img/eyesonly.png data-img-desc-1="EyesOnly logo"></div>
-<header class="header-section has-img">
-<div class="intro-header big-img">
-<div class=container>
-<div class=row>
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<div class=post-heading>
-<h1>EyesOnly</h1>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on November 5, 2022
-&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
-</span>
-</div>
-</div>
-</div>
-</div>
-<span class=img-desc style=display:inline></span>
-</div>
-<div class="intro-header no-img">
-<div class=container>
-<div class=row>
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<div class=post-heading>
-<h1>EyesOnly</h1>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on November 5, 2022
-&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
-</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</header>
-<div class=container role=main>
-<div class=row>
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<article role=main class=blog-post>
-<p>Secrets are usually involuntary leaked by developers. Sometimes
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage><head><script>(function(){var t,n=localStorage.getItem("theme"),e=!1;n==="dark"?(document.documentElement.setAttribute("data-theme","dark"),e=!0):n==="light"?document.documentElement.setAttribute("data-theme","light"):window.matchMedia("(prefers-color-scheme: dark)").matches&&(document.documentElement.setAttribute("data-theme","dark"),e=!0),t=document.getElementById("hljs-dark"),t&&(t.disabled=!e)})()</script><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><title>EyesOnly</title><meta name=description content="Secrets are usually involuntary leaked by developers. Sometimes
 they are sent to external services like or written in a log by
 accident. Would not be useful to have a tool to limit the access
-to secrets? Enter <a href=https://github.com/diegojromerolopez/eyesonly>EyesOnly</a>.</p>
-<h1 id=eyesonly-a-package-to-limit-access-to-secrets>EyesOnly: a package to limit access to secrets</h1>
-<p>Dealing last years with containerazing applications has left me
+to secrets?
+Enter EyesOnly:
+a package to limit access to secrets
+Dealing last years with containerazing applications has left me
 thinking in how we are passing some secrets as environment variables
 to the container. This is standard practice by the Cloud Native
 practitioners. However, once you pass an environment variable you
-fall in two different issues:</p>
-<ul>
-<li>You have global data.</li>
-<li>Data can be secret and involuntary leaked.</li>
-</ul>
-<p>The first one can be ignored by now, the second one cannot be.
+fall in two different issues:"><script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@id":"https://diegojromerolopez.github.io/#website","@type":"WebSite","name":"Diego J.'s Software Tar Pit","publisher":{"@id":"https://diegojromerolopez.github.io/#organization"},"url":"https://diegojromerolopez.github.io/"},{"@id":"https://diegojromerolopez.github.io/#organization","@type":"Organization","name":null,"url":"https://diegojromerolopez.github.io/"},{"@id":"https://diegojromerolopez.github.io/blog/2022/11/eyesonly/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://diegojromerolopez.github.io/","name":"Home","position":1},{"@type":"ListItem","item":"https://diegojromerolopez.github.io/post/","name":"Posts","position":2},{"@type":"ListItem","item":"https://diegojromerolopez.github.io/blog/2022/11/eyesonly/","name":"EyesOnly","position":3}]},{"@id":"https://diegojromerolopez.github.io/blog/2022/11/eyesonly/#webpage","@type":"WebPage","breadcrumb":{"@id":"https://diegojromerolopez.github.io/blog/2022/11/eyesonly/#breadcrumb"},"isPartOf":{"@id":"https://diegojromerolopez.github.io/#website"},"name":"EyesOnly","url":"https://diegojromerolopez.github.io/blog/2022/11/eyesonly/"},{"@id":"https://diegojromerolopez.github.io/blog/2022/11/eyesonly/#article","@type":"Article","author":[],"dateCreated":"2022-11-05T00:00:00+00:00","dateModified":"2022-11-05T00:00:00+00:00","datePublished":"2022-11-05T00:00:00+00:00","description":"Secrets are usually involuntary leaked by developers. Sometimes they are sent to external services like or written in a log by accident. Would not be useful to have a tool to limit the access to secrets? Enter EyesOnly: a package to limit access to secrets\nDealing last years with containerazing applications has left me thinking in how we are passing some secrets as environment variables to the container. This is standard practice by the Cloud Native practitioners. However, once you pass an environment variable you fall in two different issues:\n","headline":"EyesOnly","image":"https://diegojromerolopez.github.io/img/diegoj-logo.png","inLanguage":"en","keywords":["secrets","python","project"],"mainEntityOfPage":{"@id":"https://diegojromerolopez.github.io/blog/2022/11/eyesonly/#webpage"},"publisher":{"@id":"https://diegojromerolopez.github.io/#organization"},"wordCount":1002}]}</script><meta property="og:url" content="https://diegojromerolopez.github.io/blog/2022/11/eyesonly/"><meta property="og:site_name" content="Diego J.'s Software Tar Pit"><meta property="og:title" content="EyesOnly"><meta property="og:description" content="Secrets are usually involuntary leaked by developers. Sometimes they are sent to external services like or written in a log by accident. Would not be useful to have a tool to limit the access to secrets? Enter EyesOnly: a package to limit access to secrets
+Dealing last years with containerazing applications has left me thinking in how we are passing some secrets as environment variables to the container. This is standard practice by the Cloud Native practitioners. However, once you pass an environment variable you fall in two different issues:"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2022-11-05T00:00:00+00:00"><meta property="article:modified_time" content="2022-11-05T00:00:00+00:00"><meta property="article:tag" content="Secrets"><meta property="article:tag" content="Python"><meta property="article:tag" content="Project"><link rel=canonical href=https://diegojromerolopez.github.io/blog/2022/11/eyesonly/><meta name=twitter:title content="EyesOnly"><meta name=twitter:description content="Secrets are usually involuntary leaked by developers. Sometimes
+they are sent to external services like or written in a log by
+accident. Would not be useful to have a tool to limit the access
+to …"><meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png"><meta name=twitter:card content="summary_large_image"><link href=/img/favicon.ico rel=icon type=image/x-icon><meta name=generator content="Hugo 0.163.1"><link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=/css/katex.min.css><link rel=stylesheet href=/fontawesome/css/brands.min.css><link rel=stylesheet href=/fontawesome/css/fontawesome.min.css><link rel=stylesheet href=/fontawesome/css/regular.min.css><link rel=stylesheet href=/fontawesome/css/solid.min.css><link rel=stylesheet href=/fontawesome/css/svg.min.css><link rel=stylesheet href=/fontawesome/css/svg-with-js.min.css><link rel=stylesheet href=/fontawesome/css/v4-font-face.min.css><link rel=stylesheet href=/fontawesome/css/v4-shims.min.css><link rel=stylesheet href=/fontawesome/css/v5-font-face.min.css><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/main.css><link rel=stylesheet href=/css/print.css media=print><link rel=stylesheet href=/css/dark.css><link rel=stylesheet href=/css/fonts.css><link rel=stylesheet href=/css/syntax.css><link id=hljs-dark rel=stylesheet href=/css/syntax-dark.css><link rel=stylesheet href=/css/codeblock.css><link rel=stylesheet href=/css/toc.css><link rel=stylesheet href=/css/photoswipe.css></head><body><nav class="navbar navbar-expand-md navbar-light navbar-custom fixed-top"><div class=container-fluid><a class=navbar-brand href=/>Diego J.'s Software Tar Pit</a><div class="d-flex align-items-center"><button class=theme-toggle id=toc-toggle aria-label="Table of contents" data-bs-toggle=tooltip data-bs-placement=bottom title="Table of contents">
+<span class="fas fa-list"></span>
+</button>
+<button class=theme-toggle id=theme-toggle aria-label=Theme data-bs-toggle=tooltip data-bs-placement=bottom data-tooltip-auto="Auto (follows system)" data-tooltip-light="Light mode" data-tooltip-dark="Dark mode" title="Auto (follows system)">
+<span class="fas fa-adjust" id=theme-icon-auto></span>
+<span class="fas fa-sun" id=theme-icon-light style=display:none></span>
+<span class="fas fa-moon" id=theme-icon-dark style=display:none></span>
+</button>
+<button type=button class=navbar-toggler data-bs-toggle=collapse data-bs-target=#main-navbar aria-controls=main-navbar aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button></div><div class="collapse navbar-collapse" id=main-navbar><ul class="navbar-nav ms-auto"><li class=nav-item><a class=nav-link title=Blog href=/>Blog</a></li><li class=nav-item><a class=nav-link title=About href=/page/about/>About</a></li><li class=nav-item><a class=nav-link title=CV href=/cv.pdf>CV</a></li><li class=nav-item><a class=nav-link title=Tags href=/tags>Tags</a></li></ul></div><div class=avatar-container><div class=avatar-img-border><a title="Diego J.'s Software Tar Pit" href=/><img class=avatar-img src=/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit"></a></div></div></div></nav><div id=header-big-imgs data-num-img=1 data-img-src-1=/img/eyesonly.png data-img-desc-1="EyesOnly logo"></div><header class="header-section has-img"><div class="intro-header big-img" style=background-image:url(/img/eyesonly.png)><div class=container><div class=row><div class="col-md-10 offset-md-1"><div class=post-heading><h1>EyesOnly</h1><span class=post-meta><i class="fas fa-calendar"></i>&nbsp;Posted on November 5, 2022
+&nbsp;|&nbsp;</span></div></div></div></div><span class=img-desc style=display:inline>EyesOnly logo</span></div><div class="intro-header no-img"><div class=container><div class=row><div class="col-md-10 offset-md-1"><div class=post-heading><span class=h1>EyesOnly</span>
+<span class=post-meta><i class="fas fa-calendar"></i>&nbsp;Posted on November 5, 2022
+&nbsp;|&nbsp;</span></div></div></div></div></div></header><div class=container role=main><div class=row><div class="col-md-10 offset-md-1"><article role=main class=blog-post><p>Secrets are usually involuntary leaked by developers. Sometimes
+they are sent to external services like or written in a log by
+accident. Would not be useful to have a tool to limit the access
+to secrets?
+Enter <a href=https://github.com/diegojromerolopez/eyesonly>EyesOnly</a>:
+a package to limit access to secrets</p><p>Dealing last years with containerazing applications has left me
+thinking in how we are passing some secrets as environment variables
+to the container. This is standard practice by the Cloud Native
+practitioners. However, once you pass an environment variable you
+fall in two different issues:</p><ul><li>You have global data.</li><li>Data can be secret and involuntary leaked.</li></ul><p>The first one can be ignored by now, the second one cannot be.
 A leak can be potentially dangerous for a company, e.g. the
-logs are usually accessed for more people than production servers.</p>
-<h1 id=but-what-is-a-leak>But, what is a leak?</h1>
-<p>In <em>old times</em> before the container revolution, a leak was simply
+logs are usually accessed for more people than production servers.</p><h2 id=but-what-is-a-leak>But, what is a leak?</h2><p>In <em>old times</em> before the container revolution, a leak was simply
 publishing a secret in GitHub or whatever repository platform. With
 the advent of Docker and all other containers, and above all with the
 coming of the
 <a href=https://networking.cloud-native-principles.org/>Cloud Native Principles</a>,
-the leaking of secrets has a different meaning.</p>
-<p>As the containers must be isolated/immutable and state-less, configuration and
+the leaking of secrets has a different meaning.</p><p>As the containers must be isolated/immutable and state-less, configuration and
 secrets are usually passed as environment variables. The software is
 prepared to read from the environment and do whatever it has to do,
 connect to an external API, access to a database, download some
-packages from a private code repository, etc.</p>
-<p>The problem now is that logging and exception capturing services can
-inadvertedly print these secrets and, then <em>discovered</em> by a big audience.</p>
-<h1 id=how-to-solve-it>How to solve it?</h1>
-<h2 id=encryption-of-secrets>Encryption of secrets</h2>
-<p>First solution would be by encrypting the secrets with a temporal key.
+packages from a private code repository, etc.</p><p>The problem now is that logging and exception capturing services can
+inadvertedly print these secrets and, then <em>discovered</em> by a big audience.</p><h2 id=how-to-solve-it>How to solve it?</h2><h3 id=encryption-of-secrets>Encryption of secrets</h3><p>First solution would be by encrypting the secrets with a temporal key.
 That way, if there is a leak in a log file, as long as you don&rsquo;t have
-access to the encrypting key the secret is safe.</p>
-<p>But you have to deal with the process of encryption and decryption,
+access to the encrypting key the secret is safe.</p><p>But you have to deal with the process of encryption and decryption,
 you also need to deal with another additional secret, and besides that
 you have no guarantee of no leaks if a developer decrypts the secret
-and uses it uncarefully.</p>
-<h2 id=eyesonly-secret-access-control>EyesOnly: Secret Access Control</h2>
-<p>The other solution I propose here is <strong>control what functions access the
+and uses it uncarefully.</p><h3 id=eyesonly-secret-access-control>EyesOnly: Secret Access Control</h3><p>The other solution I propose here is <strong>control what functions access the
 secrets</strong>: <a href=https://github.com/diegojromerolopez/eyesonly>EyesOnly</a>
 is a prototype I have just released to help developers control the access
-to their secrets.</p>
-<p>Of course it is not a infallible solution: think of a function
+to their secrets.</p><p>Of course it is not a infallible solution: think of a function
 that is allowed to access a secret but it writes the secret in a log.
 This Python package provides a simple way of doing access control to
 the secrets. How you deal with the secrets in the allowed functions
-is your matter.</p>
-<p>EyesOnly is very easy to use and accept JSON and toml configurations:</p>
-<h3 id=json-configuration>JSON configuration</h3>
-<p>Creating a JSON configuration is the best and easiest way of
-configure EyesOnly:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
-  <span style=color:#f92672>&#34;eyesonly&#34;</span>:{
-    <span style=color:#f92672>&#34;secrets&#34;</span>: [
-      {
-        <span style=color:#f92672>&#34;secret&#34;</span>: <span style=color:#e6db74>&#34;geo_api_key&#34;</span>,
-        <span style=color:#f92672>&#34;files&#34;</span>: [
-          {
-            <span style=color:#f92672>&#34;file_path&#34;</span>: <span style=color:#e6db74>&#34;../../secrets_use.py&#34;</span>,
-            <span style=color:#f92672>&#34;functions&#34;</span>: [
-              <span style=color:#e6db74>&#34;allowed_use1&#34;</span>,
-              <span style=color:#e6db74>&#34;allowed_use2&#34;</span>,
-              <span style=color:#e6db74>&#34;allowed_use3&#34;</span>
-            ]
-          },
-          {
-            <span style=color:#f92672>&#34;file_path&#34;</span>: <span style=color:#e6db74>&#34;../../another_secrets_use.py&#34;</span>,
-            <span style=color:#f92672>&#34;functions&#34;</span>: [
-              <span style=color:#e6db74>&#34;anther_allowed_use1&#34;</span>
-            ]
-          }
-        ]
-      },
-      {
-        <span style=color:#f92672>&#34;secret&#34;</span>: <span style=color:#e6db74>&#34;postgresql_password&#34;</span>,
-        <span style=color:#f92672>&#34;files&#34;</span>: [
-          {
-            <span style=color:#f92672>&#34;file_path&#34;</span>: <span style=color:#e6db74>&#34;../../secrets_use.py&#34;</span>,
-            <span style=color:#f92672>&#34;functions&#34;</span>: [<span style=color:#e6db74>&#34;allowed_use1&#34;</span>]
-          }
-        ]
-      }
-    ]
-  }
-}
-</code></pre></div><p><em>Notice that in the case of passing the JSON inside a file,
+is your matter.</p><p>EyesOnly is very easy to use and accept JSON and toml configurations:</p><h4 id=json-configuration>JSON configuration</h4><p>Creating a JSON configuration is the best and easiest way of
+configure EyesOnly:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;eyesonly&#34;</span>:{
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;secrets&#34;</span>: [
+</span></span><span style=display:flex><span>      {
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;secret&#34;</span>: <span style=color:#e6db74>&#34;geo_api_key&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;files&#34;</span>: [
+</span></span><span style=display:flex><span>          {
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;file_path&#34;</span>: <span style=color:#e6db74>&#34;../../secrets_use.py&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;functions&#34;</span>: [
+</span></span><span style=display:flex><span>              <span style=color:#e6db74>&#34;allowed_use1&#34;</span>,
+</span></span><span style=display:flex><span>              <span style=color:#e6db74>&#34;allowed_use2&#34;</span>,
+</span></span><span style=display:flex><span>              <span style=color:#e6db74>&#34;allowed_use3&#34;</span>
+</span></span><span style=display:flex><span>            ]
+</span></span><span style=display:flex><span>          },
+</span></span><span style=display:flex><span>          {
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;file_path&#34;</span>: <span style=color:#e6db74>&#34;../../another_secrets_use.py&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;functions&#34;</span>: [
+</span></span><span style=display:flex><span>              <span style=color:#e6db74>&#34;anther_allowed_use1&#34;</span>
+</span></span><span style=display:flex><span>            ]
+</span></span><span style=display:flex><span>          }
+</span></span><span style=display:flex><span>        ]
+</span></span><span style=display:flex><span>      },
+</span></span><span style=display:flex><span>      {
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;secret&#34;</span>: <span style=color:#e6db74>&#34;postgresql_password&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#f92672>&#34;files&#34;</span>: [
+</span></span><span style=display:flex><span>          {
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;file_path&#34;</span>: <span style=color:#e6db74>&#34;../../secrets_use.py&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#f92672>&#34;functions&#34;</span>: [<span style=color:#e6db74>&#34;allowed_use1&#34;</span>]
+</span></span><span style=display:flex><span>          }
+</span></span><span style=display:flex><span>        ]
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    ]
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p><em>Notice that in the case of passing the JSON inside a file,
 the file paths can be absolute or relative with respect to the
 path of the file itself, but if we decide to pass the JSON in an
-environment variable, all paths must be absolute paths.</em></p>
-<p>There is also the option to use a <a href=https://toml.io/en/>toml</a> file:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml>[<span style=color:#a6e22e>eyesonly</span>]
-[[<span style=color:#a6e22e>eyesonly</span>.<span style=color:#a6e22e>secrets</span>]]
-<span style=color:#a6e22e>secret</span> = <span style=color:#e6db74>&#39;secret1&#39;</span>
-[[<span style=color:#a6e22e>eyesonly</span>.<span style=color:#a6e22e>secrets</span>.<span style=color:#a6e22e>files</span>]]
-<span style=color:#a6e22e>file_path</span> = <span style=color:#e6db74>&#39;../../path/to/secret11.py&#39;</span>
-<span style=color:#a6e22e>functions</span> = [
-    <span style=color:#e6db74>&#39;func1a&#39;</span>,
-    <span style=color:#e6db74>&#39;func1b&#39;</span>
-]
-[[<span style=color:#a6e22e>eyesonly</span>.<span style=color:#a6e22e>secrets</span>.<span style=color:#a6e22e>files</span>]]
-<span style=color:#a6e22e>file_path</span> = <span style=color:#e6db74>&#39;../../path/to/secret12.py&#39;</span>
-<span style=color:#a6e22e>functions</span> = [
-    <span style=color:#e6db74>&#39;func2a&#39;</span>,
-    <span style=color:#e6db74>&#39;func2b&#39;</span>
-]
-
-[[<span style=color:#a6e22e>eyesonly</span>.<span style=color:#a6e22e>secrets</span>]]
-<span style=color:#a6e22e>secret</span> = <span style=color:#e6db74>&#39;secret2&#39;</span>
-[[<span style=color:#a6e22e>eyesonly</span>.<span style=color:#a6e22e>secrets</span>.<span style=color:#a6e22e>files</span>]]
-<span style=color:#a6e22e>file_path</span> = <span style=color:#e6db74>&#39;/root/path/to/secret2.py&#39;</span>
-<span style=color:#a6e22e>functions</span> =[
-    <span style=color:#e6db74>&#39;func3&#39;</span>,
-    <span style=color:#e6db74>&#39;func4&#39;</span>
-]
-</code></pre></div><p>I prefer using JSON, but you are free to use this file format if you wish.</p>
-<h3 id=loading-the-configuration>Loading the configuration</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> eyesonly.secret <span style=color:#f92672>import</span> Secret
-<span style=color:#f92672>from</span> eyesonly.acl.acl <span style=color:#f92672>import</span> ACL
-<span style=color:#f92672>from</span> eyesonly.acl.providers.json_acl_provider <span style=color:#f92672>import</span> JSONACLProvider
-<span style=color:#f92672>from</span> eyesonly.acl.providers.env_acl_provider <span style=color:#f92672>import</span> EnvACLProvider
-<span style=color:#f92672>from</span> eyesonly.acl.providers.toml_acl_provider <span style=color:#f92672>import</span> TomlACLProvider
-
-<span style=color:#75715e># JSON configuration file</span>
-json_acl <span style=color:#f92672>=</span> ACL(JSONACLProvider(file_path<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;path/of/your/json/config/file&#39;</span>))
-
-<span style=color:#75715e># JSON in environment variable</span>
-env_acl <span style=color:#f92672>=</span> ACL(EnvACLProvider(env_variable<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;variable&#39;</span>))
-
-<span style=color:#75715e># toml configuration file</span>
-toml_acl <span style=color:#f92672>=</span> ACL(TomlACLProvider(file_path<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;path/of/your/toml/config/file&#39;</span>))
-</code></pre></div><p>We have to load the access configuration, and then we can use it to
-read the secrets from the environment or whatever source we would like:</p>
-<h3 id=secret-loading>Secret loading</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e># secret_depository.py</span>
-<span style=color:#f92672>import</span> os
-<span style=color:#f92672>from</span> eyesonly.secret <span style=color:#f92672>import</span> Secret
-
-GEO_API_SECRET <span style=color:#f92672>=</span> Secret(name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;geo_api_key&#39;</span>, value<span style=color:#f92672>=</span>os<span style=color:#f92672>.</span>environ[<span style=color:#e6db74>&#39;GEO_SERVICE_API_KEY&#39;</span>], acl<span style=color:#f92672>=</span>json_acl)
-DB_PASSWORD <span style=color:#f92672>=</span> Secret(name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;postgresql_password&#39;</span>, value<span style=color:#f92672>=</span>os<span style=color:#f92672>.</span>environ[<span style=color:#e6db74>&#39;DB_PASSWORD&#39;</span>], acl<span style=color:#f92672>=</span>json_acl, denied_policy<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;censure&#39;</span>)
-</code></pre></div><p>I recommend to centralize all secret management in a module or class.
-This is a good way of avoiding scatterring of secret management.</p>
-<p>Another thing I have to mention, is the ability to set a policy of what
+environment variable, all paths must be absolute paths.</em></p><p>There is also the option to use a <a href=https://toml.io/en/>toml</a> file:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-toml data-lang=toml><span style=display:flex><span>[<span style=color:#a6e22e>eyesonly</span>]
+</span></span><span style=display:flex><span>[[<span style=color:#a6e22e>eyesonly</span>.<span style=color:#a6e22e>secrets</span>]]
+</span></span><span style=display:flex><span><span style=color:#a6e22e>secret</span> = <span style=color:#e6db74>&#39;secret1&#39;</span>
+</span></span><span style=display:flex><span>[[<span style=color:#a6e22e>eyesonly</span>.<span style=color:#a6e22e>secrets</span>.<span style=color:#a6e22e>files</span>]]
+</span></span><span style=display:flex><span><span style=color:#a6e22e>file_path</span> = <span style=color:#e6db74>&#39;../../path/to/secret11.py&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>functions</span> = [
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#39;func1a&#39;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#39;func1b&#39;</span>
+</span></span><span style=display:flex><span>]
+</span></span><span style=display:flex><span>[[<span style=color:#a6e22e>eyesonly</span>.<span style=color:#a6e22e>secrets</span>.<span style=color:#a6e22e>files</span>]]
+</span></span><span style=display:flex><span><span style=color:#a6e22e>file_path</span> = <span style=color:#e6db74>&#39;../../path/to/secret12.py&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>functions</span> = [
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#39;func2a&#39;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#39;func2b&#39;</span>
+</span></span><span style=display:flex><span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>[[<span style=color:#a6e22e>eyesonly</span>.<span style=color:#a6e22e>secrets</span>]]
+</span></span><span style=display:flex><span><span style=color:#a6e22e>secret</span> = <span style=color:#e6db74>&#39;secret2&#39;</span>
+</span></span><span style=display:flex><span>[[<span style=color:#a6e22e>eyesonly</span>.<span style=color:#a6e22e>secrets</span>.<span style=color:#a6e22e>files</span>]]
+</span></span><span style=display:flex><span><span style=color:#a6e22e>file_path</span> = <span style=color:#e6db74>&#39;/root/path/to/secret2.py&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>functions</span> =[
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#39;func3&#39;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#39;func4&#39;</span>
+</span></span><span style=display:flex><span>]
+</span></span></code></pre></div><p>I prefer using JSON, but you are free to use this file format if you wish.</p><h4 id=loading-the-configuration>Loading the configuration</h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>from</span> eyesonly.secret <span style=color:#f92672>import</span> Secret
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> eyesonly.acl.acl <span style=color:#f92672>import</span> ACL
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> eyesonly.acl.providers.json_acl_provider <span style=color:#f92672>import</span> JSONACLProvider
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> eyesonly.acl.providers.env_acl_provider <span style=color:#f92672>import</span> EnvACLProvider
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> eyesonly.acl.providers.toml_acl_provider <span style=color:#f92672>import</span> TomlACLProvider
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># JSON configuration file</span>
+</span></span><span style=display:flex><span>json_acl <span style=color:#f92672>=</span> ACL(JSONACLProvider(file_path<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;path/of/your/json/config/file&#39;</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># JSON in environment variable</span>
+</span></span><span style=display:flex><span>env_acl <span style=color:#f92672>=</span> ACL(EnvACLProvider(env_variable<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;variable&#39;</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># toml configuration file</span>
+</span></span><span style=display:flex><span>toml_acl <span style=color:#f92672>=</span> ACL(TomlACLProvider(file_path<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;path/of/your/toml/config/file&#39;</span>))
+</span></span></code></pre></div><p>We have to load the access configuration, and then we can use it to
+read the secrets from the environment or whatever source we would like:</p><h4 id=secret-loading>Secret loading</h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># secret_depository.py</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> os
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> eyesonly.secret <span style=color:#f92672>import</span> Secret
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>GEO_API_SECRET <span style=color:#f92672>=</span> Secret(name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;geo_api_key&#39;</span>, value<span style=color:#f92672>=</span>os<span style=color:#f92672>.</span>environ[<span style=color:#e6db74>&#39;GEO_SERVICE_API_KEY&#39;</span>], acl<span style=color:#f92672>=</span>json_acl)
+</span></span><span style=display:flex><span>DB_PASSWORD <span style=color:#f92672>=</span> Secret(name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;postgresql_password&#39;</span>, value<span style=color:#f92672>=</span>os<span style=color:#f92672>.</span>environ[<span style=color:#e6db74>&#39;DB_PASSWORD&#39;</span>], acl<span style=color:#f92672>=</span>json_acl, denied_policy<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;censure&#39;</span>)
+</span></span></code></pre></div><p>I recommend to centralize all secret management in a module or class.
+This is a good way of avoiding scatterring of secret management.</p><p>Another thing I have to mention, is the ability to set a policy of what
 to do in case of an unlawfull access. By default, an exception is raised,
 but if you are content when printing a string of asterisks, you can set
 the <code>denied_policy='censure'</code> and your code will continue working,
-but <code>'*****'</code> will be shown.</p>
-<h3 id=use-of-secrets>Use of secrets</h3>
-<p>Convert the <strong>Secret</strong> objects to strings when you need to use the secret.
-As long as you are in an allowed function, you will be able to do it.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e># secrets_use.py</span>
-<span style=color:#f92672>import</span> os
-<span style=color:#f92672>from</span> .secret_depository <span style=color:#f92672>import</span> GEO_API_SECRET, DB_PASSWORD
-<span style=color:#f92672>from</span> eyesonly.secret <span style=color:#f92672>import</span> Secret
-
-
-<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>allowed_use1</span>():
-    <span style=color:#75715e># Both secrets can be seen in this function </span>
-    <span style=color:#66d9ef>assert</span> os<span style=color:#f92672>.</span>environ[<span style=color:#e6db74>&#39;GEO_SERVICE_API_KEY&#39;</span>] <span style=color:#f92672>==</span> str(GEO_API_SECRET)
-    <span style=color:#66d9ef>assert</span> os<span style=color:#f92672>.</span>environ[<span style=color:#e6db74>&#39;DB_PASSWORD&#39;</span>] <span style=color:#f92672>==</span> str(DB_PASSWORD)
-
-
-<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>allowed_use2</span>():
-    <span style=color:#75715e># geo_api_key can be seen in this function </span>
-    <span style=color:#66d9ef>return</span> str(GEO_API_SECRET)
-    
-
-<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>another_use3</span>():
-    <span style=color:#75715e># geo_api_key can be seen in this function </span>
-    <span style=color:#66d9ef>assert</span> os<span style=color:#f92672>.</span>environ[<span style=color:#e6db74>&#39;GEO_SERVICE_API_KEY&#39;</span>] <span style=color:#f92672>==</span> allowed_use2()
-
-
-<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>geo_api_key_not_allowed</span>():
-    <span style=color:#75715e># geo_api_key can NOT be seen in this function and will raise an exception</span>
-    <span style=color:#66d9ef>return</span> str(GEO_API_SECRET)
-
-
-<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>postgresql_password_not_allowed</span>():
-    <span style=color:#75715e># postgresql_password can NOT be seen in this function but will return</span>
-    <span style=color:#75715e># a string with only asterisks because of the &#34;denied_policy&#34; parameter</span>
-    <span style=color:#75715e># in the Secret initializer.</span>
-    <span style=color:#66d9ef>assert</span> <span style=color:#e6db74>&#39;*****&#39;</span> <span style=color:#f92672>==</span> str(DB_PASSWORD)
-</code></pre></div><h3 id=future-work>Future work</h3>
-<p>EyesOnly is not a fully completed project (as most software projects are).</p>
-<ul>
-<li>An encrypting/decrypting phase could be added.</li>
-<li>A way of removing inheritance of secret access permission.</li>
-<li>Your needed feature <a href=https://www.reddit.com/r/Python/comments/ymwg4g/eyesonly_an_access_control_list_for_your_secrets/>Reddit thread</a>.</li>
-<li>etc.</li>
-</ul>
-<h1 id=conclusion>Conclusion</h1>
-<p>I have shown a tool to help you deal with secrets:
+but <code>'*****'</code> will be shown.</p><h4 id=use-of-secrets>Use of secrets</h4><p>Convert the <strong>Secret</strong> objects to strings when you need to use the secret.
+As long as you are in an allowed function, you will be able to do it.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># secrets_use.py</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> os
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> .secret_depository <span style=color:#f92672>import</span> GEO_API_SECRET, DB_PASSWORD
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> eyesonly.secret <span style=color:#f92672>import</span> Secret
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>allowed_use1</span>():
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Both secrets can be seen in this function </span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>assert</span> os<span style=color:#f92672>.</span>environ[<span style=color:#e6db74>&#39;GEO_SERVICE_API_KEY&#39;</span>] <span style=color:#f92672>==</span> str(GEO_API_SECRET)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>assert</span> os<span style=color:#f92672>.</span>environ[<span style=color:#e6db74>&#39;DB_PASSWORD&#39;</span>] <span style=color:#f92672>==</span> str(DB_PASSWORD)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>allowed_use2</span>():
+</span></span><span style=display:flex><span>    <span style=color:#75715e># geo_api_key can be seen in this function </span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> str(GEO_API_SECRET)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>another_use3</span>():
+</span></span><span style=display:flex><span>    <span style=color:#75715e># geo_api_key can be seen in this function </span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>assert</span> os<span style=color:#f92672>.</span>environ[<span style=color:#e6db74>&#39;GEO_SERVICE_API_KEY&#39;</span>] <span style=color:#f92672>==</span> allowed_use2()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>geo_api_key_not_allowed</span>():
+</span></span><span style=display:flex><span>    <span style=color:#75715e># geo_api_key can NOT be seen in this function and will raise an exception</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> str(GEO_API_SECRET)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>postgresql_password_not_allowed</span>():
+</span></span><span style=display:flex><span>    <span style=color:#75715e># postgresql_password can NOT be seen in this function but will return</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># a string with only asterisks because of the &#34;denied_policy&#34; parameter</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># in the Secret initializer.</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>assert</span> <span style=color:#e6db74>&#39;*****&#39;</span> <span style=color:#f92672>==</span> str(DB_PASSWORD)
+</span></span></code></pre></div><h4 id=future-work>Future work</h4><p>EyesOnly is not a fully completed project (as most software projects are).</p><ul><li>An encrypting/decrypting phase could be added.</li><li>A way of removing inheritance of secret access permission.</li><li>Your needed feature <a href=https://www.reddit.com/r/Python/comments/ymwg4g/eyesonly_an_access_control_list_for_your_secrets/>Reddit thread</a>.</li><li>etc.</li></ul><h2 id=conclusion>Conclusion</h2><p>I have shown a tool to help you deal with secrets:
 <a href=https://github.com/diegojromerolopez/eyesonly>EyesOnly</a>.
 <strong>It can help you reduce secret leaks in your code by
-controlling what functions can access which secret</strong>.</p>
-<p><a href=https://www.reddit.com/r/Python/comments/ymwg4g/eyesonly_an_access_control_list_for_your_secrets/>Discuss this post in reddit</a>.</p>
-<div class=blog-tags>
-<a href=https://diegojromerolopez.github.io/tags/secrets/>secrets</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/python/>python</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/project/>project</a>&nbsp;
-</div>
-</article>
-<ul class="pager blog-pager">
-<li class=previous>
-<a href=https://diegojromerolopez.github.io/blog/2022/10/allow-writing-of-files-in-docker-in-linux/ data-toggle=tooltip data-placement=top title="Allow writing of files in docker in Linux">&larr; Previous Post</a>
-</li>
-<li class=next>
-<a href=https://diegojromerolopez.github.io/blog/2022/11/rewrite-git-branch-history/ data-toggle=tooltip data-placement=top title="Rewrite git branch history">Next Post &rarr;</a>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<footer>
-<div class=container>
-<div class=row>
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<ul class="list-inline text-center footer-links">
-<li>
-<a href=mailto:diegojromerolopez@gmail.com title="Email me">
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href=https://github.com/diegojromerolopez title=GitHub>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fab fa-github fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href=https://twitter.com/diegojromerolop title=Twitter>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href=https://linkedin.com/in/diegojromerolopez title=LinkedIn>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href title=RSS>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-</ul>
-<p class="credits copyright text-muted">
-Diego J. Romero-López
-&nbsp;&bull;&nbsp;&copy;
+controlling what functions can access which secret</strong>.</p><p><a href=https://www.reddit.com/r/Python/comments/ymwg4g/eyesonly_an_access_control_list_for_your_secrets/>Discuss this post in reddit</a>.</p><div class=blog-tags><span>Tags: </span><a href=/tags/secrets/>secrets</a>&nbsp;<a href=/tags/python/>python</a>&nbsp;<a href=/tags/project/>project</a>&nbsp;</div></article><a href=/blog/2022/10/allow-writing-of-files-in-docker-in-linux/ class="nav-side-arrow nav-side-prev" title="Allow writing of files in docker in Linux" aria-label="Previous Post: Allow writing of files in docker in Linux"><i class="fas fa-chevron-left"></i>
+</a><a href=/blog/2022/11/rewrite-git-branch-history/ class="nav-side-arrow nav-side-next" title="Rewrite git branch history" aria-label="Next Post: Rewrite git branch history"><i class="fas fa-chevron-right"></i></a><ul class="post-pager blog-post-pager"><li class=pager-prev><a href=/blog/2022/10/allow-writing-of-files-in-docker-in-linux/ data-bs-toggle=tooltip data-bs-placement=top title="Allow writing of files in docker in Linux"><i class="fas fa-chevron-left"></i> Previous Post</a></li><li class=pager-center></li><li class=pager-next><a href=/blog/2022/11/rewrite-git-branch-history/ data-bs-toggle=tooltip data-bs-placement=top title="Rewrite git branch history">Next Post <i class="fas fa-chevron-right"></i></a></li></ul><div class=toc-wrapper id=toc-wrapper data-toc-mode=headings><div class=toc-panel id=toc-panel role=dialog aria-label="Table of contents"><div class=toc-header><span class=toc-title>Table of Contents</span>
+<button class=toc-close id=toc-close aria-label="Close table of contents">&#215;</button></div><nav class=toc-body><nav id=TableOfContents><ul><li><a href=#but-what-is-a-leak>But, what is a leak?</a></li><li><a href=#how-to-solve-it>How to solve it?</a><ul><li><a href=#encryption-of-secrets>Encryption of secrets</a></li><li><a href=#eyesonly-secret-access-control>EyesOnly: Secret Access Control</a></li></ul></li><li><a href=#conclusion>Conclusion</a></li></ul></nav></nav></div><div class=toc-backdrop id=toc-backdrop></div></div></div></div></div><footer><div class=container><div class=row><div class="col-md-10 offset-md-1"><ul class="list-inline text-center footer-links"><li class=list-inline-item><a href=/index.xml title=RSS><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="credits copyright text-muted">&copy;
 2026
-&nbsp;&bull;&nbsp;
-<a href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
-</p>
-<p class="credits theme-by text-muted">
-<a href=https://gohugo.io>Hugo v0.91.2</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
-</p>
-</div>
-</div>
-</div>
-</footer><script src=https://diegojromerolopez.github.io/js/katex.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/auto-render.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/jquery-3.5.1.slim.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/bootstrap.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/main.js></script><script>renderMathInElement(document.body)</script><script src=https://diegojromerolopez.github.io/js/photoswipe.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/photoswipe-ui-default.min.js></script><script src=https://diegojromerolopez.github.io/js/load-photoswipe.js></script>
-</body>
-</html>
+<a href=/>Diego J.'s Software Tar Pit</a></p><p class="credits theme-by text-muted"><a href=https://gohugo.io>Hugo v0.163.1</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a></p></div></div></div></footer><script defer src=/js/katex.min.js></script><script defer src=/js/auto-render.min.js onload=renderMathInElement(document.body)></script><script src=/js/jquery-4.0.0.slim.min.js></script><script src=/js/bootstrap.min.js></script><script src=/js/main.js></script><script src=/js/toc.js></script><script src=/js/photoswipe.umd.min.js></script><script src=/js/photoswipe-lightbox.umd.min.js></script><script src=/js/load-photoswipe.js></script></body></html>

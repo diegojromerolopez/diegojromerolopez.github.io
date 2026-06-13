@@ -1,290 +1,70 @@
-<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>LLM mental fatigue - Diego J.'s Software Tar Pit</title>
-<meta name=description content="LLM mental fatigue LLMs (Large Language Models) provide a wonderful tool for the construction of software that speed up the process of coding. But are there some downsides to them?
-Introduction The past 3 years have been a total change in the software engineering discipline, first the AI-based autocomplete, then the LLM-based code generation. Now, non-software engineers are creating and releasing software in the wild, and software engineers are being pressured to produce software faster.">
-<meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/05\/llm-mental-fatigue\/","name":"Llm mental fatigue"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"LLM mental fatigue","description":"LLM mental fatigue LLMs (Large Language Models) provide a wonderful tool for the construction of software that speed up the process of coding. But are there some downsides to them?\nIntroduction The past 3 years have been a total change in the software engineering discipline, first the AI-based autocomplete, then the LLM-based code generation. Now, non-software engineers are creating and releasing software in the wild, and software engineers are being pressured to produce software faster.","inLanguage":"en","wordCount":968,"datePublished":"2026-05-17T00:00:00","dateModified":"2026-05-17T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["llm"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/05\/llm-mental-fatigue\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
-<meta property="og:title" content="LLM mental fatigue">
-<meta property="og:description" content="LLM mental fatigue LLMs (Large Language Models) provide a wonderful tool for the construction of software that speed up the process of coding. But are there some downsides to them?
-Introduction The past 3 years have been a total change in the software engineering discipline, first the AI-based autocomplete, then the LLM-based code generation. Now, non-software engineers are creating and releasing software in the wild, and software engineers are being pressured to produce software faster.">
-<meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
-<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2026/05/llm-mental-fatigue/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Diego J.'s Software Tar Pit">
-<meta name=twitter:title content="LLM mental fatigue">
-<meta name=twitter:description content="LLM mental fatigue LLMs (Large Language Models) provide a wonderful tool for the construction of software that speed up the process of coding. But are there some downsides to them?
-Introduction The …">
-<meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
-<meta name=twitter:card content="summary_large_image">
-<meta name=twitter:site content="@diegojromerolop">
-<meta name=twitter:creator content="@diegojromerolop">
-<link href=https://diegojromerolopez.github.io/img/favicon.ico rel=icon type=image/x-icon>
-<meta name=generator content="Hugo 0.91.2">
-<link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=https://diegojromerolopez.github.io/css/katex.min.css>
-<link rel=stylesheet href=https://diegojromerolopez.github.io/fontawesome/css/all.css>
-<link rel=stylesheet href=https://diegojromerolopez.github.io/css/bootstrap.min.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/main.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/fonts.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/syntax.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/codeblock.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.min.css>
-<link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.default-skin.min.css>
-</head>
-<body>
-<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
-<div class=container-fluid>
-<div class=navbar-header>
-<button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
-<span class=sr-only>Toggle navigation</span>
-<span class=icon-bar></span>
-<span class=icon-bar></span>
-<span class=icon-bar></span>
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage><head><script>(function(){var t,n=localStorage.getItem("theme"),e=!1;n==="dark"?(document.documentElement.setAttribute("data-theme","dark"),e=!0):n==="light"?document.documentElement.setAttribute("data-theme","light"):window.matchMedia("(prefers-color-scheme: dark)").matches&&(document.documentElement.setAttribute("data-theme","dark"),e=!0),t=document.getElementById("hljs-dark"),t&&(t.disabled=!e)})()</script><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><title>LLM mental fatigue</title><meta name=description content="LLMs (Large Language Models) provide a wonderful tool for the construction of software
+that speed up the process of coding. But are there some downsides to them?
+Introduction
+The past 3 years have been a total change in the software engineering discipline,
+first the AI-based autocomplete, then the LLM-based code generation.
+Now, non-software engineers are creating and releasing software in the wild, and
+software engineers are being pressured to produce software faster."><script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@id":"https://diegojromerolopez.github.io/#website","@type":"WebSite","name":"Diego J.'s Software Tar Pit","publisher":{"@id":"https://diegojromerolopez.github.io/#organization"},"url":"https://diegojromerolopez.github.io/"},{"@id":"https://diegojromerolopez.github.io/#organization","@type":"Organization","name":null,"url":"https://diegojromerolopez.github.io/"},{"@id":"https://diegojromerolopez.github.io/blog/2026/05/llm-mental-fatigue/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://diegojromerolopez.github.io/","name":"Home","position":1},{"@type":"ListItem","item":"https://diegojromerolopez.github.io/post/","name":"Posts","position":2},{"@type":"ListItem","item":"https://diegojromerolopez.github.io/blog/2026/05/llm-mental-fatigue/","name":"LLM mental fatigue","position":3}]},{"@id":"https://diegojromerolopez.github.io/blog/2026/05/llm-mental-fatigue/#webpage","@type":"WebPage","breadcrumb":{"@id":"https://diegojromerolopez.github.io/blog/2026/05/llm-mental-fatigue/#breadcrumb"},"isPartOf":{"@id":"https://diegojromerolopez.github.io/#website"},"name":"LLM mental fatigue","url":"https://diegojromerolopez.github.io/blog/2026/05/llm-mental-fatigue/"},{"@id":"https://diegojromerolopez.github.io/blog/2026/05/llm-mental-fatigue/#article","@type":"Article","author":[],"dateCreated":"2026-05-17T00:00:00+02:00","dateModified":"2026-05-17T00:00:00+02:00","datePublished":"2026-05-17T00:00:00+02:00","description":"LLMs (Large Language Models) provide a wonderful tool for the construction of software that speed up the process of coding. But are there some downsides to them?\nIntroduction The past 3 years have been a total change in the software engineering discipline, first the AI-based autocomplete, then the LLM-based code generation. Now, non-software engineers are creating and releasing software in the wild, and software engineers are being pressured to produce software faster.\n","headline":"LLM mental fatigue","image":"https://diegojromerolopez.github.io/img/diegoj-logo.png","inLanguage":"en","keywords":["llm"],"mainEntityOfPage":{"@id":"https://diegojromerolopez.github.io/blog/2026/05/llm-mental-fatigue/#webpage"},"publisher":{"@id":"https://diegojromerolopez.github.io/#organization"},"wordCount":965}]}</script><meta property="og:url" content="https://diegojromerolopez.github.io/blog/2026/05/llm-mental-fatigue/"><meta property="og:site_name" content="Diego J.'s Software Tar Pit"><meta property="og:title" content="LLM mental fatigue"><meta property="og:description" content="LLMs (Large Language Models) provide a wonderful tool for the construction of software that speed up the process of coding. But are there some downsides to them?
+Introduction The past 3 years have been a total change in the software engineering discipline, first the AI-based autocomplete, then the LLM-based code generation. Now, non-software engineers are creating and releasing software in the wild, and software engineers are being pressured to produce software faster."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2026-05-17T00:00:00+02:00"><meta property="article:modified_time" content="2026-05-17T00:00:00+02:00"><meta property="article:tag" content="Llm"><link rel=canonical href=https://diegojromerolopez.github.io/blog/2026/05/llm-mental-fatigue/><meta name=twitter:title content="LLM mental fatigue"><meta name=twitter:description content="LLMs (Large Language Models) provide a wonderful tool for the construction of software
+that speed up the process of coding. But are there some downsides to them?
+Introduction
+The past 3 years have …"><meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png"><meta name=twitter:card content="summary_large_image"><link href=/img/favicon.ico rel=icon type=image/x-icon><meta name=generator content="Hugo 0.163.1"><link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=/css/katex.min.css><link rel=stylesheet href=/fontawesome/css/brands.min.css><link rel=stylesheet href=/fontawesome/css/fontawesome.min.css><link rel=stylesheet href=/fontawesome/css/regular.min.css><link rel=stylesheet href=/fontawesome/css/solid.min.css><link rel=stylesheet href=/fontawesome/css/svg.min.css><link rel=stylesheet href=/fontawesome/css/svg-with-js.min.css><link rel=stylesheet href=/fontawesome/css/v4-font-face.min.css><link rel=stylesheet href=/fontawesome/css/v4-shims.min.css><link rel=stylesheet href=/fontawesome/css/v5-font-face.min.css><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/main.css><link rel=stylesheet href=/css/print.css media=print><link rel=stylesheet href=/css/dark.css><link rel=stylesheet href=/css/fonts.css><link rel=stylesheet href=/css/syntax.css><link id=hljs-dark rel=stylesheet href=/css/syntax-dark.css><link rel=stylesheet href=/css/codeblock.css><link rel=stylesheet href=/css/toc.css><link rel=stylesheet href=/css/photoswipe.css></head><body><nav class="navbar navbar-expand-md navbar-light navbar-custom fixed-top"><div class=container-fluid><a class=navbar-brand href=/>Diego J.'s Software Tar Pit</a><div class="d-flex align-items-center"><button class=theme-toggle id=toc-toggle aria-label="Table of contents" data-bs-toggle=tooltip data-bs-placement=bottom title="Table of contents">
+<span class="fas fa-list"></span>
 </button>
-<a class=navbar-brand href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
-</div>
-<div class="collapse navbar-collapse" id=main-navbar>
-<ul class="nav navbar-nav navbar-right">
-<li>
-<a title=Blog href=/>Blog</a>
-</li>
-<li>
-<a title=About href=/page/about/>About</a>
-</li>
-<li>
-<a title=CV href=/cv.pdf>CV</a>
-</li>
-<li>
-<a title=Tags href=/tags>Tags</a>
-</li>
-<li>
-<a href=/es lang=es>es</a>
-</li>
-</ul>
-</div>
-<div class=avatar-container>
-<div class=avatar-img-border>
-<a title="Diego J.'s Software Tar Pit" href=https://diegojromerolopez.github.io>
-<img class=avatar-img src=https://diegojromerolopez.github.io/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit">
-</a>
-</div>
-</div>
-</div>
-</nav>
-<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
-<div class=pswp__bg></div>
-<div class=pswp__scroll-wrap>
-<div class=pswp__container>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-</div>
-<div class="pswp__ui pswp__ui--hidden">
-<div class=pswp__top-bar>
-<div class=pswp__counter></div>
-<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-<button class="pswp__button pswp__button--share" title=Share></button>
-<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-<div class=pswp__preloader>
-<div class=pswp__preloader__icn>
-<div class=pswp__preloader__cut>
-<div class=pswp__preloader__donut></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-<div class=pswp__share-tooltip></div>
-</div>
-<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+<button class=theme-toggle id=theme-toggle aria-label=Theme data-bs-toggle=tooltip data-bs-placement=bottom data-tooltip-auto="Auto (follows system)" data-tooltip-light="Light mode" data-tooltip-dark="Dark mode" title="Auto (follows system)">
+<span class="fas fa-adjust" id=theme-icon-auto></span>
+<span class="fas fa-sun" id=theme-icon-light style=display:none></span>
+<span class="fas fa-moon" id=theme-icon-dark style=display:none></span>
 </button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-</button>
-<div class=pswp__caption>
-<div class=pswp__caption__center></div>
-</div>
-</div>
-</div>
-</div>
-<header class=header-section>
-<div class="intro-header no-img">
-<div class=container>
-<div class=row>
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<div class=post-heading>
-<h1>LLM mental fatigue</h1>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on May 17, 2026
-&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
-</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</header>
-<div class=container role=main>
-<div class=row>
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<article role=main class=blog-post>
-<h1 id=llm-mental-fatigue>LLM mental fatigue</h1>
-<p>LLMs (Large Language Models) provide a wonderful tool for the construction of software
-that speed up the process of coding. But are there some downsides to them?</p>
-<h2 id=introduction>Introduction</h2>
-<p>The past 3 years have been a total change in the software engineering discipline,
+<button type=button class=navbar-toggler data-bs-toggle=collapse data-bs-target=#main-navbar aria-controls=main-navbar aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button></div><div class="collapse navbar-collapse" id=main-navbar><ul class="navbar-nav ms-auto"><li class=nav-item><a class=nav-link title=Blog href=/>Blog</a></li><li class=nav-item><a class=nav-link title=About href=/page/about/>About</a></li><li class=nav-item><a class=nav-link title=CV href=/cv.pdf>CV</a></li><li class=nav-item><a class=nav-link title=Tags href=/tags>Tags</a></li></ul></div><div class=avatar-container><div class=avatar-img-border><a title="Diego J.'s Software Tar Pit" href=/><img class=avatar-img src=/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit"></a></div></div></div></nav><header class=header-section><div class="intro-header no-img"><div class=container><div class=row><div class="col-md-10 offset-md-1"><div class=post-heading><h1>LLM mental fatigue</h1><span class=post-meta><i class="fas fa-calendar"></i>&nbsp;Posted on May 17, 2026
+&nbsp;|&nbsp;</span></div></div></div></div></div></header><div class=container role=main><div class=row><div class="col-md-10 offset-md-1"><article role=main class=blog-post><p>LLMs (Large Language Models) provide a wonderful tool for the construction of software
+that speed up the process of coding. But are there some downsides to them?</p><h2 id=introduction>Introduction</h2><p>The past 3 years have been a total change in the software engineering discipline,
 first the AI-based autocomplete, then the LLM-based code generation.
 Now, non-software engineers are creating and releasing software <em>in the wild</em>, and
-software engineers are being pressured to produce software faster.</p>
-<p>We know the benefits: automatic generation of <em>scaffolding</em> code, faster proof of concept building, etc.
-Ultimately, <strong>faster delivery of software</strong>.</p>
-<h2 id=what-some-studies-say>What some studies say?</h2>
-<p>Using LLMs <em>tires the mind</em>, if we had a coding speed before using this technology,
+software engineers are being pressured to produce software faster.</p><p>We know the benefits: automatic generation of <em>scaffolding</em> code, faster proof of concept building, etc.
+Ultimately, <strong>faster delivery of software</strong>.</p><h2 id=what-some-studies-say>What some studies say?</h2><p>Using LLMs <em>tires the mind</em>, if we had a coding speed before using this technology,
 now the speed is 2x or even 4x times faster. We need to create, review, and assess
 the generated code. This creates an imbalance, and forces the developer to focus and
-work with a much greater speed than they were used to.</p>
-<p>Since I have been working with LLMs, I have felt that having to <em>babysit</em> the LLM
+work with a much greater speed than they were used to.</p><p>Since I have been working with LLMs, I have felt that having to <em>babysit</em> the LLM
 constantly is difficult, but having to review all generated code (at the speed the LLM generates it),
-is even harder. This extra-work fatigues the mind and m</p>
-<p>I am not alone in this sentiment, in Feb 2026, <em>Aruna Ranganathan</em> and <em>Xingqi Maggie Ye</em> wrote
+is even harder. This extra-work fatigues the mind and m</p><p>I am not alone in this sentiment, in Feb 2026, <em>Aruna Ranganathan</em> and <em>Xingqi Maggie Ye</em> wrote
 about this phenomenon
 (<a href=https://hbr.org/2026/02/ai-doesnt-reduce-work-it-intensifies-it>AI Doesn’t Reduce Work—It Intensifies It</a>),
 and there was an interesting
-<a href="https://news.ycombinator.com/item?id=46945755">discussion in Hacker Hews</a> about this.</p>
-<p>In an <a href=https://newsroom.haas.berkeley.edu/ai-promised-to-free-up-workers-time-uc-berkeley-haas-researchers-found-the-opposite/>interview with her Alma Mater, UC Berkeley Haas</a>,
-Xinggi Maggie Ye said something that resonated with me:</p>
-<blockquote>
-<p>[The AI background processes] created a rhythm where both the human and the machine were constantly in motion.</p>
-</blockquote>
-<p>Steve Yegge advocates for <a href=https://newsletter.pragmaticengineer.com/p/steve-yegge-on-ai-agents-and-the>reducing the work hours for the developers that use LLMs to 3 hours a day</a>,
+<a href="https://news.ycombinator.com/item?id=46945755">discussion in Hacker Hews</a> about this.</p><p>In an <a href=https://newsroom.haas.berkeley.edu/ai-promised-to-free-up-workers-time-uc-berkeley-haas-researchers-found-the-opposite/>interview with her Alma Mater, UC Berkeley Haas</a>,
+Xinggi Maggie Ye said something that resonated with me:</p><blockquote><p>[The AI background processes] created a rhythm where both the human and the machine were constantly in motion.</p></blockquote><p>Steve Yegge advocates for <a href=https://newsletter.pragmaticengineer.com/p/steve-yegge-on-ai-agents-and-the>reducing the work hours for the developers that use LLMs to 3 hours a day</a>,
 because of this mental fatigue. For companies to allow this, we should all change our mindset as society,
-and seen the <em>return-to-office</em> policies lately, I do not think we are ready for that.</p>
-<h2 id=my-experience>My experience</h2>
-<p>LLMs are great in helping you develop faster, and better software. Faster because you can design a spec, and the
+and seen the <em>return-to-office</em> policies lately, I do not think we are ready for that.</p><h2 id=my-experience>My experience</h2><p>LLMs are great in helping you develop faster, and better software. Faster because you can design a spec, and the
 LLM will make its best to create code that fulfills it. Better because you can set up guardrails for the LLM to
-follow principles of software engineering when creating the code. There are some caveats, though.</p>
-<h3 id=the-excitement>The excitement</h3>
-<p>When I started working with Claude Code, and Antigravity,
+follow principles of software engineering when creating the code. There are some caveats, though.</p><h3 id=the-excitement>The excitement</h3><p>When I started working with Claude Code, and Antigravity,
 I felt as a shepherd of a stubborn, <em>dumb</em>, giant sheep. The LLM had to be guided step by step, and I improved
-my skills in a way that I was able to be almost 5-10 times more productive that I was without using AI.</p>
-<p>However, when dealing with the LLM, I discovered that I had to be extremely vigilant, because the result would not
+my skills in a way that I was able to be almost 5-10 times more productive that I was without using AI.</p><p>However, when dealing with the LLM, I discovered that I had to be extremely vigilant, because the result would not
 have enough quality. Deprecated code, code that avoid edge cases, or simply hallucinations that, while they
 were syntactically correct, did not work. Even worse than having non-working code, it was ending up with a code
 that was unmaintainable but apparently correct: new undesired dependencies, repeated code,
-code without encapsulation, code that had no separation in layers or anything, code that followed no software engineering guideline ever. Ultimately, code that could not be understood unless a considerable effort was done.</p>
-<h3 id=the-harness-cycle>The harness cycle</h3>
-<p>To avoid generating code that no human could maintain, I enforced a feedback loop with linters, tests, and software
+code without encapsulation, code that had no separation in layers or anything, code that followed no software engineering guideline ever. Ultimately, code that could not be understood unless a considerable effort was done.</p><h3 id=the-harness-cycle>The harness cycle</h3><p>To avoid generating code that no human could maintain, I enforced a feedback loop with linters, tests, and software
 engineering guidelines (<a href=https://en.wikipedia.org/wiki/Domain-driven_design>Domain Driven Design</a> and
-<a href=https://en.wikipedia.org/wiki/SOLID>SOLID</a>), to at least have a minimum quality.</p>
-<p>One of the most important parts of this harness is to have a strong collection of tests, mostly integration tests.
-I wrote about that in the post: <a href=/blog/2026/02/creating-a-complex-project-with-llms/>creating a complex project with LLMS</a>.</p>
-<p>I also enforced maximum size of generated files (a <em>raw</em> way of ensuring a minimal encapsulation),
-and asked the LLMs to not fall in the trap of the &ldquo;god&rdquo; objects.</p>
-<p>I perfected this harness and eventually reached to a point where the code was &ldquo;good enough&rdquo;.</p>
-<h3 id=the-fatigue>The fatigue</h3>
-<p>But the problem is not that the LLMs . The problem is that you do not have a chance to disconnect.
+<a href=https://en.wikipedia.org/wiki/SOLID>SOLID</a>), to at least have a minimum quality.</p><p>One of the most important parts of this harness is to have a strong collection of tests, mostly integration tests.
+I wrote about that in the post: <a href=/blog/2026/02/creating-a-complex-project-with-llms/>creating a complex project with LLMS</a>.</p><p>I also enforced maximum size of generated files (a <em>raw</em> way of ensuring a minimal encapsulation),
+and asked the LLMs to not fall in the trap of the &ldquo;god&rdquo; objects.</p><p>I perfected this harness and eventually reached to a point where the code was &ldquo;good enough&rdquo;.</p><h3 id=the-fatigue>The fatigue</h3><p>But the problem is not that the LLMs . The problem is that you do not have a chance to disconnect.
 I started feeling that I was focused all day, and that started to mentally tire me. After a workday
-I felt tired, unable to read, or have a meaningful conversation.</p>
-<p>My role changed completely: from creating software, to supervising agents creating software.
+I felt tired, unable to read, or have a meaningful conversation.</p><p>My role changed completely: from creating software, to supervising agents creating software.
 The pace of the LLMs is much faster than your typical human, so I started becoming
-the bottleneck of the pipeline.</p>
-<p>Apart from being on the flow all day, the stress of consuming too much tokens, or the auto-exigence
+the bottleneck of the pipeline.</p><p>Apart from being on the flow all day, the stress of consuming too much tokens, or the auto-exigence
 of having the perfect plan, with the perfect prompt, and to understand the generated code,
-was making me <em>a bit</em> anxious all the time.</p>
-<h3 id=the-realization>The realization</h3>
-<p>The LLMs are a powerful tool, but <strong>we cannot force us to work at the same speed as them</strong>.
+was making me <em>a bit</em> anxious all the time.</p><h3 id=the-realization>The realization</h3><p>The LLMs are a powerful tool, but <strong>we cannot force us to work at the same speed as them</strong>.
 We need <em>to be at the wheel</em> at all times, and ensure the code not only does not have bugs,
-but it does what it needs to do.</p>
-<p>The <em>human</em> needs to be aware of the architecture, the design, and the patterns in the code.
+but it does what it needs to do.</p><p>The <em>human</em> needs to be aware of the architecture, the design, and the patterns in the code.
 A software engineer cannot be a passive agent when developing software, they need to enforce
 a standards in quality, and maintainability. We cannot afford to have a software that works
 but it is brittle, cannot scale, cannot be improved or extended, and the worst of all,
-nobody understands it.</p>
-<p>Not always fast means better.</p>
-<h2 id=conclusion>Conclusion</h2>
-<p>LLMs accelerate the creation and shipping of software.</p>
-<p>Do not try to follow the pace of the LLMs. That can lead to mental fatigue and burnout.
+nobody understands it.</p><p>Not always fast means better.</p><h2 id=conclusion>Conclusion</h2><p>LLMs accelerate the creation and shipping of software.</p><p>Do not try to follow the pace of the LLMs. That can lead to mental fatigue and burnout.
 It is more important to have a control of the code generation, than creating lots of code that cannot
-be understood.</p>
-<p>Software Engineering is becoming a discipline where the coding part is less important than supervising
-AI agents creating code.</p>
-<div class=blog-tags>
-<a href=https://diegojromerolopez.github.io/tags/llm/>llm</a>&nbsp;
-</div>
-</article>
-<ul class="pager blog-pager">
-<li class=previous>
-<a href=https://diegojromerolopez.github.io/blog/2026/04/using-llms-on-an-unknown-domain/ data-toggle=tooltip data-placement=top title="Using LLMs on an unknown domain">&larr; Previous Post</a>
-</li>
-<li class=next>
-<a href=https://diegojromerolopez.github.io/blog/2026/06/stricc-building-a-safe-c-compiler-through-specification-and-validation/ data-toggle=tooltip data-placement=top title="stricc: Building a Safe C Compiler Through Specification and Validation">Next Post &rarr;</a>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<footer>
-<div class=container>
-<div class=row>
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<ul class="list-inline text-center footer-links">
-<li>
-<a href=mailto:diegojromerolopez@gmail.com title="Email me">
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href=https://github.com/diegojromerolopez title=GitHub>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fab fa-github fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href=https://twitter.com/diegojromerolop title=Twitter>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href=https://linkedin.com/in/diegojromerolopez title=LinkedIn>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href title=RSS>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-</ul>
-<p class="credits copyright text-muted">
-Diego J. Romero-López
-&nbsp;&bull;&nbsp;&copy;
+be understood.</p><p>Software Engineering is becoming a discipline where the coding part is less important than supervising
+AI agents creating code.</p><div class=blog-tags><span>Tags: </span><a href=/tags/llm/>llm</a>&nbsp;</div></article><a href=/blog/2026/04/using-llms-on-an-unknown-domain/ class="nav-side-arrow nav-side-prev" title="Using LLMs on an unknown domain" aria-label="Previous Post: Using LLMs on an unknown domain"><i class="fas fa-chevron-left"></i>
+</a><a href=/blog/2026/06/stricc-building-a-safe-c-compiler-through-specification-and-validation/ class="nav-side-arrow nav-side-next" title="stricc: Building a Safe C Compiler Through Specification and Validation" aria-label="Next Post: stricc: Building a Safe C Compiler Through Specification and Validation"><i class="fas fa-chevron-right"></i></a><ul class="post-pager blog-post-pager"><li class=pager-prev><a href=/blog/2026/04/using-llms-on-an-unknown-domain/ data-bs-toggle=tooltip data-bs-placement=top title="Using LLMs on an unknown domain"><i class="fas fa-chevron-left"></i> Previous Post</a></li><li class=pager-center></li><li class=pager-next><a href=/blog/2026/06/stricc-building-a-safe-c-compiler-through-specification-and-validation/ data-bs-toggle=tooltip data-bs-placement=top title="stricc: Building a Safe C Compiler Through Specification and Validation">Next Post <i class="fas fa-chevron-right"></i></a></li></ul><div class=toc-wrapper id=toc-wrapper data-toc-mode=headings><div class=toc-panel id=toc-panel role=dialog aria-label="Table of contents"><div class=toc-header><span class=toc-title>Table of Contents</span>
+<button class=toc-close id=toc-close aria-label="Close table of contents">&#215;</button></div><nav class=toc-body><nav id=TableOfContents><ul><li><a href=#introduction>Introduction</a></li><li><a href=#what-some-studies-say>What some studies say?</a></li><li><a href=#my-experience>My experience</a><ul><li><a href=#the-excitement>The excitement</a></li><li><a href=#the-harness-cycle>The harness cycle</a></li><li><a href=#the-fatigue>The fatigue</a></li><li><a href=#the-realization>The realization</a></li></ul></li><li><a href=#conclusion>Conclusion</a></li></ul></nav></nav></div><div class=toc-backdrop id=toc-backdrop></div></div></div></div></div><footer><div class=container><div class=row><div class="col-md-10 offset-md-1"><ul class="list-inline text-center footer-links"><li class=list-inline-item><a href=/index.xml title=RSS><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="credits copyright text-muted">&copy;
 2026
-&nbsp;&bull;&nbsp;
-<a href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
-</p>
-<p class="credits theme-by text-muted">
-<a href=https://gohugo.io>Hugo v0.91.2</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
-</p>
-</div>
-</div>
-</div>
-</footer><script src=https://diegojromerolopez.github.io/js/katex.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/auto-render.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/jquery-3.5.1.slim.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/bootstrap.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/main.js></script><script>renderMathInElement(document.body)</script><script src=https://diegojromerolopez.github.io/js/photoswipe.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/photoswipe-ui-default.min.js></script><script src=https://diegojromerolopez.github.io/js/load-photoswipe.js></script>
-</body>
-</html>
+<a href=/>Diego J.'s Software Tar Pit</a></p><p class="credits theme-by text-muted"><a href=https://gohugo.io>Hugo v0.163.1</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a></p></div></div></div></footer><script defer src=/js/katex.min.js></script><script defer src=/js/auto-render.min.js onload=renderMathInElement(document.body)></script><script src=/js/jquery-4.0.0.slim.min.js></script><script src=/js/bootstrap.min.js></script><script src=/js/main.js></script><script src=/js/toc.js></script><script src=/js/photoswipe.umd.min.js></script><script src=/js/photoswipe-lightbox.umd.min.js></script><script src=/js/load-photoswipe.js></script></body></html>

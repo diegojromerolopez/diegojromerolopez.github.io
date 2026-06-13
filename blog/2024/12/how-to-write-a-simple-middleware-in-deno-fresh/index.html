@@ -1,289 +1,87 @@
-<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>How to write a simple middleware in deno fresh - Diego J.'s Software Tar Pit</title>
-<meta name=description content="How to write a simple middleware in deno fresh Middlewares are layers that inject data or check the HTTP request and are used by a set of routes. They are very useful as they group functionality together. Let&rsquo;s see how to implement a middleware in deno fresh.
-Select the routes the middleware is going to affect The middlewares in deno fresh are created inside a _middleware.ts file. This file will affect the routes that are from its level to the bottom.">
-<meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2024\/12\/how-to-write-a-simple-middleware-in-deno-fresh\/","name":"How to write a simple middleware in deno fresh"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"How to write a simple middleware in deno fresh","description":"How to write a simple middleware in deno fresh Middlewares are layers that inject data or check the HTTP request and are used by a set of routes. They are very useful as they group functionality together. Let\u0026rsquo;s see how to implement a middleware in deno fresh.\nSelect the routes the middleware is going to affect The middlewares in deno fresh are created inside a _middleware.ts file. This file will affect the routes that are from its level to the bottom.","inLanguage":"en","wordCount":446,"datePublished":"2024-12-26T00:00:00","dateModified":"2024-12-26T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["deno, fresh"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2024\/12\/how-to-write-a-simple-middleware-in-deno-fresh\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
-<meta property="og:title" content="How to write a simple middleware in deno fresh">
-<meta property="og:description" content="How to write a simple middleware in deno fresh Middlewares are layers that inject data or check the HTTP request and are used by a set of routes. They are very useful as they group functionality together. Let&rsquo;s see how to implement a middleware in deno fresh.
-Select the routes the middleware is going to affect The middlewares in deno fresh are created inside a _middleware.ts file. This file will affect the routes that are from its level to the bottom.">
-<meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
-<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2024/12/how-to-write-a-simple-middleware-in-deno-fresh/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Diego J.'s Software Tar Pit">
-<meta name=twitter:title content="How to write a simple middleware in deno fresh">
-<meta name=twitter:description content="How to write a simple middleware in deno fresh Middlewares are layers that inject data or check the HTTP request and are used by a set of routes. They are very useful as they group functionality …">
-<meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
-<meta name=twitter:card content="summary_large_image">
-<meta name=twitter:site content="@diegojromerolop">
-<meta name=twitter:creator content="@diegojromerolop">
-<link href=https://diegojromerolopez.github.io/img/favicon.ico rel=icon type=image/x-icon>
-<meta name=generator content="Hugo 0.91.2">
-<link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=https://diegojromerolopez.github.io/css/katex.min.css>
-<link rel=stylesheet href=https://diegojromerolopez.github.io/fontawesome/css/all.css>
-<link rel=stylesheet href=https://diegojromerolopez.github.io/css/bootstrap.min.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/main.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/fonts.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/syntax.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/codeblock.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.min.css>
-<link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.default-skin.min.css>
-</head>
-<body>
-<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
-<div class=container-fluid>
-<div class=navbar-header>
-<button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
-<span class=sr-only>Toggle navigation</span>
-<span class=icon-bar></span>
-<span class=icon-bar></span>
-<span class=icon-bar></span>
-</button>
-<a class=navbar-brand href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
-</div>
-<div class="collapse navbar-collapse" id=main-navbar>
-<ul class="nav navbar-nav navbar-right">
-<li>
-<a title=Blog href=/>Blog</a>
-</li>
-<li>
-<a title=About href=/page/about/>About</a>
-</li>
-<li>
-<a title=CV href=/cv.pdf>CV</a>
-</li>
-<li>
-<a title=Tags href=/tags>Tags</a>
-</li>
-<li>
-<a href=/es lang=es>es</a>
-</li>
-</ul>
-</div>
-<div class=avatar-container>
-<div class=avatar-img-border>
-<a title="Diego J.'s Software Tar Pit" href=https://diegojromerolopez.github.io>
-<img class=avatar-img src=https://diegojromerolopez.github.io/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit">
-</a>
-</div>
-</div>
-</div>
-</nav>
-<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
-<div class=pswp__bg></div>
-<div class=pswp__scroll-wrap>
-<div class=pswp__container>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-</div>
-<div class="pswp__ui pswp__ui--hidden">
-<div class=pswp__top-bar>
-<div class=pswp__counter></div>
-<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-<button class="pswp__button pswp__button--share" title=Share></button>
-<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-<div class=pswp__preloader>
-<div class=pswp__preloader__icn>
-<div class=pswp__preloader__cut>
-<div class=pswp__preloader__donut></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-<div class=pswp__share-tooltip></div>
-</div>
-<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-</button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-</button>
-<div class=pswp__caption>
-<div class=pswp__caption__center></div>
-</div>
-</div>
-</div>
-</div>
-<header class=header-section>
-<div class="intro-header no-img">
-<div class=container>
-<div class=row>
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<div class=post-heading>
-<h1>How to write a simple middleware in deno fresh</h1>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on December 26, 2024
-&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
-</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</header>
-<div class=container role=main>
-<div class=row>
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<article role=main class=blog-post>
-<h1 id=how-to-write-a-simple-middleware-in-deno-fresh>How to write a simple middleware in deno fresh</h1>
-<p>Middlewares are layers that inject data or check the HTTP request and are used by a set of routes.
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage><head><script>(function(){var t,n=localStorage.getItem("theme"),e=!1;n==="dark"?(document.documentElement.setAttribute("data-theme","dark"),e=!0):n==="light"?document.documentElement.setAttribute("data-theme","light"):window.matchMedia("(prefers-color-scheme: dark)").matches&&(document.documentElement.setAttribute("data-theme","dark"),e=!0),t=document.getElementById("hljs-dark"),t&&(t.disabled=!e)})()</script><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><title>How to write a simple middleware in deno fresh</title><meta name=description content="Middlewares are layers that inject data or check the HTTP request and are used by a set of routes.
 They are very useful as they group functionality together. Let&rsquo;s see how to implement a middleware
-in deno fresh.</p>
-<h2 id=select-the-routes-the-middleware-is-going-to-affect>Select the routes the middleware is going to affect</h2>
-<p>The middlewares in deno fresh are created inside a <code>_middleware.ts</code> file. This file will affect
-the routes that are from its level to the bottom. Let&rsquo;s see an example:</p>
-<p>Suppose we have this basic routes structure:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>routes/
-  - api/
-    - task.ts
-    - tasks.ts
-    - user.ts
-    - users.ts
-  - index.ts
-  - about.ts
-</code></pre></div><p>To add a middleware that affect only the API, we will need to add it inside the api folder:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>routes/
-  - api/
-    - _middleware.ts
-    - task.ts
-    - tasks.ts
-    - user.ts
-    - users.ts
-  - index.ts
-  - about.ts
-</code></pre></div><p>If we were to add it in the routes folder, it will affect to the index and about routes, and all the API ones.</p>
-<h2 id=middleware-structure>Middleware structure</h2>
-<h3 id=reader-middleware>Reader middleware</h3>
-<p>Let&rsquo;s suppose the API is authenticated by a token:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=color:#75715e>// Suppose we have an import map in the deno.json
-</span><span style=color:#75715e></span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>FreshContext</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#34;$fresh/server.ts&#34;</span>;
-
-<span style=color:#66d9ef>export</span> <span style=color:#66d9ef>async</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>handler</span>(<span style=color:#a6e22e>req</span>: <span style=color:#66d9ef>Request</span>, <span style=color:#a6e22e>ctx</span>: <span style=color:#66d9ef>FreshContext</span>&lt;<span style=color:#f92672>null</span>&gt;,) {
-  <span style=color:#75715e>// For simplicity we have hardcoded the secret token, DO NOT DO THIS!
-</span><span style=color:#75715e></span>  <span style=color:#75715e>// Load it from a key or password secure server.
-</span><span style=color:#75715e></span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>requestToken</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>req</span>.<span style=color:#a6e22e>headers</span>.<span style=color:#66d9ef>get</span>(<span style=color:#e6db74>&#34;my-app-token&#34;</span>)
-  <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>requestToken</span> <span style=color:#f92672>!==</span> <span style=color:#e6db74>&#34;SECRET TOKEN&#34;</span>){
-    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>Response</span>.<span style=color:#a6e22e>json</span>({ <span style=color:#a6e22e>status</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;error&#34;</span>, <span style=color:#a6e22e>message</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;Forbidden&#34;</span> }, <span style=color:#a6e22e>status</span>: <span style=color:#66d9ef>403</span>);
-  }
-
-  <span style=color:#75715e>// The next call will call to the next middleware or the route itself
-</span><span style=color:#75715e></span>  <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>ctx</span>.<span style=color:#a6e22e>next</span>();
-}
-</code></pre></div><p>The code is pretty straightforward, as we just read a request header and in the case
-of an issue</p>
-<h3 id=injector-middleware>Injector middleware</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=color:#75715e>// Suppose we have an import map in the deno.json
-</span><span style=color:#75715e></span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>FreshContext</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#34;$fresh/server.ts&#34;</span>;
-
-<span style=color:#75715e>// Let&#39;s suppose that we want to create an unique request id (aka correlation id)
-</span><span style=color:#75715e>// and pass it down to all the routes.
-</span><span style=color:#75715e></span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>StateRequest</span> <span style=color:#f92672>=</span> {
-  <span style=color:#a6e22e>requestId</span>: <span style=color:#66d9ef>string</span>;
-}
-
-<span style=color:#66d9ef>export</span> <span style=color:#66d9ef>async</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>handler</span>(<span style=color:#a6e22e>req</span>: <span style=color:#66d9ef>Request</span>, <span style=color:#a6e22e>ctx</span>: <span style=color:#66d9ef>FreshContext</span>&lt;<span style=color:#f92672>StateRequest</span>&gt;,) {
-  <span style=color:#75715e>// Injection of unique id per request
-</span><span style=color:#75715e></span>  <span style=color:#a6e22e>ctx</span>.<span style=color:#a6e22e>state</span>.<span style=color:#a6e22e>requestId</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>crypto</span>.<span style=color:#a6e22e>randomUUID</span>();
-
-  <span style=color:#75715e>// The next call will call to the next middleware or the route itself
-</span><span style=color:#75715e></span>  <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>ctx</span>.<span style=color:#a6e22e>next</span>();
-}
-</code></pre></div><p>So when the route runs, it will be able to access to the request id:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>StateRequest</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#34;./_middleware.ts&#34;</span>;
-
-<span style=color:#66d9ef>export</span> <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>Handler</span>: <span style=color:#66d9ef>Handler</span>&lt;<span style=color:#f92672>Context</span><span style=color:#960050;background-color:#1e0010>,</span> <span style=color:#a6e22e>StateRequest</span>&gt; <span style=color:#f92672>=</span> {
-  <span style=color:#66d9ef>async</span> <span style=color:#a6e22e>GET</span>(<span style=color:#a6e22e>req</span>, <span style=color:#a6e22e>ctx</span>){
-    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>requestId</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>ctx</span>.<span style=color:#a6e22e>requestId</span>;
-
-    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>`The request id is </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>requestId</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>);
-
-   <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Response</span>.<span style=color:#a6e22e>json</span>({ <span style=color:#a6e22e>uuid</span>: <span style=color:#66d9ef>requestId</span> });
-  }
-}
-</code></pre></div><h3 id=conclusion>Conclusion</h3>
-<p>We have shown how to write two simple types of middlewares for the deno fresh
+in deno fresh.
+Select the routes the middleware is going to affect
+The middlewares in deno fresh are created inside a _middleware.ts file. This file will affect
+the routes that are from its level to the bottom. Let&rsquo;s see an example:"><script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@id":"https://diegojromerolopez.github.io/#website","@type":"WebSite","name":"Diego J.'s Software Tar Pit","publisher":{"@id":"https://diegojromerolopez.github.io/#organization"},"url":"https://diegojromerolopez.github.io/"},{"@id":"https://diegojromerolopez.github.io/#organization","@type":"Organization","name":null,"url":"https://diegojromerolopez.github.io/"},{"@id":"https://diegojromerolopez.github.io/blog/2024/12/how-to-write-a-simple-middleware-in-deno-fresh/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://diegojromerolopez.github.io/","name":"Home","position":1},{"@type":"ListItem","item":"https://diegojromerolopez.github.io/post/","name":"Posts","position":2},{"@type":"ListItem","item":"https://diegojromerolopez.github.io/blog/2024/12/how-to-write-a-simple-middleware-in-deno-fresh/","name":"How to write a simple middleware in deno fresh","position":3}]},{"@id":"https://diegojromerolopez.github.io/blog/2024/12/how-to-write-a-simple-middleware-in-deno-fresh/#webpage","@type":"WebPage","breadcrumb":{"@id":"https://diegojromerolopez.github.io/blog/2024/12/how-to-write-a-simple-middleware-in-deno-fresh/#breadcrumb"},"isPartOf":{"@id":"https://diegojromerolopez.github.io/#website"},"name":"How to write a simple middleware in deno fresh","url":"https://diegojromerolopez.github.io/blog/2024/12/how-to-write-a-simple-middleware-in-deno-fresh/"},{"@id":"https://diegojromerolopez.github.io/blog/2024/12/how-to-write-a-simple-middleware-in-deno-fresh/#article","@type":"Article","author":[],"dateCreated":"2024-12-26T00:00:00+02:00","dateModified":"2024-12-26T00:00:00+02:00","datePublished":"2024-12-26T00:00:00+02:00","description":"Middlewares are layers that inject data or check the HTTP request and are used by a set of routes. They are very useful as they group functionality together. Let’s see how to implement a middleware in deno fresh.\nSelect the routes the middleware is going to affect The middlewares in deno fresh are created inside a _middleware.ts file. This file will affect the routes that are from its level to the bottom. Let’s see an example:\n","headline":"How to write a simple middleware in deno fresh","image":"https://diegojromerolopez.github.io/img/diegoj-logo.png","inLanguage":"en","keywords":["deno","fresh"],"mainEntityOfPage":{"@id":"https://diegojromerolopez.github.io/blog/2024/12/how-to-write-a-simple-middleware-in-deno-fresh/#webpage"},"publisher":{"@id":"https://diegojromerolopez.github.io/#organization"},"wordCount":437}]}</script><meta property="og:url" content="https://diegojromerolopez.github.io/blog/2024/12/how-to-write-a-simple-middleware-in-deno-fresh/"><meta property="og:site_name" content="Diego J.'s Software Tar Pit"><meta property="og:title" content="How to write a simple middleware in deno fresh"><meta property="og:description" content="Middlewares are layers that inject data or check the HTTP request and are used by a set of routes. They are very useful as they group functionality together. Let’s see how to implement a middleware in deno fresh.
+Select the routes the middleware is going to affect The middlewares in deno fresh are created inside a _middleware.ts file. This file will affect the routes that are from its level to the bottom. Let’s see an example:"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2024-12-26T00:00:00+02:00"><meta property="article:modified_time" content="2024-12-26T00:00:00+02:00"><meta property="article:tag" content="Deno"><meta property="article:tag" content="Fresh"><link rel=canonical href=https://diegojromerolopez.github.io/blog/2024/12/how-to-write-a-simple-middleware-in-deno-fresh/><meta name=twitter:title content="How to write a simple middleware in deno fresh"><meta name=twitter:description content="Middlewares are layers that inject data or check the HTTP request and are used by a set of routes.
+They are very useful as they group functionality together. Let&rsquo;s see how to implement a …"><meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png"><meta name=twitter:card content="summary_large_image"><link href=/img/favicon.ico rel=icon type=image/x-icon><meta name=generator content="Hugo 0.163.1"><link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=/css/katex.min.css><link rel=stylesheet href=/fontawesome/css/brands.min.css><link rel=stylesheet href=/fontawesome/css/fontawesome.min.css><link rel=stylesheet href=/fontawesome/css/regular.min.css><link rel=stylesheet href=/fontawesome/css/solid.min.css><link rel=stylesheet href=/fontawesome/css/svg.min.css><link rel=stylesheet href=/fontawesome/css/svg-with-js.min.css><link rel=stylesheet href=/fontawesome/css/v4-font-face.min.css><link rel=stylesheet href=/fontawesome/css/v4-shims.min.css><link rel=stylesheet href=/fontawesome/css/v5-font-face.min.css><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/main.css><link rel=stylesheet href=/css/print.css media=print><link rel=stylesheet href=/css/dark.css><link rel=stylesheet href=/css/fonts.css><link rel=stylesheet href=/css/syntax.css><link id=hljs-dark rel=stylesheet href=/css/syntax-dark.css><link rel=stylesheet href=/css/codeblock.css><link rel=stylesheet href=/css/toc.css><link rel=stylesheet href=/css/photoswipe.css></head><body><nav class="navbar navbar-expand-md navbar-light navbar-custom fixed-top"><div class=container-fluid><a class=navbar-brand href=/>Diego J.'s Software Tar Pit</a><div class="d-flex align-items-center"><button class=theme-toggle id=toc-toggle aria-label="Table of contents" data-bs-toggle=tooltip data-bs-placement=bottom title="Table of contents">
+<span class="fas fa-list"></span>
+</button>
+<button class=theme-toggle id=theme-toggle aria-label=Theme data-bs-toggle=tooltip data-bs-placement=bottom data-tooltip-auto="Auto (follows system)" data-tooltip-light="Light mode" data-tooltip-dark="Dark mode" title="Auto (follows system)">
+<span class="fas fa-adjust" id=theme-icon-auto></span>
+<span class="fas fa-sun" id=theme-icon-light style=display:none></span>
+<span class="fas fa-moon" id=theme-icon-dark style=display:none></span>
+</button>
+<button type=button class=navbar-toggler data-bs-toggle=collapse data-bs-target=#main-navbar aria-controls=main-navbar aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button></div><div class="collapse navbar-collapse" id=main-navbar><ul class="navbar-nav ms-auto"><li class=nav-item><a class=nav-link title=Blog href=/>Blog</a></li><li class=nav-item><a class=nav-link title=About href=/page/about/>About</a></li><li class=nav-item><a class=nav-link title=CV href=/cv.pdf>CV</a></li><li class=nav-item><a class=nav-link title=Tags href=/tags>Tags</a></li></ul></div><div class=avatar-container><div class=avatar-img-border><a title="Diego J.'s Software Tar Pit" href=/><img class=avatar-img src=/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit"></a></div></div></div></nav><header class=header-section><div class="intro-header no-img"><div class=container><div class=row><div class="col-md-10 offset-md-1"><div class=post-heading><h1>How to write a simple middleware in deno fresh</h1><span class=post-meta><i class="fas fa-calendar"></i>&nbsp;Posted on December 26, 2024
+&nbsp;|&nbsp;</span></div></div></div></div></div></header><div class=container role=main><div class=row><div class="col-md-10 offset-md-1"><article role=main class=blog-post><p>Middlewares are layers that inject data or check the HTTP request and are used by a set of routes.
+They are very useful as they group functionality together. Let&rsquo;s see how to implement a middleware
+in deno fresh.</p><h2 id=select-the-routes-the-middleware-is-going-to-affect>Select the routes the middleware is going to affect</h2><p>The middlewares in deno fresh are created inside a <code>_middleware.ts</code> file. This file will affect
+the routes that are from its level to the bottom. Let&rsquo;s see an example:</p><p>Suppose we have this basic routes structure:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sh data-lang=sh><span style=display:flex><span>routes/
+</span></span><span style=display:flex><span>  - api/
+</span></span><span style=display:flex><span>    - task.ts
+</span></span><span style=display:flex><span>    - tasks.ts
+</span></span><span style=display:flex><span>    - user.ts
+</span></span><span style=display:flex><span>    - users.ts
+</span></span><span style=display:flex><span>  - index.ts
+</span></span><span style=display:flex><span>  - about.ts
+</span></span></code></pre></div><p>To add a middleware that affect only the API, we will need to add it inside the api folder:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sh data-lang=sh><span style=display:flex><span>routes/
+</span></span><span style=display:flex><span>  - api/
+</span></span><span style=display:flex><span>    - _middleware.ts
+</span></span><span style=display:flex><span>    - task.ts
+</span></span><span style=display:flex><span>    - tasks.ts
+</span></span><span style=display:flex><span>    - user.ts
+</span></span><span style=display:flex><span>    - users.ts
+</span></span><span style=display:flex><span>  - index.ts
+</span></span><span style=display:flex><span>  - about.ts
+</span></span></code></pre></div><p>If we were to add it in the routes folder, it will affect to the index and about routes, and all the API ones.</p><h2 id=middleware-structure>Middleware structure</h2><h3 id=reader-middleware>Reader middleware</h3><p>Let&rsquo;s suppose the API is authenticated by a token:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#75715e>// Suppose we have an import map in the deno.json
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>FreshContext</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#34;$fresh/server.ts&#34;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>async</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>handler</span>(<span style=color:#a6e22e>req</span>: <span style=color:#66d9ef>Request</span>, <span style=color:#a6e22e>ctx</span>: <span style=color:#66d9ef>FreshContext</span>&lt;<span style=color:#f92672>null</span>&gt;,) {
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// For simplicity we have hardcoded the secret token, DO NOT DO THIS!
+</span></span></span><span style=display:flex><span>  <span style=color:#75715e>// Load it from a key or password secure server.
+</span></span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>requestToken</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>req</span>.<span style=color:#a6e22e>headers</span>.<span style=color:#66d9ef>get</span>(<span style=color:#e6db74>&#34;my-app-token&#34;</span>)
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>requestToken</span> <span style=color:#f92672>!==</span> <span style=color:#e6db74>&#34;SECRET TOKEN&#34;</span>){
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>Response</span>.<span style=color:#a6e22e>json</span>({ <span style=color:#a6e22e>status</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;error&#34;</span>, <span style=color:#a6e22e>message</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;Forbidden&#34;</span> }, <span style=color:#a6e22e>status</span>: <span style=color:#66d9ef>403</span>);
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// The next call will call to the next middleware or the route itself
+</span></span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>ctx</span>.<span style=color:#a6e22e>next</span>();
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>The code is pretty straightforward, as we just read a request header and in the case
+of an issue</p><h3 id=injector-middleware>Injector middleware</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#75715e>// Suppose we have an import map in the deno.json
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>FreshContext</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#34;$fresh/server.ts&#34;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Let&#39;s suppose that we want to create an unique request id (aka correlation id)
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// and pass it down to all the routes.
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>StateRequest</span> <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>requestId</span>: <span style=color:#66d9ef>string</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>async</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>handler</span>(<span style=color:#a6e22e>req</span>: <span style=color:#66d9ef>Request</span>, <span style=color:#a6e22e>ctx</span>: <span style=color:#66d9ef>FreshContext</span>&lt;<span style=color:#f92672>StateRequest</span>&gt;,) {
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// Injection of unique id per request
+</span></span></span><span style=display:flex><span>  <span style=color:#a6e22e>ctx</span>.<span style=color:#a6e22e>state</span>.<span style=color:#a6e22e>requestId</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>crypto</span>.<span style=color:#a6e22e>randomUUID</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// The next call will call to the next middleware or the route itself
+</span></span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>ctx</span>.<span style=color:#a6e22e>next</span>();
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>So when the route runs, it will be able to access to the request id:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>StateRequest</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#34;./_middleware.ts&#34;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>Handler</span>: <span style=color:#66d9ef>Handler</span>&lt;<span style=color:#f92672>Context</span>, <span style=color:#a6e22e>StateRequest</span>&gt; <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>async</span> <span style=color:#a6e22e>GET</span>(<span style=color:#a6e22e>req</span>, <span style=color:#a6e22e>ctx</span>){
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>requestId</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>ctx</span>.<span style=color:#a6e22e>requestId</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>`The request id is </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>requestId</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Response</span>.<span style=color:#a6e22e>json</span>({ <span style=color:#a6e22e>uuid</span>: <span style=color:#66d9ef>requestId</span> });
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=conclusion>Conclusion</h3><p>We have shown how to write two simple types of middlewares for the deno fresh
 web framework: one that reads from the request, one that adds state to the
-context.</p>
-<div class=blog-tags>
-<a href=https://diegojromerolopez.github.io/tags/deno/>deno</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/fresh/>fresh</a>&nbsp;
-</div>
-</article>
-<ul class="pager blog-pager">
-<li class=previous>
-<a href=https://diegojromerolopez.github.io/blog/2024/12/the-different-types-of-personality/ data-toggle=tooltip data-placement=top title="The different types of personality">&larr; Previous Post</a>
-</li>
-<li class=next>
-<a href=https://diegojromerolopez.github.io/blog/2024/12/faulty-engineering-career-ladders/ data-toggle=tooltip data-placement=top title="Faulty engineering career ladders">Next Post &rarr;</a>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<footer>
-<div class=container>
-<div class=row>
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<ul class="list-inline text-center footer-links">
-<li>
-<a href=mailto:diegojromerolopez@gmail.com title="Email me">
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href=https://github.com/diegojromerolopez title=GitHub>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fab fa-github fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href=https://twitter.com/diegojromerolop title=Twitter>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href=https://linkedin.com/in/diegojromerolopez title=LinkedIn>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href title=RSS>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-</ul>
-<p class="credits copyright text-muted">
-Diego J. Romero-López
-&nbsp;&bull;&nbsp;&copy;
+context.</p><div class=blog-tags><span>Tags: </span><a href=/tags/deno/>deno</a>&nbsp;<a href=/tags/fresh/>fresh</a>&nbsp;</div></article><a href=/blog/2024/12/the-different-types-of-personality/ class="nav-side-arrow nav-side-prev" title="The different types of personality" aria-label="Previous Post: The different types of personality"><i class="fas fa-chevron-left"></i>
+</a><a href=/blog/2024/12/faulty-engineering-career-ladders/ class="nav-side-arrow nav-side-next" title="Faulty engineering career ladders" aria-label="Next Post: Faulty engineering career ladders"><i class="fas fa-chevron-right"></i></a><ul class="post-pager blog-post-pager"><li class=pager-prev><a href=/blog/2024/12/the-different-types-of-personality/ data-bs-toggle=tooltip data-bs-placement=top title="The different types of personality"><i class="fas fa-chevron-left"></i> Previous Post</a></li><li class=pager-center></li><li class=pager-next><a href=/blog/2024/12/faulty-engineering-career-ladders/ data-bs-toggle=tooltip data-bs-placement=top title="Faulty engineering career ladders">Next Post <i class="fas fa-chevron-right"></i></a></li></ul><div class=toc-wrapper id=toc-wrapper data-toc-mode=headings><div class=toc-panel id=toc-panel role=dialog aria-label="Table of contents"><div class=toc-header><span class=toc-title>Table of Contents</span>
+<button class=toc-close id=toc-close aria-label="Close table of contents">&#215;</button></div><nav class=toc-body><nav id=TableOfContents><ul><li><a href=#select-the-routes-the-middleware-is-going-to-affect>Select the routes the middleware is going to affect</a></li><li><a href=#middleware-structure>Middleware structure</a><ul><li><a href=#reader-middleware>Reader middleware</a></li><li><a href=#injector-middleware>Injector middleware</a></li><li><a href=#conclusion>Conclusion</a></li></ul></li></ul></nav></nav></div><div class=toc-backdrop id=toc-backdrop></div></div></div></div></div><footer><div class=container><div class=row><div class="col-md-10 offset-md-1"><ul class="list-inline text-center footer-links"><li class=list-inline-item><a href=/index.xml title=RSS><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="credits copyright text-muted">&copy;
 2026
-&nbsp;&bull;&nbsp;
-<a href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
-</p>
-<p class="credits theme-by text-muted">
-<a href=https://gohugo.io>Hugo v0.91.2</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
-</p>
-</div>
-</div>
-</div>
-</footer><script src=https://diegojromerolopez.github.io/js/katex.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/auto-render.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/jquery-3.5.1.slim.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/bootstrap.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/main.js></script><script>renderMathInElement(document.body)</script><script src=https://diegojromerolopez.github.io/js/photoswipe.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/photoswipe-ui-default.min.js></script><script src=https://diegojromerolopez.github.io/js/load-photoswipe.js></script>
-</body>
-</html>
+<a href=/>Diego J.'s Software Tar Pit</a></p><p class="credits theme-by text-muted"><a href=https://gohugo.io>Hugo v0.163.1</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a></p></div></div></div></footer><script defer src=/js/katex.min.js></script><script defer src=/js/auto-render.min.js onload=renderMathInElement(document.body)></script><script src=/js/jquery-4.0.0.slim.min.js></script><script src=/js/bootstrap.min.js></script><script src=/js/main.js></script><script src=/js/toc.js></script><script src=/js/photoswipe.umd.min.js></script><script src=/js/photoswipe-lightbox.umd.min.js></script><script src=/js/load-photoswipe.js></script></body></html>

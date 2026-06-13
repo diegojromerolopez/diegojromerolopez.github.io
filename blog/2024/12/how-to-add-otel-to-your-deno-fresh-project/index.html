@@ -1,356 +1,152 @@
-<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>How to add OTEL to your deno fresh project - Diego J.'s Software Tar Pit</title>
-<meta name=description content="How to add OTEL to your deno fresh project OpenTelemetry is a standard for adding telemetry to your application. There are a myriad of implementations for almost all the programming languages. But you need to be aware that the particularities of each language can make integrating with OTEL very different in one case or other.
-Introduction This post assumes you know what observability is, the best practices and the bare minimum that is accepted nowadays in modern applications.">
-<meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2024\/12\/how-to-add-otel-to-your-deno-fresh-project\/","name":"How to add otel to your deno fresh project"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"How to add OTEL to your deno fresh project","description":"How to add OTEL to your deno fresh project OpenTelemetry is a standard for adding telemetry to your application. There are a myriad of implementations for almost all the programming languages. But you need to be aware that the particularities of each language can make integrating with OTEL very different in one case or other.\nIntroduction This post assumes you know what observability is, the best practices and the bare minimum that is accepted nowadays in modern applications.","inLanguage":"en","wordCount":747,"datePublished":"2024-12-27T00:00:00","dateModified":"2024-12-27T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["deno, fresh, otel"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2024\/12\/how-to-add-otel-to-your-deno-fresh-project\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
-<meta property="og:title" content="How to add OTEL to your deno fresh project">
-<meta property="og:description" content="How to add OTEL to your deno fresh project OpenTelemetry is a standard for adding telemetry to your application. There are a myriad of implementations for almost all the programming languages. But you need to be aware that the particularities of each language can make integrating with OTEL very different in one case or other.
-Introduction This post assumes you know what observability is, the best practices and the bare minimum that is accepted nowadays in modern applications.">
-<meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
-<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2024/12/how-to-add-otel-to-your-deno-fresh-project/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Diego J.'s Software Tar Pit">
-<meta name=twitter:title content="How to add OTEL to your deno fresh project">
-<meta name=twitter:description content="How to add OTEL to your deno fresh project OpenTelemetry is a standard for adding telemetry to your application. There are a myriad of implementations for almost all the programming languages. But you …">
-<meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
-<meta name=twitter:card content="summary_large_image">
-<meta name=twitter:site content="@diegojromerolop">
-<meta name=twitter:creator content="@diegojromerolop">
-<link href=https://diegojromerolopez.github.io/img/favicon.ico rel=icon type=image/x-icon>
-<meta name=generator content="Hugo 0.91.2">
-<link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=https://diegojromerolopez.github.io/css/katex.min.css>
-<link rel=stylesheet href=https://diegojromerolopez.github.io/fontawesome/css/all.css>
-<link rel=stylesheet href=https://diegojromerolopez.github.io/css/bootstrap.min.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/main.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/fonts.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/syntax.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/codeblock.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.min.css>
-<link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.default-skin.min.css>
-</head>
-<body>
-<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
-<div class=container-fluid>
-<div class=navbar-header>
-<button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
-<span class=sr-only>Toggle navigation</span>
-<span class=icon-bar></span>
-<span class=icon-bar></span>
-<span class=icon-bar></span>
-</button>
-<a class=navbar-brand href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
-</div>
-<div class="collapse navbar-collapse" id=main-navbar>
-<ul class="nav navbar-nav navbar-right">
-<li>
-<a title=Blog href=/>Blog</a>
-</li>
-<li>
-<a title=About href=/page/about/>About</a>
-</li>
-<li>
-<a title=CV href=/cv.pdf>CV</a>
-</li>
-<li>
-<a title=Tags href=/tags>Tags</a>
-</li>
-<li>
-<a href=/es lang=es>es</a>
-</li>
-</ul>
-</div>
-<div class=avatar-container>
-<div class=avatar-img-border>
-<a title="Diego J.'s Software Tar Pit" href=https://diegojromerolopez.github.io>
-<img class=avatar-img src=https://diegojromerolopez.github.io/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit">
-</a>
-</div>
-</div>
-</div>
-</nav>
-<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
-<div class=pswp__bg></div>
-<div class=pswp__scroll-wrap>
-<div class=pswp__container>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-</div>
-<div class="pswp__ui pswp__ui--hidden">
-<div class=pswp__top-bar>
-<div class=pswp__counter></div>
-<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-<button class="pswp__button pswp__button--share" title=Share></button>
-<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-<div class=pswp__preloader>
-<div class=pswp__preloader__icn>
-<div class=pswp__preloader__cut>
-<div class=pswp__preloader__donut></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-<div class=pswp__share-tooltip></div>
-</div>
-<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-</button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-</button>
-<div class=pswp__caption>
-<div class=pswp__caption__center></div>
-</div>
-</div>
-</div>
-</div>
-<header class=header-section>
-<div class="intro-header no-img">
-<div class=container>
-<div class=row>
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<div class=post-heading>
-<h1>How to add OTEL to your deno fresh project</h1>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on December 27, 2024
-&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
-</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</header>
-<div class=container role=main>
-<div class=row>
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<article role=main class=blog-post>
-<h1 id=how-to-add-otel-to-your-deno-fresh-project>How to add OTEL to your deno fresh project</h1>
-<p><a href=https://opentelemetry.io/>OpenTelemetry</a> is a standard for adding telemetry to your application.
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage><head><script>(function(){var t,n=localStorage.getItem("theme"),e=!1;n==="dark"?(document.documentElement.setAttribute("data-theme","dark"),e=!0):n==="light"?document.documentElement.setAttribute("data-theme","light"):window.matchMedia("(prefers-color-scheme: dark)").matches&&(document.documentElement.setAttribute("data-theme","dark"),e=!0),t=document.getElementById("hljs-dark"),t&&(t.disabled=!e)})()</script><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><title>How to add OTEL to your deno fresh project</title><meta name=description content="OpenTelemetry is a standard for adding telemetry to your application.
 There are a myriad of implementations for almost all the programming languages.
 But you need to be aware that the particularities of each language can make integrating
-with OTEL very different in one case or other.</p>
-<h2 id=introduction>Introduction</h2>
-<p>This post assumes you know what
+with OTEL very different in one case or other.
+Introduction
+This post assumes you know what
+observability
+is, the best practices and the bare minimum that is
+accepted nowadays in modern applications. We would also suppose that you know what OpenTelemetry is,
+how it works and the best practices when adding OTEL to an application.
+We will not delve in explanations about those concepts, we will only show some examples
+about how to add OTEL to a deno fresh application."><script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@id":"https://diegojromerolopez.github.io/#website","@type":"WebSite","name":"Diego J.'s Software Tar Pit","publisher":{"@id":"https://diegojromerolopez.github.io/#organization"},"url":"https://diegojromerolopez.github.io/"},{"@id":"https://diegojromerolopez.github.io/#organization","@type":"Organization","name":null,"url":"https://diegojromerolopez.github.io/"},{"@id":"https://diegojromerolopez.github.io/blog/2024/12/how-to-add-otel-to-your-deno-fresh-project/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://diegojromerolopez.github.io/","name":"Home","position":1},{"@type":"ListItem","item":"https://diegojromerolopez.github.io/post/","name":"Posts","position":2},{"@type":"ListItem","item":"https://diegojromerolopez.github.io/blog/2024/12/how-to-add-otel-to-your-deno-fresh-project/","name":"How to add OTEL to your deno fresh project","position":3}]},{"@id":"https://diegojromerolopez.github.io/blog/2024/12/how-to-add-otel-to-your-deno-fresh-project/#webpage","@type":"WebPage","breadcrumb":{"@id":"https://diegojromerolopez.github.io/blog/2024/12/how-to-add-otel-to-your-deno-fresh-project/#breadcrumb"},"isPartOf":{"@id":"https://diegojromerolopez.github.io/#website"},"name":"How to add OTEL to your deno fresh project","url":"https://diegojromerolopez.github.io/blog/2024/12/how-to-add-otel-to-your-deno-fresh-project/"},{"@id":"https://diegojromerolopez.github.io/blog/2024/12/how-to-add-otel-to-your-deno-fresh-project/#article","@type":"Article","author":[],"dateCreated":"2024-12-27T00:00:00+02:00","dateModified":"2024-12-27T00:00:00+02:00","datePublished":"2024-12-27T00:00:00+02:00","description":"OpenTelemetry is a standard for adding telemetry to your application. There are a myriad of implementations for almost all the programming languages. But you need to be aware that the particularities of each language can make integrating with OTEL very different in one case or other.\nIntroduction This post assumes you know what observability is, the best practices and the bare minimum that is accepted nowadays in modern applications. We would also suppose that you know what OpenTelemetry is, how it works and the best practices when adding OTEL to an application. We will not delve in explanations about those concepts, we will only show some examples about how to add OTEL to a deno fresh application.\n","headline":"How to add OTEL to your deno fresh project","image":"https://diegojromerolopez.github.io/img/diegoj-logo.png","inLanguage":"en","keywords":["deno","fresh","otel"],"mainEntityOfPage":{"@id":"https://diegojromerolopez.github.io/blog/2024/12/how-to-add-otel-to-your-deno-fresh-project/#webpage"},"publisher":{"@id":"https://diegojromerolopez.github.io/#organization"},"wordCount":738}]}</script><meta property="og:url" content="https://diegojromerolopez.github.io/blog/2024/12/how-to-add-otel-to-your-deno-fresh-project/"><meta property="og:site_name" content="Diego J.'s Software Tar Pit"><meta property="og:title" content="How to add OTEL to your deno fresh project"><meta property="og:description" content="OpenTelemetry is a standard for adding telemetry to your application. There are a myriad of implementations for almost all the programming languages. But you need to be aware that the particularities of each language can make integrating with OTEL very different in one case or other.
+Introduction This post assumes you know what observability is, the best practices and the bare minimum that is accepted nowadays in modern applications. We would also suppose that you know what OpenTelemetry is, how it works and the best practices when adding OTEL to an application. We will not delve in explanations about those concepts, we will only show some examples about how to add OTEL to a deno fresh application."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2024-12-27T00:00:00+02:00"><meta property="article:modified_time" content="2024-12-27T00:00:00+02:00"><meta property="article:tag" content="Deno"><meta property="article:tag" content="Fresh"><meta property="article:tag" content="Otel"><link rel=canonical href=https://diegojromerolopez.github.io/blog/2024/12/how-to-add-otel-to-your-deno-fresh-project/><meta name=twitter:title content="How to add OTEL to your deno fresh project"><meta name=twitter:description content="OpenTelemetry is a standard for adding telemetry to your application.
+There are a myriad of implementations for almost all the programming languages.
+But you need to be aware that the particularities …"><meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png"><meta name=twitter:card content="summary_large_image"><link href=/img/favicon.ico rel=icon type=image/x-icon><meta name=generator content="Hugo 0.163.1"><link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=/css/katex.min.css><link rel=stylesheet href=/fontawesome/css/brands.min.css><link rel=stylesheet href=/fontawesome/css/fontawesome.min.css><link rel=stylesheet href=/fontawesome/css/regular.min.css><link rel=stylesheet href=/fontawesome/css/solid.min.css><link rel=stylesheet href=/fontawesome/css/svg.min.css><link rel=stylesheet href=/fontawesome/css/svg-with-js.min.css><link rel=stylesheet href=/fontawesome/css/v4-font-face.min.css><link rel=stylesheet href=/fontawesome/css/v4-shims.min.css><link rel=stylesheet href=/fontawesome/css/v5-font-face.min.css><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/main.css><link rel=stylesheet href=/css/print.css media=print><link rel=stylesheet href=/css/dark.css><link rel=stylesheet href=/css/fonts.css><link rel=stylesheet href=/css/syntax.css><link id=hljs-dark rel=stylesheet href=/css/syntax-dark.css><link rel=stylesheet href=/css/codeblock.css><link rel=stylesheet href=/css/toc.css><link rel=stylesheet href=/css/photoswipe.css></head><body><nav class="navbar navbar-expand-md navbar-light navbar-custom fixed-top"><div class=container-fluid><a class=navbar-brand href=/>Diego J.'s Software Tar Pit</a><div class="d-flex align-items-center"><button class=theme-toggle id=toc-toggle aria-label="Table of contents" data-bs-toggle=tooltip data-bs-placement=bottom title="Table of contents">
+<span class="fas fa-list"></span>
+</button>
+<button class=theme-toggle id=theme-toggle aria-label=Theme data-bs-toggle=tooltip data-bs-placement=bottom data-tooltip-auto="Auto (follows system)" data-tooltip-light="Light mode" data-tooltip-dark="Dark mode" title="Auto (follows system)">
+<span class="fas fa-adjust" id=theme-icon-auto></span>
+<span class="fas fa-sun" id=theme-icon-light style=display:none></span>
+<span class="fas fa-moon" id=theme-icon-dark style=display:none></span>
+</button>
+<button type=button class=navbar-toggler data-bs-toggle=collapse data-bs-target=#main-navbar aria-controls=main-navbar aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button></div><div class="collapse navbar-collapse" id=main-navbar><ul class="navbar-nav ms-auto"><li class=nav-item><a class=nav-link title=Blog href=/>Blog</a></li><li class=nav-item><a class=nav-link title=About href=/page/about/>About</a></li><li class=nav-item><a class=nav-link title=CV href=/cv.pdf>CV</a></li><li class=nav-item><a class=nav-link title=Tags href=/tags>Tags</a></li></ul></div><div class=avatar-container><div class=avatar-img-border><a title="Diego J.'s Software Tar Pit" href=/><img class=avatar-img src=/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit"></a></div></div></div></nav><header class=header-section><div class="intro-header no-img"><div class=container><div class=row><div class="col-md-10 offset-md-1"><div class=post-heading><h1>How to add OTEL to your deno fresh project</h1><span class=post-meta><i class="fas fa-calendar"></i>&nbsp;Posted on December 27, 2024
+&nbsp;|&nbsp;</span></div></div></div></div></div></header><div class=container role=main><div class=row><div class="col-md-10 offset-md-1"><article role=main class=blog-post><p><a href=https://opentelemetry.io/>OpenTelemetry</a> is a standard for adding telemetry to your application.
+There are a myriad of implementations for almost all the programming languages.
+But you need to be aware that the particularities of each language can make integrating
+with OTEL very different in one case or other.</p><h2 id=introduction>Introduction</h2><p>This post assumes you know what
 <a href=https://opentelemetry.io/docs/concepts/observability-primer/#what-is-observability>observability</a>
 is, the best practices and the bare minimum that is
 accepted nowadays in modern applications. We would also suppose that you know what OpenTelemetry is,
 how it works and the best practices when adding OTEL to an application.
 We will not delve in explanations about those concepts, we will only show some examples
-about how to add OTEL to a <a href=https://fresh.deno.dev/>deno fresh</a> application.</p>
-<p>So if you have a grasp of what OTEL is, and maybe you have worked with it in the past in
+about how to add OTEL to a <a href=https://fresh.deno.dev/>deno fresh</a> application.</p><p>So if you have a grasp of what OTEL is, and maybe you have worked with it in the past in
 other programming language, <em>you are golden</em>. Otherwise, better to start from
-<a href=https://opentelemetry.io/docs/what-is-opentelemetry/>the basics</a>.</p>
-<p>This post is a inspired on
+<a href=https://opentelemetry.io/docs/what-is-opentelemetry/>the basics</a>.</p><p>This post is a inspired on
 <a href=https://dev.to/grunet/leveraging-opentelemetry-in-deno-45bj>Leveraging OpenTelemetry in Deno</a>
-by <a href=https://dev.to/grunet>Grunet</a>.</p>
-<h2 id=configure-your-otel-environment-variables>Configure your OTEL environment variables</h2>
-<p>You need to set where the telemetry data will be sent, and the name where it would be
-grouped (application or service name):</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#75715e># Environment variables needed for OTEL</span>
-OTEL_EXPORTER_OTLP_ENDPOINT<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://your.otel.collector.server.example.com&#34;</span>
-OTEL_SERVICE_NAME<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;your-project&#34;</span>
-</code></pre></div><h2 id=configure-otel-for-deno-fresh>Configure OTEL for deno fresh</h2>
-<p>Let me tell you a secret, I do not like using the deno HTTP imports.
+by <a href=https://dev.to/grunet>Grunet</a>.</p><h2 id=configure-your-otel-environment-variables>Configure your OTEL environment variables</h2><p>You need to set where the telemetry data will be sent, and the name where it would be
+grouped (application or service name):</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#75715e># Environment variables needed for OTEL</span>
+</span></span><span style=display:flex><span>OTEL_EXPORTER_OTLP_ENDPOINT<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://your.otel.collector.server.example.com&#34;</span>
+</span></span><span style=display:flex><span>OTEL_SERVICE_NAME<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;your-project&#34;</span>
+</span></span></code></pre></div><h2 id=configure-otel-for-deno-fresh>Configure OTEL for deno fresh</h2><p>Let me tell you a secret, I do not like using the deno HTTP imports.
 You could end up with a mess of versions in your software project. I like having
 seamless and crystal-clear things.
 That is why I use <a href=https://deno.land/x/manual@v1.12.2/npm_nodejs/import_maps.md>import maps</a>
-always:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=color:#75715e>// deno.json
-</span><span style=color:#75715e></span>
-{
-    <span style=color:#e6db74>&#34;imports&#34;</span><span style=color:#f92672>:</span> {
-        <span style=color:#e6db74>&#34;otel/api&#34;</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;npm:@opentelemetry/api@1.9.0&#34;</span>
-        <span style=color:#e6db74>&#34;otel/exporter&#34;</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;npm:@opentelemetry/exporter-trace-otlp-proto@0.52.1&#34;</span>
-        <span style=color:#e6db74>&#34;otel/instrumentation&#34;</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;npm:@opentelemetry/instrumentation@0.52.1&#34;</span>
-        <span style=color:#e6db74>&#34;otel/resources&#34;</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;npm:@opentelemetry/resources@1.25.1&#34;</span>,
-        <span style=color:#e6db74>&#34;otel/sdk-trace-base&#34;</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;npm:@opentelemetry/sdk-trace-base@1.25.1&#34;</span>,
-        <span style=color:#e6db74>&#34;otel/sdk-trace-node&#34;</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;npm:@opentelemetry/sdk-trace-node@1.25.1&#34;</span>,
-        <span style=color:#e6db74>&#34;otel/semantic-conventions&#34;</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;npm:@opentelemetry/semantic-conventions@1.25.1&#34;</span>,
-    }
-}
-</code></pre></div><h2 id=configure-what-span-exporters-you-need>Configure what span exporters you need</h2>
-<p>This could be included with the OTEL tracer, but I tend to like to separate
+always:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#75715e>// deno.json
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;imports&#34;</span><span style=color:#f92672>:</span> {
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;otel/api&#34;</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;npm:@opentelemetry/api@1.9.0&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;otel/exporter&#34;</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;npm:@opentelemetry/exporter-trace-otlp-proto@0.52.1&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;otel/instrumentation&#34;</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;npm:@opentelemetry/instrumentation@0.52.1&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;otel/resources&#34;</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;npm:@opentelemetry/resources@1.25.1&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;otel/sdk-trace-base&#34;</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;npm:@opentelemetry/sdk-trace-base@1.25.1&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;otel/sdk-trace-node&#34;</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;npm:@opentelemetry/sdk-trace-node@1.25.1&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;otel/semantic-conventions&#34;</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;npm:@opentelemetry/semantic-conventions@1.25.1&#34;</span>,
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=configure-what-span-exporters-you-need>Configure what span exporters you need</h2><p>This could be included with the OTEL tracer, but I tend to like to separate
 the configuration from the start of the OTEL engine. So this method allow us to
-configure all the different ways of sending information to a collector.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=color:#75715e>// lib/otel/OtelTracing.ts
-</span><span style=color:#75715e></span>
-<span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>NodeTracerProvider</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#34;otel/sdk-trace-node&#34;</span>;
-<span style=color:#66d9ef>import</span> {
-    <span style=color:#a6e22e>SEMREATTRS_SERVICE_NAME</span>,
-    <span style=color:#a6e22e>SEMREATTRS_SERVICE_VERSION</span>,
-} <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#34;otel/semantic-conventions&#34;</span>
-<span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>BatchSpanProcessor</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#34;otel/sdk-trace-base&#34;</span>;
-<span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>OTLPTraceExporter</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#34;otel/exporter&#34;</span>;
-
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>OtelTracing</span> {
-  <span style=color:#66d9ef>constructor</span>(<span style=color:#a6e22e>name</span>: <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>version</span>: <span style=color:#66d9ef>string</span>){
-    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>name</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>name</span>;
-    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>version</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>version</span>;
-  }
-
-  <span style=color:#a6e22e>register</span>(){
-    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>resource</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>Resource</span>.<span style=color:#66d9ef>default</span>().<span style=color:#a6e22e>merge</span>({
-      <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Resource</span>({
-        [<span style=color:#a6e22e>SEMREATTRS_SERVICE_NAME</span>]<span style=color:#f92672>:</span> <span style=color:#a6e22e>name</span>,
-        [<span style=color:#a6e22e>SEMREATTRS_SERVICE_VERSION</span>]<span style=color:#f92672>:</span> <span style=color:#a6e22e>version</span>,
-      })
-    });
-
-    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>tracerProvider</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>NodeTracerProvider</span>({ <span style=color:#a6e22e>resource</span> });
-
-    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>traceExporter</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>OTLPTraceExporter</span>();
-
-    <span style=color:#75715e>// You can also add other span processors like ConsoleSpanExporter or InMemorySpanExporter
-</span><span style=color:#75715e></span>    <span style=color:#a6e22e>tracerProvider</span>.<span style=color:#a6e22e>addSpanProcessor</span>(<span style=color:#66d9ef>new</span> <span style=color:#a6e22e>BatchProcessor</span>(<span style=color:#a6e22e>traceExporter</span>))
-
-    <span style=color:#a6e22e>tracerProvider</span>.<span style=color:#a6e22e>register</span>();
-
-    <span style=color:#75715e>// In case you want to call directly to the tracer provider methods (e.g. shutdown)
-</span><span style=color:#75715e></span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>tracerProvider</span>;
-  }
-}
-</code></pre></div><h2 id=get-the-otel-tracer>Get the OTEL tracer</h2>
-<p>The OTEL tracer will be the entrypoint of the telemetry in our routes, and will allow
-us to decorate them with the OTEL utilities:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=color:#75715e>// lib/otel/otel.ts
-</span><span style=color:#75715e></span><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>opentelemetry</span> <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#34;otel/api&#34;</span>;
-<span style=color:#66d9ef>import</span> <span style=color:#a6e22e>opentelemetry</span> <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#34;lib/otel/OtelTracing.ts&#34;</span>;
-
-<span style=color:#a6e22e>OtelTracing</span>(<span style=color:#e6db74>&#34;my-project&#34;</span>, <span style=color:#e6db74>&#34;1.0&#34;</span>).<span style=color:#a6e22e>register</span>();
-
-<span style=color:#66d9ef>export</span> <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>OTEL_TRACER</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>opentelemetry</span>.<span style=color:#a6e22e>trace</span>.<span style=color:#a6e22e>getTracer</span>(<span style=color:#e6db74>&#39;my-tracer&#39;</span>)
-</code></pre></div><h2 id=add-telemetry-to-your-routes>Add telemetry to your routes</h2>
-<p>Adding telemetry to your routes is a bit cumbersome. You will need to decorate
+configure all the different ways of sending information to a collector.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#75715e>// lib/otel/OtelTracing.ts
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>NodeTracerProvider</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#34;otel/sdk-trace-node&#34;</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>import</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>SEMREATTRS_SERVICE_NAME</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>SEMREATTRS_SERVICE_VERSION</span>,
+</span></span><span style=display:flex><span>} <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#34;otel/semantic-conventions&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>BatchSpanProcessor</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#34;otel/sdk-trace-base&#34;</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>OTLPTraceExporter</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#34;otel/exporter&#34;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>OtelTracing</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>constructor</span>(<span style=color:#a6e22e>name</span>: <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>version</span>: <span style=color:#66d9ef>string</span>){
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>name</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>name</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>version</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>version</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>register</span>(){
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>resource</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>Resource</span>.<span style=color:#66d9ef>default</span>().<span style=color:#a6e22e>merge</span>({
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Resource</span>({
+</span></span><span style=display:flex><span>        [<span style=color:#a6e22e>SEMREATTRS_SERVICE_NAME</span>]<span style=color:#f92672>:</span> <span style=color:#a6e22e>name</span>,
+</span></span><span style=display:flex><span>        [<span style=color:#a6e22e>SEMREATTRS_SERVICE_VERSION</span>]<span style=color:#f92672>:</span> <span style=color:#a6e22e>version</span>,
+</span></span><span style=display:flex><span>      })
+</span></span><span style=display:flex><span>    });
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>tracerProvider</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>NodeTracerProvider</span>({ <span style=color:#a6e22e>resource</span> });
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>traceExporter</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>OTLPTraceExporter</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// You can also add other span processors like ConsoleSpanExporter or InMemorySpanExporter
+</span></span></span><span style=display:flex><span>    <span style=color:#a6e22e>tracerProvider</span>.<span style=color:#a6e22e>addSpanProcessor</span>(<span style=color:#66d9ef>new</span> <span style=color:#a6e22e>BatchProcessor</span>(<span style=color:#a6e22e>traceExporter</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>tracerProvider</span>.<span style=color:#a6e22e>register</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// In case you want to call directly to the tracer provider methods (e.g. shutdown)
+</span></span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>tracerProvider</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=get-the-otel-tracer>Get the OTEL tracer</h2><p>The OTEL tracer will be the entrypoint of the telemetry in our routes, and will allow
+us to decorate them with the OTEL utilities:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#75715e>// lib/otel/otel.ts
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>opentelemetry</span> <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#34;otel/api&#34;</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>opentelemetry</span> <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#34;lib/otel/OtelTracing.ts&#34;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>OtelTracing</span>(<span style=color:#e6db74>&#34;my-project&#34;</span>, <span style=color:#e6db74>&#34;1.0&#34;</span>).<span style=color:#a6e22e>register</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>OTEL_TRACER</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>opentelemetry</span>.<span style=color:#a6e22e>trace</span>.<span style=color:#a6e22e>getTracer</span>(<span style=color:#e6db74>&#39;my-tracer&#39;</span>)
+</span></span></code></pre></div><h2 id=add-telemetry-to-your-routes>Add telemetry to your routes</h2><p>Adding telemetry to your routes is a bit cumbersome. You will need to decorate
 the specific handler in the route with an OTEL span, and that is done by wrapping
-all the functionality in the second parameter of a function.</p>
-<p>The methods <code>setAttribute</code> and <code>setAttributes</code> from the Span object should be used
-when we need to add information to the span.</p>
-<p>The method <code>setStatus</code> from the Span class is useful for marking a piece of code as erroneous.</p>
-<p>Hence the code:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=color:#75715e>// routes/api/tasks.ts
-</span><span style=color:#75715e></span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>Handlers</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#34;$fresh/server.ts&#34;</span>;
-<span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>OTEL_TRACER</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#34;lib/otel/otel.ts&#34;</span>;
-<span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>Span</span>, <span style=color:#a6e22e>SpanStatusCode</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#34;otel/api&#34;</span>;
-
-<span style=color:#75715e>// other imports like the Task model, not relevant to this example
-</span><span style=color:#75715e></span>
-<span style=color:#66d9ef>export</span> <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>handler</span>: <span style=color:#66d9ef>Handlers</span>&lt;<span style=color:#f92672>null</span><span style=color:#960050;background-color:#1e0010>,</span> <span style=color:#a6e22e>StateContext</span>&gt; <span style=color:#f92672>=</span> {
-  <span style=color:#66d9ef>async</span> <span style=color:#a6e22e>GET</span>(<span style=color:#a6e22e>req</span>, <span style=color:#a6e22e>ctx</span>) {
-    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>OTEL_TRACER</span>.<span style=color:#a6e22e>startActiveSpan</span>(<span style=color:#e6db74>&#34;/routes/api/tasks.ts&#34;</span>,
-      <span style=color:#66d9ef>async</span> (<span style=color:#a6e22e>span</span>: <span style=color:#66d9ef>Span</span>) <span style=color:#f92672>=&gt;</span> {
-        <span style=color:#66d9ef>try</span> {
-          <span style=color:#a6e22e>span</span>.<span style=color:#a6e22e>setAttributes</span>({<span style=color:#a6e22e>requestId</span>: <span style=color:#66d9ef>ctx.state.requestId</span>});
-            
-          <span style=color:#75715e>// Access to the list of tasks (dummy code)
-</span><span style=color:#75715e></span>          <span style=color:#a6e22e>tasks</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>Task</span>.<span style=color:#a6e22e>loadAll</span>();
-
-          <span style=color:#a6e22e>span</span>.<span style=color:#a6e22e>setAttributes</span>({<span style=color:#e6db74>&#34;tasks.count&#34;</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>tasks</span>.<span style=color:#a6e22e>length</span>});
-            
-          <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>Response</span>.<span style=color:#a6e22e>json</span>({<span style=color:#a6e22e>status</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;ok&#34;</span>, <span style=color:#a6e22e>tasks</span>})
-        }<span style=color:#66d9ef>catch</span>(<span style=color:#a6e22e>exception</span>){
-          <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>exception</span> <span style=color:#66d9ef>instanceof</span> Error){
-            <span style=color:#a6e22e>span</span>.<span style=color:#a6e22e>setStatus</span>({ <span style=color:#a6e22e>code</span>: <span style=color:#66d9ef>SpanStatusCode.ERROR</span>, <span style=color:#a6e22e>message</span>: <span style=color:#66d9ef>exception.message</span> });
-          }<span style=color:#66d9ef>else</span> {
-            <span style=color:#a6e22e>span</span>.<span style=color:#a6e22e>setStatus</span>({ <span style=color:#a6e22e>code</span>: <span style=color:#66d9ef>SpanStatusCode.ERROR</span> });    
-          }
-        } <span style=color:#66d9ef>finally</span> {
-          <span style=color:#a6e22e>span</span>.<span style=color:#a6e22e>end</span>();
-        }
-      }
-    )
-  }
-};
-</code></pre></div><p>It looks counter-intuitive, but once you repeat this patter in your routes, you only need
-to be careful with the braces at the end :)</p>
-<p>Of course, this could be avoided if there was something like the Python&rsquo;s context manager
+all the functionality in the second parameter of a function.</p><p>The methods <code>setAttribute</code> and <code>setAttributes</code> from the Span object should be used
+when we need to add information to the span.</p><p>The method <code>setStatus</code> from the Span class is useful for marking a piece of code as erroneous.</p><p>Hence the code:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#75715e>// routes/api/tasks.ts
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>Handlers</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#34;$fresh/server.ts&#34;</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>OTEL_TRACER</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#34;lib/otel/otel.ts&#34;</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>Span</span>, <span style=color:#a6e22e>SpanStatusCode</span> } <span style=color:#66d9ef>from</span> <span style=color:#e6db74>&#34;otel/api&#34;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// other imports like the Task model, not relevant to this example
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>handler</span>: <span style=color:#66d9ef>Handlers</span>&lt;<span style=color:#f92672>null</span>, <span style=color:#a6e22e>StateContext</span>&gt; <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>async</span> <span style=color:#a6e22e>GET</span>(<span style=color:#a6e22e>req</span>, <span style=color:#a6e22e>ctx</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>OTEL_TRACER</span>.<span style=color:#a6e22e>startActiveSpan</span>(<span style=color:#e6db74>&#34;/routes/api/tasks.ts&#34;</span>,
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>async</span> (<span style=color:#a6e22e>span</span>: <span style=color:#66d9ef>Span</span>) <span style=color:#f92672>=&gt;</span> {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>          <span style=color:#a6e22e>span</span>.<span style=color:#a6e22e>setAttributes</span>({<span style=color:#a6e22e>requestId</span>: <span style=color:#66d9ef>ctx.state.requestId</span>});
+</span></span><span style=display:flex><span>            
+</span></span><span style=display:flex><span>          <span style=color:#75715e>// Access to the list of tasks (dummy code)
+</span></span></span><span style=display:flex><span>          <span style=color:#a6e22e>tasks</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>Task</span>.<span style=color:#a6e22e>loadAll</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>          <span style=color:#a6e22e>span</span>.<span style=color:#a6e22e>setAttributes</span>({<span style=color:#e6db74>&#34;tasks.count&#34;</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>tasks</span>.<span style=color:#a6e22e>length</span>});
+</span></span><span style=display:flex><span>            
+</span></span><span style=display:flex><span>          <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>Response</span>.<span style=color:#a6e22e>json</span>({<span style=color:#a6e22e>status</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;ok&#34;</span>, <span style=color:#a6e22e>tasks</span>})
+</span></span><span style=display:flex><span>        }<span style=color:#66d9ef>catch</span>(<span style=color:#a6e22e>exception</span>){
+</span></span><span style=display:flex><span>          <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>exception</span> <span style=color:#66d9ef>instanceof</span> Error){
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>span</span>.<span style=color:#a6e22e>setStatus</span>({ <span style=color:#a6e22e>code</span>: <span style=color:#66d9ef>SpanStatusCode.ERROR</span>, <span style=color:#a6e22e>message</span>: <span style=color:#66d9ef>exception.message</span> });
+</span></span><span style=display:flex><span>          }<span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>span</span>.<span style=color:#a6e22e>setStatus</span>({ <span style=color:#a6e22e>code</span>: <span style=color:#66d9ef>SpanStatusCode.ERROR</span> });    
+</span></span><span style=display:flex><span>          }
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>finally</span> {
+</span></span><span style=display:flex><span>          <span style=color:#a6e22e>span</span>.<span style=color:#a6e22e>end</span>();
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>};
+</span></span></code></pre></div><p>It looks counter-intuitive, but once you repeat this patter in your routes, you only need
+to be careful with the braces at the end :)</p><p>Of course, this could be avoided if there was something like the Python&rsquo;s context manager
 in TypeScript, but there is no such thing. So we need to wrap the code manually with a
-higher-order function.</p>
-<h2 id=conclusion>Conclusion</h2>
-<p>We have shown a simple example on how to configure a OpenTelemetry with typescript.
+higher-order function.</p><h2 id=conclusion>Conclusion</h2><p>We have shown a simple example on how to configure a OpenTelemetry with typescript.
 From the span processor to the tracer, adding spans to the routes and adding attributes
-to the spans.</p>
-<div class=blog-tags>
-<a href=https://diegojromerolopez.github.io/tags/deno/>deno</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/fresh/>fresh</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/otel/>otel</a>&nbsp;
-</div>
-</article>
-<ul class="pager blog-pager">
-<li class=previous>
-<a href=https://diegojromerolopez.github.io/blog/2024/12/faulty-engineering-career-ladders/ data-toggle=tooltip data-placement=top title="Faulty engineering career ladders">&larr; Previous Post</a>
-</li>
-<li class=next>
-<a href=https://diegojromerolopez.github.io/blog/2024/12/how-to-create-a-dockerfile-for-your-deno-fresh-project/ data-toggle=tooltip data-placement=top title="How to create a Dockerfile for your deno fresh project">Next Post &rarr;</a>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<footer>
-<div class=container>
-<div class=row>
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<ul class="list-inline text-center footer-links">
-<li>
-<a href=mailto:diegojromerolopez@gmail.com title="Email me">
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href=https://github.com/diegojromerolopez title=GitHub>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fab fa-github fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href=https://twitter.com/diegojromerolop title=Twitter>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href=https://linkedin.com/in/diegojromerolopez title=LinkedIn>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href title=RSS>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-</ul>
-<p class="credits copyright text-muted">
-Diego J. Romero-López
-&nbsp;&bull;&nbsp;&copy;
+to the spans.</p><div class=blog-tags><span>Tags: </span><a href=/tags/deno/>deno</a>&nbsp;<a href=/tags/fresh/>fresh</a>&nbsp;<a href=/tags/otel/>otel</a>&nbsp;</div></article><a href=/blog/2024/12/faulty-engineering-career-ladders/ class="nav-side-arrow nav-side-prev" title="Faulty engineering career ladders" aria-label="Previous Post: Faulty engineering career ladders"><i class="fas fa-chevron-left"></i>
+</a><a href=/blog/2024/12/how-to-create-a-dockerfile-for-your-deno-fresh-project/ class="nav-side-arrow nav-side-next" title="How to create a Dockerfile for your deno fresh project" aria-label="Next Post: How to create a Dockerfile for your deno fresh project"><i class="fas fa-chevron-right"></i></a><ul class="post-pager blog-post-pager"><li class=pager-prev><a href=/blog/2024/12/faulty-engineering-career-ladders/ data-bs-toggle=tooltip data-bs-placement=top title="Faulty engineering career ladders"><i class="fas fa-chevron-left"></i> Previous Post</a></li><li class=pager-center></li><li class=pager-next><a href=/blog/2024/12/how-to-create-a-dockerfile-for-your-deno-fresh-project/ data-bs-toggle=tooltip data-bs-placement=top title="How to create a Dockerfile for your deno fresh project">Next Post <i class="fas fa-chevron-right"></i></a></li></ul><div class=toc-wrapper id=toc-wrapper data-toc-mode=headings><div class=toc-panel id=toc-panel role=dialog aria-label="Table of contents"><div class=toc-header><span class=toc-title>Table of Contents</span>
+<button class=toc-close id=toc-close aria-label="Close table of contents">&#215;</button></div><nav class=toc-body><nav id=TableOfContents><ul><li><a href=#introduction>Introduction</a></li><li><a href=#configure-your-otel-environment-variables>Configure your OTEL environment variables</a></li><li><a href=#configure-otel-for-deno-fresh>Configure OTEL for deno fresh</a></li><li><a href=#configure-what-span-exporters-you-need>Configure what span exporters you need</a></li><li><a href=#get-the-otel-tracer>Get the OTEL tracer</a></li><li><a href=#add-telemetry-to-your-routes>Add telemetry to your routes</a></li><li><a href=#conclusion>Conclusion</a></li></ul></nav></nav></div><div class=toc-backdrop id=toc-backdrop></div></div></div></div></div><footer><div class=container><div class=row><div class="col-md-10 offset-md-1"><ul class="list-inline text-center footer-links"><li class=list-inline-item><a href=/index.xml title=RSS><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="credits copyright text-muted">&copy;
 2026
-&nbsp;&bull;&nbsp;
-<a href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
-</p>
-<p class="credits theme-by text-muted">
-<a href=https://gohugo.io>Hugo v0.91.2</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
-</p>
-</div>
-</div>
-</div>
-</footer><script src=https://diegojromerolopez.github.io/js/katex.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/auto-render.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/jquery-3.5.1.slim.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/bootstrap.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/main.js></script><script>renderMathInElement(document.body)</script><script src=https://diegojromerolopez.github.io/js/photoswipe.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/photoswipe-ui-default.min.js></script><script src=https://diegojromerolopez.github.io/js/load-photoswipe.js></script>
-</body>
-</html>
+<a href=/>Diego J.'s Software Tar Pit</a></p><p class="credits theme-by text-muted"><a href=https://gohugo.io>Hugo v0.163.1</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a></p></div></div></div></footer><script defer src=/js/katex.min.js></script><script defer src=/js/auto-render.min.js onload=renderMathInElement(document.body)></script><script src=/js/jquery-4.0.0.slim.min.js></script><script src=/js/bootstrap.min.js></script><script src=/js/main.js></script><script src=/js/toc.js></script><script src=/js/photoswipe.umd.min.js></script><script src=/js/photoswipe-lightbox.umd.min.js></script><script src=/js/load-photoswipe.js></script></body></html>

@@ -1,228 +1,68 @@
-<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>How NOT to use a LLM to upgrade your project - Diego J.'s Software Tar Pit</title>
-<meta name=description content="How NOT to use a LLM to upgrade your project In this post we pick up a Python 2 project and show how NOT to use a LLM to upgrade an outdated software project.
-This is a two-series go to the next post if you are only interested in how to do it correctly.
-Introduction We tend to only focus on positive outcomes, following active (positive) advice, etc. But what about negative one?">
-<meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/01\/how-not-to-use-a-llm-to-upgrade-your-project\/","name":"How not to use a llm to upgrade your project"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"How NOT to use a LLM to upgrade your project","description":"How NOT to use a LLM to upgrade your project In this post we pick up a Python 2 project and show how NOT to use a LLM to upgrade an outdated software project.\nThis is a two-series go to the next post if you are only interested in how to do it correctly.\nIntroduction We tend to only focus on positive outcomes, following active (positive) advice, etc. But what about negative one?","inLanguage":"en","wordCount":1429,"datePublished":"2026-01-11T00:00:00","dateModified":"2026-01-11T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["llm, ai, guide, showcase"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2026\/01\/how-not-to-use-a-llm-to-upgrade-your-project\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
-<meta property="og:title" content="How NOT to use a LLM to upgrade your project">
-<meta property="og:description" content="How NOT to use a LLM to upgrade your project In this post we pick up a Python 2 project and show how NOT to use a LLM to upgrade an outdated software project.
-This is a two-series go to the next post if you are only interested in how to do it correctly.
-Introduction We tend to only focus on positive outcomes, following active (positive) advice, etc. But what about negative one?">
-<meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
-<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2026/01/how-not-to-use-a-llm-to-upgrade-your-project/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Diego J.'s Software Tar Pit">
-<meta name=twitter:title content="How NOT to use a LLM to upgrade your project">
-<meta name=twitter:description content="How NOT to use a LLM to upgrade your project In this post we pick up a Python 2 project and show how NOT to use a LLM to upgrade an outdated software project.
-This is a two-series go to the next post …">
-<meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
-<meta name=twitter:card content="summary_large_image">
-<meta name=twitter:site content="@diegojromerolop">
-<meta name=twitter:creator content="@diegojromerolop">
-<link href=https://diegojromerolopez.github.io/img/favicon.ico rel=icon type=image/x-icon>
-<meta name=generator content="Hugo 0.91.2">
-<link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=https://diegojromerolopez.github.io/css/katex.min.css>
-<link rel=stylesheet href=https://diegojromerolopez.github.io/fontawesome/css/all.css>
-<link rel=stylesheet href=https://diegojromerolopez.github.io/css/bootstrap.min.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/main.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/fonts.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/syntax.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/codeblock.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.min.css>
-<link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.default-skin.min.css>
-</head>
-<body>
-<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
-<div class=container-fluid>
-<div class=navbar-header>
-<button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
-<span class=sr-only>Toggle navigation</span>
-<span class=icon-bar></span>
-<span class=icon-bar></span>
-<span class=icon-bar></span>
-</button>
-<a class=navbar-brand href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
-</div>
-<div class="collapse navbar-collapse" id=main-navbar>
-<ul class="nav navbar-nav navbar-right">
-<li>
-<a title=Blog href=/>Blog</a>
-</li>
-<li>
-<a title=About href=/page/about/>About</a>
-</li>
-<li>
-<a title=CV href=/cv.pdf>CV</a>
-</li>
-<li>
-<a title=Tags href=/tags>Tags</a>
-</li>
-<li>
-<a href=/es lang=es>es</a>
-</li>
-</ul>
-</div>
-<div class=avatar-container>
-<div class=avatar-img-border>
-<a title="Diego J.'s Software Tar Pit" href=https://diegojromerolopez.github.io>
-<img class=avatar-img src=https://diegojromerolopez.github.io/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit">
-</a>
-</div>
-</div>
-</div>
-</nav>
-<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
-<div class=pswp__bg></div>
-<div class=pswp__scroll-wrap>
-<div class=pswp__container>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-</div>
-<div class="pswp__ui pswp__ui--hidden">
-<div class=pswp__top-bar>
-<div class=pswp__counter></div>
-<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-<button class="pswp__button pswp__button--share" title=Share></button>
-<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-<div class=pswp__preloader>
-<div class=pswp__preloader__icn>
-<div class=pswp__preloader__cut>
-<div class=pswp__preloader__donut></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-<div class=pswp__share-tooltip></div>
-</div>
-<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-</button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-</button>
-<div class=pswp__caption>
-<div class=pswp__caption__center></div>
-</div>
-</div>
-</div>
-</div>
-<header class=header-section>
-<div class="intro-header no-img">
-<div class=container>
-<div class=row>
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<div class=post-heading>
-<h1>How NOT to use a LLM to upgrade your project</h1>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on January 11, 2026
-&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
-</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</header>
-<div class=container role=main>
-<div class=row>
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<article role=main class=blog-post>
-<h1 id=how-not-to-use-a-llm-to-upgrade-your-project>How NOT to use a LLM to upgrade your project</h1>
-<p>In this post we pick up a Python 2 project and show how <strong>NOT</strong> to use a
-<a href=https://en.wikipedia.org/wiki/Large_language_model>LLM</a> to upgrade an
-outdated software project.</p>
-<p>This is a two-series go to the <a href=/blog/2026/01/how-to-use-a-llm-to-upgrade-your-project/>next post</a>
-if you are only interested in how to do it correctly.</p>
-<h2 id=introduction>Introduction</h2>
-<p>We tend to only focus on positive outcomes, following active (positive) advice, etc. But what about negative one?
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage><head><script>(function(){var t,n=localStorage.getItem("theme"),e=!1;n==="dark"?(document.documentElement.setAttribute("data-theme","dark"),e=!0):n==="light"?document.documentElement.setAttribute("data-theme","light"):window.matchMedia("(prefers-color-scheme: dark)").matches&&(document.documentElement.setAttribute("data-theme","dark"),e=!0),t=document.getElementById("hljs-dark"),t&&(t.disabled=!e)})()</script><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><title>How NOT to use a LLM to upgrade your project</title><meta name=description content="In this post we pick up a Python 2 project and show how NOT to use a
+LLM to upgrade an
+outdated software project.
+This is a two-series go to the next post
+if you are only interested in how to do it correctly.
+Introduction
+We tend to only focus on positive outcomes, following active (positive) advice, etc. But what about negative one?
 I wanted the showcase an experience about upgrading a project using LLMs but not done it correctly. With so much
-advice on how to do things, why couldn&rsquo;t we share how not to do it?</p>
-<p>Luckily, I have some <em>ancient</em> code lying there. Introducing&mldr; <a href=https://github.com/diegojromerolopez/djanban>Djanban</a>.
+advice on how to do things, why couldn&rsquo;t we share how not to do it?"><script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@id":"https://diegojromerolopez.github.io/#website","@type":"WebSite","name":"Diego J.'s Software Tar Pit","publisher":{"@id":"https://diegojromerolopez.github.io/#organization"},"url":"https://diegojromerolopez.github.io/"},{"@id":"https://diegojromerolopez.github.io/#organization","@type":"Organization","name":null,"url":"https://diegojromerolopez.github.io/"},{"@id":"https://diegojromerolopez.github.io/blog/2026/01/how-not-to-use-a-llm-to-upgrade-your-project/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://diegojromerolopez.github.io/","name":"Home","position":1},{"@type":"ListItem","item":"https://diegojromerolopez.github.io/post/","name":"Posts","position":2},{"@type":"ListItem","item":"https://diegojromerolopez.github.io/blog/2026/01/how-not-to-use-a-llm-to-upgrade-your-project/","name":"How NOT to use a LLM to upgrade your project","position":3}]},{"@id":"https://diegojromerolopez.github.io/blog/2026/01/how-not-to-use-a-llm-to-upgrade-your-project/#webpage","@type":"WebPage","breadcrumb":{"@id":"https://diegojromerolopez.github.io/blog/2026/01/how-not-to-use-a-llm-to-upgrade-your-project/#breadcrumb"},"isPartOf":{"@id":"https://diegojromerolopez.github.io/#website"},"name":"How NOT to use a LLM to upgrade your project","url":"https://diegojromerolopez.github.io/blog/2026/01/how-not-to-use-a-llm-to-upgrade-your-project/"},{"@id":"https://diegojromerolopez.github.io/blog/2026/01/how-not-to-use-a-llm-to-upgrade-your-project/#article","@type":"Article","author":[],"dateCreated":"2026-01-11T00:00:00+02:00","dateModified":"2026-01-11T00:00:00+02:00","datePublished":"2026-01-11T00:00:00+02:00","description":"In this post we pick up a Python 2 project and show how NOT to use a LLM to upgrade an outdated software project.\nThis is a two-series go to the next post if you are only interested in how to do it correctly.\nIntroduction We tend to only focus on positive outcomes, following active (positive) advice, etc. But what about negative one? I wanted the showcase an experience about upgrading a project using LLMs but not done it correctly. With so much advice on how to do things, why couldn’t we share how not to do it?\n","headline":"How NOT to use a LLM to upgrade your project","image":"https://diegojromerolopez.github.io/img/diegoj-logo.png","inLanguage":"en","keywords":["llm","ai","guide","showcase"],"mainEntityOfPage":{"@id":"https://diegojromerolopez.github.io/blog/2026/01/how-not-to-use-a-llm-to-upgrade-your-project/#webpage"},"publisher":{"@id":"https://diegojromerolopez.github.io/#organization"},"timeRequired":"PT7M","wordCount":1419}]}</script><meta property="og:url" content="https://diegojromerolopez.github.io/blog/2026/01/how-not-to-use-a-llm-to-upgrade-your-project/"><meta property="og:site_name" content="Diego J.'s Software Tar Pit"><meta property="og:title" content="How NOT to use a LLM to upgrade your project"><meta property="og:description" content="In this post we pick up a Python 2 project and show how NOT to use a LLM to upgrade an outdated software project.
+This is a two-series go to the next post if you are only interested in how to do it correctly.
+Introduction We tend to only focus on positive outcomes, following active (positive) advice, etc. But what about negative one? I wanted the showcase an experience about upgrading a project using LLMs but not done it correctly. With so much advice on how to do things, why couldn’t we share how not to do it?"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2026-01-11T00:00:00+02:00"><meta property="article:modified_time" content="2026-01-11T00:00:00+02:00"><meta property="article:tag" content="Llm"><meta property="article:tag" content="Ai"><meta property="article:tag" content="Guide"><meta property="article:tag" content="Showcase"><link rel=canonical href=https://diegojromerolopez.github.io/blog/2026/01/how-not-to-use-a-llm-to-upgrade-your-project/><meta name=twitter:title content="How NOT to use a LLM to upgrade your project"><meta name=twitter:description content="In this post we pick up a Python 2 project and show how NOT to use a
+LLM to upgrade an
+outdated software project.
+This is a two-series go to the next post
+if you are only interested in how to do it …"><meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png"><meta name=twitter:card content="summary_large_image"><link href=/img/favicon.ico rel=icon type=image/x-icon><meta name=generator content="Hugo 0.163.1"><link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=/css/katex.min.css><link rel=stylesheet href=/fontawesome/css/brands.min.css><link rel=stylesheet href=/fontawesome/css/fontawesome.min.css><link rel=stylesheet href=/fontawesome/css/regular.min.css><link rel=stylesheet href=/fontawesome/css/solid.min.css><link rel=stylesheet href=/fontawesome/css/svg.min.css><link rel=stylesheet href=/fontawesome/css/svg-with-js.min.css><link rel=stylesheet href=/fontawesome/css/v4-font-face.min.css><link rel=stylesheet href=/fontawesome/css/v4-shims.min.css><link rel=stylesheet href=/fontawesome/css/v5-font-face.min.css><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/main.css><link rel=stylesheet href=/css/print.css media=print><link rel=stylesheet href=/css/dark.css><link rel=stylesheet href=/css/fonts.css><link rel=stylesheet href=/css/syntax.css><link id=hljs-dark rel=stylesheet href=/css/syntax-dark.css><link rel=stylesheet href=/css/codeblock.css><link rel=stylesheet href=/css/toc.css><link rel=stylesheet href=/css/photoswipe.css></head><body><nav class="navbar navbar-expand-md navbar-light navbar-custom fixed-top"><div class=container-fluid><a class=navbar-brand href=/>Diego J.'s Software Tar Pit</a><div class="d-flex align-items-center"><button class=theme-toggle id=toc-toggle aria-label="Table of contents" data-bs-toggle=tooltip data-bs-placement=bottom title="Table of contents">
+<span class="fas fa-list"></span>
+</button>
+<button class=theme-toggle id=theme-toggle aria-label=Theme data-bs-toggle=tooltip data-bs-placement=bottom data-tooltip-auto="Auto (follows system)" data-tooltip-light="Light mode" data-tooltip-dark="Dark mode" title="Auto (follows system)">
+<span class="fas fa-adjust" id=theme-icon-auto></span>
+<span class="fas fa-sun" id=theme-icon-light style=display:none></span>
+<span class="fas fa-moon" id=theme-icon-dark style=display:none></span>
+</button>
+<button type=button class=navbar-toggler data-bs-toggle=collapse data-bs-target=#main-navbar aria-controls=main-navbar aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button></div><div class="collapse navbar-collapse" id=main-navbar><ul class="navbar-nav ms-auto"><li class=nav-item><a class=nav-link title=Blog href=/>Blog</a></li><li class=nav-item><a class=nav-link title=About href=/page/about/>About</a></li><li class=nav-item><a class=nav-link title=CV href=/cv.pdf>CV</a></li><li class=nav-item><a class=nav-link title=Tags href=/tags>Tags</a></li></ul></div><div class=avatar-container><div class=avatar-img-border><a title="Diego J.'s Software Tar Pit" href=/><img class=avatar-img src=/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit"></a></div></div></div></nav><header class=header-section><div class="intro-header no-img"><div class=container><div class=row><div class="col-md-10 offset-md-1"><div class=post-heading><h1>How NOT to use a LLM to upgrade your project</h1><span class=post-meta><i class="fas fa-calendar"></i>&nbsp;Posted on January 11, 2026
+&nbsp;|&nbsp;</span></div></div></div></div></div></header><div class=container role=main><div class=row><div class="col-md-10 offset-md-1"><article role=main class=blog-post><p>In this post we pick up a Python 2 project and show how <strong>NOT</strong> to use a
+<a href=https://en.wikipedia.org/wiki/Large_language_model>LLM</a> to upgrade an
+outdated software project.</p><p>This is a two-series go to the <a href=/blog/2026/01/how-to-use-a-llm-to-upgrade-your-project/>next post</a>
+if you are only interested in how to do it correctly.</p><h2 id=introduction>Introduction</h2><p>We tend to only focus on positive outcomes, following active (positive) advice, etc. But what about negative one?
+I wanted the showcase an experience about upgrading a project using LLMs but not done it correctly. With so much
+advice on how to do things, why couldn&rsquo;t we share how not to do it?</p><p>Luckily, I have some <em>ancient</em> code lying there. Introducing&mldr; <a href=https://github.com/diegojromerolopez/djanban>Djanban</a>.
 I created the Djanban project 9 years ago.
 At that time I was studying a <a href=https://www.fi.upm.es/web/masterdgps/>Master&rsquo;s degree in Software Project Management</a> by the
-<a href=https://www.upm.es/internacional>Technical University of Madrid</a>.</p>
-<h2 id=the-project>The project</h2>
-<p>Djanban was born as an extension of <a href=https://trello.com/>Trello</a>.
+<a href=https://www.upm.es/internacional>Technical University of Madrid</a>.</p><h2 id=the-project>The project</h2><p>Djanban was born as an extension of <a href=https://trello.com/>Trello</a>.
 At that time, I implemented Kanban in a small team while I was working at intelligenia.
-So the aim of this tool was twofold:</p>
-<ul>
-<li>Provide a way of extracting advanced metrics and insights from the evolution of the tasks (bottle necks, ).</li>
-<li>Have an excellent control about the time spent in each task.</li>
-</ul>
-<p>There was also a frontend that could be run to have total control of the state of each task, and even move the tasks.</p>
-<p>Sadly I did not implement webhooks in Djanban, so I needed to probe Trello from time to time.
+So the aim of this tool was twofold:</p><ul><li>Provide a way of extracting advanced metrics and insights from the evolution of the tasks (bottle necks, ).</li><li>Have an excellent control about the time spent in each task.</li></ul><p>There was also a frontend that could be run to have total control of the state of each task, and even move the tasks.</p><p>Sadly I did not implement webhooks in Djanban, so I needed to probe Trello from time to time.
 Rustic and inefficient, but it worked. Anyway, the final objective was to use Trello only as an interface
-and Djanban as an insight-extraction engine.</p>
-<h2 id=the-problem>The problem</h2>
-<p>The backend of Djanban was implemented in <a href=https://www.python.org/doc/sunset-python-2/>Python 2</a> and Django 1.11. Python 2 has been outdated for 6 years now and is not used anymore. Django is now in version
-<a href=https://docs.djangoproject.com/en/6.0/releases/6.0.1/>6.0.1</a>.</p>
-<p>The frontend of Djanban was implemented in Angular and I have not touched Angular in almost a decade, as it was surpassed by React as the go-to frontend framework a long time ago.</p>
-<p>The issue is that I would like to upgrade the code to supported versions, but I do not want to do it manually.
-The project has a lot of files and I do not want to waste time upgrading them version by version.</p>
-<p><strong>Could we use a LLM to upgrade all files simultaneously?</strong></p>
-<h2 id=the-tool>The tool</h2>
-<p>Let&rsquo;s use the simplest tool possible: <a href=https://antigravity.google/>Antigravity</a> with the model
-<a href=https://gemini.google.com/>Gemini Pro 3</a> with <a href=https://antigravity.google/pricing>a developer plan</a>.</p>
-<h3 id=the-tool-settings>The tool settings</h3>
-<p>After being authenticated in Antigravity with our Google Account (that has the Developer Plan),
+and Djanban as an insight-extraction engine.</p><h2 id=the-problem>The problem</h2><p>The backend of Djanban was implemented in <a href=https://www.python.org/doc/sunset-python-2/>Python 2</a> and Django 1.11. Python 2 has been outdated for 6 years now and is not used anymore. Django is now in version
+<a href=https://docs.djangoproject.com/en/6.0/releases/6.0.1/>6.0.1</a>.</p><p>The frontend of Djanban was implemented in Angular and I have not touched Angular in almost a decade, as it was surpassed by React as the go-to frontend framework a long time ago.</p><p>The issue is that I would like to upgrade the code to supported versions, but I do not want to do it manually.
+The project has a lot of files and I do not want to waste time upgrading them version by version.</p><p><strong>Could we use a LLM to upgrade all files simultaneously?</strong></p><h2 id=the-tool>The tool</h2><p>Let&rsquo;s use the simplest tool possible: <a href=https://antigravity.google/>Antigravity</a> with the model
+<a href=https://gemini.google.com/>Gemini Pro 3</a> with <a href=https://antigravity.google/pricing>a developer plan</a>.</p><h3 id=the-tool-settings>The tool settings</h3><p>After being authenticated in Antigravity with our Google Account (that has the Developer Plan),
 the first step is to make sure all the edits are going to be done automatically without my intervention.
-To do that, first go to the <em>Quick Settings Panel</em> on the top right corner:</p>
-<p><img src=/img/2026/01/11/antigravity-account-settings.png alt="Antigravity account settings"></p>
-<p>and click on the <em>Quick Settings Panel</em>.</p>
-<p>Now on the emerged dialog, make sure you have <em>Always Proceed</em> in the Auto execution selector.:</p>
-<p><img src=/img/2026/01/11/antigravity-quick-settings-panel.png alt="Antigravity quick settings panel"></p>
-<p>To not worry much about the conversation with the AI Agent, I am going to assume they are right almost all the
-time, and let them work and fix their own mistakes.</p>
-<p><img src=/img/2026/01/11/antigravity-conversation-settings.png alt="Antigravity conversation settings"></p>
-<h2 id=the-challenge>The challenge</h2>
-<p>Upgrade everything to the latest version and make it work, using the simplest prompts possible. No specs,
+To do that, first go to the <em>Quick Settings Panel</em> on the top right corner:</p><p><img src=/img/2026/01/11/antigravity-account-settings.png alt="Antigravity account settings"></p><p>and click on the <em>Quick Settings Panel</em>.</p><p>Now on the emerged dialog, make sure you have <em>Always Proceed</em> in the Auto execution selector.:</p><p><img src=/img/2026/01/11/antigravity-quick-settings-panel.png alt="Antigravity quick settings panel"></p><p>To not worry much about the conversation with the AI Agent, I am going to assume they are right almost all the
+time, and let them work and fix their own mistakes.</p><p><img src=/img/2026/01/11/antigravity-conversation-settings.png alt="Antigravity conversation settings"></p><h2 id=the-challenge>The challenge</h2><p>Upgrade everything to the latest version and make it work, using the simplest prompts possible. No specs,
 no context, no additional directions on my side (I am going to <em>ignore</em> their thought process).
-I want an empty AI Agent that discover by themselves the issues and fixes them.</p>
-<p>I call this approach <em>Hands-off AI Agent assisted development</em>. I not only will be <em>vibe-coding</em> the application,
-but I will be giving zero directions to the LLM. The simplest the prompt, the better.</p>
-<h2 id=the-process>The process</h2>
-<h3 id=first-prompt>First prompt</h3>
-<pre tabindex=0><code>Upgrade all the code in this repository to the latest version both backend code (Python 2 and Django 1.11), and frontend code 
+I want an empty AI Agent that discover by themselves the issues and fixes them.</p><p>I call this approach <em>Hands-off AI Agent assisted development</em>. I not only will be <em>vibe-coding</em> the application,
+but I will be giving zero directions to the LLM. The simplest the prompt, the better.</p><h2 id=the-process>The process</h2><h3 id=first-prompt>First prompt</h3><pre tabindex=0><code>Upgrade all the code in this repository to the latest version both backend code (Python 2 and Django 1.11), and frontend code 
 (old Angular code).
 </code></pre><p>Here Gemini told me that the backend was ready for running it with Python 3.0 and Django 5.0 (not true), and
 they were not able to refactor the Angular App to make it work. Has changed Angular so much in
-9 years? Would it be easier to just refactor the app to React as some people have done?</p>
-<p><a href=https://github.com/diegojromerolopez/djanban/commit/c5718c90f94b821ff29e137418740804cb00208b>Commit with the changes</a></p>
-<h3 id=second-prompt>Second prompt</h3>
-<p>I asked Gemini to run the app to check if it worked:</p>
-<pre tabindex=0><code>run both the backend and frontend for me
+9 years? Would it be easier to just refactor the app to React as some people have done?</p><p><a href=https://github.com/diegojromerolopez/djanban/commit/c5718c90f94b821ff29e137418740804cb00208b>Commit with the changes</a></p><h3 id=second-prompt>Second prompt</h3><p>I asked Gemini to run the app to check if it worked:</p><pre tabindex=0><code>run both the backend and frontend for me
 </code></pre><p>After some minutes, I had a successful response from the agent telling me to go to http://localhost:8001 and
-check the application running.</p>
-<p><img src=/img/2026/01/11/djanban-running.png alt="Djanban running"></p>
-<p>It has been a while since I have seen this bootstrap-based interface.</p>
-<p><a href=https://github.com/diegojromerolopez/djanban/commit/8e1165f5feb54859e8ae1e40c34cbca62b78aeae>Commit with the changes</a></p>
-<h3 id=third-prompt>Third prompt</h3>
-<p>But I do not remember the user nor the password, did I create one by default in the application or how did it worked?
-So I asked the agent to create one for me.</p>
-<pre tabindex=0><code>What's the user and password? Could you create one for me?
-</code></pre><p>And the agent created a new account admin/admin for me by leveraging the Django manage.py shell.</p>
-<p><img src=/img/2026/01/11/djanban-logged.png alt="Djanban logged user"></p>
-<h2 id=the-results>The results</h2>
-<p>You can see the upgrade in the branch <a href=https://github.com/diegojromerolopez/djanban/tree/feat/upgrade>feat/upgrade</a>
-on the Djanban repository.</p>
-<h3 id=the-good>The good</h3>
-<p><strong>The application works</strong>. There are a lot of horror stories about migrations from Python 2 to 3. The release process
+check the application running.</p><p><img src=/img/2026/01/11/djanban-running.png alt="Djanban running"></p><p>It has been a while since I have seen this bootstrap-based interface.</p><p><a href=https://github.com/diegojromerolopez/djanban/commit/8e1165f5feb54859e8ae1e40c34cbca62b78aeae>Commit with the changes</a></p><h3 id=third-prompt>Third prompt</h3><p>But I do not remember the user nor the password, did I create one by default in the application or how did it worked?
+So I asked the agent to create one for me.</p><pre tabindex=0><code>What&#39;s the user and password? Could you create one for me?
+</code></pre><p>And the agent created a new account admin/admin for me by leveraging the Django manage.py shell.</p><p><img src=/img/2026/01/11/djanban-logged.png alt="Djanban logged user"></p><h2 id=the-results>The results</h2><p>You can see the upgrade in the branch <a href=https://github.com/diegojromerolopez/djanban/tree/feat/upgrade>feat/upgrade</a>
+on the Djanban repository.</p><h3 id=the-good>The good</h3><p><strong>The application works</strong>. There are a lot of horror stories about migrations from Python 2 to 3. The release process
 was not the best and the community ended up fractured and disappointed with the project leaders. The migration process
 lasted more than a decade and a lot of conflicts both in software and at human level. Having an AI Agent that can
-reduce the pain of doing such an upgrade that is costly in time and in resources.</p>
-<h3 id=the-bad>The bad</h3>
-<p>The AI Agent did not clean up the code. They left all the files with the UTF-8 header comment, even though it is not
-necessary anymore because Python 3 files are UTF-8 by default.</p>
-<p>Extreme laziness on their part. Not only the AI Agent did not clean up the code, removing unnecessary comments, but
+reduce the pain of doing such an upgrade that is costly in time and in resources.</p><h3 id=the-bad>The bad</h3><p>The AI Agent did not clean up the code. They left all the files with the UTF-8 header comment, even though it is not
+necessary anymore because Python 3 files are UTF-8 by default.</p><p>Extreme laziness on their part. Not only the AI Agent did not clean up the code, removing unnecessary comments, but
 it ignored important parts of the project because they could not migrate it. I am talking about commenting the indexes
 of all models because the format was changed in Django 5.1. The AI Agent even created a script for this: <a href=https://github.com/diegojromerolopez/djanban/blob/c5718c90f94b821ff29e137418740804cb00208b/src/comment_index_together.py>src/comment_index_together.py</a>).
-Anyway, this is serious, as having no indexes can affect greatly to the performance of the application.</p>
-<p>The AI Agent did not create a <a href=https://docs.python.org/3/library/venv.html>virtual environment</a>.
+Anyway, this is serious, as having no indexes can affect greatly to the performance of the application.</p><p>The AI Agent did not create a <a href=https://docs.python.org/3/library/venv.html>virtual environment</a>.
 So they ended up installing all the packages in my system Python installation.
 In almost no place it is recommended this approach as it pollutes the system Python libraries.
-<strong>The agent should have created a virtual environment</strong>, and install the packages there.</p>
-<p>In the
+<strong>The agent should have created a virtual environment</strong>, and install the packages there.</p><p>In the
 <a href=https://github.com/diegojromerolopez/djanban/blob/feat/upgrade/src/requirements.txt>requirements.txt</a>
 the package versions were left open. The only restriction it in place was that Django needs to have at least the version 5.0,
 while the <a href=https://www.djangoproject.com/download/>5.2 is a LTS version supported as of the 10th of January of 2016</a>.
@@ -230,109 +70,15 @@ You should not do this ever. In the case of a package, I can understand leaving 
 application it can be catastrophic. An upgrade can cause an instant outage.
 <strong>If your dependencies follow the semver release cycle, fix the major versions to avoid breaking changes</strong>.
 If you have dependencies that do not specify their version policies,
-<strong>just set a fix version for these untrusted (version-wise) dependencies</strong></p>
-<p>What does it mean that the agent cannot upgrade Angular? Not even create a basic interface?
+<strong>just set a fix version for these untrusted (version-wise) dependencies</strong></p><p>What does it mean that the agent cannot upgrade Angular? Not even create a basic interface?
 Did Angular change so much in the last 9 years? I would not know as I have not touched that framework since then.
-Maybe <a href=https://www.taskade.com/convert/coding/angular-to-react>I should have directed the agent to be more <em>adventurous</em></a>.</p>
-<h3 id=the-ugly>The ugly</h3>
-<p>As you can guess, my scenario is biased. I was not involved in the process as I should have:</p>
-<ul>
-<li>I gave very limited prompts to the AI Agent.</li>
-<li>I did not provide any direction on what good practices should use.</li>
-<li>It is not that I gave a bad context: I gave no context at all. No role-playing, no additional information.</li>
-<li>Use any code conventions. Although it is not critical, having a linter and fixing the issues the linter found can improve
-the quality of the code a lot.</li>
-<li>There are no tests so there is no way to automatically test that the changes are correct. I could have created tests first,
-but that would have been cheating.</li>
-</ul>
-<p>I will do the same experiment but in a more structured way to compare the two results.</p>
-<h2 id=conclusion>Conclusion</h2>
-<p>You cannot leave an AI Agent running unsupervised when working on upgrades. It is true that the agent can do the required
-upgrades, but it will make mistakes, and you need to be giving directions.</p>
-<p>Now, go to the <a href=/blog/2026/01/how-to-use-a-llm-to-upgrade-your-project/>next post</a>
-if you are only interested in how to do a migration correctly.</p>
-<div class=blog-tags>
-<a href=https://diegojromerolopez.github.io/tags/llm/>llm</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/ai/>ai</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/guide/>guide</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/showcase/>showcase</a>&nbsp;
-</div>
-</article>
-<ul class="pager blog-pager">
-<li class=previous>
-<a href=https://diegojromerolopez.github.io/blog/2026/01/when-are-full-software-rewrites-needed/ data-toggle=tooltip data-placement=top title="When are full software rewrites needed?">&larr; Previous Post</a>
-</li>
-<li class=next>
-<a href=https://diegojromerolopez.github.io/blog/2026/01/how-to-use-a-llm-to-upgrade-your-project/ data-toggle=tooltip data-placement=top title="How to use a LLM to upgrade your project">Next Post &rarr;</a>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<footer>
-<div class=container>
-<div class=row>
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<ul class="list-inline text-center footer-links">
-<li>
-<a href=mailto:diegojromerolopez@gmail.com title="Email me">
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href=https://github.com/diegojromerolopez title=GitHub>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fab fa-github fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href=https://twitter.com/diegojromerolop title=Twitter>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href=https://linkedin.com/in/diegojromerolopez title=LinkedIn>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href title=RSS>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-</ul>
-<p class="credits copyright text-muted">
-Diego J. Romero-López
-&nbsp;&bull;&nbsp;&copy;
+Maybe <a href=https://www.taskade.com/convert/coding/angular-to-react>I should have directed the agent to be more <em>adventurous</em></a>.</p><h3 id=the-ugly>The ugly</h3><p>As you can guess, my scenario is biased. I was not involved in the process as I should have:</p><ul><li>I gave very limited prompts to the AI Agent.</li><li>I did not provide any direction on what good practices should use.</li><li>It is not that I gave a bad context: I gave no context at all. No role-playing, no additional information.</li><li>Use any code conventions. Although it is not critical, having a linter and fixing the issues the linter found can improve
+the quality of the code a lot.</li><li>There are no tests so there is no way to automatically test that the changes are correct. I could have created tests first,
+but that would have been cheating.</li></ul><p>I will do the same experiment but in a more structured way to compare the two results.</p><h2 id=conclusion>Conclusion</h2><p>You cannot leave an AI Agent running unsupervised when working on upgrades. It is true that the agent can do the required
+upgrades, but it will make mistakes, and you need to be giving directions.</p><p>Now, go to the <a href=/blog/2026/01/how-to-use-a-llm-to-upgrade-your-project/>next post</a>
+if you are only interested in how to do a migration correctly.</p><div class=blog-tags><span>Tags: </span><a href=/tags/llm/>llm</a>&nbsp;<a href=/tags/ai/>ai</a>&nbsp;<a href=/tags/guide/>guide</a>&nbsp;<a href=/tags/showcase/>showcase</a>&nbsp;</div></article><a href=/blog/2026/01/when-are-full-software-rewrites-needed/ class="nav-side-arrow nav-side-prev" title="When are full software rewrites needed?" aria-label="Previous Post: When are full software rewrites needed?"><i class="fas fa-chevron-left"></i>
+</a><a href=/blog/2026/01/how-to-use-a-llm-to-upgrade-your-project/ class="nav-side-arrow nav-side-next" title="How to use a LLM to upgrade your project" aria-label="Next Post: How to use a LLM to upgrade your project"><i class="fas fa-chevron-right"></i></a><ul class="post-pager blog-post-pager"><li class=pager-prev><a href=/blog/2026/01/when-are-full-software-rewrites-needed/ data-bs-toggle=tooltip data-bs-placement=top title="When are full software rewrites needed?"><i class="fas fa-chevron-left"></i> Previous Post</a></li><li class=pager-center></li><li class=pager-next><a href=/blog/2026/01/how-to-use-a-llm-to-upgrade-your-project/ data-bs-toggle=tooltip data-bs-placement=top title="How to use a LLM to upgrade your project">Next Post <i class="fas fa-chevron-right"></i></a></li></ul><div class=toc-wrapper id=toc-wrapper data-toc-mode=headings><div class=toc-panel id=toc-panel role=dialog aria-label="Table of contents"><div class=toc-header><span class=toc-title>Table of Contents</span>
+<button class=toc-close id=toc-close aria-label="Close table of contents">&#215;</button></div><nav class=toc-body><nav id=TableOfContents><ul><li><a href=#introduction>Introduction</a></li><li><a href=#the-project>The project</a></li><li><a href=#the-problem>The problem</a></li><li><a href=#the-tool>The tool</a><ul><li><a href=#the-tool-settings>The tool settings</a></li></ul></li><li><a href=#the-challenge>The challenge</a></li><li><a href=#the-process>The process</a><ul><li><a href=#first-prompt>First prompt</a></li><li><a href=#second-prompt>Second prompt</a></li><li><a href=#third-prompt>Third prompt</a></li></ul></li><li><a href=#the-results>The results</a><ul><li><a href=#the-good>The good</a></li><li><a href=#the-bad>The bad</a></li><li><a href=#the-ugly>The ugly</a></li></ul></li><li><a href=#conclusion>Conclusion</a></li></ul></nav></nav></div><div class=toc-backdrop id=toc-backdrop></div></div></div></div></div><footer><div class=container><div class=row><div class="col-md-10 offset-md-1"><ul class="list-inline text-center footer-links"><li class=list-inline-item><a href=/index.xml title=RSS><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="credits copyright text-muted">&copy;
 2026
-&nbsp;&bull;&nbsp;
-<a href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
-</p>
-<p class="credits theme-by text-muted">
-<a href=https://gohugo.io>Hugo v0.91.2</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
-</p>
-</div>
-</div>
-</div>
-</footer><script src=https://diegojromerolopez.github.io/js/katex.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/auto-render.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/jquery-3.5.1.slim.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/bootstrap.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/main.js></script><script>renderMathInElement(document.body)</script><script src=https://diegojromerolopez.github.io/js/photoswipe.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/photoswipe-ui-default.min.js></script><script src=https://diegojromerolopez.github.io/js/load-photoswipe.js></script>
-</body>
-</html>
+<a href=/>Diego J.'s Software Tar Pit</a></p><p class="credits theme-by text-muted"><a href=https://gohugo.io>Hugo v0.163.1</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a></p></div></div></div></footer><script defer src=/js/katex.min.js></script><script defer src=/js/auto-render.min.js onload=renderMathInElement(document.body)></script><script src=/js/jquery-4.0.0.slim.min.js></script><script src=/js/bootstrap.min.js></script><script src=/js/main.js></script><script src=/js/toc.js></script><script src=/js/photoswipe.umd.min.js></script><script src=/js/photoswipe-lightbox.umd.min.js></script><script src=/js/load-photoswipe.js></script></body></html>

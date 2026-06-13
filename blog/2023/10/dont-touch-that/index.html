@@ -1,161 +1,46 @@
-<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Don't touch that - Diego J.'s Software Tar Pit</title>
-<meta name=description content="Don&rsquo;t touch that Have you ever been told &ldquo;don&rsquo;t touch that, if you modify that piece of code you are going to break anything&rdquo;? How did you react to this comment? Did you feel &ldquo;attacked&rdquo; or simply ignored that piece of advice?
-Code jungle Starting a working on a project that has some dark corners is a daunting task but following some guidelines can be useful.
-Scary code There is always some scary code, I do not mean code that is difficult to understand, but code that has unintended consequences if modified.">
-<meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2023\/10\/dont-touch-that\/","name":"Don\u0027T touch that"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"Don\u0027t touch that","description":"Don\u0026rsquo;t touch that Have you ever been told \u0026ldquo;don\u0026rsquo;t touch that, if you modify that piece of code you are going to break anything\u0026rdquo;? How did you react to this comment? Did you feel \u0026ldquo;attacked\u0026rdquo; or simply ignored that piece of advice?\nCode jungle Starting a working on a project that has some dark corners is a daunting task but following some guidelines can be useful.\nScary code There is always some scary code, I do not mean code that is difficult to understand, but code that has unintended consequences if modified.","inLanguage":"en","wordCount":532,"datePublished":"2023-10-12T00:00:00","dateModified":"2023-10-12T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["legacy, code, software"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2023\/10\/dont-touch-that\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
-<meta property="og:title" content="Don't touch that">
-<meta property="og:description" content="Don&rsquo;t touch that Have you ever been told &ldquo;don&rsquo;t touch that, if you modify that piece of code you are going to break anything&rdquo;? How did you react to this comment? Did you feel &ldquo;attacked&rdquo; or simply ignored that piece of advice?
-Code jungle Starting a working on a project that has some dark corners is a daunting task but following some guidelines can be useful.
-Scary code There is always some scary code, I do not mean code that is difficult to understand, but code that has unintended consequences if modified.">
-<meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
-<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2023/10/dont-touch-that/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Diego J.'s Software Tar Pit">
-<meta name=twitter:title content="Don't touch that">
-<meta name=twitter:description content="Don&rsquo;t touch that Have you ever been told &ldquo;don&rsquo;t touch that, if you modify that piece of code you are going to break anything&rdquo;? How did you react to this comment? Did you feel …">
-<meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
-<meta name=twitter:card content="summary_large_image">
-<meta name=twitter:site content="@diegojromerolop">
-<meta name=twitter:creator content="@diegojromerolop">
-<link href=https://diegojromerolopez.github.io/img/favicon.ico rel=icon type=image/x-icon>
-<meta name=generator content="Hugo 0.91.2">
-<link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=https://diegojromerolopez.github.io/css/katex.min.css>
-<link rel=stylesheet href=https://diegojromerolopez.github.io/fontawesome/css/all.css>
-<link rel=stylesheet href=https://diegojromerolopez.github.io/css/bootstrap.min.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/main.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/fonts.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/syntax.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/codeblock.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.min.css>
-<link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.default-skin.min.css>
-</head>
-<body>
-<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
-<div class=container-fluid>
-<div class=navbar-header>
-<button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
-<span class=sr-only>Toggle navigation</span>
-<span class=icon-bar></span>
-<span class=icon-bar></span>
-<span class=icon-bar></span>
-</button>
-<a class=navbar-brand href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
-</div>
-<div class="collapse navbar-collapse" id=main-navbar>
-<ul class="nav navbar-nav navbar-right">
-<li>
-<a title=Blog href=/>Blog</a>
-</li>
-<li>
-<a title=About href=/page/about/>About</a>
-</li>
-<li>
-<a title=CV href=/cv.pdf>CV</a>
-</li>
-<li>
-<a title=Tags href=/tags>Tags</a>
-</li>
-<li>
-<a href=/es lang=es>es</a>
-</li>
-</ul>
-</div>
-<div class=avatar-container>
-<div class=avatar-img-border>
-<a title="Diego J.'s Software Tar Pit" href=https://diegojromerolopez.github.io>
-<img class=avatar-img src=https://diegojromerolopez.github.io/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit">
-</a>
-</div>
-</div>
-</div>
-</nav>
-<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
-<div class=pswp__bg></div>
-<div class=pswp__scroll-wrap>
-<div class=pswp__container>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-</div>
-<div class="pswp__ui pswp__ui--hidden">
-<div class=pswp__top-bar>
-<div class=pswp__counter></div>
-<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-<button class="pswp__button pswp__button--share" title=Share></button>
-<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-<div class=pswp__preloader>
-<div class=pswp__preloader__icn>
-<div class=pswp__preloader__cut>
-<div class=pswp__preloader__donut></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-<div class=pswp__share-tooltip></div>
-</div>
-<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-</button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-</button>
-<div class=pswp__caption>
-<div class=pswp__caption__center></div>
-</div>
-</div>
-</div>
-</div>
-<header class=header-section>
-<div class="intro-header no-img">
-<div class=container>
-<div class=row>
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<div class=post-heading>
-<h1>Don't touch that</h1>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on October 12, 2023
-&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
-</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</header>
-<div class=container role=main>
-<div class=row>
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<article role=main class=blog-post>
-<h1 id=dont-touch-that>Don&rsquo;t touch that</h1>
-<p>Have you ever been told &ldquo;don&rsquo;t touch that, if you modify that piece
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage><head><script>(function(){var t,n=localStorage.getItem("theme"),e=!1;n==="dark"?(document.documentElement.setAttribute("data-theme","dark"),e=!0):n==="light"?document.documentElement.setAttribute("data-theme","light"):window.matchMedia("(prefers-color-scheme: dark)").matches&&(document.documentElement.setAttribute("data-theme","dark"),e=!0),t=document.getElementById("hljs-dark"),t&&(t.disabled=!e)})()</script><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><title>Don't touch that</title><meta name=description content="Have you ever been told &ldquo;don&rsquo;t touch that, if you modify that piece
 of code you are going to break anything&rdquo;? How did you react to this
-comment? Did you feel &ldquo;attacked&rdquo; or simply ignored that piece of <em>advice</em>?</p>
-<h2 id=code-jungle>Code jungle</h2>
-<p>Starting a working on a project that has some <em>dark corners</em> is a
-daunting task but following some guidelines can be useful.</p>
-<h2 id=scary-code>Scary code</h2>
-<p>There is always some <em>scary code</em>, I do not mean code that is difficult
+comment? Did you feel &ldquo;attacked&rdquo; or simply ignored that piece of advice?
+Code jungle
+Starting a working on a project that has some dark corners is a
+daunting task but following some guidelines can be useful.
+Scary code
+There is always some scary code, I do not mean code that is difficult
 to understand, but code that has unintended consequences if modified.
 Code that if it is changed in order, breaks something. Of course the code
 has no tests at all, or even worse, the tests do not help with detecting
-errors.</p>
-<p>Usually this code has been created &ldquo;organically&rdquo;, and by that I mean
+errors."><script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@id":"https://diegojromerolopez.github.io/#website","@type":"WebSite","name":"Diego J.'s Software Tar Pit","publisher":{"@id":"https://diegojromerolopez.github.io/#organization"},"url":"https://diegojromerolopez.github.io/"},{"@id":"https://diegojromerolopez.github.io/#organization","@type":"Organization","name":null,"url":"https://diegojromerolopez.github.io/"},{"@id":"https://diegojromerolopez.github.io/blog/2023/10/dont-touch-that/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://diegojromerolopez.github.io/","name":"Home","position":1},{"@type":"ListItem","item":"https://diegojromerolopez.github.io/post/","name":"Posts","position":2},{"@type":"ListItem","item":"https://diegojromerolopez.github.io/blog/2023/10/dont-touch-that/","name":"Don't touch that","position":3}]},{"@id":"https://diegojromerolopez.github.io/blog/2023/10/dont-touch-that/#webpage","@type":"WebPage","breadcrumb":{"@id":"https://diegojromerolopez.github.io/blog/2023/10/dont-touch-that/#breadcrumb"},"isPartOf":{"@id":"https://diegojromerolopez.github.io/#website"},"name":"Don't touch that","url":"https://diegojromerolopez.github.io/blog/2023/10/dont-touch-that/"},{"@id":"https://diegojromerolopez.github.io/blog/2023/10/dont-touch-that/#article","@type":"Article","author":[],"dateCreated":"2023-10-12T00:00:00+02:00","dateModified":"2023-10-12T00:00:00+02:00","datePublished":"2023-10-12T00:00:00+02:00","description":"Have you ever been told “don’t touch that, if you modify that piece of code you are going to break anything”? How did you react to this comment? Did you feel “attacked” or simply ignored that piece of advice?\nCode jungle Starting a working on a project that has some dark corners is a daunting task but following some guidelines can be useful.\nScary code There is always some scary code, I do not mean code that is difficult to understand, but code that has unintended consequences if modified. Code that if it is changed in order, breaks something. Of course the code has no tests at all, or even worse, the tests do not help with detecting errors.\n","headline":"Don't touch that","image":"https://diegojromerolopez.github.io/img/diegoj-logo.png","inLanguage":"en","keywords":["legacy","code","software"],"mainEntityOfPage":{"@id":"https://diegojromerolopez.github.io/blog/2023/10/dont-touch-that/#webpage"},"publisher":{"@id":"https://diegojromerolopez.github.io/#organization"},"wordCount":529}]}</script><meta property="og:url" content="https://diegojromerolopez.github.io/blog/2023/10/dont-touch-that/"><meta property="og:site_name" content="Diego J.'s Software Tar Pit"><meta property="og:title" content="Don't touch that"><meta property="og:description" content="Have you ever been told “don’t touch that, if you modify that piece of code you are going to break anything”? How did you react to this comment? Did you feel “attacked” or simply ignored that piece of advice?
+Code jungle Starting a working on a project that has some dark corners is a daunting task but following some guidelines can be useful.
+Scary code There is always some scary code, I do not mean code that is difficult to understand, but code that has unintended consequences if modified. Code that if it is changed in order, breaks something. Of course the code has no tests at all, or even worse, the tests do not help with detecting errors."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2023-10-12T00:00:00+02:00"><meta property="article:modified_time" content="2023-10-12T00:00:00+02:00"><meta property="article:tag" content="Legacy"><meta property="article:tag" content="Code"><meta property="article:tag" content="Software"><link rel=canonical href=https://diegojromerolopez.github.io/blog/2023/10/dont-touch-that/><meta name=twitter:title content="Don't touch that"><meta name=twitter:description content="Have you ever been told &ldquo;don&rsquo;t touch that, if you modify that piece
+of code you are going to break anything&rdquo;? How did you react to this
+comment? Did you feel &ldquo;attacked&rdquo; …"><meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png"><meta name=twitter:card content="summary_large_image"><link href=/img/favicon.ico rel=icon type=image/x-icon><meta name=generator content="Hugo 0.163.1"><link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=/css/katex.min.css><link rel=stylesheet href=/fontawesome/css/brands.min.css><link rel=stylesheet href=/fontawesome/css/fontawesome.min.css><link rel=stylesheet href=/fontawesome/css/regular.min.css><link rel=stylesheet href=/fontawesome/css/solid.min.css><link rel=stylesheet href=/fontawesome/css/svg.min.css><link rel=stylesheet href=/fontawesome/css/svg-with-js.min.css><link rel=stylesheet href=/fontawesome/css/v4-font-face.min.css><link rel=stylesheet href=/fontawesome/css/v4-shims.min.css><link rel=stylesheet href=/fontawesome/css/v5-font-face.min.css><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/main.css><link rel=stylesheet href=/css/print.css media=print><link rel=stylesheet href=/css/dark.css><link rel=stylesheet href=/css/fonts.css><link rel=stylesheet href=/css/syntax.css><link id=hljs-dark rel=stylesheet href=/css/syntax-dark.css><link rel=stylesheet href=/css/codeblock.css><link rel=stylesheet href=/css/toc.css><link rel=stylesheet href=/css/photoswipe.css></head><body><nav class="navbar navbar-expand-md navbar-light navbar-custom fixed-top"><div class=container-fluid><a class=navbar-brand href=/>Diego J.'s Software Tar Pit</a><div class="d-flex align-items-center"><button class=theme-toggle id=toc-toggle aria-label="Table of contents" data-bs-toggle=tooltip data-bs-placement=bottom title="Table of contents">
+<span class="fas fa-list"></span>
+</button>
+<button class=theme-toggle id=theme-toggle aria-label=Theme data-bs-toggle=tooltip data-bs-placement=bottom data-tooltip-auto="Auto (follows system)" data-tooltip-light="Light mode" data-tooltip-dark="Dark mode" title="Auto (follows system)">
+<span class="fas fa-adjust" id=theme-icon-auto></span>
+<span class="fas fa-sun" id=theme-icon-light style=display:none></span>
+<span class="fas fa-moon" id=theme-icon-dark style=display:none></span>
+</button>
+<button type=button class=navbar-toggler data-bs-toggle=collapse data-bs-target=#main-navbar aria-controls=main-navbar aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button></div><div class="collapse navbar-collapse" id=main-navbar><ul class="navbar-nav ms-auto"><li class=nav-item><a class=nav-link title=Blog href=/>Blog</a></li><li class=nav-item><a class=nav-link title=About href=/page/about/>About</a></li><li class=nav-item><a class=nav-link title=CV href=/cv.pdf>CV</a></li><li class=nav-item><a class=nav-link title=Tags href=/tags>Tags</a></li></ul></div><div class=avatar-container><div class=avatar-img-border><a title="Diego J.'s Software Tar Pit" href=/><img class=avatar-img src=/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit"></a></div></div></div></nav><header class=header-section><div class="intro-header no-img"><div class=container><div class=row><div class="col-md-10 offset-md-1"><div class=post-heading><h1>Don't touch that</h1><span class=post-meta><i class="fas fa-calendar"></i>&nbsp;Posted on October 12, 2023
+&nbsp;|&nbsp;</span></div></div></div></div></div></header><div class=container role=main><div class=row><div class="col-md-10 offset-md-1"><article role=main class=blog-post><p>Have you ever been told &ldquo;don&rsquo;t touch that, if you modify that piece
+of code you are going to break anything&rdquo;? How did you react to this
+comment? Did you feel &ldquo;attacked&rdquo; or simply ignored that piece of <em>advice</em>?</p><h2 id=code-jungle>Code jungle</h2><p>Starting a working on a project that has some <em>dark corners</em> is a
+daunting task but following some guidelines can be useful.</p><h2 id=scary-code>Scary code</h2><p>There is always some <em>scary code</em>, I do not mean code that is difficult
+to understand, but code that has unintended consequences if modified.
+Code that if it is changed in order, breaks something. Of course the code
+has no tests at all, or even worse, the tests do not help with detecting
+errors.</p><p>Usually this code has been created &ldquo;organically&rdquo;, and by that I mean
 chaotically, i.e. without any kind of software design. Global state,
 no documentation (because of clean code) and no useful tests, because
-&ldquo;we mock everything&rdquo;.</p>
-<p>This kind of code works but modifying that could cause an outage easily,
+&ldquo;we mock everything&rdquo;.</p><p>This kind of code works but modifying that could cause an outage easily,
 as even the minor modification could cause an service failure of gigantic
-proportions.</p>
-<h2 id=the-cursed-phrases>The cursed phrases</h2>
-<p>And now is when phrases like <em>This is too difficult</em>, <em>Don&rsquo;t do that</em>,
+proportions.</p><h2 id=the-cursed-phrases>The cursed phrases</h2><p>And now is when phrases like <em>This is too difficult</em>, <em>Don&rsquo;t do that</em>,
 <em>Do not modify this code</em> enter the room. Maybe you are a new employee
 and have no experience dealing with the project but&mldr; I cannot help
 to feel a bit of <em>contempt</em> when listening to that. Of course that is
 only a perception and not the true intent of the person I am talking to,
-but being told &ldquo;you are not experienced to to something&rdquo; <em>stings</em>.</p>
-<h2 id=the-cursed-state-of-things>The cursed state of things</h2>
-<p>Of course a job it is just a job, we should not care about this kind
+but being told &ldquo;you are not experienced to to something&rdquo; <em>stings</em>.</p><h2 id=the-cursed-state-of-things>The cursed state of things</h2><p>Of course a job it is just a job, we should not care about this kind
 of non-sense, and work everyday, providing value to the company we work for.
 However, do this kind of disarray, this untouchable code, unknown
 behaviour in projects provide value to the company?
@@ -163,105 +48,19 @@ I do not think so. Providing value to the company is also ensuring
 you can <em>continue providing value to the company</em> in the future.
 We are not working in some stone-sculpted monument, we work in a
 dynamic, changing, and inmaterial environment and means. There should
-not be untouchable code.</p>
-<h2 id=what-to-do>What to do</h2>
-<p>There is a good book (maybe a bit dated) called
+not be untouchable code.</p><h2 id=what-to-do>What to do</h2><p>There is a good book (maybe a bit dated) called
 <a href=https://www.oreilly.com/library/view/working-effectively-with/0131177052/>Working Effectively with Legacy Code</a>
 that gives some good pointers to deal with this. It is almost 20 years old,
-but it gives advice on how to tame the beast that is legacy code.</p>
-<p>The most important lesson the book contains, I would say, is ensuring you
+but it gives advice on how to tame the beast that is legacy code.</p><p>The most important lesson the book contains, I would say, is ensuring you
 have the main workflows covered by tests before doing any change. So, once
-you start working on refactoring pieces of code you do not break anything.</p>
-<p>Of course, tests need to be actual tests, not the kind where you mock
+you start working on refactoring pieces of code you do not break anything.</p><p>Of course, tests need to be actual tests, not the kind where you mock
 everything and that is all. In this case, I would vouch for integration
-and end-to-end tests.</p>
-<p>I wrote a post some time ago about my idea of how the tests should be.
-<a href=/blog/2022/11/actual-integration-tests/>Take a look at it</a>.</p>
-<h2 id=conclusion>Conclusion</h2>
-<p>Ensure no code is untouchable by having actual tests that leave no
+and end-to-end tests.</p><p>I wrote a post some time ago about my idea of how the tests should be.
+<a href=/blog/2022/11/actual-integration-tests/>Take a look at it</a>.</p><h2 id=conclusion>Conclusion</h2><p>Ensure no code is untouchable by having actual tests that leave no
 flow untested. Once you have that, refactor the code to make it
-understandable, and extensible.</p>
-<div class=blog-tags>
-<a href=https://diegojromerolopez.github.io/tags/legacy/>legacy</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/code/>code</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/software/>software</a>&nbsp;
-</div>
-</article>
-<ul class="pager blog-pager">
-<li class=previous>
-<a href=https://diegojromerolopez.github.io/blog/2023/09/misconceptions-about-code-comments/ data-toggle=tooltip data-placement=top title="Misconceptions about code comments">&larr; Previous Post</a>
-</li>
-<li class=next>
-<a href=https://diegojromerolopez.github.io/blog/2023/11/what-is-your-constraint-mine-is-anti-work/ data-toggle=tooltip data-placement=top title="What is your constraint? Mine is anti-work">Next Post &rarr;</a>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<footer>
-<div class=container>
-<div class=row>
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<ul class="list-inline text-center footer-links">
-<li>
-<a href=mailto:diegojromerolopez@gmail.com title="Email me">
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href=https://github.com/diegojromerolopez title=GitHub>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fab fa-github fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href=https://twitter.com/diegojromerolop title=Twitter>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href=https://linkedin.com/in/diegojromerolopez title=LinkedIn>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href title=RSS>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-</ul>
-<p class="credits copyright text-muted">
-Diego J. Romero-López
-&nbsp;&bull;&nbsp;&copy;
+understandable, and extensible.</p><div class=blog-tags><span>Tags: </span><a href=/tags/legacy/>legacy</a>&nbsp;<a href=/tags/code/>code</a>&nbsp;<a href=/tags/software/>software</a>&nbsp;</div></article><a href=/blog/2023/09/misconceptions-about-code-comments/ class="nav-side-arrow nav-side-prev" title="Misconceptions about code comments" aria-label="Previous Post: Misconceptions about code comments"><i class="fas fa-chevron-left"></i>
+</a><a href=/blog/2023/11/what-is-your-constraint-mine-is-anti-work/ class="nav-side-arrow nav-side-next" title="What is your constraint? Mine is anti-work" aria-label="Next Post: What is your constraint? Mine is anti-work"><i class="fas fa-chevron-right"></i></a><ul class="post-pager blog-post-pager"><li class=pager-prev><a href=/blog/2023/09/misconceptions-about-code-comments/ data-bs-toggle=tooltip data-bs-placement=top title="Misconceptions about code comments"><i class="fas fa-chevron-left"></i> Previous Post</a></li><li class=pager-center></li><li class=pager-next><a href=/blog/2023/11/what-is-your-constraint-mine-is-anti-work/ data-bs-toggle=tooltip data-bs-placement=top title="What is your constraint? Mine is anti-work">Next Post <i class="fas fa-chevron-right"></i></a></li></ul><div class=toc-wrapper id=toc-wrapper data-toc-mode=headings><div class=toc-panel id=toc-panel role=dialog aria-label="Table of contents"><div class=toc-header><span class=toc-title>Table of Contents</span>
+<button class=toc-close id=toc-close aria-label="Close table of contents">&#215;</button></div><nav class=toc-body><nav id=TableOfContents><ul><li><a href=#code-jungle>Code jungle</a></li><li><a href=#scary-code>Scary code</a></li><li><a href=#the-cursed-phrases>The cursed phrases</a></li><li><a href=#the-cursed-state-of-things>The cursed state of things</a></li><li><a href=#what-to-do>What to do</a></li><li><a href=#conclusion>Conclusion</a></li></ul></nav></nav></div><div class=toc-backdrop id=toc-backdrop></div></div></div></div></div><footer><div class=container><div class=row><div class="col-md-10 offset-md-1"><ul class="list-inline text-center footer-links"><li class=list-inline-item><a href=/index.xml title=RSS><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="credits copyright text-muted">&copy;
 2026
-&nbsp;&bull;&nbsp;
-<a href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
-</p>
-<p class="credits theme-by text-muted">
-<a href=https://gohugo.io>Hugo v0.91.2</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
-</p>
-</div>
-</div>
-</div>
-</footer><script src=https://diegojromerolopez.github.io/js/katex.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/auto-render.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/jquery-3.5.1.slim.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/bootstrap.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/main.js></script><script>renderMathInElement(document.body)</script><script src=https://diegojromerolopez.github.io/js/photoswipe.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/photoswipe-ui-default.min.js></script><script src=https://diegojromerolopez.github.io/js/load-photoswipe.js></script>
-</body>
-</html>
+<a href=/>Diego J.'s Software Tar Pit</a></p><p class="credits theme-by text-muted"><a href=https://gohugo.io>Hugo v0.163.1</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a></p></div></div></div></footer><script defer src=/js/katex.min.js></script><script defer src=/js/auto-render.min.js onload=renderMathInElement(document.body)></script><script src=/js/jquery-4.0.0.slim.min.js></script><script src=/js/bootstrap.min.js></script><script src=/js/main.js></script><script src=/js/toc.js></script><script src=/js/photoswipe.umd.min.js></script><script src=/js/photoswipe-lightbox.umd.min.js></script><script src=/js/load-photoswipe.js></script></body></html>

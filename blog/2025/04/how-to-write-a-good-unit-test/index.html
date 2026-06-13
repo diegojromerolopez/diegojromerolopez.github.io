@@ -1,350 +1,127 @@
-<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>How to write a good unit test - Diego J.'s Software Tar Pit</title>
-<meta name=description content="How to write a good unit test This post provides some guidelines about how to write a good unit test. There are some examples in Python with unittest.
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage><head><script>(function(){var t,n=localStorage.getItem("theme"),e=!1;n==="dark"?(document.documentElement.setAttribute("data-theme","dark"),e=!0):n==="light"?document.documentElement.setAttribute("data-theme","light"):window.matchMedia("(prefers-color-scheme: dark)").matches&&(document.documentElement.setAttribute("data-theme","dark"),e=!0),t=document.getElementById("hljs-dark"),t&&(t.disabled=!e)})()</script><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><title>How to write a good unit test</title><meta name=description content="This post provides some guidelines about how to write a good unit test.
+There are some examples in Python with unittest.
+Introduction
+In my last post I wrote about
+software quality
+not being taken seriously sometimes.
+Tests are a good part of the software quality so I wanted to write a bit
+about the testing effort we should be doing in our code.
+Having said that, let us delve in the unit testing world with some examples in Python!"><script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@id":"https://diegojromerolopez.github.io/#website","@type":"WebSite","name":"Diego J.'s Software Tar Pit","publisher":{"@id":"https://diegojromerolopez.github.io/#organization"},"url":"https://diegojromerolopez.github.io/"},{"@id":"https://diegojromerolopez.github.io/#organization","@type":"Organization","name":null,"url":"https://diegojromerolopez.github.io/"},{"@id":"https://diegojromerolopez.github.io/blog/2025/04/how-to-write-a-good-unit-test/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://diegojromerolopez.github.io/","name":"Home","position":1},{"@type":"ListItem","item":"https://diegojromerolopez.github.io/post/","name":"Posts","position":2},{"@type":"ListItem","item":"https://diegojromerolopez.github.io/blog/2025/04/how-to-write-a-good-unit-test/","name":"How to write a good unit test","position":3}]},{"@id":"https://diegojromerolopez.github.io/blog/2025/04/how-to-write-a-good-unit-test/#webpage","@type":"WebPage","breadcrumb":{"@id":"https://diegojromerolopez.github.io/blog/2025/04/how-to-write-a-good-unit-test/#breadcrumb"},"isPartOf":{"@id":"https://diegojromerolopez.github.io/#website"},"name":"How to write a good unit test","url":"https://diegojromerolopez.github.io/blog/2025/04/how-to-write-a-good-unit-test/"},{"@id":"https://diegojromerolopez.github.io/blog/2025/04/how-to-write-a-good-unit-test/#article","@type":"Article","author":[],"dateCreated":"2025-04-05T00:00:00+02:00","dateModified":"2025-04-05T00:00:00+02:00","datePublished":"2025-04-05T00:00:00+02:00","description":"This post provides some guidelines about how to write a good unit test. There are some examples in Python with unittest.\nIntroduction In my last post I wrote about software quality not being taken seriously sometimes.\nTests are a good part of the software quality so I wanted to write a bit about the testing effort we should be doing in our code.\nHaving said that, let us delve in the unit testing world with some examples in Python!\n","headline":"How to write a good unit test","image":"https://diegojromerolopez.github.io/img/diegoj-logo.png","inLanguage":"en","keywords":["software","testing"],"mainEntityOfPage":{"@id":"https://diegojromerolopez.github.io/blog/2025/04/how-to-write-a-good-unit-test/#webpage"},"publisher":{"@id":"https://diegojromerolopez.github.io/#organization"},"wordCount":785}]}</script><meta property="og:url" content="https://diegojromerolopez.github.io/blog/2025/04/how-to-write-a-good-unit-test/"><meta property="og:site_name" content="Diego J.'s Software Tar Pit"><meta property="og:title" content="How to write a good unit test"><meta property="og:description" content="This post provides some guidelines about how to write a good unit test. There are some examples in Python with unittest.
 Introduction In my last post I wrote about software quality not being taken seriously sometimes.
-Tests are a good part of the software quality so I wanted to write a bit about the testing effort we should be doing in our code.">
-<meta name=author content="Diego J. Romero-López"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Diego J.\u0027s Software Tar Pit","url":"https:\/\/diegojromerolopez.github.io"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/diegojromerolopez.github.io"}</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/diegojromerolopez.github.io","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/diegojromerolopez.github.io\/blog\/2025\/04\/how-to-write-a-good-unit-test\/","name":"How to write a good unit test"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Diego J. Romero-López"},"headline":"How to write a good unit test","description":"How to write a good unit test This post provides some guidelines about how to write a good unit test. There are some examples in Python with unittest.\nIntroduction In my last post I wrote about software quality not being taken seriously sometimes.\nTests are a good part of the software quality so I wanted to write a bit about the testing effort we should be doing in our code.","inLanguage":"en","wordCount":786,"datePublished":"2025-04-05T00:00:00","dateModified":"2025-04-05T00:00:00","image":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","keywords":["software, testing"],"mainEntityOfPage":"https:\/\/diegojromerolopez.github.io\/blog\/2025\/04\/how-to-write-a-good-unit-test\/","publisher":{"@type":"Organization","name":"https:\/\/diegojromerolopez.github.io","logo":{"@type":"ImageObject","url":"https:\/\/diegojromerolopez.github.io\/img\/diegoj-logo.png","height":60,"width":60}}}</script>
-<meta property="og:title" content="How to write a good unit test">
-<meta property="og:description" content="How to write a good unit test This post provides some guidelines about how to write a good unit test. There are some examples in Python with unittest.
-Introduction In my last post I wrote about software quality not being taken seriously sometimes.
-Tests are a good part of the software quality so I wanted to write a bit about the testing effort we should be doing in our code.">
-<meta property="og:image" content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
-<meta property="og:url" content="https://diegojromerolopez.github.io/blog/2025/04/how-to-write-a-good-unit-test/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Diego J.'s Software Tar Pit">
-<meta name=twitter:title content="How to write a good unit test">
-<meta name=twitter:description content="How to write a good unit test This post provides some guidelines about how to write a good unit test. There are some examples in Python with unittest.
-Introduction In my last post I wrote about …">
-<meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png">
-<meta name=twitter:card content="summary_large_image">
-<meta name=twitter:site content="@diegojromerolop">
-<meta name=twitter:creator content="@diegojromerolop">
-<link href=https://diegojromerolopez.github.io/img/favicon.ico rel=icon type=image/x-icon>
-<meta name=generator content="Hugo 0.91.2">
-<link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=https://diegojromerolopez.github.io/css/katex.min.css>
-<link rel=stylesheet href=https://diegojromerolopez.github.io/fontawesome/css/all.css>
-<link rel=stylesheet href=https://diegojromerolopez.github.io/css/bootstrap.min.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/main.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/fonts.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/syntax.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/codeblock.css><link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.min.css>
-<link rel=stylesheet href=https://diegojromerolopez.github.io/css/photoswipe.default-skin.min.css>
-</head>
-<body>
-<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
-<div class=container-fluid>
-<div class=navbar-header>
-<button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
-<span class=sr-only>Toggle navigation</span>
-<span class=icon-bar></span>
-<span class=icon-bar></span>
-<span class=icon-bar></span>
+Tests are a good part of the software quality so I wanted to write a bit about the testing effort we should be doing in our code.
+Having said that, let us delve in the unit testing world with some examples in Python!"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2025-04-05T00:00:00+02:00"><meta property="article:modified_time" content="2025-04-05T00:00:00+02:00"><meta property="article:tag" content="Software"><meta property="article:tag" content="Testing"><link rel=canonical href=https://diegojromerolopez.github.io/blog/2025/04/how-to-write-a-good-unit-test/><meta name=twitter:title content="How to write a good unit test"><meta name=twitter:description content="This post provides some guidelines about how to write a good unit test.
+There are some examples in Python with unittest.
+Introduction
+In my last post I wrote about
+software quality
+not being taken …"><meta name=twitter:image content="https://diegojromerolopez.github.io/img/diegoj-logo.png"><meta name=twitter:card content="summary_large_image"><link href=/img/favicon.ico rel=icon type=image/x-icon><meta name=generator content="Hugo 0.163.1"><link rel=alternate href=https://diegojromerolopez.github.io/index.xml type=application/rss+xml title="Diego J.'s Software Tar Pit"><link rel=stylesheet href=/css/katex.min.css><link rel=stylesheet href=/fontawesome/css/brands.min.css><link rel=stylesheet href=/fontawesome/css/fontawesome.min.css><link rel=stylesheet href=/fontawesome/css/regular.min.css><link rel=stylesheet href=/fontawesome/css/solid.min.css><link rel=stylesheet href=/fontawesome/css/svg.min.css><link rel=stylesheet href=/fontawesome/css/svg-with-js.min.css><link rel=stylesheet href=/fontawesome/css/v4-font-face.min.css><link rel=stylesheet href=/fontawesome/css/v4-shims.min.css><link rel=stylesheet href=/fontawesome/css/v5-font-face.min.css><link rel=stylesheet href=/css/bootstrap.min.css><link rel=stylesheet href=/css/main.css><link rel=stylesheet href=/css/print.css media=print><link rel=stylesheet href=/css/dark.css><link rel=stylesheet href=/css/fonts.css><link rel=stylesheet href=/css/syntax.css><link id=hljs-dark rel=stylesheet href=/css/syntax-dark.css><link rel=stylesheet href=/css/codeblock.css><link rel=stylesheet href=/css/toc.css><link rel=stylesheet href=/css/photoswipe.css></head><body><nav class="navbar navbar-expand-md navbar-light navbar-custom fixed-top"><div class=container-fluid><a class=navbar-brand href=/>Diego J.'s Software Tar Pit</a><div class="d-flex align-items-center"><button class=theme-toggle id=toc-toggle aria-label="Table of contents" data-bs-toggle=tooltip data-bs-placement=bottom title="Table of contents">
+<span class="fas fa-list"></span>
 </button>
-<a class=navbar-brand href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
-</div>
-<div class="collapse navbar-collapse" id=main-navbar>
-<ul class="nav navbar-nav navbar-right">
-<li>
-<a title=Blog href=/>Blog</a>
-</li>
-<li>
-<a title=About href=/page/about/>About</a>
-</li>
-<li>
-<a title=CV href=/cv.pdf>CV</a>
-</li>
-<li>
-<a title=Tags href=/tags>Tags</a>
-</li>
-<li>
-<a href=/es lang=es>es</a>
-</li>
-</ul>
-</div>
-<div class=avatar-container>
-<div class=avatar-img-border>
-<a title="Diego J.'s Software Tar Pit" href=https://diegojromerolopez.github.io>
-<img class=avatar-img src=https://diegojromerolopez.github.io/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit">
-</a>
-</div>
-</div>
-</div>
-</nav>
-<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
-<div class=pswp__bg></div>
-<div class=pswp__scroll-wrap>
-<div class=pswp__container>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-</div>
-<div class="pswp__ui pswp__ui--hidden">
-<div class=pswp__top-bar>
-<div class=pswp__counter></div>
-<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-<button class="pswp__button pswp__button--share" title=Share></button>
-<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-<div class=pswp__preloader>
-<div class=pswp__preloader__icn>
-<div class=pswp__preloader__cut>
-<div class=pswp__preloader__donut></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-<div class=pswp__share-tooltip></div>
-</div>
-<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+<button class=theme-toggle id=theme-toggle aria-label=Theme data-bs-toggle=tooltip data-bs-placement=bottom data-tooltip-auto="Auto (follows system)" data-tooltip-light="Light mode" data-tooltip-dark="Dark mode" title="Auto (follows system)">
+<span class="fas fa-adjust" id=theme-icon-auto></span>
+<span class="fas fa-sun" id=theme-icon-light style=display:none></span>
+<span class="fas fa-moon" id=theme-icon-dark style=display:none></span>
 </button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-</button>
-<div class=pswp__caption>
-<div class=pswp__caption__center></div>
-</div>
-</div>
-</div>
-</div>
-<header class=header-section>
-<div class="intro-header no-img">
-<div class=container>
-<div class=row>
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<div class=post-heading>
-<h1>How to write a good unit test</h1>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Posted on April 5, 2025
-&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Diego J. Romero-López
-</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</header>
-<div class=container role=main>
-<div class=row>
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<article role=main class=blog-post>
-<h1 id=how-to-write-a-good-unit-test>How to write a good unit test</h1>
-<p>This post provides some guidelines about how to write a good unit test.
-There are some examples in Python with unittest.</p>
-<h2 id=introduction>Introduction</h2>
-<p>In my last post I wrote about
+<button type=button class=navbar-toggler data-bs-toggle=collapse data-bs-target=#main-navbar aria-controls=main-navbar aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button></div><div class="collapse navbar-collapse" id=main-navbar><ul class="navbar-nav ms-auto"><li class=nav-item><a class=nav-link title=Blog href=/>Blog</a></li><li class=nav-item><a class=nav-link title=About href=/page/about/>About</a></li><li class=nav-item><a class=nav-link title=CV href=/cv.pdf>CV</a></li><li class=nav-item><a class=nav-link title=Tags href=/tags>Tags</a></li></ul></div><div class=avatar-container><div class=avatar-img-border><a title="Diego J.'s Software Tar Pit" href=/><img class=avatar-img src=/img/diegoj-logo.png alt="Diego J.'s Software Tar Pit"></a></div></div></div></nav><header class=header-section><div class="intro-header no-img"><div class=container><div class=row><div class="col-md-10 offset-md-1"><div class=post-heading><h1>How to write a good unit test</h1><span class=post-meta><i class="fas fa-calendar"></i>&nbsp;Posted on April 5, 2025
+&nbsp;|&nbsp;</span></div></div></div></div></div></header><div class=container role=main><div class=row><div class="col-md-10 offset-md-1"><article role=main class=blog-post><p>This post provides some guidelines about how to write a good unit test.
+There are some examples in Python with unittest.</p><h2 id=introduction>Introduction</h2><p>In my last post I wrote about
 <a href=/blog/2025/03/software-quality-is-not-negotiable/>software quality</a>
-not being taken seriously sometimes.</p>
-<p>Tests are a good part of the <em>software quality</em> so I wanted to write a bit
-about the testing effort we should be doing in our code.</p>
-<p>Having said that, let us delve in the unit testing world with some examples in Python!</p>
-<h2 id=what-is-a-unit-test>What is a unit test?</h2>
-<p>A unit test is a test that checks the immediate dependencies of a module.</p>
-<p>For example, given this simple function that makes a HTTP request to an URL:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e># api/health.py</span>
-<span style=color:#f92672>import</span> requests
-<span style=color:#f92672>from</span> logging <span style=color:#f92672>import</span> Logger
-
-<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>service_is_healthy</span>(service_name: str, logger: Logger) <span style=color:#f92672>-&gt;</span> bool:
-    response <span style=color:#f92672>=</span> requests<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;https://</span><span style=color:#e6db74>{service_name}</span><span style=color:#e6db74>.example.com/health&#39;</span>)
-    ok <span style=color:#f92672>=</span> response<span style=color:#f92672>.</span>status_code <span style=color:#f92672>==</span> <span style=color:#ae81ff>200</span>
-    <span style=color:#66d9ef>if</span> ok:
-        logger<span style=color:#f92672>.</span>info(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;Service </span><span style=color:#e6db74>{</span>service_name<span style=color:#e6db74>}</span><span style=color:#e6db74> is healthy&#39;</span>)
-    <span style=color:#66d9ef>else</span>:
-        logger<span style=color:#f92672>.</span>error(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;Service </span><span style=color:#e6db74>{</span>service_name<span style=color:#e6db74>}</span><span style=color:#e6db74> is not healthy&#39;</span>)
-    <span style=color:#66d9ef>return</span> ok
-
-</code></pre></div><p>A unit test would be something like the following one:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> unittest <span style=color:#f92672>import</span> TestCase
-<span style=color:#f92672>from</span> unittest.mock <span style=color:#f92672>import</span> MagicMock, patch
-
-
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>TestApiHealth</span>(TestCase):
-    <span style=color:#a6e22e>@patch</span>(<span style=color:#e6db74>&#39;api.health.requests.get&#39;</span>)
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test</span>(self, mock_requests_get: MagicMock):
-        service_name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;my-service&#39;</span>
-        logger <span style=color:#f92672>=</span> logging<span style=color:#f92672>.</span>getLogger(__name__)
-        
-        mock_requests_get<span style=color:#f92672>.</span>return_value <span style=color:#f92672>=</span> MagicMock(status_code<span style=color:#f92672>=</span><span style=color:#ae81ff>200</span>)
-        
-        healthy <span style=color:#f92672>=</span> service_is_healthy(service_name<span style=color:#f92672>=</span>service_name, logger<span style=color:#f92672>=</span>logger)
-
-        self<span style=color:#f92672>.</span>assertTrue(healthy)
-</code></pre></div><p>The immediate dependency (requests) is replaced by a mock dependency that we can modify
-to change the behavior of our tested function.</p>
-<h2 id=what-is-a-good-unit-test>What is a good unit test?</h2>
-<p>It seems simple, we just check:</p>
-<ul>
-<li>What are we calling.</li>
-<li>How are we calling it.</li>
-</ul>
-<p>It as simple as checking the immediate lower layer from the piece of code we want to test.</p>
-<h3 id=test-name>Test name</h3>
-<p><em>Naming is the hardest problem in <del>Computer Science</del> Software Engineering</em>, so we need
+not being taken seriously sometimes.</p><p>Tests are a good part of the <em>software quality</em> so I wanted to write a bit
+about the testing effort we should be doing in our code.</p><p>Having said that, let us delve in the unit testing world with some examples in Python!</p><h2 id=what-is-a-unit-test>What is a unit test?</h2><p>A unit test is a test that checks the immediate dependencies of a module.</p><p>For example, given this simple function that makes a HTTP request to an URL:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># api/health.py</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> requests
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> logging <span style=color:#f92672>import</span> Logger
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>service_is_healthy</span>(service_name: str, logger: Logger) <span style=color:#f92672>-&gt;</span> bool:
+</span></span><span style=display:flex><span>    response <span style=color:#f92672>=</span> requests<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;https://</span><span style=color:#e6db74>{service_name}</span><span style=color:#e6db74>.example.com/health&#39;</span>)
+</span></span><span style=display:flex><span>    ok <span style=color:#f92672>=</span> response<span style=color:#f92672>.</span>status_code <span style=color:#f92672>==</span> <span style=color:#ae81ff>200</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> ok:
+</span></span><span style=display:flex><span>        logger<span style=color:#f92672>.</span>info(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;Service </span><span style=color:#e6db74>{</span>service_name<span style=color:#e6db74>}</span><span style=color:#e6db74> is healthy&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>        logger<span style=color:#f92672>.</span>error(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;Service </span><span style=color:#e6db74>{</span>service_name<span style=color:#e6db74>}</span><span style=color:#e6db74> is not healthy&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> ok
+</span></span></code></pre></div><p>A unit test would be something like the following one:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>from</span> unittest <span style=color:#f92672>import</span> TestCase
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> unittest.mock <span style=color:#f92672>import</span> MagicMock, patch
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>TestApiHealth</span>(TestCase):
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@patch</span>(<span style=color:#e6db74>&#39;api.health.requests.get&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test</span>(self, mock_requests_get: MagicMock):
+</span></span><span style=display:flex><span>        service_name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;my-service&#39;</span>
+</span></span><span style=display:flex><span>        logger <span style=color:#f92672>=</span> logging<span style=color:#f92672>.</span>getLogger(__name__)
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        mock_requests_get<span style=color:#f92672>.</span>return_value <span style=color:#f92672>=</span> MagicMock(status_code<span style=color:#f92672>=</span><span style=color:#ae81ff>200</span>)
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        healthy <span style=color:#f92672>=</span> service_is_healthy(service_name<span style=color:#f92672>=</span>service_name, logger<span style=color:#f92672>=</span>logger)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>assertTrue(healthy)
+</span></span></code></pre></div><p>The immediate dependency (requests) is replaced by a mock dependency that we can modify
+to change the behavior of our tested function.</p><h2 id=what-is-a-good-unit-test>What is a good unit test?</h2><p>It seems simple, we just check:</p><ul><li>What are we calling.</li><li>How are we calling it.</li></ul><p>It as simple as checking the immediate lower layer from the piece of code we want to test.</p><h3 id=test-name>Test name</h3><p><em>Naming is the hardest problem in <del>Computer Science</del> Software Engineering</em>, so we need
 to provide a name that is meaningful and it actually helps the engineers to identify what
-it checks.</p>
-<p>A good candidate for our example is <code>test_service_is_healthy_status_ok</code>.</p>
-<h3 id=mock-the-dependencies>Mock the dependencies</h3>
-<p>Unless we are talking about a Singleton that is extremely hard to mock,
-<strong>all dependencies must be mocked</strong>.</p>
-<p>Thus, it is easy to know the dependencies just by looking at the patch decorators:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>    <span style=color:#a6e22e>@patch</span>(<span style=color:#e6db74>&#39;api.health.requests.get&#39;</span>)
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test_service_is_healthy_status_ok</span>(self, mock_requests_get: MagicMock, mock_logger: MagicMock):
-        <span style=color:#f92672>...</span>
-</code></pre></div><h3 id=exhaustive>Exhaustive</h3>
-<p>In this context what I mean by exhaustive is that all the dependencies must have their
-contracts checked. By contracts I mean the API calls.</p>
-<p>So, if you have two mocks in your test, you would need to add assertions for each mock that check
+it checks.</p><p>A good candidate for our example is <code>test_service_is_healthy_status_ok</code>.</p><h3 id=mock-the-dependencies>Mock the dependencies</h3><p>Unless we are talking about a Singleton that is extremely hard to mock,
+<strong>all dependencies must be mocked</strong>.</p><p>Thus, it is easy to know the dependencies just by looking at the patch decorators:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span>    <span style=color:#a6e22e>@patch</span>(<span style=color:#e6db74>&#39;api.health.requests.get&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test_service_is_healthy_status_ok</span>(self, mock_requests_get: MagicMock, mock_logger: MagicMock):
+</span></span><span style=display:flex><span>        <span style=color:#f92672>...</span>
+</span></span></code></pre></div><h3 id=exhaustive>Exhaustive</h3><p>In this context what I mean by exhaustive is that all the dependencies must have their
+contracts checked. By contracts I mean the API calls.</p><p>So, if you have two mocks in your test, you would need to add assertions for each mock that check
 not only the number of calls but the arguments of each call. If you do this that way you are ensuring
-the contract between your module and the lower-level layer.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>    <span style=color:#a6e22e>@patch</span>(<span style=color:#e6db74>&#39;api.health.requests.get&#39;</span>)
-    <span style=color:#a6e22e>@patch</span>(<span style=color:#e6db74>&#39;api.health.Logger&#39;</span>)
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test_service_is_healthy_status_ok</span>(self, mock_requests_get: MagicMock, mock_logger: MagicMock):
-        service_name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;my-service&#39;</span>
-
-        mock_requests_get<span style=color:#f92672>.</span>return_value <span style=color:#f92672>=</span> MagicMock(status_code<span style=color:#f92672>=</span><span style=color:#ae81ff>200</span>)
-
-        healthy <span style=color:#f92672>=</span> service_is_healthy(service_name<span style=color:#f92672>=</span>service_name)
-        
-        self<span style=color:#f92672>.</span>assertTrue(healthy)
-        self<span style=color:#f92672>.</span>assertEqual([call(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;https://</span><span style=color:#e6db74>{</span>service_name<span style=color:#e6db74>}</span><span style=color:#e6db74>.example.com/health&#39;</span>)], mock_requests_get<span style=color:#f92672>.</span>call_args_list)
-        self<span style=color:#f92672>.</span>assertEqual([call(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;Service </span><span style=color:#e6db74>{</span>service_name<span style=color:#e6db74>}</span><span style=color:#e6db74> is healthy&#39;</span>), mock_logger<span style=color:#f92672>.</span>info<span style=color:#f92672>.</span>call_args_list]) 
-</code></pre></div><h3 id=minimal>Minimal</h3>
-<p>A test must check the least assertions as possible. I am not talking about having tests
-for each of the assertions, but for the <em>group of assertions</em>.</p>
-<p>For example, if we intend to test if logging messages are written, do not create
-a test for each span expectation, but one test for all of them.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>    <span style=color:#a6e22e>@patch</span>(<span style=color:#e6db74>&#39;api.health.requests.get&#39;</span>)
-    <span style=color:#a6e22e>@patch</span>(<span style=color:#e6db74>&#39;api.health.Logger&#39;</span>)
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test_logging_when_service_is_healthy_status_ok</span>(self, mock_requests_get: MagicMock, mock_logger: MagicMock):
-        service_name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;my-service&#39;</span>
-
-        mock_requests_get<span style=color:#f92672>.</span>return_value <span style=color:#f92672>=</span> MagicMock(status_code<span style=color:#f92672>=</span><span style=color:#ae81ff>200</span>)
-
-        healthy <span style=color:#f92672>=</span> service_is_healthy(service_name<span style=color:#f92672>=</span>service_name)
-        
-        self<span style=color:#f92672>.</span>assertTrue(healthy)
-        self<span style=color:#f92672>.</span>assertEqual([call(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;Service </span><span style=color:#e6db74>{</span>service_name<span style=color:#e6db74>}</span><span style=color:#e6db74> is healthy&#39;</span>)], mock_logger<span style=color:#f92672>.</span>info<span style=color:#f92672>.</span>call_args_list]) 
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>    <span style=color:#a6e22e>@patch</span>(<span style=color:#e6db74>&#39;api.health.requests.get&#39;</span>)
-    <span style=color:#a6e22e>@patch</span>(<span style=color:#e6db74>&#39;api.health.Logger&#39;</span>)
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test_logging_when_service_is_healthy_status_internal_server_error</span>(self, mock_requests_get: MagicMock, mock_logger: MagicMock):
-        service_name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;my-service&#39;</span>
-
-        mock_requests_get<span style=color:#f92672>.</span>return_value <span style=color:#f92672>=</span> MagicMock(status_code<span style=color:#f92672>=</span><span style=color:#ae81ff>500</span>)
-        
-        healthy <span style=color:#f92672>=</span> service_is_healthy(service_name<span style=color:#f92672>=</span>service_name)
-        
-        self<span style=color:#f92672>.</span>assertFalse(healthy)
-        self<span style=color:#f92672>.</span>assertEqual([call(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;Service </span><span style=color:#e6db74>{</span>service_name<span style=color:#e6db74>}</span><span style=color:#e6db74> is not healthy&#39;</span>)], mock_logger<span style=color:#f92672>.</span>error<span style=color:#f92672>.</span>call_args_list]) 
-</code></pre></div><p>Why do we need to leave the <code>assertTrue</code> or <code>assertFalse</code>? We need a <em>hook</em> to ensure the function is running as expected, and as leaving
-that check is not much work, I always recommend ensuring that the behavior is the expected one in all tests.</p>
-<h3 id=check-what-not-happens>Check what not happens</h3>
-<p>It is important to check what happens but also <strong>what does not happen</strong>.</p>
-<p>Coming back to our example, ensuring that the error log is not written at all when everything works perfectly is paramount:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>    <span style=color:#a6e22e>@patch</span>(<span style=color:#e6db74>&#39;api.health.requests.get&#39;</span>)
-    <span style=color:#a6e22e>@patch</span>(<span style=color:#e6db74>&#39;api.health.Logger&#39;</span>)
-    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test_logging_when_service_is_healthy_status_ok</span>(self, mock_requests_get: MagicMock, mock_logger: MagicMock):
-        service_name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;my-service&#39;</span>
-
-        healthy <span style=color:#f92672>=</span> service_is_healthy(service_name<span style=color:#f92672>=</span>service_name)
-        
-        self<span style=color:#f92672>.</span>assertTrue(healthy)
-        self<span style=color:#f92672>.</span>assertEqual([call(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;Service </span><span style=color:#e6db74>{</span>service_name<span style=color:#e6db74>}</span><span style=color:#e6db74> is healthy&#39;</span>)], mock_logger<span style=color:#f92672>.</span>info<span style=color:#f92672>.</span>call_args_list]) 
-        self<span style=color:#f92672>.</span>assertEqual([], mock_logger<span style=color:#f92672>.</span>error<span style=color:#f92672>.</span>call_args_list]) 
-</code></pre></div><h3 id=external-dependencies>External dependencies</h3>
-<p>This is a personal preference but <strong>I do not like having to install packages for testing my projects</strong>.</p>
-<p>This is why I would rather use <a href=https://docs.python.org/3/library/unittest.html>unittest</a> than
+the contract between your module and the lower-level layer.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span>    <span style=color:#a6e22e>@patch</span>(<span style=color:#e6db74>&#39;api.health.requests.get&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@patch</span>(<span style=color:#e6db74>&#39;api.health.Logger&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test_service_is_healthy_status_ok</span>(self, mock_requests_get: MagicMock, mock_logger: MagicMock):
+</span></span><span style=display:flex><span>        service_name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;my-service&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        mock_requests_get<span style=color:#f92672>.</span>return_value <span style=color:#f92672>=</span> MagicMock(status_code<span style=color:#f92672>=</span><span style=color:#ae81ff>200</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        healthy <span style=color:#f92672>=</span> service_is_healthy(service_name<span style=color:#f92672>=</span>service_name)
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>assertTrue(healthy)
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>assertEqual([call(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;https://</span><span style=color:#e6db74>{</span>service_name<span style=color:#e6db74>}</span><span style=color:#e6db74>.example.com/health&#39;</span>)], mock_requests_get<span style=color:#f92672>.</span>call_args_list)
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>assertEqual([call(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;Service </span><span style=color:#e6db74>{</span>service_name<span style=color:#e6db74>}</span><span style=color:#e6db74> is healthy&#39;</span>), mock_logger<span style=color:#f92672>.</span>info<span style=color:#f92672>.</span>call_args_list]) 
+</span></span></code></pre></div><h3 id=minimal>Minimal</h3><p>A test must check the least assertions as possible. I am not talking about having tests
+for each of the assertions, but for the <em>group of assertions</em>.</p><p>For example, if we intend to test if logging messages are written, do not create
+a test for each span expectation, but one test for all of them.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span>    <span style=color:#a6e22e>@patch</span>(<span style=color:#e6db74>&#39;api.health.requests.get&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@patch</span>(<span style=color:#e6db74>&#39;api.health.Logger&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test_logging_when_service_is_healthy_status_ok</span>(self, mock_requests_get: MagicMock, mock_logger: MagicMock):
+</span></span><span style=display:flex><span>        service_name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;my-service&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        mock_requests_get<span style=color:#f92672>.</span>return_value <span style=color:#f92672>=</span> MagicMock(status_code<span style=color:#f92672>=</span><span style=color:#ae81ff>200</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        healthy <span style=color:#f92672>=</span> service_is_healthy(service_name<span style=color:#f92672>=</span>service_name)
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>assertTrue(healthy)
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>assertEqual([call(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;Service </span><span style=color:#e6db74>{</span>service_name<span style=color:#e6db74>}</span><span style=color:#e6db74> is healthy&#39;</span>)], mock_logger<span style=color:#f92672>.</span>info<span style=color:#f92672>.</span>call_args_list]) 
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span>    <span style=color:#a6e22e>@patch</span>(<span style=color:#e6db74>&#39;api.health.requests.get&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@patch</span>(<span style=color:#e6db74>&#39;api.health.Logger&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test_logging_when_service_is_healthy_status_internal_server_error</span>(self, mock_requests_get: MagicMock, mock_logger: MagicMock):
+</span></span><span style=display:flex><span>        service_name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;my-service&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        mock_requests_get<span style=color:#f92672>.</span>return_value <span style=color:#f92672>=</span> MagicMock(status_code<span style=color:#f92672>=</span><span style=color:#ae81ff>500</span>)
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        healthy <span style=color:#f92672>=</span> service_is_healthy(service_name<span style=color:#f92672>=</span>service_name)
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>assertFalse(healthy)
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>assertEqual([call(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;Service </span><span style=color:#e6db74>{</span>service_name<span style=color:#e6db74>}</span><span style=color:#e6db74> is not healthy&#39;</span>)], mock_logger<span style=color:#f92672>.</span>error<span style=color:#f92672>.</span>call_args_list]) 
+</span></span></code></pre></div><p>Why do we need to leave the <code>assertTrue</code> or <code>assertFalse</code>? We need a <em>hook</em> to ensure the function is running as expected, and as leaving
+that check is not much work, I always recommend ensuring that the behavior is the expected one in all tests.</p><h3 id=check-what-not-happens>Check what not happens</h3><p>It is important to check what happens but also <strong>what does not happen</strong>.</p><p>Coming back to our example, ensuring that the error log is not written at all when everything works perfectly is paramount:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span>    <span style=color:#a6e22e>@patch</span>(<span style=color:#e6db74>&#39;api.health.requests.get&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>@patch</span>(<span style=color:#e6db74>&#39;api.health.Logger&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test_logging_when_service_is_healthy_status_ok</span>(self, mock_requests_get: MagicMock, mock_logger: MagicMock):
+</span></span><span style=display:flex><span>        service_name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;my-service&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        healthy <span style=color:#f92672>=</span> service_is_healthy(service_name<span style=color:#f92672>=</span>service_name)
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>assertTrue(healthy)
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>assertEqual([call(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;Service </span><span style=color:#e6db74>{</span>service_name<span style=color:#e6db74>}</span><span style=color:#e6db74> is healthy&#39;</span>)], mock_logger<span style=color:#f92672>.</span>info<span style=color:#f92672>.</span>call_args_list]) 
+</span></span><span style=display:flex><span>        self<span style=color:#f92672>.</span>assertEqual([], mock_logger<span style=color:#f92672>.</span>error<span style=color:#f92672>.</span>call_args_list]) 
+</span></span></code></pre></div><h3 id=external-dependencies>External dependencies</h3><p>This is a personal preference but <strong>I do not like having to install packages for testing my projects</strong>.</p><p>This is why I would rather use <a href=https://docs.python.org/3/library/unittest.html>unittest</a> than
 <a href=https://docs.pytest.org/en/stable/>pytest</a> in Python. I know there are others that do not think
 like me, but having another package whose upgrades, deprecations and removals need to be taking
-care of is not worth it for me.</p>
-<p>Other languages like Ruby where there is <em>some consensus</em>
+care of is not worth it for me.</p><p>Other languages like Ruby where there is <em>some consensus</em>
 in the community to use another one (<a href=https://rspec.info/>rspec</a>). I think I have never used
 <a href=https://ruby-doc.org/stdlib-3.1.0/libdoc/test-unit/rdoc/Test/Unit.html>Test::Unit</a> in all
-the years I have worked with Ruby.</p>
-<p>I recommend using the most popular and (if possible built-in) testing package of your
-programming language or framework you are basing your project on.</p>
-<h2 id=conclusion>Conclusion</h2>
-<p>Hope this short article has given you some pointers about how to create a good and useful unit test.</p>
-<div class=blog-tags>
-<a href=https://diegojromerolopez.github.io/tags/software/>software</a>&nbsp;
-<a href=https://diegojromerolopez.github.io/tags/testing/>testing</a>&nbsp;
-</div>
-</article>
-<ul class="pager blog-pager">
-<li class=previous>
-<a href=https://diegojromerolopez.github.io/blog/2025/03/software-quality-is-not-negotiable/ data-toggle=tooltip data-placement=top title="Software quality is not negotiable">&larr; Previous Post</a>
-</li>
-<li class=next>
-<a href=https://diegojromerolopez.github.io/blog/2025/05/can-llms-replace-engineers/ data-toggle=tooltip data-placement=top title="Can LLMs replace engineers?">Next Post &rarr;</a>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<footer>
-<div class=container>
-<div class=row>
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<ul class="list-inline text-center footer-links">
-<li>
-<a href=mailto:diegojromerolopez@gmail.com title="Email me">
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href=https://github.com/diegojromerolopez title=GitHub>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fab fa-github fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href=https://twitter.com/diegojromerolop title=Twitter>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href=https://linkedin.com/in/diegojromerolopez title=LinkedIn>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-<li>
-<a href title=RSS>
-<span class="fa-stack fa-lg">
-<i class="fas fa-circle fa-stack-2x"></i>
-<i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-</span>
-</a>
-</li>
-</ul>
-<p class="credits copyright text-muted">
-Diego J. Romero-López
-&nbsp;&bull;&nbsp;&copy;
+the years I have worked with Ruby.</p><p>I recommend using the most popular and (if possible built-in) testing package of your
+programming language or framework you are basing your project on.</p><h2 id=conclusion>Conclusion</h2><p>Hope this short article has given you some pointers about how to create a good and useful unit test.</p><div class=blog-tags><span>Tags: </span><a href=/tags/software/>software</a>&nbsp;<a href=/tags/testing/>testing</a>&nbsp;</div></article><a href=/blog/2025/03/software-quality-is-not-negotiable/ class="nav-side-arrow nav-side-prev" title="Software quality is not negotiable" aria-label="Previous Post: Software quality is not negotiable"><i class="fas fa-chevron-left"></i>
+</a><a href=/blog/2025/05/can-llms-replace-engineers/ class="nav-side-arrow nav-side-next" title="Can LLMs replace engineers?" aria-label="Next Post: Can LLMs replace engineers?"><i class="fas fa-chevron-right"></i></a><ul class="post-pager blog-post-pager"><li class=pager-prev><a href=/blog/2025/03/software-quality-is-not-negotiable/ data-bs-toggle=tooltip data-bs-placement=top title="Software quality is not negotiable"><i class="fas fa-chevron-left"></i> Previous Post</a></li><li class=pager-center></li><li class=pager-next><a href=/blog/2025/05/can-llms-replace-engineers/ data-bs-toggle=tooltip data-bs-placement=top title="Can LLMs replace engineers?">Next Post <i class="fas fa-chevron-right"></i></a></li></ul><div class=toc-wrapper id=toc-wrapper data-toc-mode=headings><div class=toc-panel id=toc-panel role=dialog aria-label="Table of contents"><div class=toc-header><span class=toc-title>Table of Contents</span>
+<button class=toc-close id=toc-close aria-label="Close table of contents">&#215;</button></div><nav class=toc-body><nav id=TableOfContents><ul><li><a href=#introduction>Introduction</a></li><li><a href=#what-is-a-unit-test>What is a unit test?</a></li><li><a href=#what-is-a-good-unit-test>What is a good unit test?</a><ul><li><a href=#test-name>Test name</a></li><li><a href=#mock-the-dependencies>Mock the dependencies</a></li><li><a href=#exhaustive>Exhaustive</a></li><li><a href=#minimal>Minimal</a></li><li><a href=#check-what-not-happens>Check what not happens</a></li><li><a href=#external-dependencies>External dependencies</a></li></ul></li><li><a href=#conclusion>Conclusion</a></li></ul></nav></nav></div><div class=toc-backdrop id=toc-backdrop></div></div></div></div></div><footer><div class=container><div class=row><div class="col-md-10 offset-md-1"><ul class="list-inline text-center footer-links"><li class=list-inline-item><a href=/index.xml title=RSS><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="credits copyright text-muted">&copy;
 2026
-&nbsp;&bull;&nbsp;
-<a href=https://diegojromerolopez.github.io>Diego J.'s Software Tar Pit</a>
-</p>
-<p class="credits theme-by text-muted">
-<a href=https://gohugo.io>Hugo v0.91.2</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
-</p>
-</div>
-</div>
-</div>
-</footer><script src=https://diegojromerolopez.github.io/js/katex.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/auto-render.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/jquery-3.5.1.slim.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/bootstrap.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/main.js></script><script>renderMathInElement(document.body)</script><script src=https://diegojromerolopez.github.io/js/photoswipe.min.js></script>
-<script src=https://diegojromerolopez.github.io/js/photoswipe-ui-default.min.js></script><script src=https://diegojromerolopez.github.io/js/load-photoswipe.js></script>
-</body>
-</html>
+<a href=/>Diego J.'s Software Tar Pit</a></p><p class="credits theme-by text-muted"><a href=https://gohugo.io>Hugo v0.163.1</a> powered &nbsp;&bull;&nbsp; Theme <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adapted from <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a></p></div></div></div></footer><script defer src=/js/katex.min.js></script><script defer src=/js/auto-render.min.js onload=renderMathInElement(document.body)></script><script src=/js/jquery-4.0.0.slim.min.js></script><script src=/js/bootstrap.min.js></script><script src=/js/main.js></script><script src=/js/toc.js></script><script src=/js/photoswipe.umd.min.js></script><script src=/js/photoswipe-lightbox.umd.min.js></script><script src=/js/load-photoswipe.js></script></body></html>
