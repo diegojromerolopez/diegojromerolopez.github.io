@@ -5,7 +5,6 @@ draft: false
 tags: ["deno", "fresh", "docker"]
 ---
 
-# How to create a Dockerfile for your deno fresh project
 Sometimes creating a Dockerfile is an art, you need to be aware of what files include in each layer to leverage
 the docker cache. How can we do this with [deno fresh](https://fresh.deno.dev/)?
 

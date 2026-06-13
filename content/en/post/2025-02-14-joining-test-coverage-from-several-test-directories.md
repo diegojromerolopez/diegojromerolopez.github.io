@@ -5,7 +5,6 @@ draft: false
 tags: ["python", "coverage"]
 ---
 
-# Joining test coverage from several test directories
 This post show a simple way of computing the coverage.py's test coverage
 from different tests folders.
 

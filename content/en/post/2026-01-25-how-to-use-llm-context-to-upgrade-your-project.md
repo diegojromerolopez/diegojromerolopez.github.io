@@ -5,7 +5,6 @@ draft: false
 tags: ["llm", "ai", "guide", "showcase"]
 ---
 
-# How to use LLM context to upgrade your  project
 In this post we pick up a Python 2.0 project and show how to use a
 [LLM](https://en.wikipedia.org/wiki/Large_language_model) to upgrade a software project.
 This time we will be using contexts.

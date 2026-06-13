@@ -5,7 +5,6 @@ draft: false
 tags: ["software engineering", "workplace", "mental health"]
 ---
 
-# Don't work more than enough
 Sometimes we push ourselves to the max. maybe because it is
 there are some deadlines when we are not going to be able to
 release the new version, maybe it is because our life outside

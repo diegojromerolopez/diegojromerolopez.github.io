@@ -5,8 +5,6 @@ draft: false
 tags: ["software engineering", "naming", "diversity"]
 ---
 
-# Software engineer, programmer or wizard
-
 ## Introduction
 I have been named many things (with respect to my
 profession) some of them were not actually correct.

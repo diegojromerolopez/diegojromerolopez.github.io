@@ -5,7 +5,6 @@ draft: false
 tags: ["llm", "software engineering"]
 ---
 
-# stricc: Building a Safe C Compiler Through Specification and Validation
 I have created a C compiler that has improved features on safety and defined behavior.
 I am not an expert in Rust, not in compiler construction. How have I done it?
 

@@ -5,8 +5,6 @@ draft: false
 tags: ["philosophy"]
 ---
 
-# Fail fast and often
-
 Being fail-tolerant is valued in organizations as in a changing
 world where requirements, technologies or even team members
 can change from one day to the next, having adaptative capacities *is gold*.

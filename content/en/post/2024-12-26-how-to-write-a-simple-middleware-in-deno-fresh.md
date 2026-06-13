@@ -5,7 +5,6 @@ draft: false
 tags: ["deno", "fresh"]
 ---
 
-# How to write a simple middleware in deno fresh
 Middlewares are layers that inject data or check the HTTP request and are used by a set of routes.
 They are very useful as they group functionality together. Let's see how to implement a middleware
 in deno fresh.

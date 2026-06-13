@@ -5,7 +5,6 @@ draft: false
 tags: ["software", "python", "conventions"]
 ---
 
-# I do not like *args and **kwargs in Python
 `*args` and `**kwargs` are the way to declare positional and keyword function arguments (resp.) in Python.
 
 ## Introduction

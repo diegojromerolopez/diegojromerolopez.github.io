@@ -5,7 +5,6 @@ draft: false
 tags: ["teams", "culture"]
 ---
 
-# How to work in a toxic environment
 There are many posts about growing a good culture of empathy
 in teams. But how could you deal with a toxic culture?
 In this post we are going to delve into this question.

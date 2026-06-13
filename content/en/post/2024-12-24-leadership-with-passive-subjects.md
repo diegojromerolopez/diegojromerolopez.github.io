@@ -5,7 +5,6 @@ draft: false
 tags: ["leadership", "training", "career", "mentorship"]
 ---
 
-# Leadership with passive subjects
 Most leadership advice (that I have read) assumes all the team members are motivated
 and want to improve themselves. However, what about the opposite? What can happen
 when a developer is not interested in improve their skills and is dragging down the team?

@@ -5,7 +5,6 @@ draft: false
 tags: ["software", "organization", "teams", "support"]
 ---
 
-# What is your constraint? Mine is anti-work
 We, as engineers, not only are worried about creating new things,
 we need to be able to detect the cause of future issues. However,
 we must not limit ourselves to software, but to the entire software

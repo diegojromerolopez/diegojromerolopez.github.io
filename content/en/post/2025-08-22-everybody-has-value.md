@@ -5,7 +5,6 @@ draft: false
 tags: ["teams", "culture", "equity", "war-story"]
 ---
 
-# Everybody has value
 In this post I tell a *war story* that happened during my time in a
 medium-sized multi-national company where I had a leadership role.
 

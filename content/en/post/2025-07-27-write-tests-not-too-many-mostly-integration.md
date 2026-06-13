@@ -5,7 +5,6 @@ draft: false
 tags: ["software", "testing", "reflections"]
 ---
 
-# Write tests. Not too many. Mostly integration.
 This is some advice that appear first at Twitter by [Guillermo Rauch](https://rauchg.com/).
 Years have passed since I read it and now I am at a position to reflect on them and how I
 was following this advice even when I did not know that *explicitly*.

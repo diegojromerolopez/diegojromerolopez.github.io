@@ -5,7 +5,6 @@ draft: false
 tags: ["software", "architecture", "anti-pattern"]
 ---
 
-# Don't use singletons
 The Singleton pattern is one of the patterns that appeared
 in the [Design Patterns book by Erich Gamma et al.](https://en.wikipedia.org/wiki/Design_Patterns).
 

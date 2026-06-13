@@ -6,16 +6,10 @@ tags: ["docker", "linux", "tips"]
 bigimg: [{src: "/img/shipping-containers.jpeg", desc: "Public domain image from Pexels (https://www.pexels.com/photo/blue-white-orange-and-brown-container-van-163726/)"}]
 ---
 
-Docker is a container system that allow developers to have a common
-environment to develop and SRE/devops to have machine-independent
-deployment process. 
-
-# Allow writing of files in docker in Linux
-
 I have been working on a small project in Python:
 [functainer](https://github.com/diegojromerolopez/functainer).
 The goal of this project is to provide a Python package to run functions
-in docker seamlessly: you only will docker and Python to run it.
+in docker seamlessly: you only will [docker](https://www.docker.com/) and Python to run it.
 
 Anyway, that project uses files as a mean of communication, i.e.
 there is a file volume that the container uses to write the

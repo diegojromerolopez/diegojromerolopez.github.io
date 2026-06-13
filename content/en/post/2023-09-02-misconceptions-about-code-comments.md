@@ -5,7 +5,6 @@ draft: false
 tags: ["documentation", "comments", "software"]
 ---
 
-# Misconceptions about code comments
 I have been working in this industry since 2008, and
 it seems an idea is spreading through software companies:
 code comments *are considered harmful*. Is that true?

@@ -6,7 +6,7 @@ tags: ["immutability", "python", "project"]
 bigimg: [{src: "/img/the-sea-of-ice.jpeg", desc: "The sea of ice by Caspar David Friedrich"}]
 ---
 
-# Introduction
+## Introduction
 In this post I will explain the rationale about working with immutable objects
 and will present a personal project I've been working on the last few days:
 [Gelidum](https://github.com/diegojromerolopez/gelidum).
@@ -14,7 +14,7 @@ and will present a personal project I've been working on the last few days:
 ![La nevada, painted by Francisco de Goya](/img/la-nevada-goya.jpeg "La nevada by Francisco de Goya")
 *La nevada by Francisco de Goya* 
 
-# Why immutability?
+## Why immutability?
 Nowadays, most processors have some kind of parallelism or concurrency
 embedded in themselves. Single-flow-execution software is limited by
 the lowest speed unit in the system. There are some solutions that
@@ -28,7 +28,7 @@ share the same memory banks, should be have to share the variables
 between threads? It is not recommended as coordinating the editions of the variables can be extremely difficult, so most solutions push for communicating threads by messages or sharing immutable data
 (our approach here).
 
-# Introducing Gelidum
+## Introducing Gelidum
 [Gelidum](https://github.com/diegojromerolopez/gelidum) (pronounced *ye-lee-doom*,
 meaning *frozen* in latin) is a [python package](https://pypi.org/project/gelidum/)
 that allows you to freeze and object (and all of its references), making it immutable.
@@ -37,7 +37,7 @@ changed. Further, this *freezing* is a **deep** freeze, meaning that all the att
 that are objects will also be frozen, and the attributes of each of this attributes and
 so on. Any object referenced by this object or one of its descendents will be frozen.
 
-# How did you do this?
+## How did you do this?
 The idea of Gelidum is remove all attributes that can modify the current attributes of an
 instance or that can add new attributes.
 
@@ -119,7 +119,7 @@ will make to freeze the current objects when possible (e.g. builtin objects
 cannot be frozen). Passing a False value (its default value) will make
 frozen copies instead.
 
-# How to use it
+## How to use it
 Using gelidum is very easy, import the method freeze and call the object
 you want to make immutable:
 
@@ -145,14 +145,14 @@ limited as all \*args attributes will be frozen and you can only choose what
 \*\*kwargs attributes are frozen by passing the names of that attributes in
 the params input parameter.
 
-# Why did you do this?
+## Why did you do this?
 Well, having worked with Ruby in the past, I loved how the objects have
 a freeze method and, although, its intended use was to make strings and
 constants immutable, it inspired me to expand the concept to any object
 and with a deep-freeze. However, I did it Python as you can see as is
 my current to-go programming language nowadays.
 
-# Is it safe?
+## Is it safe?
 There are some tests in the package but I have classified this package
 as alpha. I have not tested in production environments with concurrency and
 parallelism, so there is no warranty of working 100% fine.
@@ -163,7 +163,7 @@ pypy, although it should be working perfectly as this module is pure-python.
 However, if you find a bug, feel free to open an issue in the project's
 page and will take a look at it as soon as possible.
 
-# Conclusion
+## Conclusion
 This post shows a project with the intent of making immutable objects (*freezing objects*)
 more easier. Its current release is alpha but all use-cases that have been tested
 have been successful.

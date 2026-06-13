@@ -5,7 +5,6 @@ draft: false
 tags: ["docker"]
 ---
 
-# Dockerfile stages must have a command
 In multi-stage Dockerfile, you have to be careful
 for what stages you run. Want to avoid having
 misteriously exit 0 errors in containers?

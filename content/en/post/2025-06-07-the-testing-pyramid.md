@@ -5,7 +5,6 @@ draft: false
 tags: ["software", "testing"]
 ---
 
-# The test pyramid
 This post revisit one of my favorite topics: [testing](/tags/testing/).
 We are going to delve into what are the different types of tests that you should do in your software
 to have some assurance about your code.

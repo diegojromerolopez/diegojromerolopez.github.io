@@ -5,7 +5,6 @@ draft: false
 tags: ["legacy", "code", "software"]
 ---
 
-# Don't touch that
 Have you ever been told "don't touch that, if you modify that piece
 of code you are going to break anything"? How did you react to this
 comment? Did you feel "attacked" or simply ignored that piece of *advice*?

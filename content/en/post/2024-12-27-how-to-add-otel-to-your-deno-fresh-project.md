@@ -5,7 +5,6 @@ draft: false
 tags: ["deno", "fresh", "otel"]
 ---
 
-# How to add OTEL to your deno fresh project
 [OpenTelemetry](https://opentelemetry.io/) is a standard for adding telemetry to your application.
 There are a myriad of implementations for almost all the programming languages.
 But you need to be aware that the particularities of each language can make integrating

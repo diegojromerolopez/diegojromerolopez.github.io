@@ -5,8 +5,6 @@ draft: false
 tags: ["docker", "docker-compose"]
 ---
 
-# Override docker-compose.yml files
-
 Sometimes we want to have different versions of docker-compose.yml files
 (one for production and one for development). Each environment has their
 own characteristics (slightly different images for example) we show here
@@ -141,7 +139,7 @@ remove or overwrite entirely the section.
 So maybe a good practice is to have multiple-value sections in different
 docker-compose.yml files.
 
-# Conclusion
+## Conclusion
 You can use several docker-compose.yml with the intent of overwritting
 concrete parts of a main docker-compose.yml file. This can be useful
 for customizing properties and sharing most of the configuration for

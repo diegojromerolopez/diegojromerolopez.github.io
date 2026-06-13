@@ -5,7 +5,6 @@ draft: false
 tags: ["software", "ai", "llm"]
 ---
 
-# Can LLMs replace engineers?
 This post provides my opinion about how a [LLMs](https://en.wikipedia.org/wiki/Large_language_model)
 cannot replace a senior software engineer,
 even if the CEOs and other executives believe that it is possible.

@@ -5,7 +5,6 @@ draft: false
 tags: ["software", "workplace", "empathy"]
 ---
 
-# Corporate empathy
 In this times of diversity based on gender, ethnical background,
 culture, etc. Is that enough? Do we have to be careful when
 talking with other coworker if they do not belong to any

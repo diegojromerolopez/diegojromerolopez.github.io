@@ -7,7 +7,7 @@ tags: ["software engineering", "self-improvement", "career"]
 
 Pursuit new things. Be challenged. Be surrounded by people that inspires you.
 
-# Job searching successfully
+## Job searching successfully
 
 *This post is totally my personal opinion so if you don't agree
 with it, don't worry, there are multiple types of
@@ -21,7 +21,7 @@ job. These are some advice for other job-seekers in our profession.
 As I am based on Madrid, take this advice as what it is, if you apply
 in other job culture society you can get some unexpected results.
 
-## Online search
+### Online search
 
 Search for job positions in LinkedIn and Glassdoor. Submit your CV to
 positions that you have more than 60% of the skills that are listed.
@@ -43,7 +43,7 @@ leaving CV in the front-desk of companies.
 Most of the recruiting happen via internet
 or your ex-coworkers and other contacts.
 
-## Recruiting companies
+### Recruiting companies
 
 Contact recruiters of recruiting companies. Not only because
 they work by searching jobs for people like you but to know
@@ -54,7 +54,7 @@ They are experts in what the market demands and getting that
 knowledge is helpful when deciding how to improve yourself
 as a software engineer.
 
-## MOOCs, personal projects, etc
+### MOOCs, personal projects, etc
 
 Spending your free time doing some [MOOCs](https://en.wikipedia.org/wiki/Massive_open_online_course) can be a waste of time.
 MOOCs are good to get some superficial knowledge about a topic
@@ -72,7 +72,7 @@ any recruiter or even technical personel to take a look to your code.
 Only has happened twice. The first time was when doing interviews
 for startups.
 
-## Networking
+### Networking
 
 It is easier to having someone vouch for you for a job than
 to convince a company that you'll be a good worker there.
@@ -87,7 +87,7 @@ They could recommend you for jobs or you can use them as
 past references, in case you are expected to include them
 in your submission.
 
-## Interviews
+### Interviews
 
 Interviewing is a skill that can be developed, that's why
 I said "develop a thick skin". Most of the time you will not
@@ -121,7 +121,7 @@ a topic, and even show in my portfolio (github/gitlab).
 Between interviews, study algorithmic problems with [CTCI](http://www.crackingthecodinginterview.com/),
 [leetcode](https://leetcode.com/) or whatever source of problems that make your head spin.
 
-## Be challenged
+### Be challenged
 
 I enjoy being challenged in my job, and can get bored if I'm doing the
 same again and again. My opinion about how hard have to be your job
@@ -136,7 +136,7 @@ a new job. Take in account that (in my experience), finding a good job
 can take at least 6 month, so don't wait until you feel burnout to
 start looking.
 
-## IMPORTANT: Do not stress yourself
+### IMPORTANT: Do not stress yourself
 
 Do not stress yourself with the idea of looking for a job. If you
 have a job that is boring but pays reasonable well, and feel
@@ -144,7 +144,7 @@ depressed, do not start looking for a new job.
 Work on your mental health (having professional help can be a good idea)
 and when you feel ready, start "the grind" again.
 
-## Final advice
+### Final advice
 
 - Do not leave your job before having another one.
 - Job search is a good push for profesional improvement.

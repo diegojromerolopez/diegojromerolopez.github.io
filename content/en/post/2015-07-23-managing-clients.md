@@ -6,7 +6,7 @@ tags: ["software engineering", "project management", "client management"]
 ---
 
 
-# The Players
+## The Players
 
 It's not a secret that software engineers prefer a clean and completed specification than meeting with clients.
 
@@ -16,7 +16,7 @@ On the other side, we have some clients that have no idea about software and wan
 
 What is all of that? Let me tell you, a recipe for the disaster.
 
-# The Setting
+## The Setting
 
 In a startup, we are very close to our clients, so we engineers manage directly the relationship with them.
 
@@ -24,27 +24,27 @@ Let's add some extra complexity. The project you have assigned to has no documen
 
 The client is not cooperating and is impatient...
 
-# What do you do?
+## What do you do?
 
-## The Solution
+### The Solution
 
-### Technical solution
+#### Technical solution
 
 The technical debt problem needs to be resolved, how? Analyzing the current system: what does (software requirements) and how does it (software design).
 
-### Client management
+#### Client management
 
 The client feels lied by its older outsourcing company, he/she needs a special treatment. How can we give him/her that?
 
 How can we make our client feel safe with working with us?
 
-### We have to guide our clients
+#### We have to guide our clients
 
 One of the most successful aspects of Agile development is the change of developers-client relationship.
 
 We must be the calendar, reminder and notifier of the client. We define when we are going to end our sprints and deliver the software modules to be validated by our client.
 
-### Clients are limited
+#### Clients are limited
 
 Don't suppose any knowledge.
 
@@ -52,13 +52,13 @@ The client can be wise in his/her field (many times it is not) but doesn't know 
 
 We should talk in a simple vocabulary, explaining the concepts, making metaphors and real like comparisons to achieve his/her complete understanding.
 
-### Clients have needs but ask for changes
+#### Clients have needs but ask for changes
 
 Clients have background needs because of business or personal requirements but they express them in form of "changes" in the software, even telling us how to do the changes.
 
 We should know these base needs instead of the particular changes, because most of the time, things can be done easily or better.
 
-### Don't lose control
+#### Don't lose control
 
 Clients can be disrespectful, condescending or can be tyrannical.
 
@@ -66,7 +66,7 @@ We are engineers, we must be assertive, defend our integrity as humans but we mu
 
 Technology makes people feel vulnerable, specially illiterate people, so they tend to show this feeling as anger or other unpleasant emotions.
 
-# Conclusion
+## Conclusion
 
 We don't work for a client, we work with a client.
 

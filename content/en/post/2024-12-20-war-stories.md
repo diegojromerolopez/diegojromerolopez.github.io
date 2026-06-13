@@ -5,7 +5,6 @@ draft: false
 tags: ["documentation"]
 ---
 
-# War stories
 When talking about software documentation we usually describe the *what* and *how*,
 but explaining the reason (*why*) is it left out. Giving a background about why
 the team took some decisions can help developers understand better why the software

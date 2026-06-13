@@ -5,7 +5,6 @@ draft: false
 tags: ["software engineering", "code reviews"]
 ---
 
-# Bike sheding in merge reviews
 Focusing on the important things is a crucial matter.
 When trying to solve a problem, sometimes we
 subconsciously focus on the *easy* part,

@@ -5,7 +5,6 @@ draft: false
 tags: ["llm", "ai", "guide", "showcase"]
 ---
 
-# How NOT to use a LLM to upgrade your project
 In this post we pick up a Python 2 project and show how **NOT** to use a
 [LLM](https://en.wikipedia.org/wiki/Large_language_model) to upgrade an
 outdated software project.

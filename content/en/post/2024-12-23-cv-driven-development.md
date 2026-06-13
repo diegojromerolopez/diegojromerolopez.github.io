@@ -5,7 +5,6 @@ draft: false
 tags: ["leadership", "war-story", "corporate", "training"]
 ---
 
-# CV Driven Development
 [CV Driven Development](https://www.clairecodes.com/blog/2019-05-15-cv-driven-development/) or
 Resume Driven Development consist on taken strategic decisions based on how they improve
 the CV of the developers that work on that project.

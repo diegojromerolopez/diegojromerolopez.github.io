@@ -6,8 +6,6 @@ tags: ["philosophy", "teamwork", "impostor", "onboarding"]
 bigimg: [{src: "/img/percival.jpeg", desc: "Percival by Arthur Hacker"}]
 ---
 
-# Don't be Percival
-
 [Percival](https://en.wikipedia.org/wiki/Percival)
 is a mythologic figure, a mighty knight associated with
 King Arthur, the knights of the round table,

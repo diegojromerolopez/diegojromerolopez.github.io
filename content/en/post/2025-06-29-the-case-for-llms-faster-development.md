@@ -5,8 +5,6 @@ draft: false
 tags: ["software", "ai", "llm"]
 ---
 
-# The case for LLMs: faster development
-
 ## Introduction
 Artificial Intelligence is all over the place in software development these days.
 From the first AI services that could generate images, to the code generation tools

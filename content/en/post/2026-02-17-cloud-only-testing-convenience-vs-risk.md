@@ -5,7 +5,6 @@ draft: false
 tags: ["testing", "cloud"]
 ---
 
-# Cloud-Only Testing: Convenience vs Risk
 The cloud did not removed complexity, it only centralized it.
 
 The infrastructure became more programmable, flexible, scalable, and abstracted.

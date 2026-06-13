@@ -5,7 +5,6 @@ draft: false
 tags: ["software", "new year's resolutions"]
 ---
 
-# New Year's resolutions
 This new year has just started (well 27 days ago), but
 I have been thinking about what I would like to learn
 and change during this 2024. Here are my personal thoughts
@@ -46,6 +45,6 @@ While I consider myself to have a proficient skill in English,
 to keep up-to-date it is a continous battle: idioms and
 pronunciation of uncommon words are areas I would like to improve.
 
-# Conclusion
+## Conclusion
 What are your New Year's resolutions? Do you plan to learn
 a new programming language?

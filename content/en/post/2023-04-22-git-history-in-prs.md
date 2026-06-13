@@ -5,7 +5,6 @@ draft: false
 tags: ["software engineering", "git"]
 ---
 
-# Git History in PRs
 Suppose you have a big feature, and you are creating
 a pull-request with all your changes. How do you
 organize the changes? Only one commit? One per sub-feature

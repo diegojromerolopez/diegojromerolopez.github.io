@@ -5,7 +5,6 @@ draft: false
 tags: ["team", "communication"]
 ---
 
-# The different types of personality
 There are several frames that try to define the different types of personality
 (without any kind of particular order):
 

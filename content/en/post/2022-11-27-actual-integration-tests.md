@@ -9,8 +9,6 @@ Many times we have some piece of code that is tested but is still failing
 in production. How is that possible? Is that because of bad tests or
 we have a greater hidden issue?
 
-# Protect your vital functionality with integration tests
-
 Integration tests are the best way make sure that a functionality
 does not degradate when adding new features.
 
@@ -69,7 +67,7 @@ There are multiple ways to do it, but you have to found a way to have
 a test environment as similar as possible to production with the possibility
 of running tests there.
 
-# Conclusion
+## Conclusion
 
 Create meaningful integration tests for your projects. Smoke-tests
 are a good way to make sure the basic features of your project

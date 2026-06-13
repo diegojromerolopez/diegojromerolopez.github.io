@@ -5,8 +5,6 @@ draft: false
 tags: ["career", "opinion", "corporate"]
 ---
 
-# Faulty engineering career ladders
-
 ## Introduction
 Let's see several issues with the *Engineering ladders* I have seen on my
 16 years of experience.

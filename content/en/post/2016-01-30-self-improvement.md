@@ -5,13 +5,13 @@ draft: false
 tags: ["software engineering", "education"]
 ---
 
-# The rules of the game have changed
+## The rules of the game have changed
 
 During many years, society expected you to graduate and find a job you kept until your retirement. Not many people changed jobs and only professions like medical doctors and lawyers keep studying and improving their skills.
 
 Now the rules of the game have changed and nobody expects that almost from any profession. Maybe you are a baker and expect to use the same ingredients and make the same bread over and over again, but your clients can change or acquire new tastes! Thus, what about improving the costs? Maybe a new machine could make the baking process cheaper and you should know about its existence...
 
-# So, what about software engineers?
+## So, what about software engineers?
 
 Software-related professions are very young if you compare with medicine or legal ones. Not only technologies change, are born and disappear each year, techniques and even (some) Computational Foundations too.
 
@@ -21,7 +21,7 @@ If you don’t do it, you’ll be passed by your profession mates, you will lose
 
 Note that I’ve said programmer and not software engineer[^1], that’s because if you don’t improve yourself, you are walking backwards. Our profession is like a race. If you are working the same way 10 years ago, you are stopped in the middle of the track while your competitors are running towards the finish line.
 
-# What should be my sources of study?
+## What should be my sources of study?
 
 Everything, literally everything. From MOOCS, masters degree programes to books.
 
@@ -31,7 +31,7 @@ Books fill the empty space that college education gave me. I try to read at leas
 
 Of course there is also the option to earn a M.Sc./M.Eng. (or M.Res. in my case) in a reputable university. Assuming you have the money (or can ask anybody but a bank[^2]), it is a good way to upgrade your qualifications and your career. Of course, don’t join a masters program just for the degree, join it because you are passionate about the topic they teach.
 
-# Open source projects
+## Open source projects
 
 It is said that every programer[^3] should be programming in his or her spare time. I fully disagree with that idea, should a surgeon be making surgeries in his spare time? But, while I disagree, I agree that having open source projects is a great way of forming part of the community and, of course, the best way to show our skills.
 

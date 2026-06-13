@@ -11,7 +11,7 @@ later wanted to add or modify something to it? And what about if you pushed
 that commit? Here we are going to see how you add changes to a commit,
 independently of if it was pushed or not.
 
-# How-to
+## How-to
 
 Let's suppose we have just pushed a commit and we want to add
 another change to it. This process is called
@@ -19,7 +19,7 @@ another change to it. This process is called
 
 Let us see the process step by step:
 
-## Add changes to stage
+### Add changes to stage
 
 Add the changes to stage:
 
@@ -27,7 +27,7 @@ Add the changes to stage:
 git add file1.rb file2.rb
 ```
 
-## Amend the commit
+### Amend the commit
 
 Add changes to commit:
 
@@ -41,7 +41,7 @@ In case we want to modify the message type
 git commit --amend -m "New message"
 ```
 
-## Push your modifications
+### Push your modifications
 
 **(Only if you pushed the last commit)**
 
@@ -55,7 +55,7 @@ git push --force
 
 The `--force` parameter is what causes the remote branch rewrite.
 
-# Conclusion
+## Conclusion
 
 Do not worry if you have to add more changes to a commit,
 *it happens to all of us!*. Use amend to fix the last commit

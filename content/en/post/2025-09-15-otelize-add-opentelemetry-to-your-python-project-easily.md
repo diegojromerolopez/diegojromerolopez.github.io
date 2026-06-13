@@ -5,7 +5,6 @@ draft: false
 tags: ["python", "package", "software", "monitorization", "telemetry"]
 ---
 
-# Otelize, add OpenTelemetry to your Python project easily
 OpenTelemetry (sometimes abbreviated as OTEL) is a standard for telemetry
 and monitorization of software applications that has gain a lot of traction in these last years.
 We will learn here how to use the Python package [otelize](https://github.com/diegojromerolopez/otelize)

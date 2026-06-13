@@ -5,7 +5,6 @@ draft: false
 tags: ["software", "practices", "tech-debt", "war-story"]
 ---
 
-# When are full software rewrites needed?
 Having dealt with a full rewrite of a software application recently, it left me
 wondering if it was needed at all, if there was any way to salvage the project or
 some parts of the project. Could we have avoided the rewrite?

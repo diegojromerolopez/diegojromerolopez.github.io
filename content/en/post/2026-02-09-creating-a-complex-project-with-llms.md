@@ -5,7 +5,6 @@ draft: false
 tags: ["llm", "showcase"]
 ---
 
-# Creating a complex project with LLMs
 I have been using Gemini for a while and I was up for a challenge of creating a complex
 project with microservices for testing their capabilities, so I created a scalable scraper.
 

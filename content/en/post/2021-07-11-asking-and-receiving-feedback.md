@@ -6,7 +6,7 @@ tags: ["feedback", "project"]
 bigimg: [{src: "/img/feedback.jpeg", desc: "Public domain image from Pexels (https://www.pexels.com/photo/a-group-of-professionals-sharing-ideas-3153207/)"}]
 ---
 
-# Introduction
+## Introduction
 
 A month ago I asked the HN Community for some [feedback about
 my project](https://news.ycombinator.com/item?id=27507524):
@@ -15,7 +15,7 @@ my project](https://news.ycombinator.com/item?id=27507524):
 The experience was very positive and I have learned that asking
 for feedback in a software project is crucial.
 
-# Why feedback is important?
+## Why feedback is important?
 
 We know that feedback is important because it gives us
 a different point of view about a matter or in my case,
@@ -31,7 +31,7 @@ pivot your project and steer it in a more adequate
 direction.
 
 
-# How to get feedback?
+## How to get feedback?
 Ask for it, there are pages like
 [Hacker News](https://news.ycombinator.com/) that
 allow [Shown HN posts](https://news.ycombinator.com/show)
@@ -47,7 +47,7 @@ There are some subreddits that are open to feedback
 like the ones of programming languages. Create
 a throwaway account and ask them for their opinion.
 
-# What to do after?
+## What to do after?
 
 Thank them. This world is not very thankful. Some people
 pass this world being a well of positivity. Thank the users
@@ -63,7 +63,7 @@ a text document (or on paper). Writing helps to get your mind
 in order. Then, make a plan of features you have gotten from
 the users.
 
-# Conclusion
+## Conclusion
 
 Giving a feedback is making a gift.
 

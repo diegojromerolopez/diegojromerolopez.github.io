@@ -5,7 +5,6 @@ draft: false
 tags: ["docker"]
 ---
 
-# Use the builder stage pattern in Dockerfiles
 Most of the time, some libraries that we install in a
 docker image are only used for the construction of our
 executables. Could we just not include in our final docker image?

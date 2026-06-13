@@ -5,17 +5,17 @@ draft: false
 tags: ["software engineering", "refactoring", "programming"]
 ---
 
-# Introduction
+## Introduction
 
 Software is not a static element in a business. It evolves as business needs evolve. How can we make changes in software and keep high quality or, even better, not degrading it as we develop functionality?
 
-# Refactoring
+## Refactoring
 
 [Refactoring](https://refactoring.com/) is the process of changing code structure for the better while keeping the same functionality. It should be a continuos activity made during software development, with the aim of easing maintainability of software.
 
 The main aim of refactoring is having a simpler software design, increasing its understandability and therefore, making easier software maintenance and extension.
 
-# How can I learn refactoring?
+## How can I learn refactoring?
 
 Martin Fowler[^1] wrote a compendium of known refactorings: [Refactoring](https://martinfowler.com/books/refactoring.html)
 
@@ -25,7 +25,7 @@ In the same way a neighborhood starts decaying and its first symptoms one can fi
 
 Thus, I really like the way Martin explains each pattern. Each one of them has a name, motivation and a description of how to apply it, step by step. There are also some easy examples to help you understand what means applying the pattern to a piece of code.
 
-# How to refactor?
+## How to refactor?
 
 Changing code. As simple as that. Given we have a test that our bad quality passes, our aim has to be to apply the appropriate software refactoring pattern to make it pass too.
 
@@ -33,7 +33,7 @@ Of course, we can apply several of them in the process of refactoring, we don't 
 
 Why use tests? The test is what we use to assert that the refactoring does not break our software. If we don't have test, how can we assure software keeps working?
 
-# Conclusion
+## Conclusion
 
 Read Martin Fowler's book and then, read again and keep it as a reference manual.
 

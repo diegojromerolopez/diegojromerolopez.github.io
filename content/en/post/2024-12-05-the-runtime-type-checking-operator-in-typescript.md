@@ -5,7 +5,6 @@ draft: false
 tags: ["software", "typescript", "ideas"]
 ---
 
-# The runtime type-checking operator in TypeScript
 I have been working with [TypeScript](https://www.typescriptlang.org/)
 for a while but for sure I am not an expert in the language
 (I feel more comfortable with Python).

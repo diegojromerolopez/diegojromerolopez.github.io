@@ -5,7 +5,6 @@ draft: false
 tags: ["python", "unittest"]
 ---
 
-# Patching on setUp in Python's unittest
 One of my favorite programming languages is Python,
 and I think that tests should be a foundational part
 of software development, so it is not strange that I

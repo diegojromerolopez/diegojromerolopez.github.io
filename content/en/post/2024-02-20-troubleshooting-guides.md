@@ -5,7 +5,6 @@ draft: false
 tags: ["software", "good practices"]
 ---
 
-# Troubleshooting guides
 Usually software is considered only to be code that is executable, sometimes
 the documentation is also considered part of software, but are the
 troubleshooting guides part of software? Are these rulebooks useful for
@@ -50,6 +49,6 @@ Also take in account the issues and try to automatize the process. Is it possibl
 If it was, you would achieve not only the removal or support tasks, but the reduction
 of operational tasks by the developers.
 
-# Conclusion
+## Conclusion
 Now it is your turn to think: do you have a troubleshooting guide
 at your work? How do you keep it up-to-date?

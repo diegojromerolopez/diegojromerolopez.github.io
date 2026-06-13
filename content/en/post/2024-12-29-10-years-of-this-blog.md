@@ -5,7 +5,6 @@ draft: false
 tags: ["metapost"]
 ---
 
-# 10 years of this blog
 I have been blogging about software and technology in this blog for a decade.
 What was the rationale of this blog? Why should you write a technical blog?
 

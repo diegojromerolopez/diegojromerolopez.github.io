@@ -5,7 +5,6 @@ draft: false
 tags: ["programming", "quality"]
 ---
 
-# Use Static Single-Assignment when possible
 This post discuss a way of coding assignments in code where
 all variables are treated as constants.
 

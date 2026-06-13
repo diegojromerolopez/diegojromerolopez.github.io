@@ -5,15 +5,14 @@ draft: false
 tags: ["metapost", "updates"]
 ---
 
-# The long silence
 It has been some months since I wrote here for the last time.
 Why have I been silent all this time? I could say that life
 matters have made me pretty busy (and that is true), but
 apart from that, what things have I been working on?
 
-## Things I worked with
+### Things I worked with
 
-### Deno
+#### Deno
 
 [Deno](https://deno.com/), the next-generation JavaScript runtime created by Ryan Dahl,
 the Node.js creator.
@@ -22,7 +21,7 @@ It think it is a great idea but it has some rough edges, let's hope that with th
 coming of [Deno 2](https://deno.com/blog/v2.0-release-candidate) and the full support
 for commonJS modules and other new features it can achieve the status it deserves.
 
-### Deno fresh
+#### Deno fresh
 
 [Deno fresh](https://fresh.deno.dev/) is a convention-over-configuration web
 framework *à la* next.js, and it is a delight to work with.
@@ -35,7 +34,7 @@ that are pieces of client code that will be delivered and run by the browser.
 However I am encountering some issues with the Islands, mainly they do not load
 under certain cirtumstances. More on that in subsequent posts.
 
-### Typescript
+#### Typescript
 
 Of course as Deno's main language is Typescript (although it is compiled
 to Javascript under the hood), so I needed to remind my previous experience
@@ -57,7 +56,7 @@ to be easily debuggeable.
 
 Nice language, I find myself missing it out when working with Ruby.
 
-### Ruby
+#### Ruby
 
 I work daily with ruby, so nothin spectacular about this. However, I read some
 months ago the [rspec best practices](https://github.com/abinoda/rspec-best-practices)
@@ -90,7 +89,7 @@ where almost no other function than the tested one was being called.
 I think this example ilustrates the different cultures of the
 programming language communities.
 
-### Python
+#### Python
 
 Well yes, my old friend. I have been working with the
 [slack bolt framework](https://github.com/slackapi/bolt-python).
@@ -109,7 +108,7 @@ What could I implement with this? I wonder.
 As concurrency is going to be a first-citizen in
 Python, what could we work on? Need to think about this.
 
-#### Gelidum
+##### Gelidum
 
 Some days ago I discovered that there are several interesting users of my Python library
 [gelidum](https://github.com/diegojromerolopez/gelidum),
@@ -123,7 +122,7 @@ of gelidum have had a good time using it,
 have had a good time using it, and find
 it useful (I'm always open for feedback).
 
-### Domain Driven Design
+#### Domain Driven Design
 
 Well, yeah I started reading the
 [Learning Domain-Driven Design book](https://www.oreilly.com/library/view/learning-domain-driven-design/9781098100124/)
@@ -141,7 +140,7 @@ elements contained *is a bliss*.
 I will write some more about this experience.
 
 
-# Conclusion
+## Conclusion
 
 3 different programming languages and a new software architecture style,
 not bad so far. I hope that by end of the year I have completed Khononov's book,

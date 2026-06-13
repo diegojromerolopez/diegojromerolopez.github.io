@@ -5,7 +5,6 @@ draft: false
 tags: ["software engineering", "open source", "dependencies"]
 ---
 
-# Open Source dependencies in software projects
 Most of the foundations of current commercial software
 projects are open source. But what happens when an
 open source project becomens unmaintained?

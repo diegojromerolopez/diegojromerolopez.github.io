@@ -3,6 +3,9 @@
 .LSOverride
 diegojromerolopez.github.io.code-workspace
 
+# IDE
+.idea/
+
 # Thumbnails
 ._*
 
@@ -18,7 +21,13 @@ Temporary Items
 .apdisk
 *.py
 *.pyc
+!bin/serve.py
 Makefile
 
 # Editors
 .vscode
+
+# Generated files
+public/
+resources/
+

@@ -5,7 +5,6 @@ draft: false
 tags: ["software", "testing"]
 ---
 
-# How to write a good unit test
 This post provides some guidelines about how to write a good unit test.
 There are some examples in Python with unittest.
 

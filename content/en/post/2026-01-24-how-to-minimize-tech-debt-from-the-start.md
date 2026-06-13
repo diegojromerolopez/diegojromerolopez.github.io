@@ -5,7 +5,6 @@ draft: false
 tags: ["software", "tech-debt"]
 ---
 
-# How to minimize tech debt from the start
 In this post we are going to lay some guidelines about how to prevent your project of accumulating tech debt.
 
 ## Introduction

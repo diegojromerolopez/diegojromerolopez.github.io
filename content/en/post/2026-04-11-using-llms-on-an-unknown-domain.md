@@ -5,8 +5,6 @@ draft: false
 tags: ["llm", "showcase", "golang", "gamedev"]
 ---
 
-# Using LLMs on an unknown domain
-
 We often hear that Large Language Models (LLMs) empower engineers by augmenting their existing
 expertise. But what happens when the engineer is a complete novice in the domain? Can a LLM be more
 than just a powerful autocomplete? Can it be a partner when developing for a domain

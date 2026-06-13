@@ -5,7 +5,6 @@ draft: false
 tags: ["llm", "ai", "war-story"]
 ---
 
-# Use LLMs to handle tedious tasks
 There are some times where there are tedious tasks that need to be done in our software projects.
 We know how to do it but usually delay them because they are boring, 
 not challenging and painfully long. The LLMs (Large Language Models) promise faster 

@@ -5,7 +5,6 @@ draft: false
 tags: ["agile", "war-story"]
 ---
 
-# Release always, even partial features
 Have you wondered what to do when a feature takes more time than the scheduled one?
 What can you do if you reach the deadline but the feature is incomplete?
 

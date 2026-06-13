@@ -5,7 +5,6 @@ draft: false
 tags: ["llm", "ai", "war-story"]
 ---
 
-# Using LLMs to create a python library
 I have used Gemini and Claude [LLM](https://en.wikipedia.org/wiki/Large_language_model)
 models to create a [mypy](https://mypy-lang.org/) plugin to mark a function as pure:
 [mypy-pure](https://github.com/diegojromerolopez/mypy-pure).

@@ -5,7 +5,7 @@ draft: false
 tags: ["software engineering", "project management"]
 ---
 
-# Software Engineering is a special type of Engineering
+## Software Engineering is a special type of Engineering
 
 During too much time Software Engineering has been molded as a traditional Engineering, with the same terms and ideas that came from this disciplines. But they failed.
 
@@ -19,7 +19,7 @@ Even if we could accept all the changes client requires, it could be worst. What
 
 What happened because of this copycat mistake? Many software projects were failed, abandoned. The situation in many projects was fine until there was an increasing feeling of dissatisfaction between client because his/her new issues could not be resolved. The end came when there were no trust between client an developing team (client felt he/she was being lied).
 
-# What is agile?
+## What is agile?
 
 The term Agile was coined in a meeting of some important figures of the industry. Their idea was to make a common ground to several practices each one of them were using. So at the end, they came with a "creed" called Software Manifesto:
 
@@ -39,7 +39,7 @@ Agile doesn't erase Analysis, Software Design and many heuristic practices that 
 
 To sum up, it gives simple tools and a discipline to avoid making the project software fail.
 
-# Is this Engineering?
+## Is this Engineering?
 
 On one hand, managing client needs looks like Engineering to me. I'm sure an architect asks what kind of building his/her client wants.
 
@@ -47,11 +47,11 @@ On the other hand, no, you're right: it is not traditional Engineering. Software
 
 Agile gives the most cautious solution to a problem nobody can solve: how to make evolving software.
 
-# How to start with agile?
+## How to start with agile?
 
 I just read the book The Agile Samurai by Jonathan Rasmunsson and is a great introduction to agile mindset.
 
-# What from now?
+## What from now?
 
 There is some criticism about the abuse of the term "agile" but I really think it doesn't matter. What matters is this agile manifesto and using what tools you need to make the client one of your team when developing his/her changing software project.
 

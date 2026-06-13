@@ -6,8 +6,8 @@ tags: ["software engineering", "career"]
 ---
 
 
-# What is the most useful skill for software engineers?
-Programming? Algorithms? Knowing many language or the internals of some languages? No.
+What is the most useful skill for software engineers? Programming? Algorithms?
+Knowing many language or the internals of some languages? No.
 
 The best skill for a software engineer is knowing how to write well. There are some studies that establish a relationship between language skills and programming skills. It seems [having strong language skills is better than being good at math](https://www.discovermagazine.com/mind/learning-to-code-strong-language-skills-matter-more-than-being-good-at-math) when talking about developing software.
 

@@ -5,7 +5,6 @@ draft: false
 tags: ["software", "quality"]
 ---
 
-# Software quality is not negotiable
 From a conversation from one of the best software engineers I have had the please to work with,
 I heard the following sentence: *software quality is not negotiable!* And that is one of the
 axioms of our profession.

@@ -5,7 +5,6 @@ draft: true
 tags: ["testing"]
 ---
 
-# Reducing Risk When Developing Against AWS
 A lot of companies use the cloud, specifically AWS, but few of them have a strategy to
 ensure they can simulate and test their product before putting it in the cloud.
 That is assuming a lot of risk. Is there any way to reduce the risk of a failure

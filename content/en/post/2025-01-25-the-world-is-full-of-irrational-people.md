@@ -5,7 +5,6 @@ draft: false
 tags: ["communication"]
 ---
 
-# The world is full of irrational people
 Recently I took [a personality test](/blog/2024/12/the-different-types-of-personality)
 where I ended up being classified as an analytical person, and I am that indeed.
 How can I thrive in a world where the critical thinking and the rationality are being

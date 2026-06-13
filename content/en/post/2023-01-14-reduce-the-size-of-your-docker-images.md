@@ -5,7 +5,6 @@ draft: false
 tags: ["docker"]
 ---
 
-# Reduce the size of your builder images
 Docker images should have a small size. For example, Alpine Linux images
 have a mere 50MB of size, debian-slim is 50-60MB of size.
 Why do we seek a small size footprint? One reason is simply because the

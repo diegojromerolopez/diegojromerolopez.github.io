@@ -5,7 +5,6 @@ draft: false
 tags: ["software", "library"]
 ---
 
-# Improve your programs performance with backgroundlog
 [backgroundlog](https://github.com/diegojromerolopez/backgroundlog) is a library that
 allows you to use a background thread to write log messages.
 The idea for that is to be transparent to the developer, in the sense that they do not need

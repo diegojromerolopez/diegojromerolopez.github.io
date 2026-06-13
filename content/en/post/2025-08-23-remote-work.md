@@ -5,7 +5,6 @@ draft: false
 tags: ["teams", "culture"]
 ---
 
-# Remote work
 In this post I would like to voice my opinion about remote work.
 
 ## Introduction

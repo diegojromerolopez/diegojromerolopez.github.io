@@ -5,20 +5,20 @@ draft: false
 tags: ["software", "platform-team"]
 ---
 
-# My experience in a platform team
+## My experience in a platform team
 This post is going to summarize the main points of
 my experience while working in a
 Platform/Productivity team for two years. I also worked
 as platform engineer many years ago and I have always been eager
 to create tools that help other engineers.
 
-## Giving support is a hard task
+### Giving support is a hard task
 Developers do not care about the platform their sofware runs,
 they intend to developed features that product teams require, I mean
 that is what they should do as developers need to provide value to the
 company (no question on that).
 
-## Everything needs to be documented
+### Everything needs to be documented
 Having a custom platform where applications run means having
 a custom documentation. Besides this and related to the point
 above, there needs to be a solid documentation developers
@@ -32,7 +32,7 @@ deeper aspects of the engine their applications run on. Developers could
 also use this documentation to extend the software platform and even act
 as our *ambassadors* in their own teams.
 
-## Developers are difficult users
+### Developers are difficult users
 Developers are pressured by Product Managers and their managers,
 they are *pigeonholed* in only worrying their next deadline and
 not about the global health of the platform.
@@ -49,7 +49,7 @@ However, there are some times when a developer wants to collaborate
 with the platform team and that usually makes for a fruitful relationship.
 One where we can work together and acomplish great features.
 
-## But the developers are our users
+### But the developers are our users
 
 Their aim is in a different place than ours, so it is normal to find
 that they are not looking for working in the platform. It is not in their
@@ -59,7 +59,7 @@ That means that the feedback needs to be requested frequently. Maybe they only
 need to confirm that a new feature is useful or is impacting their work in a
 good way (if it impacts in a bad way they will complain to you for sure!)
 
-## Conclusion
+### Conclusion
 The concept of Platform Engineer is a young one, (or at least that name,
 as I was working empowering developers since 2010), but the role is taking
 importance as

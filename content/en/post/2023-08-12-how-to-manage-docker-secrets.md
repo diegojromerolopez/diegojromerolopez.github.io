@@ -5,7 +5,6 @@ draft: false
 tags: ["docker", "secrets", "security"]
 ---
 
-# How to manage docker secrets
 The product that is produced by most software developer teams is a docker image.
 How can be sure that we are not leaking secrets in docker images? If we include
 them as building arguments for sure they are going to be stored in the own image.

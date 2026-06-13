@@ -1,12 +1,12 @@
 ---
-title: "LLM mental fatigue"
-date: "2026-05-17T00:00:00+02:00"
-draft: false
+title: "Adding observability to Isidorus"
+date: "2026-06-18T00:00:00+02:00"
+draft: true
 tags: ["llm"]
 ---
 
-LLMs (Large Language Models) provide a wonderful tool for the construction of software
-that speed up the process of coding. But are there some downsides to them?
+# Adding observability to Isidorus
+Some months ago I created a complex scraper platform for 
 
 ## Introduction
 The past 3 years have been a total change in the software engineering discipline,
@@ -103,11 +103,4 @@ Not always fast means better.
 
 ## Conclusion
 
-LLMs accelerate the creation and shipping of software.
-
-Do not try to follow the pace of the LLMs. That can lead to mental fatigue and burnout.
-It is more important to have a control of the code generation, than creating lots of code that cannot
-be understood.
-
-Software Engineering is becoming a discipline where the coding part is less important than supervising
-AI agents creating code.
+Observability is crucial to 

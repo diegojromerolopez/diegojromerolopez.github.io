@@ -5,7 +5,6 @@ draft: false
 tags: ["software engineering", "code reviews"]
 ---
 
-# Code reviews or understanding the code
 How would you do a code review? Only by reading the code
 changes or do you thing you need to actually run the code,
 and what is more important, fully understand the

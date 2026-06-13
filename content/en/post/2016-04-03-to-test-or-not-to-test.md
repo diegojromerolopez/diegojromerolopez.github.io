@@ -5,7 +5,7 @@ draft: false
 tags: ["software engineering", "testing"]
 ---
 
-# Introduction
+## Introduction
 
 Some years ago I did not use any tests. We were cowboys in CodeWest where only fearful and strong people survive.
 
@@ -13,11 +13,11 @@ Sometimes we tested some actions and assumed that everything else worked fine. B
 
 Of course, users of my applications were not so amused by this when they found software faulted and had to wait to me to repair it.
 
-# Refactoring
+## Refactoring
 
 In my last post I wrote about refactoring. This process allows us to improve software quality iteratively. That is, we should be always be refactoring our code, treating it like an evolving species.
 
-# Tests
+## Tests
 
 Every basic functionality must be tested by a test. That is the only way of knowing that our refactoring doesn't break our working software.
 
@@ -25,7 +25,7 @@ There are two kinds of tests: unit tests or functional tests. While unit tests a
 
 Testing with both types is a time-consuming task, but it is worth testing critical parts of software with unit and functional tests to assure the important parts work right.
 
-# But what about changes in functionality?
+## But what about changes in functionality?
 
 One of the reasons we did not develop tests was because we believed it slowed down the agile process.
 
@@ -46,7 +46,7 @@ My personal approach is:
 
 Key concept here is prototyping. Many times, our client doesn't know that he/she wants. It could be because its business is not 100% specified or maybe his/her ideas of what he/she wants are not as clear as they should be. This way we deliver a working prototype that helps as an artifact to confirm or reject our idea of what the client wants[^3].
 
-# Conclusion
+## Conclusion
 
 Tests help us to assure that some functionality always works the desired way.
 

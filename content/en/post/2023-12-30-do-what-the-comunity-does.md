@@ -5,7 +5,6 @@ draft: false
 tags: ["software", "community", "culture"]
 ---
 
-# Do what the community does
 The other day I had a conversation with a team mate about
 how to implement different patterns to solve a common issue
 in a interpreted programming language. He was sugesting using
