@@ -1,68 +1,68 @@
 baseurl = "https://diegojromerolopez.github.io"
 DefaultContentLanguage = "en"
 title = "Diego J.'s Software Tar Pit"
-theme = "beautifulhugo"
-cover = "/img/cover.jpeg"
-disqusShortname = "diego-j-s-software-tar-pit"
+theme = "anatole"
 
 [taxonomies]
   category = "categories"
   tag = "tags"
 
-[Author]
-  name = "Diego J. Romero-López"
-  email = "diegojromerolopez@gmail.com"
-  github = "diegojromerolopez"
-  linkedin = "diegojromerolopez"
-  twitter = "diegojromerolop"
-
-[Params]
-  selfHosted = true
-  subtitle = "Diego J.'s rambling thoughts about software"
-  comments = false
-  commit = false
-  rss = true
-  metaDataFormat = "yaml"
-  pygmentsUseClasses = true
-  pygmentCodeFences = true
-  logo = "/img/diegoj-logo.png"
+[params]
+  title = "Diego J.'s Software Tar Pit"
+  author = "Diego J. Romero-López"
+  description = "Diego J.'s rambling thoughts about software"
+  profilePicture = "/img/diegoj-logo.png"
   favicon = "/img/favicon.ico"
-  [permalinks]
-    post = "/blog/:year/:month/:title/"
-  paginatePath = "blog/page"
-  contentDir = "content/post"
+  # Let's add standard Anatole features
+  customCss = []
+  customJs = []
+  # Enable dark mode
+  darkMode = true
 
-[frontmatter]
-  date = [':filename', ':default']
+[[params.socialIcons]]
+  icon = "fab fa-github"
+  title = "GitHub"
+  url = "https://github.com/diegojromerolopez"
+
+[[params.socialIcons]]
+  icon = "fab fa-linkedin"
+  title = "LinkedIn"
+  url = "https://www.linkedin.com/in/diegojromerolopez/"
+
+[[params.socialIcons]]
+  icon = "fab fa-x-twitter"
+  title = "X (Twitter)"
+  url = "https://x.com/diegojromerolop"
+
+[[params.socialIcons]]
+  icon = "fab fa-bluesky"
+  title = "Bluesky"
+  url = "https://bsky.app/profile/diegojromerolopez.bsky.social"
 
 [languages]
   [languages.en]
     contentDir = "content/en" # English
+    label = "English"
+    weight = 1
   [languages.es]
     contentDir = "content/es" # Spanish
+    label = "Español"
+    weight = 2
 
-[privacy]
-  [privacy.disqus]
-    disable = true
-  [privacy.googleAnalytics]
-    disable = true
-  [privacy.instagram]
-    disable = true
-  [privacy.x]
-    disable = true
-  [privacy.vimeo]
-    disable = true
-  [privacy.youtube]
-    disable = true
+[frontmatter]
+  date = [':filename', ':default']
+
+[permalinks]
+  post = "/blog/:year/:month/:title/"
 
 [[menu.main]]
     name = "Blog"
-    url = ""
+    url = "/"
     weight = 1
 
 [[menu.main]]
     name = "About"
-    url = "page/about/"
+    url = "/page/about/"
     weight = 2
 
 [[menu.main]]
@@ -72,5 +72,5 @@ disqusShortname = "diego-j-s-software-tar-pit"
 
 [[menu.main]]
     name = "Tags"
-    url = "tags"
+    url = "/tags/"
     weight = 4

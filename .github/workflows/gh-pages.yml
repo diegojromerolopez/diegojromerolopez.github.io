@@ -21,7 +21,10 @@ jobs:
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: '0.163.1'
-          # extended: true
+          extended: true
+
+      - name: Install Dart Sass
+        run: npm install -g sass
 
       - name: Build
         run: hugo --minify
