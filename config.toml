@@ -19,6 +19,10 @@ theme = "anatole"
   # Enable dark mode
   darkMode = true
 
+[params.mermaid]
+  enable = true
+
+
 [[params.socialIcons]]
   icon = "fab fa-github"
   title = "GitHub"
